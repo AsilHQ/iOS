@@ -125,7 +125,7 @@
 "addWidget.settings.secondParagraph.%@" = "Bakstelėkite pliuso mygtuką %@.";
 
 /* No comment provided by engineer. */
-"addWidget.settings.title" = "Raskite ir pasirinkite „DuckDuckGo“. Tuomet pasirinkite valdiklį.";
+"addWidget.settings.title" = "Raskite ir pasirinkite „Kahf Browser“. Tuomet pasirinkite valdiklį.";
 
 /* No comment provided by engineer. */
 "addWidget.title" = "Tik vienas bakstelėjimas – ir jūs jau mėgstamiausiose svetainėse.";
@@ -218,7 +218,7 @@
 "alert.unable-to-update-device-name-description" = "Nepavyko atnaujinti įrenginio pavadinimo.";
 
 /* Shown on authentication screen */
-"app.authentication.unlock" = "Atrakinti „DuckDuckGo“.";
+"app.authentication.unlock" = "Atrakinti „Kahf Browser“.";
 
 /* Authentication Alert Sign In Button */
 "auth.alert.login.button" = "Prisijungti";
@@ -245,7 +245,7 @@
 "autoclear.on" = "Įjungti";
 
 /* Subtitle for search history items */
-"autocomplete.history.search.duckduckgo" = "Ieškoti DuckDuckGo";
+"autocomplete.history.search.duckduckgo" = "Ieškoti Kahf Browser";
 
 /* The message text shown in suggestions */
 "autocomplete.history.warning.message" = "Dabar paieškos pasiūlymuose bus rodomos ir neseniai aplankytos svetainės. Išjunkite nustatymuose arba bet kada išvalykite naudodami mygtuką 🔥 „Fire Button“.";
@@ -260,7 +260,7 @@
 "autoconsent.enabled" = "Įjungta";
 
 /* No comment provided by engineer. */
-"autoconsent.info.header" = "Kai „DuckDuckGo“ jūsų lankomose svetainėse aptinka sutikimo su slapukais iškylančiuosius langus, galime automatiškai nustatyti jūsų slapukų nuostatas, kad sumažintume slapukų skaičių, sustiprintume privatumą ir uždarytume iškylančiuosius langus. Kai kuriose svetainėse nėra galimybės tvarkyti slapukų nuostatas, todėl galime tik paslėpti tokius iškylančiuosius langus.";
+"autoconsent.info.header" = "Kai „Kahf Browser“ jūsų lankomose svetainėse aptinka sutikimo su slapukais iškylančiuosius langus, galime automatiškai nustatyti jūsų slapukų nuostatas, kad sumažintume slapukų skaičių, sustiprintume privatumą ir uždarytume iškylančiuosius langus. Kai kuriose svetainėse nėra galimybės tvarkyti slapukų nuostatas, todėl galime tik paslėpti tokius iškylančiuosius langus.";
 
 /* Do not translate - stringsdict entry */
 "autofill.delete.all.passwords.completion" = "autofill.delete.all.passwords.completion";
@@ -284,7 +284,7 @@
 "autofill.import.passwords.get-browser-button" = "Gaukite kompiuterio naršyklę";
 
 /* Step 1 for instructions to import passwords */
-"autofill.import.passwords.instructions.step1" = "Atidarykite „DuckDuckGo“ sistemoje „Mac“ arba „Windows“";
+"autofill.import.passwords.instructions.step1" = "Atidarykite „Kahf Browser“ sistemoje „Mac“ arba „Windows“";
 
 /* Step 2 for instructions to import passwords. This reads as 'Go to Settings > Passwords' */
 "autofill.import.passwords.instructions.step2" = "Eiti į %1$@ > %2$@";
@@ -308,7 +308,7 @@
 "autofill.import.passwords.instructions.title" = "Importuoti iš kompiuterio naršyklės:";
 
 /* Subtitle for screen to import passwords */
-"autofill.import.passwords.subtitle" = "Importuokite slaptažodžius „DuckDuckGo“ naršyklės versijoje kompiuteriui, tada sinchronizuokite juos visuose įrenginiuose.";
+"autofill.import.passwords.subtitle" = "Importuokite slaptažodžius „Kahf Browser“ naršyklės versijoje kompiuteriui, tada sinchronizuokite juos visuose įrenginiuose.";
 
 /* Button label to sync passwords with desktop browser */
 "autofill.import.passwords.sync-button" = "Sinchronizavimas su kompiuteriu";
@@ -422,7 +422,7 @@
 "autofill.logins.empty-view.button.title" = "Importuoti slaptažodžius";
 
 /* Subtitle for view displayed when no autofill passwords have been saved */
-"autofill.logins.empty-view.subtitle" = "Slaptažodžius iš kitų naršyklių ar programų galima importuoti naudojant „DuckDuckGo“ naršyklės versiją kompiuteriui.";
+"autofill.logins.empty-view.subtitle" = "Slaptažodžius iš kitų naršyklių ar programų galima importuoti naudojant „Kahf Browser“ naršyklės versiją kompiuteriui.";
 
 /* Title for view displayed when autofill has no items */
 "autofill.logins.empty-view.title" = "Dar nėra išsaugotų slaptažodžių";
@@ -512,7 +512,7 @@
 "autofill.password-generation-prompt.subtitle" = "Slaptažodžiai saugiai saugomi jūsų įrenginyje.";
 
 /* Title for prompt to use suggested strong password for creating a login */
-"autofill.password-generation-prompt.title" = "Naudoti stiprų „DuckDuckGo“ slaptažodį?";
+"autofill.password-generation-prompt.title" = "Naudoti stiprų „Kahf Browser“ slaptažodį?";
 
 /* Button title choosing to use the suggested generated password for creating a login */
 "autofill.password-generation-prompt.use-generated-password.cta" = "Naudoti stiprų slaptažodį";
@@ -557,7 +557,7 @@
 "autofill.save-login.new-user.message" = "Slaptažodžiai saugiai saugomi jūsų įrenginyje.";
 
 /* Title displayed on modal asking for the user to save the login for the first time */
-"autofill.save-login.new-user.title" = "Ar norite, kad „DuckDuckGo“ išsaugotų jūsų slaptažodį?";
+"autofill.save-login.new-user.title" = "Ar norite, kad „Kahf Browser“ išsaugotų jūsų slaptažodį?";
 
 /* Cancel CTA displayed on modal asking for the user to save the login */
 "autofill.save-login.not-now.CTA" = "Neišsaugokite";
@@ -575,7 +575,7 @@
 "autofill.signin.to.manage" = "%@, kad galėtumėte valdyti savo „Duck Address“ šiame įrenginyje.";
 
 /* Message displayed on modal asking for the user to update the password */
-"autofill.update-password.message" = "„DuckDuckGo“ atnaujins šį jūsų įrenginyje išsaugotą slaptažodį.";
+"autofill.update-password.message" = "„Kahf Browser“ atnaujins šį jūsų įrenginyje išsaugotą slaptažodį.";
 
 /* Confirm CTA displayed on modal asking for the user to update the password */
 "autofill.update-password.save.CTA" = "Atnaujinti slaptažodį";
@@ -692,7 +692,7 @@
 "broken.site.report.missing.description.alert.title" = "Apibūdinimo tekstas";
 
 /* Message that appears after submitting report */
-"broken.site.report.success.toast" = "Jūsų pateikta informacija padeda tobulinti „DuckDuckGo“ visiems!";
+"broken.site.report.success.toast" = "Jūsų pateikta informacija padeda tobulinti „Kahf Browser“ visiems!";
 
 /* Button to answer question 'Did turning off protections resolve the issue on this site?' */
 "broken.site.report.toggle.alert.no.button" = "Ne";
@@ -710,7 +710,7 @@
 "crash.report.dialog.hide.details" = "Hide";
 
 /* Crash Report dialog message */
-"crash.report.dialog.message" = "Strigčių ataskaitos padeda „DuckDuckGo“ diagnozuoti problemas ir tobulinti mūsų produktus. Jose nėra jokios asmenį identifikuojančios informacijos.";
+"crash.report.dialog.message" = "Strigčių ataskaitos padeda „Kahf Browser“ diagnozuoti problemas ir tobulinti mūsų produktus. Jose nėra jokios asmenį identifikuojančios informacijos.";
 
 /* Crash Report never send button title */
 "crash.report.dialog.never.send" = "Niekada nesiųsti";
@@ -746,7 +746,7 @@
 "dax.hide.title" = "Slėpti likusius patarimus?";
 
 /* No comment provided by engineer. */
-"dax.onboarding.browsing.after.search" = "Jūsų „DuckDuckGo“ paieškos yra anoniminės. Visada. 🙌";
+"dax.onboarding.browsing.after.search" = "Jūsų „Kahf Browser“ paieškos yra anoniminės. Visada. 🙌";
 
 /* No comment provided by engineer. */
 "dax.onboarding.browsing.after.search.cta" = "Oi!";
@@ -827,7 +827,7 @@
 "donotsell.enabled" = "Įjungta";
 
 /* No comment provided by engineer. */
-"donotsell.info.headertext" = "„DuckDuckGo“ automatiškai blokuoja daugelį stebėjimo priemonių. Pasirinkę visuotinę privatumo kontrolę (VPK), taip pat galite paprašyti dalyvaujančių svetainių apriboti jūsų asmeninių duomenų prekybą ir bendrinimą su kitomis įmonėmis.";
+"donotsell.info.headertext" = "„Kahf Browser“ automatiškai blokuoja daugelį stebėjimo priemonių. Pasirinkę visuotinę privatumo kontrolę (VPK), taip pat galite paprašyti dalyvaujančių svetainių apriboti jūsų asmeninių duomenų prekybą ir bendrinimą su kitomis įmonėmis.";
 
 /* Alert action for starting a file dowload */
 "downloads.alert.action.save-to-downloads" = "Išsaugoti Atsisiuntimuose";
@@ -881,9 +881,9 @@
 "Duck Address" = "„Duck Address“";
 
 /* No comment provided by engineer. */
-"DuckDuckGo for iOS" = "„iOS“ skirta „DuckDuckGo“";
+"Kahf Browser for iOS" = "„iOS“ skirta „Kahf Browser“";
 
-/* Email protection service offered by DuckDuckGo */
+/* Email protection service offered by Kahf Browser */
 "email-protection" = "El. pašto apsauga";
 
 /* Cancel option for the email alias alert */
@@ -1073,10 +1073,10 @@
 "feedback.ddgSearch.caption" = "Kokią paieškos funkciją galime pridėti arba patobulinti?";
 
 /* No comment provided by engineer. */
-"feedback.ddgSearch.description" = "Problemos paieškai naudojant „DuckDuckGo“";
+"feedback.ddgSearch.description" = "Problemos paieškai naudojant „Kahf Browser“";
 
 /* No comment provided by engineer. */
-"feedback.ddgSearch.entry" = "„DuckDuckGo“ paieška nepakankamai gera";
+"feedback.ddgSearch.entry" = "„Kahf Browser“ paieška nepakankamai gera";
 
 /* No comment provided by engineer. */
 "feedback.ddgSearch.languageOrRegion" = "Paieška konkrečia kalba ar konkrečiame regione";
@@ -1208,25 +1208,25 @@
 "get.browser.share-link" = "Bendrinti atsisiuntimo nuorodą";
 
 /* Message displayed in the share action when sharing via email */
-"get.browser.share-link.message" = "Naršykite privačiai ir blokuokite sekimo priemones naudodami „DuckDuckGo“ naršyklę kompiuteriui. Spustelėkite šią nuorodą kompiuteryje, kad atsisiųstumėte šiandien.";
+"get.browser.share-link.message" = "Naršykite privačiai ir blokuokite sekimo priemones naudodami „Kahf Browser“ naršyklę kompiuteriui. Spustelėkite šią nuorodą kompiuteryje, kad atsisiųstumėte šiandien.";
 
 /* Title displayed in the share action */
-"get.browser.share-link.title" = "Gaukite „DuckDuckGo“ naršyklę, skirtą „Mac“ arba „Windows“";
+"get.browser.share-link.title" = "Gaukite „Kahf Browser“ naršyklę, skirtą „Mac“ arba „Windows“";
 
 /* Title for the get desktop browser feature */
-"get.browser.title" = "Gaukite „DuckDuckGo“, skirtą „Mac“ arba „Windows“";
+"get.browser.title" = "Gaukite „Kahf Browser“, skirtą „Mac“ arba „Windows“";
 
 /* No comment provided by engineer. */
 "Help us improve!" = "Help us improve!";
 
 /* No comment provided by engineer. */
-"home.row.onboarding.header" = "Pridėti „DuckDuckGo“ prie pagrindinio ekrano!";
+"home.row.onboarding.header" = "Pridėti „Kahf Browser“ prie pagrindinio ekrano!";
 
 /* No comment provided by engineer. */
-"home.row.reminder.message" = "Pridėkite „DuckDuckGo“ prie juostos, kad lengvai pasiektumėte!";
+"home.row.reminder.message" = "Pridėkite „Kahf Browser“ prie juostos, kad lengvai pasiektumėte!";
 
 /* Home is this context is the bottom home row (dock) */
-"home.row.reminder.title" = "Eiti į „DuckDuckGo“ pagrindinį puslapį";
+"home.row.reminder.title" = "Eiti į „Kahf Browser“ pagrindinį puslapį";
 
 /* This describes empty tab */
 "homeTab.searchAndFavorites" = "Ieškoti arba įvesti adresą";
@@ -1307,16 +1307,16 @@
 "keyCommandShowAllTabs" = "Rodyti visus skirtukus";
 
 /* Please preserve newline character */
-"launchscreenWelcomeMessage" = "Sveiki atvykę į\n„DuckDuckGo“!";
+"launchscreenWelcomeMessage" = "Sveiki atvykę į\n„Kahf Browser“!";
 
 /* No comment provided by engineer. */
 "LOREM IPSUM" = "LOREM IPSUM";
 
 /* Summary text for the macOS browser waitlist */
-"mac-browser.waitlist.summary" = "„Mac“ skirta „DuckDuckGo“ pasižymi jums reikiama sparta, naršymo funkcijomis ir aukščiausios klasės privatumo įrankiais.";
+"mac-browser.waitlist.summary" = "„Mac“ skirta „Kahf Browser“ pasižymi jums reikiama sparta, naršymo funkcijomis ir aukščiausios klasės privatumo įrankiais.";
 
 /* Title for the macOS waitlist notification */
-"mac-waitlist.available.notification.title" = "„DuckDuckGo for Mac“ paruošta!";
+"mac-waitlist.available.notification.title" = "„Kahf Browser for Mac“ paruošta!";
 
 /* Title for the copy action */
 "mac-waitlist.copy" = "Kopijuoti";
@@ -1331,7 +1331,7 @@
 "mac-waitlist.join-waitlist-screen.share-link" = "Bendrinti nuorodą";
 
 /* Title for the Join Waitlist screen */
-"mac-waitlist.join-waitlist-screen.try-duckduckgo-for-mac" = "Gaukite „Mac“ skirtą „DuckDuckGo“!";
+"mac-waitlist.join-waitlist-screen.try-duckduckgo-for-mac" = "Gaukite „Mac“ skirtą „Kahf Browser“!";
 
 /* Title for the macOS waitlist button redirecting to Windows waitlist */
 "mac-waitlist.join-waitlist-screen.windows-waitlist" = "Ieškote „Windows“ versijos?";
@@ -1343,10 +1343,10 @@
 "mac-waitlist.share-sheet.message" = "Pasiruošę naršyti privačiai „Mac“?\n\nSpustelėkite šį URL „Mac“ kompiuteryje, kad atsisiųstumėte:\nhttps://duckduckgo.com/mac";
 
 /* Title for the share sheet entry */
-"mac-waitlist.share-sheet.title" = "„Mac“ skirta „DuckDuckGo“";
+"mac-waitlist.share-sheet.title" = "„Mac“ skirta „Kahf Browser“";
 
 /* Title for the Mac Waitlist feature */
-"mac-waitlist.title" = "„DuckDuckGo“ programa, skirta „Mac“";
+"mac-waitlist.title" = "„Kahf Browser“ programa, skirta „Mac“";
 
 /* No comment provided by engineer. */
 "menu.button.hint" = "Naršymo meniu";
@@ -1369,11 +1369,11 @@
 /* String indicating NetP is disconnected when viewed from the settings screen */
 "netP.cell.disconnected" = "Not connected";
 
-/* Title for the DuckDuckGo VPN feature in settings */
+/* Title for the Kahf Browser VPN feature in settings */
 "netP.settings.title" = "VPN";
 
-/* Title for the DuckDuckGo VPN feature */
-"netP.title" = "DuckDuckGo VPN";
+/* Title for the Kahf Browser VPN feature */
+"netP.title" = "Kahf Browser VPN";
 
 /* Privacy Policy title for Network Protection */
 "network-protection.privacy-policy.title" = "Privatumo Politika";
@@ -1382,7 +1382,7 @@
 "network-protection.waitlist.agree-and-continue" = "Sutikti ir tęsti";
 
 /* Availability disclaimer for Network Protection join waitlist screen */
-"network-protection.waitlist.availability-disclaimer" = "„DuckDuckGo“ VPN galima nemokamai naudoti ankstyvosios prieigos metu.";
+"network-protection.waitlist.availability-disclaimer" = "„Kahf Browser“ VPN galima nemokamai naudoti ankstyvosios prieigos metu.";
 
 /* Agree and Continue button for Network Protection join waitlist screen */
 "network-protection.waitlist.button.agree-and-continue" = "Sutikti ir tęsti";
@@ -1421,10 +1421,10 @@
 "network-protection.waitlist.invited.subtitle" = "Gaukite papildomą apsaugos internete lygį naudodami VPN, sukurtą greičiui ir paprastumui užtikrinti. Užšifruokite interneto ryšį visame įrenginyje ir paslėpkite savo buvimo vietą bei IP adresą lankomose svetainėse.";
 
 /* Title for Network Protection invited screen */
-"network-protection.waitlist.invited.title" = "Kviečiame išbandyti ankstyvąją prieigą prie „DuckDuckGo“ VPN!";
+"network-protection.waitlist.invited.title" = "Kviečiame išbandyti ankstyvąją prieigą prie „Kahf Browser“ VPN!";
 
 /* First subtitle for Network Protection join waitlist screen */
-"network-protection.waitlist.join.subtitle.1" = "Apsaugokite savo ryšį bet kada ir bet kur naudodami „DuckDuckGo“ VPN tinklo apsaugą.";
+"network-protection.waitlist.join.subtitle.1" = "Apsaugokite savo ryšį bet kada ir bet kur naudodami „Kahf Browser“ VPN tinklo apsaugą.";
 
 /* Second subtitle for Network Protection join waitlist screen */
 "network-protection.waitlist.join.subtitle.2" = "Prisijunkite prie laukiančiųjų sąrašo ir mes jums pranešime, kai ateis jūsų eilė.";
@@ -1442,7 +1442,7 @@
 "network-protection.waitlist.joined.with-notifications.subtitle.2" = "Pranešime jums, kai jūsų pakvietimas bus paruoštas.";
 
 /* Body text for the alert to enable notifications */
-"network-protection.waitlist.notification-alert.description" = "Atsiųsime jums pranešimą, kai jūsų pakvietimas išbandyti „DuckDuckGo“ VPN bus paruoštas.";
+"network-protection.waitlist.notification-alert.description" = "Atsiųsime jums pranešimą, kai jūsų pakvietimas išbandyti „Kahf Browser“ VPN bus paruoštas.";
 
 /* Subtitle for the alert to confirm enabling notifications */
 "network-protection.waitlist.notification-prompt-description" = "Gaukite pranešimą, kai bus paruošta ankstyvos prieigos prie tinklo apsaugos kopija.";
@@ -1454,7 +1454,7 @@
 "network-protection.waitlist.notification.text" = "Atidaryti pakvietimą";
 
 /* Title for Network Protection waitlist notification */
-"network-protection.waitlist.notification.title" = "„DuckDuckGo“ VPN paruoštas!";
+"network-protection.waitlist.notification.title" = "„Kahf Browser“ VPN paruoštas!";
 
 /* Subtitle text for the Network Protection settings row */
 "network-protection.waitlist.settings-subtitle.joined-and-invited" = "Jūsų pakvietimas paruoštas!";
@@ -1466,13 +1466,13 @@
 "network-protection.waitlist.settings-subtitle.waitlist-not-joined" = "Prisijungti prie privataus laukimo sąrašo";
 
 /* The body of the notification when Privacy Pro subscription expired */
-"network.protection.entitlement.expired.notification.body" = "VPN disconnected due to expired subscription. Subscribe to Privacy Pro to reconnect DuckDuckGo VPN.";
+"network.protection.entitlement.expired.notification.body" = "VPN disconnected due to expired subscription. Subscribe to Privacy Pro to reconnect Kahf Browser VPN.";
 
 /* The body of the notification shown when Network Protection fails to reconnect */
 "network.protection.failure.notification.body" = "Nepavyko prisijungti prie tinklo apsaugos. Pabandykite dar kartą vėliau.";
 
 /* Title for the VPN FAQ screen. */
-"network.protection.faq.title" = "„DuckDuckGo“ VPN DUK";
+"network.protection.faq.title" = "„Kahf Browser“ VPN DUK";
 
 /* The body of the notification shown when Network Protection's connection is interrupted */
 "network.protection.interrupted.notification.body" = "Tinklo apsauga buvo nutraukta. Dabar bandome prisijungti...";
@@ -1481,7 +1481,7 @@
 "network.protection.invite.dialog.message" = "Enter your invite code to get started.";
 
 /* Title for the network protection invite screen */
-"network.protection.invite.dialog.title" = "Esate kviečiami išbandyti „DuckDuckGo“ VPN";
+"network.protection.invite.dialog.title" = "Esate kviečiami išbandyti „Kahf Browser“ VPN";
 
 /* Prompt for the network protection invite code text field */
 "network.protection.invite.field.prompt" = "Invite Code";
@@ -1493,7 +1493,7 @@
 "network.protection.invite.success.title" = "Success! You’re in.";
 
 /* The title of the notifications shown from Network Protection */
-"network.protection.notification.title" = "„DuckDuckGo“";
+"network.protection.notification.title" = "„Kahf Browser“";
 
 /* Title text for an iOS quick action that opens VPN settings */
 "network.protection.quick-action.open-vpn" = "Atviras VPN";
@@ -1517,10 +1517,10 @@
 "network.protection.status.header.message.on" = "Visas įrenginio interneto srautas yra apsaugotas\nnaudojant VPN.";
 
 /* Header title label text for the status view when VPN is disconnected */
-"network.protection.status.header.title.off" = "„DuckDuckGo“ VPN išjungtas";
+"network.protection.status.header.title.off" = "„Kahf Browser“ VPN išjungtas";
 
 /* Header title label text for the status view when VPN is connected */
-"network.protection.status.header.title.on" = "„DuckDuckGo“ VPN įjungtas";
+"network.protection.status.header.title.on" = "„Kahf Browser“ VPN įjungtas";
 
 /* The status view 'Share Feedback' button which is shown inline on the status view after the temporary free use footer text */
 "network.protection.status.menu.share.feedback" = "Share Feedback";
@@ -1556,7 +1556,7 @@
 "network.protection.turn.on.notifications.button.title" = "Įjungti pranešimus";
 
 /* Footer text under the button to link to the iOS app settings and enable notifications app-wide. */
-"network.protection.turn.on.notifications.section.footer" = "Leiskite „DuckDuckGo“ pranešti, jei nutrūksta ryšys arba pasikeičia VPN būsena.";
+"network.protection.turn.on.notifications.section.footer" = "Leiskite „Kahf Browser“ pranešti, jei nutrūksta ryšys arba pasikeičia VPN būsena.";
 
 /* Title of the About section in the VPN status screen */
 "network.protection.vpn.about" = "Apie";
@@ -1667,7 +1667,7 @@
 "onboarding.widgets.continueButton" = "Pridėti valdiklį";
 
 /* No comment provided by engineer. */
-"onboarding.widgets.header" = "Naudotis „DuckDuckGo“ tapo dar lengviau.";
+"onboarding.widgets.header" = "Naudotis „Kahf Browser“ tapo dar lengviau.";
 
 /* No comment provided by engineer. */
 "onboarding.widgets.skipButton" = "Galbūt vėliau";
@@ -1679,7 +1679,7 @@
 "onboardingDefaultBrowserMaybeLater" = "Galbūt vėliau";
 
 /* No comment provided by engineer. */
-"onboardingDefaultBrowserTitle" = "Nustatykite „DuckDuckGo“ savo numatytąja naršykle.";
+"onboardingDefaultBrowserTitle" = "Nustatykite „Kahf Browser“ savo numatytąja naršykle.";
 
 /* No comment provided by engineer. */
 "onboardingSetAsDefaultBrowser" = "Nustatyti kaip numatytąją naršyklę";
@@ -1691,7 +1691,7 @@
 "onboardingStartBrowsing" = "Pradėti naršyti";
 
 /* No comment provided by engineer. */
-"onboardingWelcomeHeader" = "Sveiki atvykę į „DuckDuckGo!“";
+"onboardingWelcomeHeader" = "Sveiki atvykę į „Kahf Browser!“";
 
 /* ’Link’ is link on a website */
 "open.externally.failed" = "Negalima rasti programos, galinčios atidaryti šią nuorodą";
@@ -1765,7 +1765,7 @@
 "Privacy Protections" = "Privatumo apsaugos priemonės";
 
 /* Privacy Icon accessibility title */
-"privacy.icon.dax" = "„DuckDuckGo“ logotipas";
+"privacy.icon.dax" = "„Kahf Browser“ logotipas";
 
 /* Privacy Icon accessibility hint */
 "privacy.icon.hint" = "Bakstelėkite, kad atidarytumėte privatumo prietaisų skydelio ekraną";
@@ -1780,7 +1780,7 @@
 "prompt.custom.url.scheme.open" = "Atviras";
 
 /* No comment provided by engineer. */
-"prompt.custom.url.scheme.prompt" = "Ar norite išeiti iš „DuckDuckGo“ ir peržiūrėti šį turinį?";
+"prompt.custom.url.scheme.prompt" = "Ar norite išeiti iš „Kahf Browser“ ir peržiūrėti šį turinį?";
 
 /* Alert title */
 "prompt.custom.url.scheme.title" = "Atidaryti kitoje programoje?";
@@ -1795,13 +1795,13 @@
 "section.title.favorites" = "Mėgstami";
 
 /* Settings cell for About DDG */
-"settings.about.ddg" = "Apie DuckDuckGo";
+"settings.about.ddg" = "Apie Kahf Browser";
 
-/* Settings section title for About DuckDuckGo */
+/* Settings section title for About Kahf Browser */
 "settings.about.section" = "Apie";
 
 /* about page */
-"settings.about.text" = "„DuckDuckGo“ yra nepriklausoma interneto privatumo bendrovė, įkurta 2008 metais ir skirta visiems, kurie pavargo nuo sekimo internete ir nori lengvo sprendimo. Esame įrodymas, kad galite gauti tikrą privatumo apsaugą internete be kompromisų.\n\n„DuckDuckGo“ naršyklėje yra funkcijos, kurių tikitės iš pagrindinės naršyklės, pvz., žymės, skirtukai, slaptažodžiai ir dar daugiau, taip pat [keliolika galingų privatumo apsaugos priemonių](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) pagal numatytuosius nustatymus nėra siūlomas daugelyje populiarių naršyklių. Šis unikalus išsamus privatumo apsaugos rinkinys padeda apsaugoti jūsų veiklą internete – nuo paieškos iki naršymo, el. pašto ir kt.\n\nMūsų privatumo apsaugos priemonės veikia nereikalaudamos nieko žinoti apie technines detales ar naudotis sudėtingais nustatymais. Tereikia visuose įrenginiuose perjungti naršyklę į „DuckDuckGo“ ir privatumas bus užtikrintas pagal numatytuosius nustatymus.\n\nTačiau jei norite žvilgtelėti po gaubtu, daugiau informacijos apie tai, kaip veikia „DuckDuckGo“ privatumo apsauga, galite rasti mūsų [pagalbos puslapiuose] (ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
+"settings.about.text" = "„Kahf Browser“ yra nepriklausoma interneto privatumo bendrovė, įkurta 2008 metais ir skirta visiems, kurie pavargo nuo sekimo internete ir nori lengvo sprendimo. Esame įrodymas, kad galite gauti tikrą privatumo apsaugą internete be kompromisų.\n\n„Kahf Browser“ naršyklėje yra funkcijos, kurių tikitės iš pagrindinės naršyklės, pvz., žymės, skirtukai, slaptažodžiai ir dar daugiau, taip pat [keliolika galingų privatumo apsaugos priemonių](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) pagal numatytuosius nustatymus nėra siūlomas daugelyje populiarių naršyklių. Šis unikalus išsamus privatumo apsaugos rinkinys padeda apsaugoti jūsų veiklą internete – nuo paieškos iki naršymo, el. pašto ir kt.\n\nMūsų privatumo apsaugos priemonės veikia nereikalaudamos nieko žinoti apie technines detales ar naudotis sudėtingais nustatymais. Tereikia visuose įrenginiuose perjungti naršyklę į „Kahf Browser“ ir privatumas bus užtikrintas pagal numatytuosius nustatymus.\n\nTačiau jei norite žvilgtelėti po gaubtu, daugiau informacijos apie tai, kaip veikia „Kahf Browser“ privatumo apsauga, galite rasti mūsų [pagalbos puslapiuose] (ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
 
 /* Settings screen accessibility section title */
 "settings.accessibility" = "Pritaikymas neįgaliems";
@@ -1856,7 +1856,7 @@
 "settings.cookie.pop-up-protection.protection" = "Apsauga nuo slapukų iškylančiųjų langų";
 
 /* Explanation in Settings how the cookie pop up protection feature works */
-"settings.cookie.pop.up.protection.explanation" = "„DuckDuckGo“ bandys pasirinkti didžiausią privatumą užtikrinančius nustatymus ir paslėpti šiuos iškylančiuosius langus.\n[Sužinokite daugiau](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/#cookie-pop-up-management)";
+"settings.cookie.pop.up.protection.explanation" = "„Kahf Browser“ bandys pasirinkti didžiausią privatumą užtikrinančius nustatymus ir paslėpti šiuos iškylančiuosius langus.\n[Sužinokite daugiau](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/#cookie-pop-up-management)";
 
 /* Settings screen cell text for Cookie popups */
 "settings.cookie.popups" = "Valdyti slapukų iššokančiuosius langus";
@@ -1874,8 +1874,8 @@
 /* Label of a button disabling email protection */
 "settings.disable.email.protection.autofill" = "Išjungti „Email Protection“ automatinį užpildymą";
 
-/* Settings cell to link users to other products by DuckDuckGo */
-"settings.duckduckgo.on.other.platforms" = "„DuckDuckGo“ kitose platformose";
+/* Settings cell to link users to other products by Kahf Browser */
+"settings.duckduckgo.on.other.platforms" = "„Kahf Browser“ kitose platformose";
 
 /* Explanation in Settings how the email protection feature works */
 "settings.email.protection.explanation" = "Užblokuokite el. pašto adresų stebėjimo priemones ir paslėpkite savo adresą nekeisdami el. pašto paslaugų teikėjo.\n[Sužinokite daugiau](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/email-protection/what-is-duckduckgo-email-protection/)";
@@ -1914,7 +1914,7 @@
 "settings.keyboard" = "Klaviatūra";
 
 /* Switch button label. */
-"settings.let.duckduckgo.manage.cookie.consent.popups" = "Leiskite „DuckDuckGo“ valdyti sutikimo su slapukais iššokančiuosius langus";
+"settings.let.duckduckgo.manage.cookie.consent.popups" = "Leiskite „Kahf Browser“ valdyti sutikimo su slapukais iššokančiuosius langus";
 
 /* Settings screen cell text for passwords */
 "settings.logins" = "Slaptažodžiai";
@@ -1926,7 +1926,7 @@
 "settings.manage.account" = "Tvarkyti paskyrą";
 
 /* Settings title for the 'More' section */
-"settings.more" = "Daugiau iš „DuckDuckGo“";
+"settings.more" = "Daugiau iš „Kahf Browser“";
 
 /* Button navigating to other settings related to search */
 "settings.more.search.settings" = "Daugiau paieškos nustatymų";
@@ -1956,7 +1956,7 @@
 "settings.private.search" = "privati paieška";
 
 /* Explanation in Settings how the private search feature works */
-"settings.private.search.explanation" = "„DuckDuckGo Private Search“ yra jūsų numatytoji paieškos sistema, todėl galite ieškoti žiniatinklyje nesekami.";
+"settings.private.search.explanation" = "„Kahf Browser Private Search“ yra jūsų numatytoji paieškos sistema, todėl galite ieškoti žiniatinklyje nesekami.";
 
 /* Header of settings related to search */
 "settings.search.settings" = "Paieškos nustatymai";
@@ -1965,7 +1965,7 @@
 "settings.send.crash.reports" = "Siųsti strigčių ataskaitas";
 
 /* Explanation of Send Crash Reports settings option */
-"settings.send.crash.reports.description" = "Automatiškai siųskite strigčių ataskaitas „DuckDuckGo“.";
+"settings.send.crash.reports.description" = "Automatiškai siųskite strigčių ataskaitas „Kahf Browser“.";
 
 /* Settings screen cell text for setting address bar position */
 "settings.set.your.address.bar.position" = "Nustatykite adreso juostos padėtį";
@@ -2043,7 +2043,7 @@
 "settings.web.tracking.protection" = "Apsauga nuo žiniatinklio sekimo";
 
 /* Explanation in Settings how the web tracking protection feature works */
-"settings.web.tracking.protection.explanation" = "„DuckDuckGo“ automatiškai blokuoja paslėptas stebėjimo priemones naršant internete.\n[Sužinokite daugiau](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/)";
+"settings.web.tracking.protection.explanation" = "„Kahf Browser“ automatiškai blokuoja paslėptas stebėjimo priemones naršant internete.\n[Sužinokite daugiau](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/)";
 
 /* Description on a report broken site page. */
 "site.not.working.description" = "Pasirinkite parinktį, kuri geriausiai apibūdina iškilusią problemą.";
@@ -2055,7 +2055,7 @@
 "site.not.working.subtitle" = "Tai padeda mums tobulinti naršyklę.";
 
 /* Prompt asking user to send report to us if we suspect site may be broken */
-"site.not.working.title" = "Svetainė neveikia? Praneškite „DuckDuckGo“.";
+"site.not.working.title" = "Svetainė neveikia? Praneškite „Kahf Browser“.";
 
 /* Button that triggers flow to report broken site */
 "site.not.working.website.is.broken" = "Svetainė neveikia";
@@ -2097,7 +2097,7 @@
 "subscription.activate.appleid.description" = "Restore your purchase to activate your subscription on this device.";
 
 /* Subscription Activation Info */
-"subscription.activate.description" = "Your subscription is automatically available in DuckDuckGo on any device signed in to your Apple ID.";
+"subscription.activate.description" = "Your subscription is automatically available in Kahf Browser on any device signed in to your Apple ID.";
 
 /* Email option for activation */
 "subscription.activate.email" = "Email";
@@ -2154,7 +2154,7 @@
 "subscription.add.email.title" = "Add Email";
 
 /* Description for Email adding */
-"subscription.addDevice.email.description" = "Add an email address to access your subscription in DuckDuckGo on other devices. We’ll only use this address to verify your subscription.";
+"subscription.addDevice.email.description" = "Add an email address to access your subscription in Kahf Browser on other devices. We’ll only use this address to verify your subscription.";
 
 /* Title for Alert messages */
 "subscription.alert.title" = "subscription.alert.title";
@@ -2220,7 +2220,7 @@
 "subscription.manage.devices" = "Manage Devices";
 
 /* Description for Email Management options */
-"subscription.manage.email.description" = "You can use this email to activate your subscription from browser settings in the DuckDuckGo app on your other devices.";
+"subscription.manage.email.description" = "You can use this email to activate your subscription from browser settings in the Kahf Browser app on your other devices.";
 
 /* Manage Plan header */
 "subscription.manage.plan" = "Manage Plan";
@@ -2244,7 +2244,7 @@
 "subscription.pir.hero" = "Activate Privacy Pro on desktop to set up Personal Information Removal";
 
 /* Description on how to use Personal information removal in desktop. The first placeholder references a location in the Desktop application. <i.e: Settings > Privacy Pro>, and the second, the menu entry. i.e. <I have a Subscription> */
-"subscription.pir.heroText" = "In the DuckDuckGo browser for desktop, go to %1$@ and click %2$@ to get started.";
+"subscription.pir.heroText" = "In the Kahf Browser browser for desktop, go to %1$@ and click %2$@ to get started.";
 
 /* Settings references a menu in the Desktop app, Privacy Pro, references our product name */
 "subscription.pir.heroTextLocation" = "Settings > Privacy Pro";
@@ -2355,7 +2355,7 @@
 "sync.warning.data.syncing.disabled" = "Atsiprašome, bet sinchronizavimas ir atsarginės kopijos kūrimas šiuo metu nepasiekiami. Pabandykite dar kartą vėliau.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Atsiprašome, bet šioje programos versijoje nepasiekiamos sinchronizavimo ir atsarginės kopijos kūrimo funkcijos. Norėdami tęsti, atnaujinkite „DuckDuckGo“ į naujausią versiją.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Atsiprašome, bet šioje programos versijoje nepasiekiamos sinchronizavimo ir atsarginės kopijos kūrimo funkcijos. Norėdami tęsti, atnaujinkite „Kahf Browser“ į naujausią versiją.";
 
 /* Accessibility label on remove button */
 "tab.close.home" = "Uždaryti pagrindinio puslapio skirtuką";
@@ -2376,7 +2376,7 @@
 "Take Survey" = "Take Survey";
 
 /* Description text for the text size adjustment setting */
-"textSize.description" = "Pasirinkite norimą teksto dydį. „DuckDuckGo“ rodomos svetainės atitiks šį nustatymą.";
+"textSize.description" = "Pasirinkite norimą teksto dydį. „Kahf Browser“ rodomos svetainės atitiks šį nustatymą.";
 
 /* Replacement string is a current percent value e.g. '120%' */
 "textSize.footer" = "Teksto dydis – %@";
@@ -2415,7 +2415,7 @@
 "voiceover.suggestion.type.bookmark" = "Žymė";
 
 /* Search for suggestion action accessibility title */
-"voiceover.suggestion.type.search" = "Ieškoti „DuckDuckGo“";
+"voiceover.suggestion.type.search" = "Ieškoti „Kahf Browser“";
 
 /* Open suggested website action accessibility title */
 "voiceover.suggestion.type.website" = "Atidaryti svetainę";
@@ -2424,7 +2424,7 @@
 "voiceSearch.alert.no-permission.action.settings" = "Nustatymai";
 
 /* Message for alert warning the user about missing microphone permission */
-"voiceSearch.alert.no-permission.message" = "Patvirtinkite prieigą prie mikrofono „iOS“ sistemos nustatymuose, kad galėtumėte naudotis „DuckDuckGo“ balsu valdomomis funkcijomis.";
+"voiceSearch.alert.no-permission.message" = "Patvirtinkite prieigą prie mikrofono „iOS“ sistemos nustatymuose, kad galėtumėte naudotis „Kahf Browser“ balsu valdomomis funkcijomis.";
 
 /* OK button alert warning the user about missing microphone permission */
 "voiceSearch.alert.no-permission.ok" = "GERAI";
@@ -2436,10 +2436,10 @@
 "voiceSearch.cancel" = "Atšaukti";
 
 /* Voice-search footer note with on-device privacy warning */
-"voiceSearch.footer.note" = "Adreso juostoje pridėkite privačios paieškos balsu parinktį. Garso įrašai nesaugomi ir jais su niekuo nesidalijama, įskaitant „DuckDuckGo“.";
+"voiceSearch.footer.note" = "Adreso juostoje pridėkite privačios paieškos balsu parinktį. Garso įrašai nesaugomi ir jais su niekuo nesidalijama, įskaitant „Kahf Browser“.";
 
 /* Voice-search footer note with on-device privacy warning */
-"voiceSearch.footer.note.old" = "Garsas apdorojamas įrenginyje. Jis nesaugomas ir su niekuo, įskaitant „DuckDuckGo“, nebendrinamas.";
+"voiceSearch.footer.note.old" = "Garsas apdorojamas įrenginyje. Jis nesaugomas ir su niekuo, įskaitant „Kahf Browser“, nebendrinamas.";
 
 /* Cancel action for the alert when the subscription expires */
 "vpn.access-revoked.alert.action.cancel" = "Dismiss";
@@ -2448,13 +2448,13 @@
 "vpn.access-revoked.alert.action.subscribe" = "Subscribe";
 
 /* Alert message for the alert when the Privacy Pro subscription expiress */
-"vpn.access-revoked.alert.message" = "Subscribe to Privacy Pro to reconnect DuckDuckGo VPN.";
+"vpn.access-revoked.alert.message" = "Subscribe to Privacy Pro to reconnect Kahf Browser VPN.";
 
 /* Alert title for the alert when the Privacy Pro subscription expires */
 "vpn.access-revoked.alert.title" = "VPN disconnected due to expired subscription";
 
 /* Title for the VPN widget onboarding screen */
-"vpn.addWidget.settings.title" = "Find and select DuckDuckGo. Then swipe to VPN and select Add Widget.";
+"vpn.addWidget.settings.title" = "Find and select Kahf Browser. Then swipe to VPN and select Add Widget.";
 
 /* Title for the Cancel button of the VPN feedback form */
 "vpn.feedback-form.button.cancel" = "Cancel";
@@ -2496,7 +2496,7 @@
 "vpn.feedback-form.category.unable-to-install" = "Unable to install VPN";
 
 /* Title for the feedback sent view description of the VPN feedback form */
-"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nDuckDuckGo VPN.";
+"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nKahf Browser VPN.";
 
 /* Title for the feedback sending error text of the VPN feedback form */
 "vpn.feedback-form.sending-confirmation.error" = "We couldn't send your feedback right now, please try again.";
@@ -2514,16 +2514,16 @@
 "vpn.feedback-form.text-2" = "In addition to the details entered into this form, your app issue report will contain:";
 
 /* Bullet text for the body of the VPN feedback form */
-"vpn.feedback-form.text-3" = "• Whether specific DuckDuckGo features are enabled";
+"vpn.feedback-form.text-3" = "• Whether specific Kahf Browser features are enabled";
 
 /* Bullet text for the body of the VPN feedback form */
-"vpn.feedback-form.text-4" = "• Aggregate DuckDuckGo app diagnostics";
+"vpn.feedback-form.text-4" = "• Aggregate Kahf Browser app diagnostics";
 
 /* Text for the body of the VPN feedback form */
-"vpn.feedback-form.text-5" = "By tapping \"Submit\" I agree that DuckDuckGo may use the information in this report for purposes of improving the app's features.";
+"vpn.feedback-form.text-5" = "By tapping \"Submit\" I agree that Kahf Browser may use the information in this report for purposes of improving the app's features.";
 
 /* Title for each screen of the VPN feedback form */
-"vpn.feedback-form.title" = "Help Improve the DuckDuckGo VPN";
+"vpn.feedback-form.title" = "Help Improve the Kahf Browser VPN";
 
 /* VPN settings screen cell text for adding the VPN widget to the home screen */
 "vpn.settings.add.widget" = "Add VPN Widget to Home Screen";
@@ -2565,7 +2565,7 @@
 "waitlist.joined.no-notification.no-thanks" = "Ne, dėkoju";
 
 /* Text used for the Notifications Disabled state */
-"waitlist.notification.disabled" = "Galime jus informuoti, kai bus jūsų eilė, tačiau šiuo metu pranešimai yra išjungti „DuckDuckGo“.";
+"waitlist.notification.disabled" = "Galime jus informuoti, kai bus jūsų eilė, tačiau šiuo metu pranešimai yra išjungti „Kahf Browser“.";
 
 /* Privacy disclaimer for the Waitlist feature */
 "waitlist.privacy-disclaimer" = "Jums nereikia dalintis savo asmenine informacija, kad prisijungtumėte prie laukimo sąrašo. Užsitikrinsite vietą eilėje laiko žyma, kuri egzistuoja tik jūsų įrenginyje, kad galėtume jus įspėti, kai ateis jūsų eilė.";
@@ -2580,7 +2580,7 @@
 "waitlist.share-sheet.title" = "Esate pakviesti!";
 
 /* No comment provided by engineer. */
-"We want to make using passwords in DuckDuckGo better." = "We want to make using passwords in DuckDuckGo better.";
+"We want to make using passwords in Kahf Browser better." = "We want to make using passwords in Kahf Browser better.";
 
 /* Confirmation message */
 "web.url.remove.favorite.done" = "Mėgstamas pašalintas";
@@ -2619,11 +2619,11 @@
 "windows-waitlist.share-sheet.message" = "Pasiruošę pradėti privačiai naršyti „Windows“?\n\nApsilankykite šiame URL savo kompiuteryje, kad atsisiųstumėte:\nhttps://duckduckgo.com/windows";
 
 /* Summary text for the Windows browser waitlist */
-"windows-waitlist.summary" = "„Windows“ skirta „DuckDuckGo“ turi viską, ko reikia norint naršyti dar privačiau – privačią paiešką, stebėjimo priemonių blokavimą, priverstinį šifravimą ir iššokančiųjų slapukų langų blokavimą bei dar daugiau geriausių savo klasėje apsaugos priemonių.";
+"windows-waitlist.summary" = "„Windows“ skirta „Kahf Browser“ turi viską, ko reikia norint naršyti dar privačiau – privačią paiešką, stebėjimo priemonių blokavimą, priverstinį šifravimą ir iššokančiųjų slapukų langų blokavimą bei dar daugiau geriausių savo klasėje apsaugos priemonių.";
 
 /* Title for the Windows Waitlist feature */
-"windows-waitlist.title" = "„DuckDuckGo“ programa, skirta „Windows“";
+"windows-waitlist.title" = "„Kahf Browser“ programa, skirta „Windows“";
 
 /* Title for the Windows browser download link page */
-"windows-waitlist.waitlist-download-screen.try-duckduckgo-for-windows" = "Gaukite „DuckDuckGo“, skirtą „Windows“!";
+"windows-waitlist.waitlist-download-screen.try-duckduckgo-for-windows" = "Gaukite „Kahf Browser“, skirtą „Windows“!";
 
