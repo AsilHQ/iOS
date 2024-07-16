@@ -33,16 +33,6 @@ struct SettingsMainSettingsView: View {
                                  image: Image("SettingsGeneral"))
             }
 
-            // Sync & Backup
-            let statusIndicator = viewModel.syncStatus == .on ? StatusIndicatorView(status: viewModel.syncStatus, isDotHidden: true) : nil
-            let label = viewModel.state.sync.title
-            SettingsCellView(label: label,
-                             image: Image("SettingsSync"),
-                             action: { viewModel.presentLegacyView(.sync) },
-                             statusIndicator: statusIndicator,
-                             disclosureIndicator: true,
-                             isButton: true)
-
             // Appearance
             NavigationLink(destination: SettingsAppearanceView().environmentObject(viewModel)) {
                 SettingsCellView(label: UserText.settingsAppearanceSection,
