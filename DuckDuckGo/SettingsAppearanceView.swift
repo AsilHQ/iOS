@@ -28,14 +28,6 @@ struct SettingsAppearanceView: View {
     var body: some View {
         List {
             Section {
-                // App Icon
-                let image = Image(uiImage: viewModel.state.appIcon.smallImage ?? UIImage())
-                SettingsCellView(label: UserText.settingsIcon,
-                                 action: { viewModel.presentLegacyView(.appIcon ) },
-                                 accesory: .image(image),
-                                 disclosureIndicator: true,
-                                 isButton: true)
-
                 // Theme
                 SettingsPickerCellView(label: UserText.settingsTheme,
                                        options: ThemeName.allCases,
