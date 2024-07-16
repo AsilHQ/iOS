@@ -46,9 +46,6 @@ struct SettingsRootView: View {
 
         List {
             SettingsPrivacyProtectionsView()
-            if #available(iOS 15, *) {
-                SettingsSubscriptionView().environmentObject(subscriptionNavigationCoordinator)
-            }
             SettingsMainSettingsView()
             SettingsNextStepsView()
             SettingsOthersView()
