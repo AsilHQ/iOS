@@ -8,7 +8,7 @@
 "network.protection.interrupted.notification.body" = "Network Protection katkestati. Proovin uuesti ühendust luua ...";
 
 /* The title of the notifications shown from Network Protection */
-"network.protection.notification.title" = "DuckDuckGo";
+"network.protection.notification.title" = "Kahf Browser";
 
 /* The body of the notification shown when Network Protection reconnects successfully */
 "network.protection.success.notification.body" = "Network Protection on sisse lülitatud. Sinu asukoht ja võrgutegevus on kaitstud.";

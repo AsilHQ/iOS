@@ -8,7 +8,7 @@
 "network.protection.interrupted.notification.body" = "Ağ Koruması kesintiye uğradı. Şimdi yeniden bağlanmaya çalışılıyor...";
 
 /* The title of the notifications shown from Network Protection */
-"network.protection.notification.title" = "DuckDuckGo";
+"network.protection.notification.title" = "Kahf Browser";
 
 /* The body of the notification shown when Network Protection reconnects successfully */
 "network.protection.success.notification.body" = "Ağ Koruması Açık. Konumunuz ve çevrim içi etkinliğiniz korunuyor.";

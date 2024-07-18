@@ -8,7 +8,7 @@
 "network.protection.interrupted.notification.body" = "Ochrana siete bola prerušená. Prebieha pokus o opätovné pripojenie...";
 
 /* The title of the notifications shown from Network Protection */
-"network.protection.notification.title" = "DuckDuckGo";
+"network.protection.notification.title" = "Kahf Browser";
 
 /* The body of the notification shown when Network Protection reconnects successfully */
 "network.protection.success.notification.body" = "Ochrana siete je zapnutá. Vaša poloha a online aktivita sú chránené.";

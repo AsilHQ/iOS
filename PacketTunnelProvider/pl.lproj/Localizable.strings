@@ -8,7 +8,7 @@
 "network.protection.interrupted.notification.body" = "Usługa ochrony sieci została przerwana. Próba ponownego połączenia...";
 
 /* The title of the notifications shown from Network Protection */
-"network.protection.notification.title" = "DuckDuckGo";
+"network.protection.notification.title" = "Kahf Browser";
 
 /* The body of the notification shown when Network Protection reconnects successfully */
 "network.protection.success.notification.body" = "Usługa ochrony sieci jest włączona. Twoja lokalizacja i aktywność w Internecie są chronione.";

@@ -8,7 +8,7 @@
 "network.protection.interrupted.notification.body" = "Прервана работа функции защиты сети (Network Protection). Выполняется попытка повторного подключения...";
 
 /* The title of the notifications shown from Network Protection */
-"network.protection.notification.title" = "DuckDuckGo";
+"network.protection.notification.title" = "Kahf Browser";
 
 /* The body of the notification shown when Network Protection reconnects successfully */
 "network.protection.success.notification.body" = "Защита сети (Network Protection) включена. Ваши геопозиция и онлайн-активность скрыты от посторонних глаз.";

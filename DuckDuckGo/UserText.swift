@@ -873,7 +873,7 @@ But if you *do* want a peek under the hood, you can find more information about 
     
     // MARK: VPN
 
-    static let networkProtectionNotificationsTitle = NSLocalizedString("network.protection.notification.title", value: "DuckDuckGo", comment: "The title of the notifications shown from Network Protection")
+    static let networkProtectionNotificationsTitle = NSLocalizedString("network.protection.notification.title", value: "Kahf Browser", comment: "The title of the notifications shown from Network Protection")
     static let networkProtectionConnectionSuccessNotificationBody = NSLocalizedString("network.protection.success.notification.body", value: "Network Protection is On. Your location and online activity are protected.", comment: "The body of the notification shown when Network Protection reconnects successfully")
     static func networkProtectionConnectionSuccessNotificationBody(serverLocation: String) -> String {
         let localized = NSLocalizedString(

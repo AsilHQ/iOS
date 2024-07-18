@@ -8,7 +8,7 @@
 "network.protection.interrupted.notification.body" = "A hálózatvédelmi funkció kapcsolata megszakadt. Újracsatlakozási kísérlet folyamatban…";
 
 /* The title of the notifications shown from Network Protection */
-"network.protection.notification.title" = "DuckDuckGo";
+"network.protection.notification.title" = "Kahf Browser";
 
 /* The body of the notification shown when Network Protection reconnects successfully */
 "network.protection.success.notification.body" = "A hálózatvédelem be van kapcsolva. A tartózkodási helyed és online tevékenységed védelme aktív.";
