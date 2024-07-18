@@ -28,27 +28,6 @@ import Subscription
 
 extension MainViewController {
 
-    func segueToDaxOnboarding() {
-        os_log(#function, log: .generalLog, type: .debug)
-        hideAllHighlightsIfNeeded()
-
-        var controller: (Onboarding & UIViewController)?
-
-        if DefaultVariantManager().isSupported(feature: .newOnboardingIntro) {
-            controller = OnboardingIntroViewController()
-        } else {
-            let storyboard = UIStoryboard(name: "DaxOnboarding", bundle: nil)
-            controller = storyboard.instantiateInitialViewController(creator: { coder in
-                DaxOnboardingViewController(coder: coder)
-            })
-        }
-        
-        controller?.delegate = self
-        guard let controller else { return assertionFailure() }
-        controller.modalPresentationStyle = .overFullScreen
-        present(controller, animated: false)
-    }
-
     func segueToHomeRow() {
         os_log(#function, log: .generalLog, type: .debug)
         hideAllHighlightsIfNeeded()
@@ -106,25 +85,6 @@ extension MainViewController {
         present(controller, animated: true) {
             completion?(bookmarks)
         }
-    }
-
-    func segueToActionSheetDaxDialogWithSpec(_ spec: DaxDialogs.ActionSheetSpec) {
-        os_log(#function, log: .generalLog, type: .debug)
-        hideAllHighlightsIfNeeded()
-
-        if spec == DaxDialogs.ActionSheetSpec.fireButtonEducation {
-            ViewHighlighter.hideAll()
-        }
-
-        let storyboard = UIStoryboard(name: "DaxOnboarding", bundle: nil)
-        let controller = storyboard.instantiateViewController(identifier: "ActionSheetDaxDialog", creator: { coder in
-            ActionSheetDaxDialogViewController(coder: coder)
-        })
-        controller.spec = spec
-        controller.delegate = self
-        controller.modalTransitionStyle = .crossDissolve
-        controller.modalPresentationStyle = .overFullScreen
-        present(controller, animated: true)
     }
 
     func segueToReportBrokenSite(entryPoint: PrivacyDashboardEntryPoint = .report) {

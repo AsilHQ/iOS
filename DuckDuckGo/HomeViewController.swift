@@ -37,7 +37,6 @@ class HomeViewController: UIViewController, NewTabPage {
     
     @IBOutlet weak var daxDialogContainer: UIView!
     @IBOutlet weak var daxDialogContainerHeight: NSLayoutConstraint!
-    weak var daxDialogViewController: DaxDialogViewController?
     
     var logoContainer: UIView! {
         return delegate?.homeDidRequestLogoContainer(self)
@@ -204,7 +203,6 @@ class HomeViewController: UIViewController, NewTabPage {
     
     func openedAsNewTab(allowingKeyboard: Bool) {
         collectionView.openedAsNewTab(allowingKeyboard: allowingKeyboard)
-        showNextDaxDialog()
     }
     
     @IBAction func launchSettings() {
@@ -221,8 +219,6 @@ class HomeViewController: UIViewController, NewTabPage {
         Pixel.fire(pixel: .homeScreenShown)
         sendDailyDisplayPixel()
         
-        showNextDaxDialog()
-        
         collectionView.didAppear()
 
         viewHasAppeared = true
@@ -233,42 +229,10 @@ class HomeViewController: UIViewController, NewTabPage {
         return !daxDialogContainer.isHidden
     }
         
-    func showNextDaxDialog() {
-
-        guard !isShowingDax else { return }
-        guard let spec = DaxDialogs.shared.nextHomeScreenMessage(),
-              let daxDialogViewController = daxDialogViewController else { return }
-        collectionView.isHidden = true
-        daxDialogContainer.isHidden = false
-        daxDialogContainer.alpha = 0.0
-        
-        daxDialogViewController.loadViewIfNeeded()
-        daxDialogViewController.message = spec.message
-        daxDialogViewController.accessibleMessage = spec.accessibilityLabel
-        
-        view.addGestureRecognizer(daxDialogViewController.tapToCompleteGestureRecognizer)
-        
-        daxDialogContainerHeight.constant = daxDialogViewController.calculateHeight()
-        hideLogo()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            UIView.animate(withDuration: 0.4, animations: {
-                self.daxDialogContainer.alpha = 1.0
-            }, completion: { _ in
-                self.daxDialogViewController?.start()
-            })
-        }
-
-        configureCollectionView()
-    }
-
     func hideLogo() {
         delegate?.home(self, didRequestHideLogo: true)
     }
     
-    func onboardingCompleted() {
-        showNextDaxDialog()
-    }
 
     func reloadFavorites() {
         collectionView.reloadData()
@@ -276,11 +240,6 @@ class HomeViewController: UIViewController, NewTabPage {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
-        if segue.destination is DaxDialogViewController {
-            self.daxDialogViewController = segue.destination as? DaxDialogViewController
-        }
-        
     }
 
     @IBAction func hideKeyboard() {

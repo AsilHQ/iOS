@@ -29,7 +29,4 @@ protocol NewTabPage: UIViewController {
     func omniBarCancelPressed()
 
     func dismiss()
-
-    func showNextDaxDialog()
-    func onboardingCompleted()
 }

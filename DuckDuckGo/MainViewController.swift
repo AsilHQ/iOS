@@ -296,8 +296,6 @@ class MainViewController: UIViewController {
         
         // Needs to be called here because sometimes the frames are not the expected size during didLoad
         refreshViewsBasedOnAddressBarPosition(appSettings.currentAddressBarPosition)
-
-        startOnboardingFlowIfNotSeenBefore()
         tabsBarController?.refresh(tabsModel: tabManager.model)
         swipeTabsCoordinator?.refresh(tabsModel: tabManager.model, scrollToSelected: true)
 
@@ -405,23 +403,6 @@ class MainViewController: UIViewController {
         if DefaultTutorialSettings().hasSeenOnboarding {
             newTab()
         }
-    }
-    
-    func startOnboardingFlowIfNotSeenBefore() {
-        
-        guard ProcessInfo.processInfo.environment["ONBOARDING"] != "false" else {
-            // explicitly skip onboarding, e.g. for integration tests
-            return
-        }
-        
-        let settings = DefaultTutorialSettings()
-        let showOnboarding = !settings.hasSeenOnboarding ||
-            // explicitly show onboarding, can be set in the scheme > Run > Environment Variables
-            ProcessInfo.processInfo.environment["ONBOARDING"] == "true"
-        guard showOnboarding else { return }
-
-        segueToDaxOnboarding()
-
     }
     
     private func registerForKeyboardNotifications() {
@@ -774,14 +755,10 @@ class MainViewController: UIViewController {
         Pixel.fire(pixel: .forgetAllPressedBrowsing)
         wakeLazyFireButtonAnimator()
         
-        if let spec = DaxDialogs.shared.fireButtonEducationMessage() {
-            segueToActionSheetDaxDialogWithSpec(spec)
-        } else {
-            let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
-                self?.forgetAllWithAnimation {}
-            })
-            self.present(controller: alert, fromView: self.viewCoordinator.toolbar)
-        }
+        let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
+            self?.forgetAllWithAnimation {}
+        })
+        self.present(controller: alert, fromView: self.viewCoordinator.toolbar)
 
         performCancel()
     }
@@ -2505,9 +2482,7 @@ extension MainViewController: AutoClearWorker {
             self.refreshUIAfterClear()
         } completion: {
             // Ideally this should happen once data clearing has finished AND the animation is finished
-            if showNextDaxDialog {
-                self.homeController?.showNextDaxDialog()
-            } else if KeyboardSettings().onNewTab {
+            if KeyboardSettings().onNewTab {
                 let showKeyboardAfterFireButton = DispatchWorkItem {
                     self.enterSearch()
                 }
@@ -2587,7 +2562,6 @@ extension MainViewController: OnboardingDelegate {
         markOnboardingSeen()
         controller.modalTransitionStyle = .crossDissolve
         controller.dismiss(animated: true)
-        homeController?.onboardingCompleted()
     }
     
     func markOnboardingSeen() {
