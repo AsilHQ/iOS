@@ -1,8 +1,8 @@
 /* Bundle display name */
-"CFBundleDisplayName" = "DuckDuckGo";
+"CFBundleDisplayName" = "Kahf Browser";
 
 /* Bundle name */
-"CFBundleName" = "DuckDuckGo";
+"CFBundleName" = "Kahf Browser";
 
 /* Privacy - Camera Usage Description */
 "NSCameraUsageDescription" = "Omogoča nalaganje fotografij in videoposnetkov";
