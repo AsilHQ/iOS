@@ -264,14 +264,7 @@ final class DaxDialogs {
     }
     
     func nextBrowsingMessageIfShouldShow(for privacyInfo: PrivacyInfo) -> BrowsingSpec? {
-        guard privacyInfo.url != lastURLDaxDialogReturnedFor else { return nil }
-        
-        let message = nextBrowsingMessage(privacyInfo: privacyInfo)
-        if message != nil {
-            lastURLDaxDialogReturnedFor = privacyInfo.url
-        }
-        
-        return message
+        return nil
     }
 
     private func nextBrowsingMessage(privacyInfo: PrivacyInfo) -> BrowsingSpec? {
