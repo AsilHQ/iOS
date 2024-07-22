@@ -167,9 +167,9 @@ extension MainViewFactory {
         coordinator.logoText = UIImageView(image: UIImage(named: "TextDuckDuckGo"))
 
         coordinator.logoContainer.backgroundColor = .clear
-        coordinator.logoContainer.addSubview(coordinator.logo)
-        coordinator.logoContainer.addSubview(coordinator.logoText)
-        superview.addSubview(coordinator.logoContainer)
+        // coordinator.logoContainer.addSubview(coordinator.logo)
+        // coordinator.logoContainer.addSubview(coordinator.logoText)
+        // superview.addSubview(coordinator.logoContainer)
 
         disableAutoresizingOnImmediateSubviews(coordinator.logoContainer)
     }
@@ -187,7 +187,7 @@ extension MainViewFactory {
 extension MainViewFactory {
 
     private func constrainViews() {
-        constrainLogoBackground()
+        // constrainLogoBackground()
         constrainTopSlideContainer()
         constrainContentContainer()
         constrainSuggestionTrayContainer()
