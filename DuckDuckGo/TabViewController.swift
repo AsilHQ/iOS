@@ -1040,7 +1040,7 @@ class TabViewController: UIViewController {
         let printFormatter = webView.viewPrintFormatter()
 
         let printInfo = UIPrintInfo(dictionary: nil)
-        printInfo.jobName = Bundle.main.infoDictionary!["CFBundleName"] as? String ?? "DuckDuckGo"
+        printInfo.jobName = Bundle.main.infoDictionary!["CFBundleName"] as? String ?? "Kahf Browser"
         printInfo.outputType = .general
         
         let printController = UIPrintInteractionController.shared

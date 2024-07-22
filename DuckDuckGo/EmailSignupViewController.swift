@@ -30,7 +30,7 @@ import SecureStorage
 class EmailSignupViewController: UIViewController {
 
     private enum Constants {
-        static let duckDuckGoTitle: String = "DuckDuckGo"
+        static let duckDuckGoTitle: String = "Kahf Browser"
         static let backImage = UIImage(systemName: "chevron.left")
 
         static let emailPath: String = "email/"
