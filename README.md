@@ -1,11 +1,4 @@
-# DuckDuckGo iOS
-
-
-We are excited to engage the community in development!
-
-
-## We are hiring!
-DuckDuckGo is growing fast and we continue to expand our fully distributed team. We embrace diverse perspectives, and seek out passionate, self-motivated people, committed to our shared vision of raising the standard of trust online. If you are a senior software engineer capable in either iOS or Android, visit our [careers](https://duckduckgo.com/hiring/#open) page to find out more about our openings!
+# Kahf Browser iOS
 
 ## Building
 
@@ -15,7 +8,7 @@ We use submodules, so you will need to bring them into the project in order to b
 Run `git submodule update --init --recursive`
 
 ### Developer details
-If you're not part of the DuckDuckGo team, you should provide your Apple developer account id, app id, and group id prefix in an `ExternalDeveloper.xcconfig` file. To do that:
+If you're not part of the Kahf Browser team, you should provide your Apple developer account id, app id, and group id prefix in an `ExternalDeveloper.xcconfig` file. To do that:
 
  1. Run `cp Configuration/DuckDuckGoDeveloper.xcconfig Configuration/ExternalDeveloper.xcconfig`
  2. Edit `Configuration/ExternalDeveloper.xcconfig` and change the values of all fields
@@ -49,11 +42,8 @@ We have taken steps to update our terminology and remove words with problematic 
 
 Please refer to [contributing](CONTRIBUTING.md).
 
-## Discuss
-
-Contact us at https://duckduckgo.com/feedback if you have feedback, questions or want to chat. You can also use the feedback form embedded within our Mobile App - to do so please navigate to Settings and select "Send Feedback".
 
 ## License
-DuckDuckGo is distributed under the Apache 2.0 [license](https://github.com/duckduckgo/ios/blob/master/LICENSE.md).
+Kahf Browser is distributed under the Apache 2.0 [license](https://github.com/duckduckgo/ios/blob/master/LICENSE.md).
 
 
