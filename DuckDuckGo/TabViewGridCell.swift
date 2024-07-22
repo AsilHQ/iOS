@@ -145,11 +145,7 @@ class TabViewGridCell: TabViewCell {
 
         if tab.link == nil {
             updatePreviewToDisplayLogo()
-            self.preview.image = Self.logoImage
-            self.preview.contentMode = .center
-            
             title.text = UserText.homeTabTitle
-            favicon.image = UIImage(named: "Logo")
             unread.isHidden = true
             self.preview.isHidden = !tab.viewed
             title.isHidden = !tab.viewed
