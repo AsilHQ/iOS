@@ -220,7 +220,7 @@ public struct UserText {
     
     public static let favorite = NSLocalizedString("favorite", value: "Favorite", comment: "")
     
-    public static let launchscreenWelcomeMessage = NSLocalizedString("launchscreenWelcomeMessage", value: "Welcome to\nDuckDuckGo!", comment: "Please preserve newline character")
+    public static let launchscreenWelcomeMessage = NSLocalizedString("launchscreenWelcomeMessage", value: "Welcome to\nKahf Browser!", comment: "Please preserve newline character")
     public static let onboardingWelcomeHeader = NSLocalizedString("onboardingWelcomeHeader", value: "Welcome to Kahf Browser!", comment: "")
     public static let onboardingContinue = NSLocalizedString("onboardingContinue", value: "Continue", comment: "")
     public static let onboardingSkip = NSLocalizedString("onboardingSkip", value: "Skip", comment: "")
@@ -564,7 +564,7 @@ public struct UserText {
     static let vpnFeedbackFormText5 = NSLocalizedString("vpn.feedback-form.text-5", value: "By tapping \"Submit\" I agree that Kahf Browser may use the information in this report for purposes of improving the app's features.", comment: "Text for the body of the VPN feedback form")
 
     static let vpnFeedbackFormSendingConfirmationTitle = NSLocalizedString("vpn.feedback-form.sending-confirmation.title", value: "Thank you!", comment: "Title for the feedback sent view title of the VPN feedback form")
-    static let vpnFeedbackFormSendingConfirmationDescription = NSLocalizedString("vpn.feedback-form.sending-confirmation.description", value: "Your feedback will help us improve the\nDuckDuckGo VPN.", comment: "Title for the feedback sent view description of the VPN feedback form")
+    static let vpnFeedbackFormSendingConfirmationDescription = NSLocalizedString("vpn.feedback-form.sending-confirmation.description", value: "Your feedback will help us improve the\nKahf Browser VPN.", comment: "Title for the feedback sent view description of the VPN feedback form")
     static let vpnFeedbackFormSendingConfirmationError = NSLocalizedString("vpn.feedback-form.sending-confirmation.error", value: "We couldn't send your feedback right now, please try again.", comment: "Title for the feedback sending error text of the VPN feedback form")
 
     static let vpnFeedbackFormButtonDone = NSLocalizedString("vpn.feedback-form.button.done", value: "Done", comment: "Title for the Done button of the VPN feedback form")
