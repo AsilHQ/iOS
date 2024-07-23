@@ -53,7 +53,7 @@
 "widget.gallery.search.and.favorites.display.name" = "Keresés és kedvencek";
 
 /* Description of search only widget in widget gallery */
-"widget.gallery.search.description" = "Indíts gyorsan egy privát keresést a DuckDuckGóban.";
+"widget.gallery.search.description" = "Indíts gyorsan egy privát keresést a Kahf Browserben.";
 
 /* Display name for search only widget in widget gallery */
 "widget.gallery.search.display.name" = "Keresés";

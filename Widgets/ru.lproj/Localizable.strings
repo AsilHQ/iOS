@@ -53,7 +53,7 @@
 "widget.gallery.search.and.favorites.display.name" = "Поиск и избранное";
 
 /* Description of search only widget in widget gallery */
-"widget.gallery.search.description" = "Конфиденциальный поиск через DuckDuckGo в два счета.";
+"widget.gallery.search.description" = "Конфиденциальный поиск через Kahf Browser в два счета.";
 
 /* Display name for search only widget in widget gallery */
 "widget.gallery.search.display.name" = "Поиск";

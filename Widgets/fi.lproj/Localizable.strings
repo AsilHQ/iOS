@@ -53,7 +53,7 @@
 "widget.gallery.search.and.favorites.display.name" = "Haku ja suosikit";
 
 /* Description of search only widget in widget gallery */
-"widget.gallery.search.description" = "Tee yksityinen haku DuckDuckGo:ssa nopeasti.";
+"widget.gallery.search.description" = "Tee yksityinen haku Kahf Browser:ssa nopeasti.";
 
 /* Display name for search only widget in widget gallery */
 "widget.gallery.search.display.name" = "Etsi";

@@ -53,7 +53,7 @@
 "widget.gallery.search.and.favorites.display.name" = "Căutare și preferințe";
 
 /* Description of search only widget in widget gallery */
-"widget.gallery.search.description" = "Lansează rapid o căutare privată în DuckDuckGo.";
+"widget.gallery.search.description" = "Lansează rapid o căutare privată în Kahf Browser.";
 
 /* Display name for search only widget in widget gallery */
 "widget.gallery.search.display.name" = "Caută";

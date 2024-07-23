@@ -53,7 +53,7 @@
 "widget.gallery.search.and.favorites.display.name" = "Pretraživanje i favoriti";
 
 /* Description of search only widget in widget gallery */
-"widget.gallery.search.description" = "Brzo pokrenite privatnu pretragu u pregledniku DuckDuckGo.";
+"widget.gallery.search.description" = "Brzo pokrenite privatnu pretragu u pregledniku Kahf Browser.";
 
 /* Display name for search only widget in widget gallery */
 "widget.gallery.search.display.name" = "Traži";

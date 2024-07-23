@@ -53,7 +53,7 @@
 "widget.gallery.search.and.favorites.display.name" = "Pesquisa e Favoritos";
 
 /* Description of search only widget in widget gallery */
-"widget.gallery.search.description" = "Inicie rapidamente uma pesquisa privada no DuckDuckGo.";
+"widget.gallery.search.description" = "Inicie rapidamente uma pesquisa privada no Kahf Browser.";
 
 /* Display name for search only widget in widget gallery */
 "widget.gallery.search.display.name" = "Pesquisar";

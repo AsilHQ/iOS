@@ -63,11 +63,9 @@ struct WidgetEducationView: View {
                     NumberedParagraph(number: 1,
                                       text: Text(UserText.addWidgetSettingsFirstParagraph))
                     NumberedParagraph(number: 2,
-                                      text: secondParagraphText,
-                                      imageConfig: ImageConfig(image: Image.homeScreen, maxWidth: Const.Size.imageWidth))
+                                      text: secondParagraphText)
                     NumberedParagraph(number: 3,
-                                      text: Text(thirdParagraphText),
-                                      imageConfig: widgetExampleImageConfig)
+                                      text: Text(thirdParagraphText))
                 }
                 .padding(.horizontal)
                 .padding(.top, Const.Padding.top)
