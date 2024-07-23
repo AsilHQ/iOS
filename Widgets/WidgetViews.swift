@@ -50,7 +50,7 @@ struct FavoriteView: View {
                             
                         } else if favorite.isDuckDuckGo {
                             
-                            Image(.duckDuckGoColor24)
+                            Image(.logo)
                                 .resizable()
                                 .frame(width: 45, height: 45, alignment: .center)
                             
@@ -89,7 +89,7 @@ struct LargeSearchFieldView: View {
 
                 HStack {
 
-                    Image(.duckDuckGoColor24)
+                    Image(.logo)
                         .frame(width: 24, height: 24, alignment: .leading)
 
                     Text(UserText.searchDuckDuckGo)
@@ -258,7 +258,7 @@ struct PasswordsWidgetView: View {
 
             VStack(alignment: .center, spacing: 6) {
 
-                Image(.widgetPasswordIllustration)
+                Image(.logo)
                         .frame(width: 96, height: 72)
                         .isHidden(false)
                         .accessibilityHidden(true)
