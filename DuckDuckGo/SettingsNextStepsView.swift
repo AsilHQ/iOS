@@ -26,12 +26,6 @@ struct SettingsNextStepsView: View {
 
     var body: some View {
         Section(header: Text(UserText.nextSteps)) {
-            // Add App to Your Dock
-            SettingsCellView(label: UserText.settingsAddToDock,
-                             image: Image("SettingsAddToDock"),
-                             action: { viewModel.presentLegacyView(.addToDock) },
-                             isButton: true)
-
             // Add Widget to Home Screen
             NavigationLink(destination: WidgetEducationView()) {
                 SettingsCellView(label: UserText.settingsAddWidget,
