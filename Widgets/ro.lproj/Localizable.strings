@@ -74,7 +74,7 @@
 "widget.passwords" = "Caută parole";
 
 /* Placeholder text in search field on the search and favorites widget */
-"widget.search.duckduckgo" = "Căutare DuckDuckGo";
+"widget.search.duckduckgo" = "Căutare Kahf Browser";
 
 /* VPN connect button text */
 "widget.vpn.button.connect" = "Connect";

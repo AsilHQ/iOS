@@ -74,7 +74,7 @@
 "widget.passwords" = "Jelszavak keresése";
 
 /* Placeholder text in search field on the search and favorites widget */
-"widget.search.duckduckgo" = "DuckDuckGo keresés";
+"widget.search.duckduckgo" = "Kahf Browser keresés";
 
 /* VPN connect button text */
 "widget.vpn.button.connect" = "Connect";

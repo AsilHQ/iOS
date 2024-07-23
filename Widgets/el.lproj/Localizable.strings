@@ -74,7 +74,7 @@
 "widget.passwords" = "Αναζήτηση κωδικών πρόσβασης";
 
 /* Placeholder text in search field on the search and favorites widget */
-"widget.search.duckduckgo" = "Αναζήτηση DuckDuckGo";
+"widget.search.duckduckgo" = "Αναζήτηση Kahf Browser";
 
 /* VPN connect button text */
 "widget.vpn.button.connect" = "Connect";

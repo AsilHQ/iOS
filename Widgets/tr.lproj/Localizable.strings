@@ -74,7 +74,7 @@
 "widget.passwords" = "Şifreleri ara";
 
 /* Placeholder text in search field on the search and favorites widget */
-"widget.search.duckduckgo" = "DuckDuckGo'da Ara";
+"widget.search.duckduckgo" = "Kahf Browser'da Ara";
 
 /* VPN connect button text */
 "widget.vpn.button.connect" = "Connect";

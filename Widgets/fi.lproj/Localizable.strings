@@ -74,7 +74,7 @@
 "widget.passwords" = "Etsi salasanoja";
 
 /* Placeholder text in search field on the search and favorites widget */
-"widget.search.duckduckgo" = "Hae DuckDuckGo:sta";
+"widget.search.duckduckgo" = "Hae Kahf Browser:sta";
 
 /* VPN connect button text */
 "widget.vpn.button.connect" = "Connect";

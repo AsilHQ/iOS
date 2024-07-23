@@ -74,7 +74,7 @@
 "widget.passwords" = "Vyhľadávanie hesiel";
 
 /* Placeholder text in search field on the search and favorites widget */
-"widget.search.duckduckgo" = "Vyhľadávajte cez DuckDuckGo";
+"widget.search.duckduckgo" = "Vyhľadávajte cez Kahf Browser";
 
 /* VPN connect button text */
 "widget.vpn.button.connect" = "Connect";

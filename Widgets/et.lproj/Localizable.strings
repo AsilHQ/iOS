@@ -74,7 +74,7 @@
 "widget.passwords" = "Otsi paroole";
 
 /* Placeholder text in search field on the search and favorites widget */
-"widget.search.duckduckgo" = "Otsi DuckDuckGo'st";
+"widget.search.duckduckgo" = "Otsi Kahf Browser'st";
 
 /* VPN connect button text */
 "widget.vpn.button.connect" = "Connect";

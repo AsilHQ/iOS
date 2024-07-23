@@ -74,7 +74,7 @@
 "widget.passwords" = "Търсене на пароли";
 
 /* Placeholder text in search field on the search and favorites widget */
-"widget.search.duckduckgo" = "Търси с DuckDuckGo";
+"widget.search.duckduckgo" = "Търси с Kahf Browser";
 
 /* VPN connect button text */
 "widget.vpn.button.connect" = "Connect";

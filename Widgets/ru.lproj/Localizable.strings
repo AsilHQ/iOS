@@ -74,7 +74,7 @@
 "widget.passwords" = "Найти пароль";
 
 /* Placeholder text in search field on the search and favorites widget */
-"widget.search.duckduckgo" = "Поиск в DuckDuckGo";
+"widget.search.duckduckgo" = "Поиск в Kahf Browser";
 
 /* VPN connect button text */
 "widget.vpn.button.connect" = "Connect";
