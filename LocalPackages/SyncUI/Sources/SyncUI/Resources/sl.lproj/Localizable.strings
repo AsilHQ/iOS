@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "S tem ustvarite šifrirano varnostno kopijo zaznamkov in gesel v varnem strežniku DuckDuckGo, ki jo lahko sinhronizirate z drugimi napravami.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Šifrirni ključ je shranjen samo v vaši napravi, DuckDuckGo ne more dostopati do njega.";
+"connect.with.server.sheet.description.part2" = "Šifrirni ključ je shranjen samo v vaši napravi, Kahf Browser ne more dostopati do njega.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Pozneje lahko sinhronizirate z drugimi napravami.";

@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Esto crea una copia de seguridad encriptada de tus marcadores y contraseñas en el servidor seguro de DuckDuckGo que se puede sincronizar con tus otros dispositivos.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "La clave de encriptación solo se almacena en tu dispositivo, DuckDuckGo no puede acceder a ella.";
+"connect.with.server.sheet.description.part2" = "La clave de encriptación solo se almacena en tu dispositivo, Kahf Browser no puede acceder a ella.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Puedes sincronizar con tus otros dispositivos más tarde.";

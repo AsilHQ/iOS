@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "DuckDuckGo создаст зашифрованную резервную копию ваших закладок и паролей на защищенном сервере. Копию можно синхронизировать с другими устройствами.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Ключ шифрования хранится только на вашем устройстве. У DuckDuckGo нет к нему доступа.";
+"connect.with.server.sheet.description.part2" = "Ключ шифрования хранится только на вашем устройстве. У Kahf Browser нет к нему доступа.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Синхронизацию с другими устройствами можно выполнить позже.";

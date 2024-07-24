@@ -32,7 +32,7 @@
 "connect.with.server.sheet.description.part1" = "This creates an encrypted backup of your bookmarks and passwords on DuckDuckGo’s secure server, which can be synced with your other devices.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "The encryption key is only stored on your device, DuckDuckGo cannot access it.";
+"connect.with.server.sheet.description.part2" = "The encryption key is only stored on your device, Kahf Browser cannot access it.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "You can sync with your other devices later.";

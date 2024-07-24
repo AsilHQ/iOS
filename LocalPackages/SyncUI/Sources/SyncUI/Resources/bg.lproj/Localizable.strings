@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Създава криптирано резервно копие на Вашите отметки и пароли на защитения сървър на DuckDuckGo, което може да бъде синхронизирано с други Ваши устройства.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Ключът за криптиране се съхранява само на Вашето устройство и DuckDuckGo няма достъп до него.";
+"connect.with.server.sheet.description.part2" = "Ключът за криптиране се съхранява само на Вашето устройство и Kahf Browser няма достъп до него.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Можете да синхронизирате с други устройства по-късно.";

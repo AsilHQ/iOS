@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Aceasta creează o copie de rezervă criptată a marcajelor și parolelor tale pe serverul securizat DuckDuckGo, care poate fi sincronizată cu celelalte dispozitive ale tale.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Cheia de criptare este stocată doar pe dispozitivul tău, DuckDuckGo nu o poate accesa.";
+"connect.with.server.sheet.description.part2" = "Cheia de criptare este stocată doar pe dispozitivul tău, Kahf Browser nu o poate accesa.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Poți sincroniza mai târziu cu celelalte dispozitive ale tale.";

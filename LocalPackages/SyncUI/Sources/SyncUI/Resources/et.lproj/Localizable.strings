@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "See loob DuckDuckGo turvalises serveris krüptitud varukoopia sinu järjehoidjatest ja paroolidest, mida saab sünkroonida sinu teiste seadmetega.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Krüptimisvõti salvestatakse ainult sinu seadmesse, DuckDuckGo ei pääse sellele juurde.";
+"connect.with.server.sheet.description.part2" = "Krüptimisvõti salvestatakse ainult sinu seadmesse, Kahf Browser ei pääse sellele juurde.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Saad hiljem sünkroonida teiste seadmetega.";

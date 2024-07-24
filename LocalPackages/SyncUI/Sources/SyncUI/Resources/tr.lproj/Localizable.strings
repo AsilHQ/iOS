@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Bu, DuckDuckGo'nun güvenli sunucusunda yer imlerinizin ve şifrelerinizi diğer cihazlarınızla senkronize edilebilen şifrelenmiş bir yedeğini oluşturur.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Şifreleme anahtarı sadece cihazınızda saklanır, DuckDuckGo buna erişemez.";
+"connect.with.server.sheet.description.part2" = "Şifreleme anahtarı sadece cihazınızda saklanır, Kahf Browser buna erişemez.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Daha sonra diğer cihazlarınızla senkronize edebilirsiniz.";

@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Dadurch wird ein verschlüsseltes Backup deiner Lesezeichen und Passwörter auf dem sicheren Server von DuckDuckGo erstellt, der mit deinen anderen Geräten synchronisiert werden kann.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Der Verschlüsselungsschlüssel wird nur auf deinem Gerät gespeichert, DuckDuckGo kann nicht darauf zugreifen.";
+"connect.with.server.sheet.description.part2" = "Der Verschlüsselungsschlüssel wird nur auf deinem Gerät gespeichert, Kahf Browser kann nicht darauf zugreifen.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Du kannst später mit deinen anderen Geräten synchronisieren.";

@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Tādējādi DuckDuckGo drošajā serverī tiek izveidota šifrēta grāmatzīmju un paroļu dublējumkopija, ko var sinhronizēt ar citām ierīcēm.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Šifrēšanas atslēga tiek saglabāta tikai tavā ierīcē – DuckDuckGo tai nevar piekļūt.";
+"connect.with.server.sheet.description.part2" = "Šifrēšanas atslēga tiek saglabāta tikai tavā ierīcē – Kahf Browser tai nevar piekļūt.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Vēlāk vari sinhronizēt ar citām ierīcēm.";

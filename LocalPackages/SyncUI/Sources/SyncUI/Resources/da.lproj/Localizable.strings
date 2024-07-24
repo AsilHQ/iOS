@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Dette opretter en krypteret sikkerhedskopi af dine bogmærker og adgangskoder på DuckDuckGos sikre server, som kan synkroniseres med dine andre enheder.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Krypteringsnøglen gemmes kun på din enhed, DuckDuckGo har ikke adgang til den.";
+"connect.with.server.sheet.description.part2" = "Krypteringsnøglen gemmes kun på din enhed, Kahf Browser har ikke adgang til den.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Du kan synkronisere med dine andre enheder senere.";

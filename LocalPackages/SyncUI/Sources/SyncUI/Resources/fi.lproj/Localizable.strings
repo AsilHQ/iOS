@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Tämä luo salatun varmuuskopion kirjanmerkeistäsi ja salasanoistasi DuckDuckGon suojatulle palvelimelle. Voit synkronoida varmuuskopion muiden laitteittesi kanssa.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Salausavain tallennetaan vain laitteellesi. DuckDuckGo ei pääse siihen käsiksi.";
+"connect.with.server.sheet.description.part2" = "Salausavain tallennetaan vain laitteellesi. Kahf Browser ei pääse siihen käsiksi.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Voit synkronoiden muiden laitteittesi kanssa myöhemmin.";

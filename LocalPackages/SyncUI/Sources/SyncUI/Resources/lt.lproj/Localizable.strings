@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Taip „DuckDuckGo“ saugiame serveryje sukuriama užšifruota atsarginė žymių ir slaptažodžių kopija, kurią galima sinchronizuoti su kitais įrenginiais.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Šifravimo raktas saugomas tik jūsų įrenginyje, „DuckDuckGo“ negali jo pasiekti.";
+"connect.with.server.sheet.description.part2" = "Šifravimo raktas saugomas tik jūsų įrenginyje, „Kahf Browser“ negali jo pasiekti.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Vėliau galėsite sinchronizuoti su kitais įrenginiais.";

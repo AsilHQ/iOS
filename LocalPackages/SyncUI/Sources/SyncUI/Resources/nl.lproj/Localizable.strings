@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Hiermee maak je een versleutelde back-up van je bladwijzers en wachtwoorden op de beveiligde server van DuckDuckGo. Deze back-up kan met je andere apparaten worden gesynchroniseerd.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "De versleutelingscode wordt alleen op je apparaat opgeslagen. DuckDuckGo heeft er geen toegang toe.";
+"connect.with.server.sheet.description.part2" = "De versleutelingscode wordt alleen op je apparaat opgeslagen. Kahf Browser heeft er geen toegang toe.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Je kunt later synchroniseren met je andere apparaten.";

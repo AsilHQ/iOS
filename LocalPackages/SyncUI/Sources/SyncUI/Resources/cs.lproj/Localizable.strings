@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Na zabezpečeném serveru DuckDuckGo se vytvoří šifrovaná záloha záložek a hesel, kterou můžeš synchronizovat s ostatními zařízeními.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Šifrovací klíč se ukládá jenom na tvé zařízení, DuckDuckGo k němu nemá přístup.";
+"connect.with.server.sheet.description.part2" = "Šifrovací klíč se ukládá jenom na tvé zařízení, Kahf Browser k němu nemá přístup.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Synchronizaci s dalšími zařízeními můžeš provést později.";

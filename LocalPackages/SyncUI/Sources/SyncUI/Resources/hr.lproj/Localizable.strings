@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "To stvara šifriranu sigurnosnu kopiju tvojih oznaka i lozinki na sigurnom poslužitelju DuckDuckGo, koja se može sinkronizirati s drugim uređajima.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Ključ za šifriranje pohranjen je samo na tvom uređaju, DuckDuckGo mu ne može pristupiti.";
+"connect.with.server.sheet.description.part2" = "Ključ za šifriranje pohranjen je samo na tvom uređaju, Kahf Browser mu ne može pristupiti.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Kasnije možeš sinkronizirati s drugim uređajima.";

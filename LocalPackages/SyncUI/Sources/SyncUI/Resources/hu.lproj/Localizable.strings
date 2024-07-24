@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Ez a DuckDuckGo biztonságos szerverén egy titkosított biztonsági másolatot készít a könyvjelzőidről és jelszavaidról, amelyet más eszközökkel szinkronizálhatsz.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "A titkosítási kulcsot csak az eszközöd tárolja, a DuckDuckGo nem fér hozzá.";
+"connect.with.server.sheet.description.part2" = "A titkosítási kulcsot csak az eszközöd tárolja, a Kahf Browser nem fér hozzá.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Később szinkronizálhatod más eszközeidet.";

@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Cela crée une sauvegarde cryptée de vos signets et mots de passe sur le serveur sécurisé de DuckDuckGo, qui peut être synchronisée avec vos autres appareils.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "La clé de chiffrement n'est stockée que sur votre appareil ; DuckDuckGo ne peut pas y accéder.";
+"connect.with.server.sheet.description.part2" = "La clé de chiffrement n'est stockée que sur votre appareil ; Kahf Browser ne peut pas y accéder.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Vous pourrez effectuer une synchronisation avec vos autres appareils ultérieurement.";

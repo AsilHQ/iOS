@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "La funzione crea un backup criptato dei tuoi segnalibri e delle tue password sul server sicuro di DuckDuckGo, in modo che possa essere sincronizzato con gli altri dispositivi.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "La chiave di crittografia viene memorizzata solo sul tuo dispositivo e DuckDuckGo non può accedervi.";
+"connect.with.server.sheet.description.part2" = "La chiave di crittografia viene memorizzata solo sul tuo dispositivo e Kahf Browser non può accedervi.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Potrai effettuare la sincronizzazione con gli altri dispositivi in un secondo momento.";

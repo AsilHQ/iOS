@@ -38,7 +38,7 @@
 "connect.with.server.sheet.description.part1" = "Tworzy na bezpiecznym serwerze DuckDuckGo zaszyfrowaną kopię zapasową zakładek i haseł, którą można zsynchronizować z innymi urządzeniami.";
 
 /* Connect With Server Sheet - Description Part 2 */
-"connect.with.server.sheet.description.part2" = "Klucz szyfrowania jest przechowywany tylko na urządzeniu użytkownika, DuckDuckGo nie może uzyskać do niego dostępu.";
+"connect.with.server.sheet.description.part2" = "Klucz szyfrowania jest przechowywany tylko na urządzeniu użytkownika, Kahf Browser nie może uzyskać do niego dostępu.";
 
 /* Connect With Server Sheet - Footer */
 "connect.with.server.sheet.footer" = "Możesz później przeprowadzić synchronizację z innymi urządzeniami.";
