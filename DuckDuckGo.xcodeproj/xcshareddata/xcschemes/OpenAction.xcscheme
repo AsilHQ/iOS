@@ -30,8 +30,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84E341911E2F7EFB00BDBA6F"
-               BuildableName = "DuckDuckGo.app"
-               BlueprintName = "DuckDuckGo"
+               BuildableName = "KahfBrowser.app"
+               BlueprintName = "KahfBrowser"
                ReferencedContainer = "container:DuckDuckGo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -82,8 +82,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84E341911E2F7EFB00BDBA6F"
-            BuildableName = "DuckDuckGo.app"
-            BlueprintName = "DuckDuckGo"
+            BuildableName = "KahfBrowser.app"
+            BlueprintName = "KahfBrowser"
             ReferencedContainer = "container:DuckDuckGo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -101,8 +101,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84E341911E2F7EFB00BDBA6F"
-            BuildableName = "DuckDuckGo.app"
-            BlueprintName = "DuckDuckGo"
+            BuildableName = "KahfBrowser.app"
+            BlueprintName = "KahfBrowser"
             ReferencedContainer = "container:DuckDuckGo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
