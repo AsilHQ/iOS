@@ -43,7 +43,7 @@ struct AboutViewText: View {
                 .frame(width: 96, height: 96)
                 .padding(.top)
 
-            Image("TextDuckDuckGo")
+            /*Image("TextDuckDuckGo")
 
             Text("Welcome to the Duck Side!")
                 .daxHeadline()
@@ -59,7 +59,9 @@ struct AboutViewText: View {
                 .foregroundColor(.primary)
                 .tintIfAvailable(Color(designSystemColor: .accent))
                 .padding(.horizontal, 32)
-                .padding(.bottom)
+                .padding(.bottom)*/
+            
+            //TODO: add some text
 
             Spacer()
         }
