@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Preferințe";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Șterge instantaneu istoricul de navigare și începe o nouă căutare privată în DuckDuckGo.";
+"lock.screen.widget.fire.description" = "Șterge instantaneu istoricul de navigare și începe o nouă căutare privată în Kahf Browser.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Caută rapid parolele tale DuckDuckGo salvate.";
+"lock.screen.widget.passwords.description" = "Caută rapid parolele tale Kahf Browser salvate.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Caută parole";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Pornește instantaneu o căutare privată în DuckDuckGo.";
+"lock.screen.widget.search.description" = "Pornește instantaneu o căutare privată în Kahf Browser.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "Căutare Confidențială";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Începe instantaneu o nouă căutare vocală privată în DuckDuckGo.";
+"lock.screen.widget.voice.description" = "Începe instantaneu o nouă căutare vocală privată în Kahf Browser.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Căutare vocală";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Caută rapid parolele tale DuckDuckGo salvate.";
+"widget.gallery.passwords.description" = "Caută rapid parolele tale Kahf Browser salvate.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Caută parole";

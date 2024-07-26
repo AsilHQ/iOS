@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Obľúbené položky";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Okamžite vymažete históriu prehľadávania a spustíte nové súkromné vyhľadávanie v DuckDuckGo.";
+"lock.screen.widget.fire.description" = "Okamžite vymažete históriu prehľadávania a spustíte nové súkromné vyhľadávanie v Kahf Browser.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Rýchlo vyhľadajte svoje uložené DuckDuckGo heslá.";
+"lock.screen.widget.passwords.description" = "Rýchlo vyhľadajte svoje uložené Kahf Browser heslá.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Vyhľadávanie hesiel";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Okamžite spustíte súkromné vyhľadávanie v DuckDuckGo.";
+"lock.screen.widget.search.description" = "Okamžite spustíte súkromné vyhľadávanie v Kahf Browser.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "Súkromné vyhľadávanie";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Okamžite spustíte nové súkromné hlasové vyhľadávanie v službe DuckDuckGo.";
+"lock.screen.widget.voice.description" = "Okamžite spustíte nové súkromné hlasové vyhľadávanie v službe Kahf Browser.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Hlasové vyhľadávanie";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Rýchlo vyhľadajte svoje uložené DuckDuckGo heslá.";
+"widget.gallery.passwords.description" = "Rýchlo vyhľadajte svoje uložené Kahf Browser heslá.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Vyhľadávanie hesiel";

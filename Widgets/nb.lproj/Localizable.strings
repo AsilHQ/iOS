@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Favoritter";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Slett nettleserloggen din på et blunk og start et nytt privat søk i DuckDuckGo.";
+"lock.screen.widget.fire.description" = "Slett nettleserloggen din på et blunk og start et nytt privat søk i Kahf Browser.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Søk raskt i de lagrede DuckDuckGo-passordene dine.";
+"lock.screen.widget.passwords.description" = "Søk raskt i de lagrede Kahf Browser-passordene dine.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Søk i passord";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Start et privat søk i DuckDuckGo på et øyeblikk.";
+"lock.screen.widget.search.description" = "Start et privat søk i Kahf Browser på et øyeblikk.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "Privat søk";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Start et nytt privat talesøk i DuckDuckGo på et øyeblikk.";
+"lock.screen.widget.voice.description" = "Start et nytt privat talesøk i Kahf Browser på et øyeblikk.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Talesøk";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Søk raskt i de lagrede DuckDuckGo-passordene dine.";
+"widget.gallery.passwords.description" = "Søk raskt i de lagrede Kahf Browser-passordene dine.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Søk i passord";

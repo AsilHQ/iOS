@@ -1651,10 +1651,10 @@
 /* Message to highlight browser capability ofblocking 3rd party trackers */
 "onboarding.browsers.features.trackerBlocker.title" = "Bloquea rastreadores de terceros";
 
-/* The title of the dialog to show the privacy features that DuckDuckGo offers */
+/* The title of the dialog to show the privacy features that Kahf Browser offers */
 "onboarding.browsers.title" = "¡Protecciones de privacidad activadas!";
 
-/* Subheader message for the screen to choose DuckDuckGo as default browser */
+/* Subheader message for the screen to choose Kahf Browser as default browser */
 "onboarding.defaultBrowser.message" = "Abre los enlaces con tranquilidad, siempre.";
 
 /* Button to continue the onboarding process */

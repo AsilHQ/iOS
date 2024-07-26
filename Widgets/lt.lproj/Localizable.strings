@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Mėgstami";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Akimirksniu ištrinkite naršymo istoriją ir pradėkite naują privačią paiešką „DuckDuckGo“.";
+"lock.screen.widget.fire.description" = "Akimirksniu ištrinkite naršymo istoriją ir pradėkite naują privačią paiešką „Kahf Browser“.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Mygtukas „Fire“";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Greitai ieškokite išsaugotų „DuckDuckGo“ slaptažodžių.";
+"lock.screen.widget.passwords.description" = "Greitai ieškokite išsaugotų „Kahf Browser“ slaptažodžių.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Ieškoti slaptažodžių";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Akimirksniu pradėkite privačią paiešką „DuckDuckGo“.";
+"lock.screen.widget.search.description" = "Akimirksniu pradėkite privačią paiešką „Kahf Browser“.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "privati paieška";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Akimirksniu pradėkite naują privačią paiešką balsu „DuckDuckGo“.";
+"lock.screen.widget.voice.description" = "Akimirksniu pradėkite naują privačią paiešką balsu „Kahf Browser“.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Paieška balsu";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Greitai ieškokite išsaugotų „DuckDuckGo“ slaptažodžių.";
+"widget.gallery.passwords.description" = "Greitai ieškokite išsaugotų „Kahf Browser“ slaptažodžių.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Ieškoti slaptažodžių";

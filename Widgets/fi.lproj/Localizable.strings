@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Suosikit";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Poista välittömästi selaushistoriasi ja aloita uusi yksityinen haku DuckDuckGossa.";
+"lock.screen.widget.fire.description" = "Poista välittömästi selaushistoriasi ja aloita uusi yksityinen haku Kahf Browserssa.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire-painike";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Hae nopeasti DuckDuckGohon tallennettuja salasanojasi.";
+"lock.screen.widget.passwords.description" = "Hae nopeasti Kahf Browserhon tallennettuja salasanojasi.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Etsi salasanoja";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Aloita välittömästi yksityinen haku DuckDuckGossa.";
+"lock.screen.widget.search.description" = "Aloita välittömästi yksityinen haku Kahf Browserssa.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "Yksityinen haku";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Aloita välittömästi uusi yksityinen äänihaku DuckDuckGossa.";
+"lock.screen.widget.voice.description" = "Aloita välittömästi uusi yksityinen äänihaku Kahf Browserssa.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Äänihaku";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Hae nopeasti DuckDuckGohon tallennettuja salasanojasi.";
+"widget.gallery.passwords.description" = "Hae nopeasti Kahf Browserhon tallennettuja salasanojasi.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Etsi salasanoja";

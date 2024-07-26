@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Lemmikud";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Kustuta hetkega oma sirvimisajalugu ja alusta uut privaatset otsingut DuckDuckGos.";
+"lock.screen.widget.fire.description" = "Kustuta hetkega oma sirvimisajalugu ja alusta uut privaatset otsingut Kahf Browsers.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Otsi kiiresti oma salvestatud DuckDuckGo paroole.";
+"lock.screen.widget.passwords.description" = "Otsi kiiresti oma salvestatud Kahf Browser paroole.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Otsi paroole";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Alusta hetkega DuckDuckGos privaatset otsingut.";
+"lock.screen.widget.search.description" = "Alusta hetkega Kahf Browsers privaatset otsingut.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "Privaatne otsing";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Alusta hetkega DuckDuckGos uut privaatset häälotsingut.";
+"lock.screen.widget.voice.description" = "Alusta hetkega Kahf Browsers uut privaatset häälotsingut.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Häälotsing";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Otsi kiiresti oma salvestatud DuckDuckGo paroole.";
+"widget.gallery.passwords.description" = "Otsi kiiresti oma salvestatud Kahf Browser paroole.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Otsi paroole";

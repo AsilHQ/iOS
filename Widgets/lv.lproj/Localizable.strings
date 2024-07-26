@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Izlase";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Nekavējoties dzēs savu pārlūkošanas vēsturi un sāc jaunu privātu meklēšanu pakalpojumā DuckDuckGo.";
+"lock.screen.widget.fire.description" = "Nekavējoties dzēs savu pārlūkošanas vēsturi un sāc jaunu privātu meklēšanu pakalpojumā Kahf Browser.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Ātri meklē savas saglabātās DuckDuckGo paroles.";
+"lock.screen.widget.passwords.description" = "Ātri meklē savas saglabātās Kahf Browser paroles.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Meklēt paroles";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Nekavējoties sāc privātu meklēšanu pakalpojumā DuckDuckGo.";
+"lock.screen.widget.search.description" = "Nekavējoties sāc privātu meklēšanu pakalpojumā Kahf Browser.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "Privāta meklēšana";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Nekavējoties sāc jaunu privātu balss meklēšanu pakalpojumā DuckDuckGo.";
+"lock.screen.widget.voice.description" = "Nekavējoties sāc jaunu privātu balss meklēšanu pakalpojumā Kahf Browser.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Balss meklēšana";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Ātri meklē savas saglabātās DuckDuckGo paroles.";
+"widget.gallery.passwords.description" = "Ātri meklē savas saglabātās Kahf Browser paroles.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Meklēt paroles";

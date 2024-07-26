@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Favoritos";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Elimina al instante tu historial de navegación e inicia una nueva búsqueda privada en DuckDuckGo.";
+"lock.screen.widget.fire.description" = "Elimina al instante tu historial de navegación e inicia una nueva búsqueda privada en Kahf Browser.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Busca rápidamente tus contraseñas de DuckDuckGo guardadas.";
+"lock.screen.widget.passwords.description" = "Busca rápidamente tus contraseñas de Kahf Browser guardadas.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Buscar contraseñas";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Inicia al instante una búsqueda privada en DuckDuckGo.";
+"lock.screen.widget.search.description" = "Inicia al instante una búsqueda privada en Kahf Browser.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "Búsqueda Privada";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Inicia al instante una nueva búsqueda por voz privada en DuckDuckGo.";
+"lock.screen.widget.voice.description" = "Inicia al instante una nueva búsqueda por voz privada en Kahf Browser.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Búsqueda por voz";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Busca rápidamente tus contraseñas de DuckDuckGo guardadas.";
+"widget.gallery.passwords.description" = "Busca rápidamente tus contraseñas de Kahf Browser guardadas.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Buscar contraseñas";

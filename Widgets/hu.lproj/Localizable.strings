@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Kedvencek";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Böngészési előzmények azonnali törlése, és új privát DuckDuckGo-keresés indítása.";
+"lock.screen.widget.fire.description" = "Böngészési előzmények azonnali törlése, és új privát Kahf Browser-keresés indítása.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Tűz gomb";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Gyorsan kereshetsz a DuckDuckGo mentett jelszavai között.";
+"lock.screen.widget.passwords.description" = "Gyorsan kereshetsz a Kahf Browser mentett jelszavai között.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Jelszavak keresése";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Privát DuckDuckGo-keresés azonnali indítása.";
+"lock.screen.widget.search.description" = "Privát Kahf Browser-keresés azonnali indítása.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "privát keresés";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Új privát hangalapú DuckDuckGo-keresés azonnali indítása.";
+"lock.screen.widget.voice.description" = "Új privát hangalapú Kahf Browser-keresés azonnali indítása.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Beszédhangalapú keresés";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Gyorsan kereshetsz a DuckDuckGo mentett jelszavai között.";
+"widget.gallery.passwords.description" = "Gyorsan kereshetsz a Kahf Browser mentett jelszavai között.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Jelszavak keresése";

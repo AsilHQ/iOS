@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Priljubljeni";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Takoj izbrišite zgodovino brskanja in začnite novo zasebno iskanje v DuckDuckGo.";
+"lock.screen.widget.fire.description" = "Takoj izbrišite zgodovino brskanja in začnite novo zasebno iskanje v Kahf Browser.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Hitro poiščite shranjena gesla DuckDuckGo.";
+"lock.screen.widget.passwords.description" = "Hitro poiščite shranjena gesla Kahf Browser.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Iskanje gesel";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Takoj začnite zasebno iskanje v DuckDuckGo.";
+"lock.screen.widget.search.description" = "Takoj začnite zasebno iskanje v Kahf Browser.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "zasebno iskanje";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Takoj začnite novo zasebno glasovno iskanje v DuckDuckGo.";
+"lock.screen.widget.voice.description" = "Takoj začnite novo zasebno glasovno iskanje v Kahf Browser.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Glasovno iskanje";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Hitro poiščite shranjena gesla DuckDuckGo.";
+"widget.gallery.passwords.description" = "Hitro poiščite shranjena gesla Kahf Browser.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Iskanje gesel";

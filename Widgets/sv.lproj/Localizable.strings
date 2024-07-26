@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Favoriter";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Radera omedelbart din surfhistorik och starta en ny privat sökning i DuckDuckGo.";
+"lock.screen.widget.fire.description" = "Radera omedelbart din surfhistorik och starta en ny privat sökning i Kahf Browser.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Sök snabbt bland dina sparade DuckDuckGo-lösenord.";
+"lock.screen.widget.passwords.description" = "Sök snabbt bland dina sparade Kahf Browser-lösenord.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Sök lösenord";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Starta omedelbart en privat sökning i DuckDuckGo.";
+"lock.screen.widget.search.description" = "Starta omedelbart en privat sökning i Kahf Browser.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "Privatsökning";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Starta omedelbart en ny privat röstsökning i DuckDuckGo.";
+"lock.screen.widget.voice.description" = "Starta omedelbart en ny privat röstsökning i Kahf Browser.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Röstsökning";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Sök snabbt bland dina sparade DuckDuckGo-lösenord.";
+"widget.gallery.passwords.description" = "Sök snabbt bland dina sparade Kahf Browser-lösenord.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Sök lösenord";

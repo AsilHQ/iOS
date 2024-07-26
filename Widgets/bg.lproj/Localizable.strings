@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Любими";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Незабавно изтриване на историята на сърфиране и стартиране ново поверително търсене в DuckDuckGo.";
+"lock.screen.widget.fire.description" = "Незабавно изтриване на историята на сърфиране и стартиране ново поверително търсене в Kahf Browser.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Бързо търсене на запазените пароли за DuckDuckGo.";
+"lock.screen.widget.passwords.description" = "Бързо търсене на запазените пароли за Kahf Browser.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Търсене на пароли";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Незабавно стартиране на поверително търсене в DuckDuckGo.";
+"lock.screen.widget.search.description" = "Незабавно стартиране на поверително търсене в Kahf Browser.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "поверително търсене";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Незабавно стартиране на ново поверително гласово търсене в DuckDuckGo.";
+"lock.screen.widget.voice.description" = "Незабавно стартиране на ново поверително гласово търсене в Kahf Browser.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Гласово търсене";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Бързо търсене на запазените пароли за DuckDuckGo.";
+"widget.gallery.passwords.description" = "Бързо търсене на запазените пароли за Kahf Browser.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Търсене на пароли";

@@ -17,31 +17,31 @@
 "lock.screen.widget.favorites.title" = "Favoris";
 
 /* Description shown to the user when adding the Fire Button lock screen widget */
-"lock.screen.widget.fire.description" = "Supprimez instantanément votre historique de navigation et lancez une nouvelle recherche privée dans DuckDuckGo.";
+"lock.screen.widget.fire.description" = "Supprimez instantanément votre historique de navigation et lancez une nouvelle recherche privée dans Kahf Browser.";
 
 /* Title shown to the user when adding the Fire Button lock screen widget */
 "lock.screen.widget.fire.title" = "Fire Button";
 
 /* Description shown to the user when adding the Search Passwords lock screen widget */
-"lock.screen.widget.passwords.description" = "Recherchez rapidement vos mots de passe DuckDuckGo enregistrés.";
+"lock.screen.widget.passwords.description" = "Recherchez rapidement vos mots de passe Kahf Browser enregistrés.";
 
 /* Title shown to the user when adding the Search Passwords lock screen widget */
 "lock.screen.widget.passwords.title" = "Rechercher un mot de passe";
 
 /* Description shown to the user when adding the Search lock screen widget */
-"lock.screen.widget.search.description" = "Lancez instantanément une recherche privée dans DuckDuckGo.";
+"lock.screen.widget.search.description" = "Lancez instantanément une recherche privée dans Kahf Browser.";
 
 /* Title shown to the user when adding the Search lock screen widget */
 "lock.screen.widget.search.title" = "Recherche privée";
 
 /* Description shown to the user when adding the Voice Search lock screen widget */
-"lock.screen.widget.voice.description" = "Lancez instantanément une nouvelle recherche vocale privée dans DuckDuckGo.";
+"lock.screen.widget.voice.description" = "Lancez instantanément une nouvelle recherche vocale privée dans Kahf Browser.";
 
 /* Title shown to the user when adding the Voice Search lock screen widget */
 "lock.screen.widget.voice.title" = "Recherche vocale";
 
 /* Description of search passwords widget in widget gallery */
-"widget.gallery.passwords.description" = "Recherchez rapidement vos mots de passe DuckDuckGo enregistrés.";
+"widget.gallery.passwords.description" = "Recherchez rapidement vos mots de passe Kahf Browser enregistrés.";
 
 /* Display name for search passwords widget in widget gallery */
 "widget.gallery.passwords.display.name" = "Rechercher un mot de passe";
