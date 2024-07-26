@@ -54,7 +54,7 @@ struct UserText {
                                                                   comment: "Display name for search passwords widget in widget gallery")
 
     static let passwordsWidgetGalleryDescription = NSLocalizedString("widget.gallery.passwords.description",
-                                                                  value: "Quickly search your saved DuckDuckGo passwords.",
+                                                                  value: "Quickly search your saved Kahf Browser passwords.",
                                                                   comment: "Description of search passwords widget in widget gallery")
 
     static let passwords = NSLocalizedString("widget.passwords",
@@ -97,7 +97,7 @@ struct UserText {
 
     static let lockScreenSearchDescription = NSLocalizedString(
         "lock.screen.widget.search.description",
-        value: "Instantly start a private search in DuckDuckGo.",
+        value: "Instantly start a private search in Kahf Browser.",
         comment: "Description shown to the user when adding the Search lock screen widget")
 
     static let lockScreenFavoritesTitle = NSLocalizedString(
@@ -117,7 +117,7 @@ struct UserText {
 
     static let lockScreenVoiceDescription = NSLocalizedString(
         "lock.screen.widget.voice.description",
-        value: "Instantly start a new private voice search in DuckDuckGo.",
+        value: "Instantly start a new private voice search in Kahf Browser.",
         comment: "Description shown to the user when adding the Voice Search lock screen widget")
 
     static let lockScreenEmailTitle = NSLocalizedString(
@@ -137,7 +137,7 @@ struct UserText {
 
     static let lockScreenFireDescription = NSLocalizedString(
         "lock.screen.widget.fire.description",
-        value: "Instantly delete your browsing history and start a new private search in DuckDuckGo.",
+        value: "Instantly delete your browsing history and start a new private search in Kahf Browser.",
         comment: "Description shown to the user when adding the Fire Button lock screen widget")
 
     static let lockScreenPasswordsTitle = NSLocalizedString(
@@ -147,7 +147,7 @@ struct UserText {
 
     static let lockScreenPasswordsDescription = NSLocalizedString(
         "lock.screen.widget.passwords.description",
-        value: "Quickly search your saved DuckDuckGo passwords.",
+        value: "Quickly search your saved Kahf Browser passwords.",
         comment: "Description shown to the user when adding the Search Passwords lock screen widget")
 
 }
