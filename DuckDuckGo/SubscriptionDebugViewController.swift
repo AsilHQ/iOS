@@ -21,23 +21,24 @@ import UIKit
 
 import Subscription
 import Core
-
-#if NETWORK_PROTECTION
 import NetworkProtection
-#endif
 
-@available(iOS 15.0, *) final class SubscriptionDebugViewController: UITableViewController {
+final class SubscriptionDebugViewController: UITableViewController {
 
     let subscriptionAppGroup = Bundle.main.appGroup(bundle: .subs)
     private var subscriptionManager: SubscriptionManager {
         AppDependencyProvider.shared.subscriptionManager
     }
 
+    // swiftlint:disable:next force_cast
+    private let reporter = (UIApplication.shared.delegate as! AppDelegate).privacyProDataReporter as! PrivacyProDataReporter
+
     private let titles = [
         Sections.authorization: "Authentication",
         Sections.api: "Make API Call",
         Sections.appstore: "App Store",
         Sections.environment: "Environment",
+        Sections.pixels: "Promo Pixel Parameters",
     ]
 
     enum Sections: Int, CaseIterable {
@@ -45,6 +46,7 @@ import NetworkProtection
         case api
         case appstore
         case environment
+        case pixels
     }
 
     enum AuthorizationRows: Int, CaseIterable {
@@ -66,6 +68,10 @@ import NetworkProtection
     enum EnvironmentRows: Int, CaseIterable {
         case staging
         case production
+    }
+
+    enum PixelsRows: Int, CaseIterable {
+        case randomize
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -132,7 +138,14 @@ import NetworkProtection
                 break
             }
 
-        case.none:
+        case .pixels:
+            switch PixelsRows(rawValue: indexPath.row) {
+            case .randomize:
+                cell.textLabel?.text = "Show Randomized Parameters"
+            case .none:
+                break
+            }
+        case .none:
             break
         }
 
@@ -145,6 +158,7 @@ import NetworkProtection
         case .api: return SubscriptionRows.allCases.count
         case .appstore: return AppStoreRows.allCases.count
         case .environment: return EnvironmentRows.allCases.count
+        case .pixels: return PixelsRows.allCases.count
         case .none: return 0
 
         }
@@ -174,6 +188,11 @@ import NetworkProtection
         case .environment:
             guard let subEnv: EnvironmentRows = EnvironmentRows(rawValue: indexPath.row) else { return }
             changeSubscriptionEnvironment(envRows: subEnv)
+        case .pixels:
+            switch PixelsRows(rawValue: indexPath.row) {
+            case .randomize: showRandomizedParamters()
+            default: break
+            }
         case .none:
             break
         }
@@ -257,7 +276,31 @@ import NetworkProtection
             "Email: \(subscriptionManager.accountManager.email ?? "")"].joined(separator: "\n") : nil
         showAlert(title: title, message: message)
     }
-            
+
+    private func showRandomizedParamters() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        let reportedParameters = reporter.randomizedParameters(for: .debug).map { "\($0.key)=\($0.value)" }
+        let message = """
+                isReinstall=\(reporter.isReinstall().toString) (variant=\(reporter._variantName ?? "unknown"))
+                fireButtonUsed=\(reporter.isFireButtonUser().toString) (count=\(reporter._fireCount))
+                syncUsed=\(reporter.isSyncUsed().toString) (state=\(reporter._syncAuthState.rawValue))
+                fireproofingUsed=\(reporter.isFireproofingUsed().toString) (count=\(reporter._fireproofedDomainsCount))
+                appOnboardingCompleted=\(reporter.isAppOnboardingCompleted().toString)
+                emailEnabled=\(reporter.isEmailEnabled().toString)
+                widgetAdded=\(reporter.isWidgetAdded().toString)
+                frequentUser=\(reporter.isFrequentUser().toString) (lastSession=\(dateFormatter.string(from: reporter._lastSessionEnded ?? .distantPast)))
+                longTermUser=\(reporter.isLongTermUser().toString) (installDate=\(dateFormatter.string(from: reporter._installDate ?? .distantPast)))
+                autofillUser=\(reporter.isAutofillUser().toString) (count=\(reporter._accountsCount))
+                validOpenTabsCount=\(reporter.isValidOpenTabsCount().toString) (count=\(reporter._tabsCount))
+                searchUser=\(reporter.isSearchUser().toString) (count=\(reporter._searchCount))
+
+                Randomized: \(reportedParameters.joined(separator: ", "))
+                """
+        showAlert(title: "", message: message)
+    }
+
     private func syncAppleIDAccount() {
         Task {
             do {
@@ -345,5 +388,11 @@ import NetworkProtection
             }
             NetworkProtectionLocationListCompositeRepository.clearCache()
         }
+    }
+}
+
+extension Bool {
+    fileprivate var toString: String {
+        String(self)
     }
 }

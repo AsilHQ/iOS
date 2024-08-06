@@ -35,11 +35,8 @@ import DDGSync
 import RemoteMessaging
 import SyncDataProviders
 import Subscription
-
-#if NETWORK_PROTECTION
 import NetworkProtection
 import WebKit
-#endif
 
 @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -47,10 +44,7 @@ import WebKit
     private struct ShortcutKey {
         static let clipboard = "com.duckduckgo.mobile.ios.clipboard"
         static let passwords = "com.duckduckgo.mobile.ios.passwords"
-
-#if NETWORK_PROTECTION
         static let openVPNSettings = "com.duckduckgo.mobile.ios.vpn.open-settings"
-#endif
     }
 
     private var testing = false
@@ -61,7 +55,6 @@ import WebKit
     private lazy var privacyStore = PrivacyUserDefaults()
     private var bookmarksDatabase: CoreDataDatabase = BookmarksDatabase.make()
 
-#if NETWORK_PROTECTION
     private let widgetRefreshModel = NetworkProtectionWidgetRefreshModel()
     private let tunnelDefaults = UserDefaults.networkProtectionGroupDefaults
 
@@ -71,7 +64,6 @@ import WebKit
             tunnelController: AppDependencyProvider.shared.networkProtectionTunnelController
         )
     }()
-#endif
 
     private var autoClear: AutoClear?
     private var showKeyboardIfSettingOn = true
@@ -92,6 +84,8 @@ import WebKit
 
     private var autofillPixelReporter: AutofillPixelReporter?
 
+    var privacyProDataReporter: PrivacyProDataReporting!
+
     // MARK: lifecycle
 
     @UserDefaultsWrapper(key: .privacyConfigCustomURL, defaultValue: nil)
@@ -109,7 +103,7 @@ import WebKit
 
         if !didCrashDuringCrashHandlersSetUp {
             didCrashDuringCrashHandlersSetUp = true
-            CrashLogMessageExtractor.setUp()
+            CrashLogMessageExtractor.setUp(swapCxaThrow: false)
             didCrashDuringCrashHandlersSetUp = false
         }
     }
@@ -177,7 +171,7 @@ import WebKit
             Pixel.isDryRun = true
             _ = DefaultUserAgentManager.shared
             Database.shared.loadStore { _, _ in }
-            _ = BookmarksDatabaseSetup(crashOnError: true).loadStoreAndMigrate(bookmarksDatabase: bookmarksDatabase)
+            _ = BookmarksDatabaseSetup().loadStoreAndMigrate(bookmarksDatabase: bookmarksDatabase)
             window?.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
             return true
         }
@@ -216,9 +210,18 @@ import WebKit
             DatabaseMigration.migrate(to: context)
         }
 
-        if BookmarksDatabaseSetup(crashOnError: !shouldPresentInsufficientDiskSpaceAlertAndCrash)
-                .loadStoreAndMigrate(bookmarksDatabase: bookmarksDatabase) {
-            // MARK: post-Bookmarks migration logic
+        switch BookmarksDatabaseSetup().loadStoreAndMigrate(bookmarksDatabase: bookmarksDatabase) {
+        case .success:
+            break
+        case .failure(let error):
+            Pixel.fire(pixel: .bookmarksCouldNotLoadDatabase,
+                       error: error)
+            if error.isDiskFull {
+                shouldPresentInsufficientDiskSpaceAlertAndCrash = true
+            } else {
+                Thread.sleep(forTimeInterval: 1)
+                fatalError("Could not create database stack: \(error.localizedDescription)")
+            }
         }
 
         WidgetCenter.shared.reloadAllTimelines()
@@ -231,13 +234,14 @@ import WebKit
         
         let variantManager = DefaultVariantManager()
         let historyMessageManager = HistoryMessageManager()
+        let daxDialogs = DaxDialogs.shared
 
         // assign it here, because "did become active" is already too late and "viewWillAppear"
         // has already been called on the HomeViewController so won't show the home row CTA
         AtbAndVariantCleanup.cleanup()
         variantManager.assignVariantIfNeeded { _ in
             // MARK: perform first time launch logic here
-            DaxDialogs.shared.primeForUse()
+            daxDialogs.primeForUse()
 
             // New users don't see the message
             historyMessageManager.dismiss()
@@ -279,6 +283,8 @@ import WebKit
         syncService.initializeIfNeeded()
         self.syncService = syncService
 
+        privacyProDataReporter = PrivacyProDataReporter()
+
         isSyncInProgressCancellable = syncService.isSyncInProgressPublisher
             .filter { $0 }
             .sink { [weak syncService] _ in
@@ -299,44 +305,58 @@ import WebKit
             errorEvents: RemoteMessagingStoreErrorHandling(),
             remoteMessagingAvailabilityProvider: PrivacyConfigurationRemoteMessagingAvailabilityProvider(
                 privacyConfigurationManager: ContentBlocking.shared.privacyConfigurationManager
-            )
+            ),
+            duckPlayerStorage: DefaultDuckPlayerStorage()
         )
         remoteMessagingClient.registerBackgroundRefreshTaskHandler()
 
         homePageConfiguration = HomePageConfiguration(variantManager: AppDependencyProvider.shared.variantManager,
-                                                      remoteMessagingClient: remoteMessagingClient)
+                                                      remoteMessagingClient: remoteMessagingClient,
+                                                      privacyProDataReporter: privacyProDataReporter)
 
         let previewsSource = TabPreviewsSource()
         let historyManager = makeHistoryManager()
         let tabsModel = prepareTabsModel(previewsSource: previewsSource)
 
-        let main = MainViewController(bookmarksDatabase: bookmarksDatabase,
-                                      bookmarksDatabaseCleaner: syncDataProviders.bookmarksAdapter.databaseCleaner,
-                                      historyManager: historyManager,
-                                      homePageConfiguration: homePageConfiguration,
-                                      syncService: syncService,
-                                      syncDataProviders: syncDataProviders,
-                                      appSettings: AppDependencyProvider.shared.appSettings,
-                                      previewsSource: previewsSource,
-                                      tabsModel: tabsModel,
-                                      syncPausedStateManager: syncErrorHandler)
-
-        main.loadViewIfNeeded()
-        syncErrorHandler.alertPresenter = main
-
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = main
-        window?.makeKeyAndVisible()
-
+        privacyProDataReporter.injectTabsModel(tabsModel)
+        
         if shouldPresentInsufficientDiskSpaceAlertAndCrash {
-            presentInsufficientDiskSpaceAlert()
-        }
 
-        autoClear = AutoClear(worker: main)
-        let applicationState = application.applicationState
-        Task {
-            await autoClear?.clearDataIfEnabled(applicationState: .init(with: applicationState))
-            await vpnWorkaround.installRedditSessionWorkaround()
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = BlankSnapshotViewController(appSettings: AppDependencyProvider.shared.appSettings)
+            window?.makeKeyAndVisible()
+
+            presentInsufficientDiskSpaceAlert()
+        } else {
+            let main = MainViewController(bookmarksDatabase: bookmarksDatabase,
+                                          bookmarksDatabaseCleaner: syncDataProviders.bookmarksAdapter.databaseCleaner,
+                                          historyManager: historyManager,
+                                          homePageConfiguration: homePageConfiguration,
+                                          syncService: syncService,
+                                          syncDataProviders: syncDataProviders,
+                                          appSettings: AppDependencyProvider.shared.appSettings,
+                                          previewsSource: previewsSource,
+                                          tabsModel: tabsModel,
+                                          syncPausedStateManager: syncErrorHandler,
+                                          privacyProDataReporter: privacyProDataReporter,
+                                          variantManager: variantManager,
+                                          contextualOnboardingPresenter: ContextualOnboardingPresenter(variantManager: variantManager),
+                                          contextualOnboardingLogic: daxDialogs,
+                                          contextualOnboardingPixelReporter: OnboardingPixelReporter())
+
+            main.loadViewIfNeeded()
+            syncErrorHandler.alertPresenter = main
+
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = main
+            window?.makeKeyAndVisible()
+
+            autoClear = AutoClear(worker: main)
+            let applicationState = application.applicationState
+            Task {
+                await autoClear?.clearDataIfEnabled(applicationState: .init(with: applicationState))
+                await vpnWorkaround.installRedditSessionWorkaround()
+            }
         }
 
         AppDependencyProvider.shared.voiceSearchHelper.migrateSettingsFlagIfNecessary()
@@ -357,9 +377,9 @@ import WebKit
             AppDependencyProvider.shared.appSettings.setAutofillIsNewInstallForOnByDefault()
         }
 
-#if NETWORK_PROTECTION
+        NewTabPageIntroMessageSetup().perform()
+
         widgetRefreshModel.beginObservingVPNStatus()
-#endif
 
         AppDependencyProvider.shared.subscriptionManager.loadInitialData()
 
@@ -428,7 +448,6 @@ import WebKit
         window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 
-#if NETWORK_PROTECTION
     private func presentExpiredEntitlementAlert() {
         let alertController = CriticalAlerts.makeExpiredEntitlementAlert { [weak self] in
             self?.mainViewController?.segueToPrivacyPro()
@@ -446,7 +465,6 @@ import WebKit
         )
         presenter.showEntitlementNotification()
     }
-#endif
 
     private func cleanUpMacPromoExperiment2() {
         UserDefaults.standard.removeObject(forKey: "com.duckduckgo.ios.macPromoMay23.exp2.cohort")
@@ -477,10 +495,6 @@ import WebKit
         guard !testing else { return }
 
         syncService.initializeIfNeeded()
-        if syncService.authState == .active &&
-            (InternalUserStore().isInternalUser == false && syncService.serverEnvironment == .development) {
-            UniquePixel.fire(pixel: .syncWrongEnvironment)
-        }
         syncDataProviders.setUpDatabaseCleanersIfNeeded(syncService: syncService)
 
         if !(overlayWindow?.rootViewController is AuthenticationViewController) {
@@ -517,9 +531,11 @@ import WebKit
         }
 
         syncService.scheduler.notifyAppLifecycleEvent()
+        
+        privacyProDataReporter.injectSyncService(syncService)
+
         fireFailedCompilationsPixelIfNeeded()
 
-#if NETWORK_PROTECTION
         widgetRefreshModel.refreshVPNWidget()
 
         if tunnelDefaults.showEntitlementAlert {
@@ -533,7 +549,6 @@ import WebKit
             await refreshShortcuts()
             await vpnWorkaround.installRedditSessionWorkaround()
         }
-#endif
 
         AppDependencyProvider.shared.subscriptionManager.refreshCachedSubscriptionAndEntitlements { isSubscriptionActive in
             if isSubscriptionActive {
@@ -543,6 +558,10 @@ import WebKit
 
         let importPasswordsStatusHandler = ImportPasswordsStatusHandler(syncService: syncService)
         importPasswordsStatusHandler.checkSyncSuccessStatus()
+
+        Task {
+            await privacyProDataReporter.saveWidgetAdded()
+        }
     }
 
     private func stopAndRemoveVPNIfNotAuthenticated() async {
@@ -629,7 +648,8 @@ import WebKit
         UILabel.appearance(whenContainedInInstancesOf: [UIAlertController.self]).numberOfLines = 0
     }
 
-    private func refreshRemoteMessages() {
+    /// It's public in order to allow refreshing on demand via Debug menu. Otherwise it shouldn't be called from outside.
+    func refreshRemoteMessages() {
         Task {
             try? await remoteMessagingClient.fetchAndProcess(using: remoteMessagingClient.store)
         }
@@ -653,6 +673,7 @@ import WebKit
         AppDependencyProvider.shared.autofillLoginSession.endSession()
         suspendSync()
         syncDataProviders.bookmarksAdapter.cancelFaviconsFetching(application)
+        privacyProDataReporter.saveApplicationLastSessionEnded()
     }
 
     private func suspendSync() {
@@ -685,6 +706,11 @@ import WebKit
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         os_log("App launched with url %s", log: .lifecycleLog, type: .debug, url.absoluteString)
+
+        // If showing the onboarding intro ignore deeplinks
+        guard mainViewController?.needsToShowOnboardingIntro() == false else {
+            return false
+        }
 
         if handleEmailSignUpDeepLink(url) {
             return true
@@ -792,7 +818,7 @@ import WebKit
     }
     
     private func tryToObtainOverlayWindow() {
-        for window in UIApplication.shared.windows where window.rootViewController is BlankSnapshotViewController {
+        for window in UIApplication.shared.foregroundSceneWindows where window.rootViewController is BlankSnapshotViewController {
             overlayWindow = window
             return
         }
@@ -837,11 +863,9 @@ import WebKit
                 return
             }
 
-#if NETWORK_PROTECTION
             if shortcutItem.type == ShortcutKey.openVPNSettings {
                 presentNetworkProtectionStatusSettingsModal()
             }
-#endif
 
         }
     }
@@ -905,7 +929,6 @@ import WebKit
 
     @MainActor
     func refreshShortcuts() async {
-#if NETWORK_PROTECTION
         guard AppDependencyProvider.shared.vpnFeatureVisibility.shouldShowVPNShortcut() else {
             UIApplication.shared.shortcutItems = nil
             return
@@ -924,7 +947,6 @@ import WebKit
         } else {
             UIApplication.shared.shortcutItems = nil
         }
-#endif
     }
 
 }
@@ -982,31 +1004,25 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if response.actionIdentifier == UNNotificationDefaultActionIdentifier {
             let identifier = response.notification.request.identifier
 
-#if NETWORK_PROTECTION
             if NetworkProtectionNotificationIdentifier(rawValue: identifier) != nil {
                 presentNetworkProtectionStatusSettingsModal()
             }
-#endif
         }
 
         completionHandler()
     }
 
-#if NETWORK_PROTECTION
     func presentNetworkProtectionStatusSettingsModal() {
         Task {
             if case .success(let hasEntitlements) = await accountManager.hasEntitlement(forProductName: .networkProtection),
                hasEntitlements {
-                if #available(iOS 15, *) {
-                    let networkProtectionRoot = NetworkProtectionRootViewController()
-                    presentSettings(with: networkProtectionRoot)
-                }
+                let networkProtectionRoot = NetworkProtectionRootViewController()
+                presentSettings(with: networkProtectionRoot)
             } else {
                 (window?.rootViewController as? MainViewController)?.segueToPrivacyPro()
             }
         }
     }
-#endif
 
     private func presentSettings(with viewController: UIViewController) {
         guard let window = window, let rootViewController = window.rootViewController as? MainViewController else { return }
@@ -1059,6 +1075,11 @@ private extension Error {
         if let underlyingError = nsError.userInfo["NSUnderlyingError"] as? NSError, underlyingError.code == 13 {
             return true
         }
+
+        if nsError.userInfo["NSSQLiteErrorDomain"] as? Int == 13 {
+            return true
+        }
+        
         return false
     }
 

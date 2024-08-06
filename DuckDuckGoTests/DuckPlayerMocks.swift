@@ -152,3 +152,14 @@ final class MockDuckPlayer: DuckPlayerProtocol {
         nil
     }
 }
+
+final class MockDuckPlayerFeatureFlagger: FeatureFlagger {
+    func isFeatureOn<F>(forProvider: F) -> Bool where F: BrowserServicesKit.FeatureFlagSourceProviding {
+        return true
+    }
+    
+}
+
+final class MockDuckPlayerStorage: DuckPlayerStorage {
+    var userInteractedWithDuckPlayer: Bool = false
+}

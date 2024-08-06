@@ -33,10 +33,7 @@ import Networking
 import Suggestions
 import Subscription
 import SwiftUI
-
-#if NETWORK_PROTECTION
 import NetworkProtection
-#endif
 
 class MainViewController: UIViewController {
     
@@ -93,6 +90,9 @@ class MainViewController: UIViewController {
     let previewsSource: TabPreviewsSource
     let appSettings: AppSettings
     private var launchTabObserver: LaunchTabNotification.Observer?
+    var isNewTabPageVisible: Bool {
+        newTabPageViewController != nil
+    }
 
     var autoClearInProgress = false
     var autoClearShouldRefreshUIAfterClear = true
@@ -103,6 +103,11 @@ class MainViewController: UIViewController {
     let syncService: DDGSyncing
     let syncDataProviders: SyncDataProviders
     let syncPausedStateManager: any SyncPausedStateManaging
+    private let variantManager: VariantManager
+    private let tutorialSettings: TutorialSettings
+    private let contextualOnboardingLogic: ContextualOnboardingLogic
+    private let contextualOnboardingPixelReporter: OnboardingCustomInteractionPixelReporting
+    private let statisticsStore: StatisticsStore
 
     @UserDefaultsWrapper(key: .syncDidShowSyncPausedByFeatureFlagAlert, defaultValue: false)
     private var syncDidShowSyncPausedByFeatureFlagAlert: Bool
@@ -114,11 +119,10 @@ class MainViewController: UIViewController {
     private var emailCancellables = Set<AnyCancellable>()
     private var urlInterceptorCancellables = Set<AnyCancellable>()
     private var settingsDeepLinkcancellables = Set<AnyCancellable>()
-    
-#if NETWORK_PROTECTION
     private let tunnelDefaults = UserDefaults.networkProtectionGroupDefaults
     private var vpnCancellables = Set<AnyCancellable>()
-#endif
+
+    let privacyProDataReporter: PrivacyProDataReporting
 
     private lazy var featureFlagger = AppDependencyProvider.shared.featureFlagger
     
@@ -149,7 +153,7 @@ class MainViewController: UIViewController {
     }
     
     var searchBarRect: CGRect {
-        let view = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.rootViewController?.view
+        let view = UIApplication.shared.firstKeyWindow?.rootViewController?.view
         return viewCoordinator.omniBar.searchContainer.convert(viewCoordinator.omniBar.searchContainer.bounds, to: view)
     }
     
@@ -180,7 +184,14 @@ class MainViewController: UIViewController {
         appSettings: AppSettings,
         previewsSource: TabPreviewsSource,
         tabsModel: TabsModel,
-        syncPausedStateManager: any SyncPausedStateManaging
+        syncPausedStateManager: any SyncPausedStateManaging,
+        privacyProDataReporter: PrivacyProDataReporting,
+        variantManager: VariantManager,
+        contextualOnboardingPresenter: ContextualOnboardingPresenting,
+        contextualOnboardingLogic: ContextualOnboardingLogic,
+        contextualOnboardingPixelReporter: OnboardingCustomInteractionPixelReporting,
+        tutorialSettings: TutorialSettings = DefaultTutorialSettings(),
+        statisticsStore: StatisticsStore = StatisticsUserDefaults()
     ) {
         self.bookmarksDatabase = bookmarksDatabase
         self.bookmarksDatabaseCleaner = bookmarksDatabaseCleaner
@@ -198,9 +209,18 @@ class MainViewController: UIViewController {
                                      previewsSource: previewsSource,
                                      bookmarksDatabase: bookmarksDatabase,
                                      historyManager: historyManager,
-                                     syncService: syncService)
+                                     syncService: syncService,
+                                     privacyProDataReporter: privacyProDataReporter,
+                                     contextualOnboardingPresenter: contextualOnboardingPresenter,
+                                     contextualOnboardingLogic: contextualOnboardingLogic)
         self.syncPausedStateManager = syncPausedStateManager
+        self.privacyProDataReporter = privacyProDataReporter
         self.homeTabManager = NewTabPageManager()
+        self.variantManager = variantManager
+        self.tutorialSettings = tutorialSettings
+        self.contextualOnboardingLogic = contextualOnboardingLogic
+        self.contextualOnboardingPixelReporter = contextualOnboardingPixelReporter
+        self.statisticsStore = statisticsStore
 
         super.init(nibName: nil, bundle: nil)
         
@@ -263,10 +283,7 @@ class MainViewController: UIViewController {
         subscribeToEmailProtectionStatusNotifications()
         subscribeToURLInterceptorNotifications()
         subscribeToSettingsDeeplinkNotifications()
-        
-#if NETWORK_PROTECTION
         subscribeToNetworkProtectionEvents()
-#endif
 
         findInPageView.delegate = self
         findInPageBottomLayoutConstraint.constant = 0
@@ -399,11 +416,18 @@ class MainViewController: UIViewController {
     }
 
     func startAddFavoriteFlow() {
-        DaxDialogs.shared.enableAddFavoriteFlow()
-        if DefaultTutorialSettings().hasSeenOnboarding {
+        // Disable add favourite flow when new onboarding experiment is running and open a new tab.
+        guard contextualOnboardingLogic.canEnableAddFavoriteFlow() else {
+            newTab()
+            return
+        }
+
+        contextualOnboardingLogic.enableAddFavoriteFlow()
+        if tutorialSettings.hasSeenOnboarding {
             newTab()
         }
     }
+
     
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self,
@@ -515,6 +539,16 @@ class MainViewController: UIViewController {
             }
         }
 
+        adjustNewTabPageSafeAreaInsets(for: position)
+    }
+
+    private func adjustNewTabPageSafeAreaInsets(for addressBarPosition: AddressBarPosition) {
+        switch addressBarPosition {
+        case .top:
+            newTabPageViewController?.additionalSafeAreaInsets = .zero
+        case .bottom:
+            newTabPageViewController?.additionalSafeAreaInsets = .init(top: 0, left: 0, bottom: 52, right: 0)
+        }
     }
 
     @objc func onShowFullSiteAddressChanged() {
@@ -642,7 +676,7 @@ class MainViewController: UIViewController {
         if let presentedViewController {
             return presentedViewController.supportedInterfaceOrientations
         }
-        return DefaultTutorialSettings().hasSeenOnboarding ? [.allButUpsideDown] : [.portrait]
+        return tutorialSettings.hasSeenOnboarding ? [.allButUpsideDown] : [.portrait]
     }
 
     override var shouldAutorotate: Bool {
@@ -715,10 +749,12 @@ class MainViewController: UIViewController {
         }
 
         if homeTabManager.isNewTabPageSectionsEnabled {
-            let controller = NewTabPageViewController(interactionModel: favoritesViewModel,
+            let controller = NewTabPageViewController(tab: tabModel,
+                                                      interactionModel: favoritesViewModel,
                                                       syncService: syncService,
                                                       syncBookmarksAdapter: syncDataProviders.bookmarksAdapter,
-                                                      homePageMessagesConfiguration: homePageConfiguration)
+                                                      homePageMessagesConfiguration: homePageConfiguration,
+                                                      privacyProDataReporting: privacyProDataReporter)
 
             controller.delegate = self
             controller.shortcutsDelegate = self
@@ -726,20 +762,9 @@ class MainViewController: UIViewController {
             newTabPageViewController = controller
             addToContentContainer(controller: controller)
             viewCoordinator.logoContainer.isHidden = true
-        } else {
-            let controller = HomeViewController.loadFromStoryboard(homePageConfiguration: homePageConfiguration,
-                                                                   model: tabModel,
-                                                                   favoritesViewModel: favoritesViewModel,
-                                                                   appSettings: appSettings,
-                                                                   syncService: syncService,
-                                                                   syncDataProviders: syncDataProviders)
-
-            controller.delegate = self
-            controller.chromeDelegate = self
-            homeViewController = controller
-            addToContentContainer(controller: controller)
+            adjustNewTabPageSafeAreaInsets(for: appSettings.currentAddressBarPosition)
         }
-
+        
         refreshControls()
         syncService.scheduler.requestSyncImmediately()
     }
@@ -752,14 +777,26 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func onFirePressed() {
+
+        func showClearDataAlert() {
+            let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
+                self?.forgetAllWithAnimation {}
+            })
+            self.present(controller: alert, fromView: self.viewCoordinator.toolbar)
+        }
+
         Pixel.fire(pixel: .forgetAllPressedBrowsing)
         wakeLazyFireButtonAnimator()
-        
-        let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
-            self?.forgetAllWithAnimation {}
-        })
-        self.present(controller: alert, fromView: self.viewCoordinator.toolbar)
 
+        if DefaultVariantManager().isSupported(feature: .newOnboardingIntro) {
+            // Dismiss dax dialog and pulse animation when the user taps on the Fire Button.
+            currentTab?.dismissContextualDaxFireDialog()
+            ViewHighlighter.hideAll()
+            showClearDataAlert()
+        } else {
+            showClearDataAlert()
+        }
+        
         performCancel()
     }
     
@@ -794,7 +831,9 @@ class MainViewController: UIViewController {
     
     func didReturnFromBackground() {
         skipSERPFlow = true
-        if DaxDialogs.shared.shouldShowFireButtonPulse {
+        
+        // Show Fire Pulse only if Privacy button pulse should not be shown. In control group onboarding `shouldShowPrivacyButtonPulse` is always false.
+        if DaxDialogs.shared.shouldShowFireButtonPulse && !DaxDialogs.shared.shouldShowPrivacyButtonPulse {
             showFireButtonPulse()
         }
     }
@@ -1070,7 +1109,7 @@ class MainViewController: UIViewController {
 
     func refreshMenuButtonState() {
         let expectedState: MenuButton.State
-        if homeController != nil {
+        if homeViewController != nil {
             expectedState = .bookmarksImage
             viewCoordinator.lastToolbarButton.accessibilityLabel = UserText.bookmarksButtonHint
             viewCoordinator.omniBar.menuButton.accessibilityLabel = UserText.bookmarksButtonHint
@@ -1143,11 +1182,12 @@ class MainViewController: UIViewController {
         suggestionTrayController?.didHide()
     }
     
-    func launchAutofillLogins(with currentTabUrl: URL? = nil, openSearch: Bool = false, source: AutofillSettingsSource) {
+    func launchAutofillLogins(with currentTabUrl: URL? = nil, currentTabUid: String? = nil, openSearch: Bool = false, source: AutofillSettingsSource) {
         let appSettings = AppDependencyProvider.shared.appSettings
         let autofillSettingsViewController = AutofillLoginSettingsListViewController(
             appSettings: appSettings,
             currentTabUrl: currentTabUrl,
+            currentTabUid: currentTabUid,
             syncService: syncService,
             syncDataProviders: syncDataProviders,
             selectedAccount: nil,
@@ -1229,6 +1269,14 @@ class MainViewController: UIViewController {
                 self.hideNotification()
             }
             feature.setShown()
+        }
+    }
+
+    func fireOnboardingCustomSearchPixelIfNeeded(query: String) {
+        if contextualOnboardingLogic.isShowingSearchSuggestions {
+            contextualOnboardingPixelReporter.trackCustomSearch()
+        } else if contextualOnboardingLogic.isShowingSitesSuggestions {
+            contextualOnboardingPixelReporter.trackCustomSite()
         }
     }
 
@@ -1346,7 +1394,6 @@ class MainViewController: UIViewController {
             .store(in: &settingsDeepLinkcancellables)
     }
 
-#if NETWORK_PROTECTION
     private func subscribeToNetworkProtectionEvents() {
         NotificationCenter.default.publisher(for: .accountDidSignIn)
             .receive(on: DispatchQueue.main)
@@ -1447,7 +1494,6 @@ class MainViewController: UIViewController {
             await networkProtectionTunnelController.removeVPN(reason: .signedOut)
         }
     }
-#endif
 
     @objc
     private func onDuckDuckGoEmailSignIn(_ notification: Notification) {
@@ -1655,10 +1701,18 @@ extension MainViewController: OmniBarDelegate {
         loadQuery(query)
         hideSuggestionTray()
         showHomeRowReminder()
+        fireOnboardingCustomSearchPixelIfNeeded(query: query)
     }
 
-    func onPrivacyIconPressed() {
+    func onPrivacyIconPressed(isHighlighted: Bool) {
         guard !isSERPPresented else { return }
+
+        // Track first tap of privacy icon button
+        if isHighlighted {
+            contextualOnboardingPixelReporter.trackPrivacyDashboardOpenedForFirstTime()
+        }
+        // Dismiss privacy icon animation when showing privacy dashboard
+        dismissPrivacyDashboardButtonPulse()
 
         if !DaxDialogs.shared.shouldShowFireButtonPulse {
             ViewHighlighter.hideAll()
@@ -1669,6 +1723,12 @@ extension MainViewController: OmniBarDelegate {
 
     func onMenuPressed() {
         omniBar.cancel()
+
+        // Dismiss privacy icon animation when showing menu
+        if !DaxDialogs.shared.shouldShowPrivacyButtonPulse {
+            dismissPrivacyDashboardButtonPulse()
+        }
+
         if !DaxDialogs.shared.shouldShowFireButtonPulse {
             ViewHighlighter.hideAll()
         }
@@ -1681,11 +1741,22 @@ extension MainViewController: OmniBarDelegate {
 
     @MainActor
     private func launchBrowsingMenu() async {
-        guard let tab = currentTab else { return }
+        guard let tab = currentTab ?? tabManager.current(createIfNeeded: true) else {
+            return
+        }
 
-        let entries = tab.buildBrowsingMenu(with: menuBookmarksViewModel)
-        let controller = BrowsingMenuViewController.instantiate(headerEntries: tab.buildBrowsingMenuHeaderContent(),
-                                                                menuEntries: entries)
+        let menuEntries: [BrowsingMenuEntry]
+        let headerEntries: [BrowsingMenuEntry]
+        if isNewTabPageVisible {
+            menuEntries = tab.buildShortcutsMenu()
+            headerEntries = []
+        } else {
+            menuEntries = tab.buildBrowsingMenu(with: menuBookmarksViewModel)
+            headerEntries = tab.buildBrowsingMenuHeaderContent()
+        }
+
+        let controller = BrowsingMenuViewController.instantiate(headerEntries: headerEntries,
+                                                                menuEntries: menuEntries)
 
         controller.modalPresentationStyle = .custom
         self.present(controller, animated: true) {
@@ -2159,7 +2230,7 @@ extension MainViewController: TabDelegate {
     }
     
     func tabDidRequestAutofillLogins(tab: TabViewController) {
-        launchAutofillLogins(with: currentTab?.url, source: .overflow)
+        launchAutofillLogins(with: currentTab?.url, currentTabUid: tab.tabModel.uid, source: .overflow)
     }
     
     func tabDidRequestSettings(tab: TabViewController) {
@@ -2204,6 +2275,14 @@ extension MainViewController: TabDelegate {
         showFireButtonPulse()
     }
     
+    func tabDidRequestPrivacyDashboardButtonPulse(tab: TabViewController, animated: Bool) {
+        if animated {
+            showPrivacyDashboardButtonPulse()
+        } else {
+            dismissPrivacyDashboardButtonPulse()
+        }
+    }
+
     func tabDidRequestSearchBarRect(tab: TabViewController) -> CGRect {
         searchBarRect
     }
@@ -2256,6 +2335,14 @@ extension MainViewController: TabDelegate {
 
     func tabCheckIfItsBeingCurrentlyPresented(_ tab: TabViewController) -> Bool {
         return currentTab === tab
+    }
+
+    func tab(_ tab: TabViewController, didRequestLoadURL url: URL) {
+        loadUrl(url, fromExternalLink: true)
+    }
+
+    func tab(_ tab: TabViewController, didRequestLoadQuery query: String) {
+        loadQuery(query)
     }
 
 }
@@ -2481,6 +2568,8 @@ extension MainViewController: AutoClearWorker {
             transitionCompletion?()
             self.refreshUIAfterClear()
         } completion: {
+            self.privacyProDataReporter.saveFireCount()
+
             // Ideally this should happen once data clearing has finished AND the animation is finished
             if KeyboardSettings().onNewTab {
                 let showKeyboardAfterFireButton = DispatchWorkItem {
@@ -2488,6 +2577,10 @@ extension MainViewController: AutoClearWorker {
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: showKeyboardAfterFireButton)
                 self.showKeyboardAfterFireButton = showKeyboardAfterFireButton
+            }
+
+            if self.variantManager.isSupported(feature: .newOnboardingIntro) {
+                DaxDialogs.shared.setFireEducationMessageSeen()
             }
         }
     }
@@ -2509,7 +2602,16 @@ extension MainViewController: AutoClearWorker {
             ViewHighlighter.showIn(window, focussedOnView: view)
         }
     }
-    
+
+    private func showPrivacyDashboardButtonPulse() {
+        viewCoordinator.omniBar.showOrScheduleOnboardingPrivacyIconAnimation()
+    }
+
+    private func dismissPrivacyDashboardButtonPulse() {
+        DaxDialogs.shared.setPrivacyButtonPulseSeen()
+        viewCoordinator.omniBar.dismissOnboardingPrivacyIconAnimation()
+    }
+
 }
 
 extension MainViewController {
@@ -2565,10 +2667,23 @@ extension MainViewController: OnboardingDelegate {
     }
     
     func markOnboardingSeen() {
-        var settings = DefaultTutorialSettings()
-        settings.hasSeenOnboarding = true
+        tutorialSettings.hasSeenOnboarding = true
+    }
+
+    func needsToShowOnboardingIntro() -> Bool {
+        !tutorialSettings.hasSeenOnboarding
+    }
+
+}
+
+extension MainViewController: OnboardingNavigationDelegate {
+    func navigateTo(url: URL) {
+        self.loadUrl(url, fromExternalLink: true)
     }
     
+    func searchFor(_ query: String) {
+        self.loadQuery(query)
+    }
 }
 
 extension MainViewController: UIDropInteractionDelegate {
@@ -2639,17 +2754,10 @@ extension MainViewController {
     private func historyMenuButton(with menuHistoryItemList: [BackForwardMenuHistoryItem]) -> [UIAction] {
         let menuItems: [UIAction] = menuHistoryItemList.compactMap { historyItem in
             
-            if #available(iOS 15.0, *) {
-                return UIAction(title: historyItem.title,
-                                subtitle: historyItem.sanitizedURLForDisplay,
-                                discoverabilityTitle: historyItem.sanitizedURLForDisplay) { [weak self] _ in
-                    self?.loadBackForwardItem(historyItem.backForwardItem)
-                }
-            } else {
-                return  UIAction(title: historyItem.title,
-                                 discoverabilityTitle: historyItem.sanitizedURLForDisplay) { [weak self] _ in
-                    self?.loadBackForwardItem(historyItem.backForwardItem)
-                }
+            return UIAction(title: historyItem.title,
+                            subtitle: historyItem.sanitizedURLForDisplay,
+                            discoverabilityTitle: historyItem.sanitizedURLForDisplay) { [weak self] _ in
+                self?.loadBackForwardItem(historyItem.backForwardItem)
             }
         }
         

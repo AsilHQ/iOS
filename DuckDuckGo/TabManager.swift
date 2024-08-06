@@ -35,7 +35,10 @@ class TabManager {
     private let historyManager: HistoryManaging
     private let syncService: DDGSyncing
     private var previewsSource: TabPreviewsSource
-    private var duckPlayerNavigationHandler: DuckNavigationHandling
+    private var duckPlayer: DuckPlayerProtocol
+    private var privacyProDataReporter: PrivacyProDataReporting
+    private let contextualOnboardingPresenter: ContextualOnboardingPresenting
+    private let contextualOnboardingLogic: ContextualOnboardingLogic
 
     weak var delegate: TabDelegate?
 
@@ -47,16 +50,20 @@ class TabManager {
          previewsSource: TabPreviewsSource,
          bookmarksDatabase: CoreDataDatabase,
          historyManager: HistoryManaging,
-         syncService: DDGSyncing) {
+         syncService: DDGSyncing,
+         duckPlayer: DuckPlayer = DuckPlayer(),
+         privacyProDataReporter: PrivacyProDataReporting,
+         contextualOnboardingPresenter: ContextualOnboardingPresenting,
+         contextualOnboardingLogic: ContextualOnboardingLogic) {
         self.model = model
         self.previewsSource = previewsSource
         self.bookmarksDatabase = bookmarksDatabase
         self.historyManager = historyManager
         self.syncService = syncService
-        
-        // Init Duck Player Handler
-        self.duckPlayerNavigationHandler = DuckPlayerNavigationHandler(duckPlayer: DuckPlayer())
-
+        self.duckPlayer = duckPlayer
+        self.privacyProDataReporter = privacyProDataReporter
+        self.contextualOnboardingPresenter = contextualOnboardingPresenter
+        self.contextualOnboardingLogic = contextualOnboardingLogic
         registerForNotifications()
     }
 
@@ -73,7 +80,10 @@ class TabManager {
                                                               bookmarksDatabase: bookmarksDatabase,
                                                               historyManager: historyManager,
                                                               syncService: syncService,
-                                                              duckPlayerNavigationHandler: duckPlayerNavigationHandler)
+                                                              duckPlayer: duckPlayer,
+                                                              privacyProDataReporter: privacyProDataReporter,
+                                                              contextualOnboardingPresenter: contextualOnboardingPresenter,
+                                                              contextualOnboardingLogic: contextualOnboardingLogic)
         controller.applyInheritedAttribution(inheritedAttribution)
         controller.attachWebView(configuration: configuration,
                                  andLoadRequest: url == nil ? nil : URLRequest.userInitiated(url!),
@@ -146,7 +156,10 @@ class TabManager {
                                                               bookmarksDatabase: bookmarksDatabase,
                                                               historyManager: historyManager,
                                                               syncService: syncService,
-                                                              duckPlayerNavigationHandler: duckPlayerNavigationHandler)
+                                                              duckPlayer: duckPlayer,
+                                                              privacyProDataReporter: privacyProDataReporter,
+                                                              contextualOnboardingPresenter: contextualOnboardingPresenter,
+                                                              contextualOnboardingLogic: contextualOnboardingLogic)
         controller.attachWebView(configuration: configCopy,
                                  andLoadRequest: request,
                                  consumeCookies: !model.hasActiveTabs,
