@@ -409,6 +409,18 @@ public class AppUserDefaults: AppSettings {
                                             object: duckPlayerMode)
         }
     }
+
+    @UserDefaultsWrapper(key: .newTabPageShortcutsSettings, defaultValue: nil)
+    var newTabPageShortcutsSettings: Data?
+
+    @UserDefaultsWrapper(key: .newTabPageSectionsSettings, defaultValue: nil)
+    var newTabPageSectionsSettings: Data?
+
+    @UserDefaultsWrapper(key: .newTabPageIntroMessageEnabled, defaultValue: nil)
+    var newTabPageIntroMessageEnabled: Bool?
+
+    @UserDefaultsWrapper(key: .newTabPageIntroMessageSeenCount, defaultValue: 0)
+    var newTabPageIntroMessageSeenCount: Int
 }
 
 extension AppUserDefaults: AppConfigurationFetchStatistics {

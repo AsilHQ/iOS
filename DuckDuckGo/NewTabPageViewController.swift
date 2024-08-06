@@ -29,27 +29,48 @@ final class NewTabPageViewController: UIHostingController<NewTabPageView<Favorit
 
     private(set) lazy var faviconsFetcherOnboarding = FaviconsFetcherOnboarding(syncService: syncService, syncBookmarksAdapter: syncBookmarksAdapter)
 
+    private let newTabPageModel: NewTabPageModel
+    private let messagesModel: NewTabPageMessagesModel
     private let favoritesModel: FavoritesDefaultModel
     private let shortcutsModel: ShortcutsModel
+    private let shortcutsSettingsModel: NewTabPageShortcutsSettingsModel
+    private let sectionsSettingsModel: NewTabPageSectionsSettingsModel
+    private let tab: Tab
 
-    init(interactionModel: FavoritesListInteracting,
+    init(tab: Tab,
+         interactionModel: FavoritesListInteracting,
          syncService: DDGSyncing,
          syncBookmarksAdapter: SyncBookmarksAdapter,
-         homePageMessagesConfiguration: HomePageMessagesConfiguration) {
+         homePageMessagesConfiguration: HomePageMessagesConfiguration,
+         privacyProDataReporting: PrivacyProDataReporting? = nil) {
 
+        self.tab = tab
         self.syncService = syncService
         self.syncBookmarksAdapter = syncBookmarksAdapter
 
-        self.favoritesModel = FavoritesDefaultModel(interactionModel: interactionModel)
-        self.shortcutsModel = ShortcutsModel(shortcutsPreferencesStorage: InMemoryShortcutsPreferencesStorage())
-        let newTabPageView = NewTabPageView(messagesModel: NewTabPageMessagesModel(homePageMessagesConfiguration: homePageMessagesConfiguration),
+        newTabPageModel = NewTabPageModel()
+        shortcutsSettingsModel = NewTabPageShortcutsSettingsModel()
+        sectionsSettingsModel = NewTabPageSectionsSettingsModel()
+        favoritesModel = FavoritesDefaultModel(interactionModel: interactionModel)
+        shortcutsModel = ShortcutsModel()
+        messagesModel = NewTabPageMessagesModel(homePageMessagesConfiguration: homePageMessagesConfiguration, privacyProDataReporter: privacyProDataReporting)
+        let newTabPageView = NewTabPageView(newTabPageModel: newTabPageModel,
+                                            messagesModel: messagesModel,
                                             favoritesModel: favoritesModel,
-                                            shortcutsModel: shortcutsModel)
+                                            shortcutsModel: shortcutsModel,
+                                            shortcutsSettingsModel: shortcutsSettingsModel,
+                                            sectionsSettingsModel: sectionsSettingsModel)
 
         super.init(rootView: newTabPageView)
 
         assignFavoriteModelActions()
         assignShorcutsModelActions()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        tab.viewed = true
     }
 
     // MARK: - Private

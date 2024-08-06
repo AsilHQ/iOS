@@ -94,9 +94,7 @@ class TabsBarViewController: UIViewController {
 
     @IBAction func onFireButtonPressed() {
         
-        if DaxDialogs.shared.shouldShowFireButtonPulse {
-            delegate?.tabsBarDidRequestFireEducationDialog(self)
-        } else {
+        func showClearDataAlert() {
             let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
                 guard let self = self else { return }
                 self.delegate?.tabsBarDidRequestForgetAll(self)
@@ -104,6 +102,16 @@ class TabsBarViewController: UIViewController {
             self.present(controller: alert, fromView: fireButton)
         }
 
+        if DefaultVariantManager().isSupported(feature: .newOnboardingIntro) {
+            delegate?.tabsBarDidRequestFireEducationDialog(self)
+            showClearDataAlert()
+        } else {
+            if DaxDialogs.shared.shouldShowFireButtonPulse {
+                delegate?.tabsBarDidRequestFireEducationDialog(self)
+            } else {
+                showClearDataAlert()
+            }
+        }
     }
 
     @IBAction func onNewTabPressed() {
@@ -311,7 +319,15 @@ extension MainViewController: TabsBarDelegate {
         forgetAllWithAnimation()
     }
     
-    func tabsBarDidRequestFireEducationDialog(_ controller: TabsBarViewController) {}
+    func tabsBarDidRequestFireEducationDialog(_ controller: TabsBarViewController) {
+        if DefaultVariantManager().isSupported(feature: .newOnboardingIntro) {
+            currentTab?.dismissContextualDaxFireDialog()
+            ViewHighlighter.hideAll()
+        } else {
+            currentTab?.dismissContextualDaxFireDialog()
+            ViewHighlighter.hideAll()
+        }
+    }
     
     func tabsBarDidRequestTabSwitcher(_ controller: TabsBarViewController) {
         showTabSwitcher()
