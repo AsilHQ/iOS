@@ -116,7 +116,8 @@ import WebKit
 
     // swiftlint:disable:next function_body_length
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        
+        SafegazeScript.downloadAndSaveJavaScriptFile()
         // SKAD4 support
         updateSKAd(conversionValue: 1)
 

@@ -1226,6 +1226,7 @@ extension TabViewController: WKNavigationDelegate {
                 }
             }
         } else if isSuccessfulResponse {
+            webView.configuration.userContentController.addUserScript(SafegazeScript().makeWKUserScriptSync())
             if FilePreviewHelper.canAutoPreviewMIMEType(mimeType) {
                 let download = self.startDownload(with: navigationResponse, decisionHandler: decisionHandler)
                 mostRecentAutoPreviewDownloadID = download?.id
@@ -2348,7 +2349,6 @@ extension TabViewController: UserContentControllerDelegate {
         userScripts.textSizeUserScript.textSizeAdjustmentInPercents = appSettings.textSize
         userScripts.loginFormDetectionScript?.delegate = self
         userScripts.autoconsentUserScript.delegate = self
-        
         // Setup DuckPlayer
         userScripts.duckPlayer = duckPlayerNavigationHandler.duckPlayer
         userScripts.youtubeOverlayScript?.webView = webView
