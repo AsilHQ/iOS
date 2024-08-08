@@ -141,7 +141,7 @@ extension TabViewController: FullscreenDaxDialogDelegate {
             DaxDialogs.shared.dismiss()
         }
         alertController.addAction(title: UserText.daxDialogHideCancel, style: .cancel) {
-            self.showDaxDialogOrStartTrackerNetworksAnimationIfNeeded()
+            // self.showDaxDialogOrStartTrackerNetworksAnimationIfNeeded()
         }
         present(alertController, animated: true)
         isShowingFullScreenDaxDialog = false
@@ -156,7 +156,7 @@ extension TabViewController: FullscreenDaxDialogDelegate {
             chromeDelegate?.omniBar.completeAnimationForDaxDialog()
         }
         
-        showDaxDialogOrStartTrackerNetworksAnimationIfNeeded()
+        // showDaxDialogOrStartTrackerNetworksAnimationIfNeeded()
     }
     
     func daxDialogDidRquestAddressBarRect(controller: FullscreenDaxDialogViewController) -> CGRect? {
