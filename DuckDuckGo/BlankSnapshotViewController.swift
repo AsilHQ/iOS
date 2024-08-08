@@ -86,8 +86,8 @@ class BlankSnapshotViewController: UIViewController {
     }
 
     private func configureToolbarButtons() {
-        viewCoordinator.toolbarFireButton.action = #selector(buttonPressed(sender:))
-        viewCoordinator.toolbarFireButton.action = #selector(buttonPressed(sender:))
+        viewCoordinator.toolbarAddTabButton.action = #selector(buttonPressed(sender:))
+        viewCoordinator.toolbarAddTabButton.action = #selector(buttonPressed(sender:))
         viewCoordinator.lastToolbarButton.action = #selector(buttonPressed(sender:))
     }
 

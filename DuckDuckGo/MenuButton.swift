@@ -54,17 +54,13 @@ class MenuButton: UIView {
     
     private let bookmarksIconView = UIImageView()
 
-    let anim = LottieAnimationView(name: "menu_light")
+    let anim = UIImageView(image: UIImage(named: "Menu-Vertical-24"))
     let pointerView: UIView = UIView(frame: CGRect(x: 0,
                                                    y: 0,
                                                    width: Constants.pointerViewWidth,
                                                    height: Constants.pointerViewHeight))
     
-    var hasUnread: Bool = false {
-        didSet {
-            anim.currentProgress = hasUnread ? 1.0 : 0.0
-        }
-    }
+    var hasUnread: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -146,22 +142,9 @@ class MenuButton: UIView {
         case .closeImage:
             bookmarksIconView.isHidden = true
             anim.isHidden = false
-            if animated {
-                anim.play()
-            } else {
-                anim.currentProgress = 1.0
-            }
         case .menuImage:
             bookmarksIconView.isHidden = true
             anim.isHidden = false
-            if animated {
-                // Work around a bug that caused glitches when rapidly toggling button
-                anim.stop()
-                anim.currentProgress = 1.0
-                anim.play(fromProgress: 1.0, toProgress: 0, loopMode: nil, completion: nil)
-            } else {
-                anim.currentProgress = 0.0
-            }
         case .bookmarksImage:
             bookmarksIconView.isHidden = false
             anim.isHidden = true
@@ -194,18 +177,7 @@ extension MenuButton {
         updateAnimationForCurrentAppearance()
     }
 
-    private func updateAnimationForCurrentAppearance() {
-        switch traitCollection.userInterfaceStyle {
-        case .dark:
-            anim.animation = LottieAnimation.named("menu_dark")
-        default:
-            anim.animation = LottieAnimation.named("menu_light")
-        }
-
-        if currentState == State.closeImage {
-            anim.currentProgress = 1.0
-        }
-    }
+    private func updateAnimationForCurrentAppearance() {}
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)

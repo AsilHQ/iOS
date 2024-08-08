@@ -261,7 +261,7 @@ class MainViewController: UIViewController {
 
         viewCoordinator.toolbarBackButton.action = #selector(onBackPressed)
         viewCoordinator.toolbarForwardButton.action = #selector(onForwardPressed)
-        viewCoordinator.toolbarFireButton.action = #selector(onFirePressed)
+        viewCoordinator.toolbarAddTabButton.action = #selector(onAddNewTabPressed)
 
         installSwipeTabs()
             
@@ -824,6 +824,10 @@ class MainViewController: UIViewController {
         }
         
         performCancel()
+    }
+    
+    @objc func onAddNewTabPressed() {
+        newTab()
     }
     
     func onQuickFirePressed() {
@@ -2627,7 +2631,7 @@ extension MainViewController: AutoClearWorker {
         if viewCoordinator.toolbar.isHidden {
             fireButtonView = tabsBarController?.fireButton
         } else {
-            fireButtonView = viewCoordinator.toolbarFireButton.value(forKey: "view") as? UIView
+            fireButtonView = viewCoordinator.toolbarAddTabButton.value(forKey: "view") as? UIView
         }
         guard let view = fireButtonView else { return }
         

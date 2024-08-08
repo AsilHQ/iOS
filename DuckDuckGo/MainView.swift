@@ -142,7 +142,7 @@ extension MainViewFactory {
 
         coordinator.toolbarBackButton = UIBarButtonItem(title: UserText.keyCommandBrowserBack, image: UIImage(named: "BrowsePrevious"))
         coordinator.toolbarForwardButton = UIBarButtonItem(title: UserText.keyCommandBrowserForward, image: UIImage(named: "BrowseNext"))
-        coordinator.toolbarFireButton = UIBarButtonItem(title: UserText.actionForgetAll, image: UIImage(named: "Fire"))
+        coordinator.toolbarAddTabButton = UIBarButtonItem(title: UserText.actionForgetAll, image: UIImage(named: "AddTab"))
         coordinator.toolbarTabSwitcherButton = UIBarButtonItem(title: UserText.tabSwitcherAccessibilityLabel, image: UIImage(named: "Add-24"))
         coordinator.lastToolbarButton = UIBarButtonItem(title: UserText.actionOpenBookmarks, image: UIImage(named: "Book-24"))
         superview.addSubview(coordinator.toolbar)
@@ -152,7 +152,7 @@ extension MainViewFactory {
             .flexibleSpace(),
             coordinator.toolbarForwardButton!,
             .flexibleSpace(),
-            coordinator.toolbarFireButton!,
+            coordinator.toolbarAddTabButton!,
             .flexibleSpace(),
             coordinator.toolbarTabSwitcherButton!,
             .flexibleSpace(),

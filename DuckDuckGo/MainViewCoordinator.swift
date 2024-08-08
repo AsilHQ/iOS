@@ -39,7 +39,7 @@ class MainViewCoordinator {
     var tabBarContainer: UIView!
     var toolbar: UIToolbar!
     var toolbarBackButton: UIBarButtonItem!
-    var toolbarFireButton: UIBarButtonItem!
+    var toolbarAddTabButton: UIBarButtonItem!
     var toolbarForwardButton: UIBarButtonItem!
     var toolbarTabSwitcherButton: UIBarButtonItem!
 
