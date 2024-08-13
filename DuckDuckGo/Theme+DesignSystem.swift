@@ -71,6 +71,9 @@ extension Theme {
 
     var progressBarGradientDarkColor: UIColor { UIColor(designSystemColor: .accent) }
     var progressBarGradientLightColor: UIColor { UIColor(designSystemColor: .accent) }
+    
+    var progressBarGradientColor1: UIColor { UIColor(lightColor: .progressColor1, darkColor: .progressColor1) }
+    var progressBarGradientColor2: UIColor { UIColor(lightColor: .progressColor2, darkColor: .progressColor2) }
 
     var daxDialogBackgroundColor: UIColor { UIColor(designSystemColor: .surface) }
     var daxDialogTextColor: UIColor { UIColor(designSystemColor: .textPrimary) }

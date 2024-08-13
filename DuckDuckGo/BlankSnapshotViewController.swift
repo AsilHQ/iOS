@@ -158,6 +158,9 @@ extension BlankSnapshotViewController: UICollectionViewDataSource {
 }
 
 extension BlankSnapshotViewController: OmniBarDelegate {
+    func onFavoritePressed() {
+        // No-op
+    }
     
     func onVoiceSearchPressed() {
        // No-op

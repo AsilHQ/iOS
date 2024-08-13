@@ -351,14 +351,6 @@ class OmniBarCell: UICollectionViewCell {
             }
         }
     }
-    
-    override func updateConstraints() {
-        super.updateConstraints()
-        let left = superview?.safeAreaInsets.left ?? 0
-        let right = superview?.safeAreaInsets.right ?? 0
-        omniBar?.updateOmniBarPadding(left: left, right: right)
-    }
-    
 }
 
 extension TabsModel {

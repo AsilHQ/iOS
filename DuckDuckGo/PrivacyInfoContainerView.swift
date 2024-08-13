@@ -65,10 +65,7 @@ class PrivacyInfoContainerView: UIView {
     }
     
     var isAnimationPlaying: Bool {
-        privacyIcon.isAnimationPlaying ||
-        trackers1Animation.isAnimationPlaying ||
-        trackers2Animation.isAnimationPlaying ||
-        trackers3Animation.isAnimationPlaying
+        false
     }
 }
 

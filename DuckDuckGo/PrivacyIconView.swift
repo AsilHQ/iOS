@@ -22,20 +22,17 @@ import UIKit
 import Lottie
 
 enum PrivacyIcon {
-    case daxLogo, shield, shieldWithDot
+    case daxLogo
+    case kahfWorld
+    case kahfLock
 }
 
 class PrivacyIconView: UIView {
 
     @IBOutlet var daxLogoImageView: UIImageView!
-    @IBOutlet var staticShieldAnimationView: LottieAnimationView!
-    @IBOutlet var staticShieldDotAnimationView: LottieAnimationView!
-
-    @IBOutlet var shieldAnimationView: LottieAnimationView!
-    @IBOutlet var shieldDotAnimationView: LottieAnimationView!
 
     public required init?(coder aDecoder: NSCoder) {
-        icon = .shield
+        icon = .daxLogo
         
         super.init(coder: aDecoder)
         
@@ -47,34 +44,8 @@ class PrivacyIconView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-  
-        loadAnimations()
-        
         updateShieldImageView(for: icon)
         updateAccessibilityLabels(for: icon)
-
-        // Animations are not rendering properly when going back from background, hence the change.
-        [staticShieldAnimationView,
-         staticShieldDotAnimationView,
-         shieldAnimationView,
-         shieldDotAnimationView].forEach { animationView in
-            animationView?.configuration = LottieConfiguration(renderingEngine: .mainThread)
-        }
-    }
-    
-    func loadAnimations(animationCache cache: AnimationCacheProvider = DefaultAnimationCache.sharedCache) {
-        let useDarkStyle = traitCollection.userInterfaceStyle == .dark
-
-        let shieldAnimation = LottieAnimation.named(useDarkStyle ? "dark-shield" : "shield", animationCache: cache)
-
-        shieldAnimationView.animation = shieldAnimation
-        staticShieldAnimationView.animation = shieldAnimation
-        staticShieldAnimationView.currentProgress = 0.0
-
-        let shieldWithDotAnimation = LottieAnimation.named(useDarkStyle ? "dark-shield-dot" : "shield-dot", animationCache: cache)
-        shieldDotAnimationView.animation = shieldWithDotAnimation
-        staticShieldDotAnimationView.animation = shieldWithDotAnimation
-        staticShieldDotAnimationView.currentProgress = 1.0
     }
     
     func updateIcon(_ newIcon: PrivacyIcon) {
@@ -93,71 +64,25 @@ class PrivacyIconView: UIView {
         switch icon {
         case .daxLogo:
             daxLogoImageView.isHidden = false
-            staticShieldAnimationView.isHidden = true
-            staticShieldDotAnimationView.isHidden = true
-        case .shield:
-            daxLogoImageView.isHidden = true
-            staticShieldAnimationView.isHidden = false
-            staticShieldDotAnimationView.isHidden = true
-        case .shieldWithDot:
-            daxLogoImageView.isHidden = true
-            staticShieldAnimationView.isHidden = true
-            staticShieldDotAnimationView.isHidden = false
+        case .kahfLock:
+            daxLogoImageView.image = UIImage(named: "KahfLock")
+        case .kahfWorld:
+            daxLogoImageView.image = UIImage(named: "KahfWorld")
         }
     }
     
     private func updateAccessibilityLabels(for icon: PrivacyIcon) {
         switch icon {
-        case .daxLogo:
+        case .daxLogo, .kahfLock, .kahfWorld:
             accessibilityLabel = UserText.privacyIconDax
             accessibilityHint = nil
             accessibilityTraits = .image
-        case .shield, .shieldWithDot:
-            accessibilityLabel = UserText.privacyIconShield
-            accessibilityHint = UserText.privacyIconOpenDashboardHint
-            accessibilityTraits = .button
         }
     }
     
     func refresh() {
         updateShieldImageView(for: icon)
         updateAccessibilityLabels(for: icon)
-        shieldAnimationView.isHidden = true
-        shieldDotAnimationView.isHidden = true
-    }
-    
-    func prepareForAnimation(for icon: PrivacyIcon) {
-        let showDot = (icon == .shieldWithDot)
-        
-        shieldAnimationView.isHidden = showDot
-        shieldDotAnimationView.isHidden = !showDot
-
-        staticShieldAnimationView.isHidden = true
-        staticShieldDotAnimationView.isHidden = true
-        daxLogoImageView.isHidden = true
-    }
-    
-    func shieldAnimationView(for icon: PrivacyIcon) -> LottieAnimationView? {
-        switch icon {
-        case .shield:
-            return shieldAnimationView
-        case .shieldWithDot:
-            return shieldDotAnimationView
-        default:
-            return nil
-        }
-    }
-    
-    var isAnimationPlaying: Bool {
-        shieldAnimationView.isAnimationPlaying || shieldDotAnimationView.isAnimationPlaying
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-            loadAnimations()
-        }
     }
 }
 

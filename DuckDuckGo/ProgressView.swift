@@ -209,8 +209,8 @@ extension ProgressView {
         let theme = ThemeManager.shared.currentTheme
         var colors = [CGColor]()
         for _ in 0...6 {
-            colors.append(theme.progressBarGradientDarkColor.cgColor)
-            colors.append(theme.progressBarGradientLightColor.cgColor)
+            colors.append(theme.progressBarGradientColor1.cgColor)
+            colors.append(theme.progressBarGradientColor2.cgColor)
         }
         
         progressLayer.colors = colors

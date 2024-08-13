@@ -43,28 +43,18 @@ class OmniBar: UIView {
     @IBOutlet weak var textField: TextFieldWithInsets!
     @IBOutlet weak var editingBackground: RoundedRectangleView!
     @IBOutlet weak var clearButton: UIButton!
-    @IBOutlet weak var menuButton: UIButton!
-    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var separatorView: UIView!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var refreshButton: UIButton!
-    @IBOutlet weak var voiceSearchButton: UIButton!
-    
-    @IBOutlet weak var bookmarksButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var forwardButton: UIButton!
+    @IBOutlet weak var safegazeButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
     
     private(set) var menuButtonContent = MenuButton()
 
     // Don't use weak because adding/removing them causes them to go away
     @IBOutlet var separatorHeightConstraint: NSLayoutConstraint!
-    @IBOutlet var leftButtonsSpacingConstraint: NSLayoutConstraint!
-    @IBOutlet var rightButtonsSpacingConstraint: NSLayoutConstraint!
     @IBOutlet var searchContainerCenterConstraint: NSLayoutConstraint!
     @IBOutlet var searchContainerMaxWidthConstraint: NSLayoutConstraint!
-    @IBOutlet var omniBarLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet var omniBarTrailingConstraint: NSLayoutConstraint!
     @IBOutlet var separatorToBottom: NSLayoutConstraint!
 
     weak var omniDelegate: OmniBarDelegate?
@@ -96,32 +86,13 @@ class OmniBar: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        configureMenuButton()
         configureTextField()
-        configureSettingsLongPressButton()
-        configureShareLongPressButton()
         registerNotifications()
-        
         configureSeparator()
         configureEditingMenu()
         refreshState(state)
-        enableInteractionsWithPointer()
-        
-        privacyInfoContainer.isHidden = true
-
+        privacyInfoContainer.isHidden = true 
         decorate()
-    }
-
-    private func configureSettingsLongPressButton() {
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleSettingsLongPress(_:)))
-        longPressGesture.minimumPressDuration = 0.7
-        settingsButton.addGestureRecognizer(longPressGesture)
-    }
-
-    private func configureShareLongPressButton() {
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleShareLongPress(_:)))
-        longPressGesture.minimumPressDuration = 0.7
-        shareButton.addGestureRecognizer(longPressGesture)
     }
 
     @objc private func handleSettingsLongPress(_ gesture: UILongPressGestureRecognizer) {
@@ -148,27 +119,6 @@ class OmniBar: UIView {
                                                object: nil)
     }
         
-    private func enableInteractionsWithPointer() {
-        backButton.isPointerInteractionEnabled = true
-        forwardButton.isPointerInteractionEnabled = true
-        settingsButton.isPointerInteractionEnabled = true
-        cancelButton.isPointerInteractionEnabled = true
-        bookmarksButton.isPointerInteractionEnabled = true
-        shareButton.isPointerInteractionEnabled = true
-        menuButton.isPointerInteractionEnabled = true
-
-        refreshButton.isPointerInteractionEnabled = true
-        refreshButton.pointerStyleProvider = { button, _, _ -> UIPointerStyle? in
-            return .init(effect: .lift(.init(view: button)))
-        }
-    }
-    
-    private func configureMenuButton() {
-        menuButton.addSubview(menuButtonContent)
-        menuButton.isAccessibilityElement = true
-        menuButton.accessibilityTraits = .button
-    }
-    
     private func configureTextField() {
         let theme = ThemeManager.shared.currentTheme
         textField.attributedPlaceholder = NSAttributedString(string: UserText.searchDuckDuckGo,
@@ -363,35 +313,15 @@ class OmniBar: UIView {
         setVisibility(privacyInfoContainer, hidden: !state.showPrivacyIcon)
         setVisibility(searchLoupe, hidden: !state.showSearchLoupe)
         setVisibility(clearButton, hidden: !state.showClear)
-        setVisibility(menuButton, hidden: !state.showMenu)
-        setVisibility(settingsButton, hidden: !state.showSettings)
-        setVisibility(cancelButton, hidden: !state.showCancel)
-        setVisibility(refreshButton, hidden: !state.showRefresh)
-        setVisibility(voiceSearchButton, hidden: !state.showVoiceSearch)
-
-        setVisibility(backButton, hidden: !state.showBackButton)
-        setVisibility(forwardButton, hidden: !state.showForwardButton)
-        setVisibility(bookmarksButton, hidden: !state.showBookmarksButton)
+        setVisibility(safegazeButton, hidden: !state.showRefresh)
+        setVisibility(favoriteButton, hidden: !state.showShareButton)
         setVisibility(shareButton, hidden: !state.showShareButton)
-        
         searchContainerCenterConstraint.isActive = state.hasLargeWidth
         searchContainerMaxWidthConstraint.isActive = state.hasLargeWidth
-        leftButtonsSpacingConstraint.constant = state.hasLargeWidth ? 24 : 0
-        rightButtonsSpacingConstraint.constant = state.hasLargeWidth ? 24 : 14
-
-        if state.showVoiceSearch && state.showClear {
-            searchStackContainer.setCustomSpacing(13, after: voiceSearchButton)
-        }
 
         UIView.animate(withDuration: 0.0) {
             self.layoutIfNeeded()
         }
-        
-    }
-
-    func updateOmniBarPadding(left: CGFloat, right: CGFloat) {
-        omniBarLeadingConstraint.constant = (state.hasLargeWidth ? 24 : 8) + left
-        omniBarTrailingConstraint.constant = (state.hasLargeWidth ? 24 : 14) + right
     }
 
     /*
@@ -456,10 +386,6 @@ class OmniBar: UIView {
             }
         }
     }
-
-    @IBAction func onVoiceSearchButtonPressed(_ sender: UIButton) {
-        omniDelegate?.onVoiceSearchPressed()
-    }
     
     @IBAction func onClearButtonPressed(_ sender: Any) {
         omniDelegate?.onClearPressed()
@@ -479,16 +405,6 @@ class OmniBar: UIView {
         cancelAllAnimations()
         textField.becomeFirstResponder()
     }
-
-    @IBAction func onSettingsButtonPressed(_ sender: Any) {
-        Pixel.fire(pixel: .addressBarSettings)
-        omniDelegate?.onSettingsPressed()
-    }
-
-    @IBAction func onCancelPressed(_ sender: Any) {
-        omniDelegate?.onCancelPressed()
-        refreshState(state.onEditingStoppedState)
-    }
     
     @IBAction func onRefreshPressed(_ sender: Any) {
         Pixel.fire(pixel: .refreshPressed)
@@ -496,24 +412,20 @@ class OmniBar: UIView {
         omniDelegate?.onRefreshPressed()
     }
     
-    @IBAction func onBackPressed(_ sender: Any) {
-        omniDelegate?.onBackPressed()
-    }
-    
-    @IBAction func onForwardPressed(_ sender: Any) {
-        omniDelegate?.onForwardPressed()
-    }
-    
-    @IBAction func onBookmarksPressed(_ sender: Any) {
-        Pixel.fire(pixel: .bookmarksButtonPressed,
-                   withAdditionalParameters: [PixelParameters.originatedFromMenu: "0"])
-        omniDelegate?.onBookmarksPressed()
-    }
-    
     @IBAction func onSharePressed(_ sender: Any) {
         Pixel.fire(pixel: .addressBarShare)
         omniDelegate?.onSharePressed()
     }
+    
+    @IBAction func onFavoritePressed(_ sender: Any) {
+        //Pixel.fire(pixel: .addressBarShare)
+        omniDelegate?.onFavoritePressed()
+    }
+    
+    @IBAction func onSafegazePressed(_ sender: Any) {
+        //
+    }
+    
     
     func enterPhoneState() {
         refreshState(state.onEnterPhoneState)
@@ -590,11 +502,8 @@ extension OmniBar {
         textField.tintColor = UIColor(designSystemColor: .accent)
         textField.keyboardAppearance = theme.keyboardAppearance
         clearButton.tintColor = UIColor(designSystemColor: .icons)
-        voiceSearchButton.tintColor = UIColor(designSystemColor: .icons)
-        
         searchLoupe.tintColor = UIColor(designSystemColor: .icons)
         searchLoupe.alpha = 0.5
-        cancelButton.setTitleColor(theme.barTintColor, for: .normal)
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

@@ -202,7 +202,7 @@ extension MainViewFactory {
         let progress = coordinator.progress!
         let navigationBarContainer = coordinator.navigationBarContainer!
 
-        coordinator.constraints.progressBarTop = progress.constrainView(navigationBarContainer, by: .top, to: .bottom)
+        coordinator.constraints.progressBarTop = progress.constrainView(navigationBarContainer, by: .top, to: .top)
         coordinator.constraints.progressBarBottom = progress.constrainView(navigationBarContainer, by: .bottom, to: .top)
 
         NSLayoutConstraint.activate([
@@ -220,14 +220,14 @@ extension MainViewFactory {
 
         coordinator.constraints.navigationBarContainerTop = container.constrainView(superview.safeAreaLayoutGuide, by: .top)
         coordinator.constraints.navigationBarContainerBottom = container.constrainView(toolbar, by: .bottom, to: .top)
-        coordinator.constraints.navigationBarContainerHeight = container.constrainAttribute(.height, to: 52, relatedBy: .equal)
+        coordinator.constraints.navigationBarContainerHeight = container.constrainAttribute(.height, to: 40, relatedBy: .equal)
 
         NSLayoutConstraint.activate([
             coordinator.constraints.navigationBarContainerTop,
             container.constrainView(superview, by: .leading),
             container.constrainView(superview, by: .trailing),
             coordinator.constraints.navigationBarContainerHeight,
-            navigationBarCollectionView.constrainAttribute(.height, to: 52),
+            navigationBarCollectionView.constrainAttribute(.height, to: 40),
             navigationBarCollectionView.constrainView(container, by: .top),
             navigationBarCollectionView.constrainView(container, by: .leading),
             navigationBarCollectionView.constrainView(container, by: .trailing),

@@ -124,6 +124,14 @@ extension UIColor {
     public static var yellow60: UIColor {
         return UIColor(hex: "F9BE1A")
     }
+    
+    public static var progressColor1: UIColor {
+        return UIColor(hex: "3E8DFF")
+    }
+    
+    public static var progressColor2: UIColor {
+        return UIColor(hex: "9887FF")
+    }
 
 }
 

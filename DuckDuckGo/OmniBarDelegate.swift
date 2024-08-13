@@ -69,7 +69,8 @@ protocol OmniBarDelegate: AnyObject {
     func selectedSuggestion() -> Suggestion?
     
     func onVoiceSearchPressed()
-
+    
+    func onFavoritePressed()
 }
 
 extension OmniBarDelegate {

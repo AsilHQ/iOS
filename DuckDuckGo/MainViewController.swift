@@ -623,8 +623,6 @@ class MainViewController: UIViewController {
     }
     
     private func initBookmarksButton() {
-        viewCoordinator.omniBar.bookmarksButton.addGestureRecognizer(UILongPressGestureRecognizer(target: self,
-                                                                                  action: #selector(quickSaveBookmarkLongPress(gesture:))))
         gestureBookmarksButton.delegate = self
         gestureBookmarksButton.image = UIImage(named: "Bookmarks")
     }
@@ -1076,9 +1074,6 @@ class MainViewController: UIViewController {
     fileprivate func refreshBackForwardButtons() {
         viewCoordinator.toolbarBackButton.isEnabled = currentTab?.canGoBack ?? false
         viewCoordinator.toolbarForwardButton.isEnabled = currentTab?.canGoForward ?? false
-        
-        viewCoordinator.omniBar.backButton.isEnabled = viewCoordinator.toolbarBackButton.isEnabled
-        viewCoordinator.omniBar.forwardButton.isEnabled = viewCoordinator.toolbarForwardButton.isEnabled
     }
   
     var orientationPixelWorker: DispatchWorkItem?
@@ -1923,6 +1918,10 @@ extension MainViewController: OmniBarDelegate {
         hideSuggestionTray()
         guard let link = currentTab?.link else { return }
         currentTab?.onShareAction(forLink: link, fromView: viewCoordinator.omniBar.shareButton)
+    }
+    
+    func onFavoritePressed() {
+        print("onFavoritePressed")
     }
 
     func onShareLongPressed() {
@@ -2775,11 +2774,9 @@ extension MainViewController {
         }
         
         let backMenu = historyMenu(with: currentTab.webView.backForwardList.backList.reversed())
-        viewCoordinator.omniBar.backButton.menu = backMenu
         viewCoordinator.toolbarBackButton.menu = backMenu
         
         let forwardMenu = historyMenu(with: currentTab.webView.backForwardList.forwardList)
-        viewCoordinator.omniBar.forwardButton.menu = forwardMenu
         viewCoordinator.toolbarForwardButton.menu = forwardMenu
     }
 
