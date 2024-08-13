@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Ota käyttöön synkronointi ja varmuuskopiointi";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Tämä luo salatun varmuuskopion kirjanmerkeistäsi ja salasanoistasi DuckDuckGon suojatulle palvelimelle. Voit synkronoida varmuuskopion muiden laitteittesi kanssa.";
+"connect.with.server.sheet.description.part1" = "Tämä luo salatun varmuuskopion kirjanmerkeistäsi ja salasanoistasi Kahf Browsern suojatulle palvelimelle. Voit synkronoida varmuuskopion muiden laitteittesi kanssa.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Salausavain tallennetaan vain laitteellesi. Kahf Browser ei pääse siihen käsiksi.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Säilytä kehitys";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Siirry kohtaan %1$@ ja valitse %2$@ DuckDuckGo-sovelluksessa toisella synkronoidulla laitteella. Liitä koodi tähän synkronoidaksesi tämän laitteen.";
+"manually.enter.code.instruction.attributed" = "Siirry kohtaan %1$@ ja valitse %2$@ Kahf Browser-sovelluksessa toisella synkronoidulla laitteella. Liitä koodi tähän synkronoidaksesi tämän laitteen.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Syötä koodi manuaalisesti";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Etkö voi skannata?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Siirry kohtaan Asetukset › Synkronointi ja varmuuskopiointi Kahf Browser-selaimessa muulla laitteella ja valitse ”Synkronoi toisen laitteen kanssa.”";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Siirry kohtaan %@ Kahf Browser-selaimessa muulla laitteella ja valitse ”Synkronoi toisen laitteen kanssa.”";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Syötä koodi manuaalisesti";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "Mobile-to-Mobile?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Jaa tekstikoodi";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Skannaa QR-koodi";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Sync & Backup ei valitettavasti ole tällä hetkellä käytettävissä. Yritä myöhemmin uudelleen.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Sync & Backup ei valitettavasti ole käytettävissä tässä sovellusversiossa. Päivitä DuckDuckGo uusimpaan versioon jatkaaksesi.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Sync & Backup ei valitettavasti ole käytettävissä tässä sovellusversiossa. Päivitä Kahf Browser uusimpaan versioon jatkaaksesi.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Synkronointi ja varmuuskopiointi ei ole käytettävissä";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Synkronoi toisen laitteen kanssa";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Tietosi on salattu päästä päähän, eikä DuckDuckGolla ole hallussaan salausavainta.";
+"sync.with.another.device.footer" = "Tietosi on salattu päästä päähän, eikä Kahf Browserlla ole hallussaan salausavainta.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Synkronoi kirjanmerkit ja salasanat turvallisesti laitteittesi välillä.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Synkronoidut laitteet";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Synkronoi toisen laitteen kanssa";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Tämä laite";

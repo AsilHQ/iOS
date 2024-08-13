@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Zapnout synchronizaci a zálohování";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Na zabezpečeném serveru DuckDuckGo se vytvoří šifrovaná záloha záložek a hesel, kterou můžeš synchronizovat s ostatními zařízeními.";
+"connect.with.server.sheet.description.part1" = "Na zabezpečeném serveru Kahf Browser se vytvoří šifrovaná záloha záložek a hesel, kterou můžeš synchronizovat s ostatními zařízeními.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Šifrovací klíč se ukládá jenom na tvé zařízení, Kahf Browser k němu nemá přístup.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Nechat vývojovou verzi";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "V aplikaci DuckDuckGo na synchronizovaném zařízení přejdi do %1$@ a vyber %2$@. Pro synchronizaci tohoto zařízení už stačí jen vložit kód.";
+"manually.enter.code.instruction.attributed" = "V aplikaci Kahf Browser na synchronizovaném zařízení přejdi do %1$@ a vyber %2$@. Pro synchronizaci tohoto zařízení už stačí jen vložit kód.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Ruční zadání kódu";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Nemůžeš skenovat?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Přejdi na jiném zařízení v prohlížeči Kahf Browser do Nastavení › Synchronizace a zálohování a vyber možnost Synchronizace s jiným zařízením.";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Přejdi na jiném zařízení v prohlížeči Kahf Browser do %@ a vyber možnost Synchronizace s jiným zařízením.";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Ruční zadání kódu";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "Z mobilu na mobil?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Sdílet textový kód?";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Skenování QR kódu";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Omlouváme se, ale funkce synchronizace a zálohování teď není dostupná. Zkus to znovu později.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Omlouváme se, ale funkce synchronizace a zálohování není v téhle verzi aplikace dostupná. Pro pokračování aktualizuj DuckDuckGo na nejnovější verzi.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Omlouváme se, ale funkce synchronizace a zálohování není v téhle verzi aplikace dostupná. Pro pokračování aktualizuj Kahf Browser na nejnovější verzi.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Synchronizace a zálohování není k dispozici";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Synchronizovat s jiným zařízením";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "U tvých dat se uplatňuje end-to-end šifrování a DuckDuckGo nemá přístup k šifrovacímu klíči.";
+"sync.with.another.device.footer" = "U tvých dat se uplatňuje end-to-end šifrování a Kahf Browser nemá přístup k šifrovacímu klíči.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Bezpečně synchronizuj záložky a hesla mezi svými zařízeními.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Synchronizovaná zařízení";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Synchronizovat s jiným zařízením";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Tohle zařízení";

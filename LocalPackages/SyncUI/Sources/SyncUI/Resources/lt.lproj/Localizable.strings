@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Įjunkite sinchronizavimą ir atsarginės kopijos kūrimą";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Taip „DuckDuckGo“ saugiame serveryje sukuriama užšifruota atsarginė žymių ir slaptažodžių kopija, kurią galima sinchronizuoti su kitais įrenginiais.";
+"connect.with.server.sheet.description.part1" = "Taip „Kahf Browser“ saugiame serveryje sukuriama užšifruota atsarginė žymių ir slaptažodžių kopija, kurią galima sinchronizuoti su kitais įrenginiais.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Šifravimo raktas saugomas tik jūsų įrenginyje, „Kahf Browser“ negali jo pasiekti.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Laikytis kūrimo";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Eikite į %1$@ ir pasirinkite %2$@ „DuckDuckGo“ programoje kitame sinchronizuotame įrenginyje ir įklijuokite čia kodą, kad sinchronizuotumėte šį įrenginį.";
+"manually.enter.code.instruction.attributed" = "Eikite į %1$@ ir pasirinkite %2$@ „Kahf Browser“ programoje kitame sinchronizuotame įrenginyje ir įklijuokite čia kodą, kad sinchronizuotumėte šį įrenginį.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Įveskite kodą ranka";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Negalite nuskaityti?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Eikite į Nustatymai › Sinchronizavimas ir atsarginės kopijos kūrimas „Kahf Browser“ naršyklėje kitame įrenginyje ir pasirinkite „Sinchronizuoti su kitu įrenginiu“.";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Eikite į %@ „Kahf Browser“ naršyklėje kitame įrenginyje ir pasirinkite „Sinchronizuoti su kitu įrenginiu“.";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Įveskite kodą ranka";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "Iš mobiliojo įrenginio į mobilųjį įrenginį?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Bendrinti teksto kodą?";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Nuskaityti QR kodą";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Atsiprašome, bet sinchronizavimas ir atsarginės kopijos kūrimas šiuo metu nepasiekiami. Pabandykite dar kartą vėliau.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Atsiprašome, bet šioje programos versijoje nepasiekiamos sinchronizavimo ir atsarginės kopijos kūrimo funkcijos. Norėdami tęsti, atnaujinkite „DuckDuckGo“ į naujausią versiją.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Atsiprašome, bet šioje programos versijoje nepasiekiamos sinchronizavimo ir atsarginės kopijos kūrimo funkcijos. Norėdami tęsti, atnaujinkite „Kahf Browser“ į naujausią versiją.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Sinchronizavimas ir atsarginės kopijos kūrimas nepasiekiami";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Sinchronizuoti su kitu įrenginiu";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Jūsų duomenys šifruojami ištisiniu būdu, o „DuckDuckGo“ neturi prieigos prie šifravimo rakto.";
+"sync.with.another.device.footer" = "Jūsų duomenys šifruojami ištisiniu būdu, o „Kahf Browser“ neturi prieigos prie šifravimo rakto.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Saugiai sinchronizuokite žymes ir slaptažodžius tarp savo įrenginių.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Sinchronizuoti įrenginiai";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Sinchronizuoti su kitu įrenginiu";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Šis įrenginys";

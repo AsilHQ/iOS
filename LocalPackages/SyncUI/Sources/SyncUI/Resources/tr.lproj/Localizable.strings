@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Senkronizasyon ve Yedekleme'yi açın";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Bu, DuckDuckGo'nun güvenli sunucusunda yer imlerinizin ve şifrelerinizi diğer cihazlarınızla senkronize edilebilen şifrelenmiş bir yedeğini oluşturur.";
+"connect.with.server.sheet.description.part1" = "Bu, Kahf Browser'nun güvenli sunucusunda yer imlerinizin ve şifrelerinizi diğer cihazlarınızla senkronize edilebilen şifrelenmiş bir yedeğini oluşturur.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Şifreleme anahtarı sadece cihazınızda saklanır, Kahf Browser buna erişemez.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Geliştirmeye Devam Et";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Senkronize edilmiş başka bir cihazdaki DuckDuckGo Uygulamasında %1$@ ögesine gidin ve %2$@ ögesini seçin ve bu cihazı senkronize etmek için kodu buraya yapıştırın.";
+"manually.enter.code.instruction.attributed" = "Senkronize edilmiş başka bir cihazdaki Kahf Browser Uygulamasında %1$@ ögesine gidin ve %2$@ ögesini seçin ve bu cihazı senkronize etmek için kodu buraya yapıştırın.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Kodu Manuel Olarak Yaz";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Tarama yapamıyor musunuz?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Başka bir cihazdaki Kahf Browser Tarayıcısında Ayarlar › Senkronizasyon ve Yedekleme bölümüne gidin ve \"Başka Bir Cihazla Senkronize Et\" seçeneğini seçin.";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Başka bir cihazdaki Kahf Browser Tarayıcısında %@ bölümüne gidin ve \"Başka Bir Cihazla Senkronize Et\" seçeneğini seçin.";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Kodu Manuel Olarak Yaz";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "Mobilden Mobile mi?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Metin Kodu Paylaşılsın mı?";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "QR Kodunu Tara";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Üzgünüz, ancak Senkronizasyon ve Yedekleme şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Üzgünüz, Senkronizasyon ve Yedekleme bu uygulama sürümünde artık kullanılamıyor. Devam etmek için lütfen DuckDuckGo'yu en son sürüme güncelleyin.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Üzgünüz, Senkronizasyon ve Yedekleme bu uygulama sürümünde artık kullanılamıyor. Devam etmek için lütfen Kahf Browser'yu en son sürüme güncelleyin.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Senkronizasyon ve Yedekleme Kullanılamıyor";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Başka Bir Cihazla Senkronize Et";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Verileriniz uçtan uca şifrelenir ve DuckDuckGo'nun şifreleme anahtarına erişimi yoktur.";
+"sync.with.another.device.footer" = "Verileriniz uçtan uca şifrelenir ve Kahf Browser'nun şifreleme anahtarına erişimi yoktur.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Yer imlerini ve parolaları cihazlarınız arasında güvenli bir şekilde senkronize edin.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Senkronize Edilmiş Cihazlar";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Başka Bir Cihazla Senkronize Et";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Bu Cihaz";

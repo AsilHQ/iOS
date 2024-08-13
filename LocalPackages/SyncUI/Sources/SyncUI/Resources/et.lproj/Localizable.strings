@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Lülita sünkroonimine ja varundamine sisse";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "See loob DuckDuckGo turvalises serveris krüptitud varukoopia sinu järjehoidjatest ja paroolidest, mida saab sünkroonida sinu teiste seadmetega.";
+"connect.with.server.sheet.description.part1" = "See loob Kahf Browser turvalises serveris krüptitud varukoopia sinu järjehoidjatest ja paroolidest, mida saab sünkroonida sinu teiste seadmetega.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Krüptimisvõti salvestatakse ainult sinu seadmesse, Kahf Browser ei pääse sellele juurde.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Säilita arendus";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Ava teises sünkroonitud seadmes DuckDuckGo rakenduses %1$@, vali %2$@ ja kleebi kood selle seadme sünkroonimiseks siia.";
+"manually.enter.code.instruction.attributed" = "Ava teises sünkroonitud seadmes Kahf Browser rakenduses %1$@, vali %2$@ ja kleebi kood selle seadme sünkroonimiseks siia.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Sisesta kood käsitsi";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Kas sa ei saa skannida?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Ava teises seadmes Kahf Browser brauseris Seaded > Sünkroonimine ja varundus ning vali käsk „Sünkrooni teise seadmega“.";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Ava teises seadmes Kahf Browser brauseris %@. Vali käsk Sünkrooni teise seadmega.";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Sisesta kood käsitsi";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "Mobiililt mobiilile?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Jaga tekstikoodi";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "QR-koodi skannimine";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Kahjuks pole sünkroonimine ja varundamine praegu saadaval. Proovi hiljem uuesti.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Vabandust, kuid sünkroonimine ja varundus pole selles rakenduse versioonis enam saadaval. Jätkamiseks värskenda DuckDuckGo uusimale versioonile.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Vabandust, kuid sünkroonimine ja varundus pole selles rakenduse versioonis enam saadaval. Jätkamiseks värskenda Kahf Browser uusimale versioonile.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Sünkroonimine ja varundamine pole saadaval";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Sünkrooni teise seadmega";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Sinu andmed on otsast lõpuni krüptitud ja DuckDuckGo ei pääse krüpteerimisvõtmele ligi.";
+"sync.with.another.device.footer" = "Sinu andmed on otsast lõpuni krüptitud ja Kahf Browser ei pääse krüpteerimisvõtmele ligi.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Sünkrooni järjehoidjaid ja paroole turvaliselt oma seadmete vahel.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Sünkroonitud seadmed";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Sünkrooni teise seadmega";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "See seade";

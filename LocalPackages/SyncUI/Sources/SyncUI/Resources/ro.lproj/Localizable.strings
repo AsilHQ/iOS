@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Activează Sincronizare și backup";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Aceasta creează o copie de rezervă criptată a marcajelor și parolelor tale pe serverul securizat DuckDuckGo, care poate fi sincronizată cu celelalte dispozitive ale tale.";
+"connect.with.server.sheet.description.part1" = "Aceasta creează o copie de rezervă criptată a marcajelor și parolelor tale pe serverul securizat Kahf Browser, care poate fi sincronizată cu celelalte dispozitive ale tale.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Cheia de criptare este stocată doar pe dispozitivul tău, Kahf Browser nu o poate accesa.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Continuă dezvoltarea";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Mergi la %1$@ și selectează %2$@ în aplicația DuckDuckGo pe un alt dispozitiv sincronizat și lipește codul aici pentru a sincroniza acest dispozitiv.";
+"manually.enter.code.instruction.attributed" = "Mergi la %1$@ și selectează %2$@ în aplicația Kahf Browser pe un alt dispozitiv sincronizat și lipește codul aici pentru a sincroniza acest dispozitiv.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Completează manual codul";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Nu poți scana?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Accesează Setări > Sincronizare și backup din browserul Kahf Browser de pe un alt dispozitiv și selectează „Sincronizează cu un alt dispozitiv”.";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Accesează %@ în browserul Kahf Browser pe un alt dispozitiv și selectează „Sincronizează cu un alt dispozitiv”.";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Introdu manual codul";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "De la mobil la mobil?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Distribuie codul textului";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Scanează codul QR";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Ne pare rău, dar Sincronizarea și copierea de rezervă nu este disponibilă momentan. Încearcă din nou mai târziu.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Ne pare rău, dar Sincronizarea și copierea de rezervă nu mai este disponibilă în această versiune de aplicație. Te rugăm să actualizezi DuckDuckGo la cea mai recentă versiune pentru a continua.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Ne pare rău, dar Sincronizarea și copierea de rezervă nu mai este disponibilă în această versiune de aplicație. Te rugăm să actualizezi Kahf Browser la cea mai recentă versiune pentru a continua.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Sincronizare și backup nu este disponibil";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Sincronizează cu un alt dispozitiv";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Datele tale sunt criptate integral, iar DuckDuckGo nu are acces la cheia de criptare.";
+"sync.with.another.device.footer" = "Datele tale sunt criptate integral, iar Kahf Browser nu are acces la cheia de criptare.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Sincronizează în siguranță marcajele și parolele între dispozitivele tale.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Dispozitive sincronizate";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Sincronizează cu un alt dispozitiv";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Acest dispozitiv";

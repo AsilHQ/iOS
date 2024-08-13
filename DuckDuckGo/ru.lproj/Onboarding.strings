@@ -13,8 +13,8 @@
 /* Class = "UILabel"; text = "3"; ObjectID = "kYm-7s-KFg"; */
 "kYm-7s-KFg.text" = "3";
 
-/* Class = "UILabel"; text = "Welcome to DuckDuckGo!"; ObjectID = "u7Q-MU-drX"; */
-"u7Q-MU-drX.text" = "Добро пожаловать в DuckDuckGo!";
+/* Class = "UILabel"; text = "Welcome to Kahf Browser!"; ObjectID = "u7Q-MU-drX"; */
+"u7Q-MU-drX.text" = "Добро пожаловать в Kahf Browser!";
 
 /* Class = "UILabel"; text = "Widget Instructions"; ObjectID = "WZv-GS-xyE"; */
 "WZv-GS-xyE.text" = "Инструкции к виджетам";

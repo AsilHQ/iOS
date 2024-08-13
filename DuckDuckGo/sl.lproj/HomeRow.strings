@@ -4,9 +4,9 @@
 /* Class = "UIButton"; normalTitle = "Got It"; ObjectID = "DBH-J5-aEO"; Note = "In a sense of \"I understand\""; */
 "DBH-J5-aEO.normalTitle" = "Razumem";
 
-/* Class = "UILabel"; text = "Add DuckDuckGo to your dock for quick and easy access."; ObjectID = "f6f-QY-3H3"; */
-"f6f-QY-3H3.text" = "Dodaj DuckDuckGo na domači zaslon za hiter in enostaven dostop.";
+/* Class = "UILabel"; text = "Add Kahf Browser to your dock for quick and easy access."; ObjectID = "f6f-QY-3H3"; */
+"f6f-QY-3H3.text" = "Dodaj Kahf Browser na domači zaslon za hiter in enostaven dostop.";
 
-/* Class = "UILabel"; text = "Add DuckDuckGo to Home"; ObjectID = "Tah-vQ-mf9"; */
-"Tah-vQ-mf9.text" = "Dodajte DuckDuckGo na domači zaslon";
+/* Class = "UILabel"; text = "Add Kahf Browser to Home"; ObjectID = "Tah-vQ-mf9"; */
+"Tah-vQ-mf9.text" = "Dodajte Kahf Browser na domači zaslon";
 

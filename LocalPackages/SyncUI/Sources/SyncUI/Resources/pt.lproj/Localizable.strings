@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Ativar a sincronização e cópia de segurança";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Cria uma cópia de segurança encriptada dos teus marcadores e palavras-passe no servidor seguro do DuckDuckGo, que pode ser sincronizada com os teus restantes dispositivos.";
+"connect.with.server.sheet.description.part1" = "Cria uma cópia de segurança encriptada dos teus marcadores e palavras-passe no servidor seguro do Kahf Browser, que pode ser sincronizada com os teus restantes dispositivos.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "A chave de encriptação é armazenada apenas no teu dispositivo. O Kahf Browser não consegue aceder à chave.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Manter desenvolvimento";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Acede a %1$@ e seleciona %2$@ na aplicação DuckDuckGo noutro dispositivo sincronizado e cola o código aqui para sincronizar este dispositivo.";
+"manually.enter.code.instruction.attributed" = "Acede a %1$@ e seleciona %2$@ na aplicação Kahf Browser noutro dispositivo sincronizado e cola o código aqui para sincronizar este dispositivo.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Introduzir manualmente o código";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Não consegues ler?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Acede a Definições › Sincronização e cópia de segurança no navegador Kahf Browser noutro dispositivo e seleciona \"Sincronizar com outro dispositivo\".";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Acede a %@ no navegador Kahf Browser noutro dispositivo e seleciona \"Sincronizar com outro dispositivo\".";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Introduzir manualmente o código";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "Entre dispositivos móveis?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Partilhar código de texto";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Ler código QR";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Lamentamos, mas a sincronização e cópia de segurança não estão disponíveis de momento. Tenta novamente mais tarde.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Lamentamos, mas a sincronização e cópia de segurança já não estão disponíveis nesta versão da aplicação. Atualiza o DuckDuckGo para a versão mais recente para continuar.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Lamentamos, mas a sincronização e cópia de segurança já não estão disponíveis nesta versão da aplicação. Atualiza o Kahf Browser para a versão mais recente para continuar.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "A sincronização e a cópia de segurança não estão disponíveis";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Sincronizar com outro dispositivo";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Os teus dados são encriptados de ponta a ponta e o DuckDuckGo não tem acesso à chave de encriptação.";
+"sync.with.another.device.footer" = "Os teus dados são encriptados de ponta a ponta e o Kahf Browser não tem acesso à chave de encriptação.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Sincroniza os marcadores e palavras-passe entre os teus dispositivos em segurança.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Dispositivos sincronizados";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Sincronizar com outro dispositivo";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Este dispositivo";
