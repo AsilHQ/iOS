@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Включване на Синхронизиране и архивиране";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Създава криптирано резервно копие на Вашите отметки и пароли на защитения сървър на DuckDuckGo, което може да бъде синхронизирано с други Ваши устройства.";
+"connect.with.server.sheet.description.part1" = "Създава криптирано резервно копие на Вашите отметки и пароли на защитения сървър на Kahf Browser, което може да бъде синхронизирано с други Ваши устройства.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Ключът за криптиране се съхранява само на Вашето устройство и Kahf Browser няма достъп до него.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Продължаване на разработката";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Влезте в %1$@ и изберете %2$@ в приложението DuckDuckGo на друго синхронизирано устройство и поставете кода тук, за да синхронизирате това устройство.";
+"manually.enter.code.instruction.attributed" = "Влезте в %1$@ и изберете %2$@ в приложението Kahf Browser на друго синхронизирано устройство и поставете кода тук, за да синхронизирате това устройство.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Ръчно въвеждане на код";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Не можете да сканирате?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Влезте в Настройки › Синхронизиране и архивиране в браузъра Kahf Browser на друго устройство и изберете „Синхронизиране с друго устройство“.";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Влезте в %@ в браузъра Kahf Browser на друго устройство и изберете „Синхронизиране с друго устройство“.";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Ръчно въвеждане на код";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "От мобилно към мобилно устройство?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Споделяне на текстов код";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Сканиране на QR код";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Съжаляваме, но функцията за синхронизиране и архивиране в момента не е достъпна. Моля, опитайте отново по-късно.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Съжаляваме, но функцията за синхронизиране и архивиране вече не се предлага в тази версия на приложението. Моля, актуализирайте DuckDuckGo до най-новата версия, за да продължите.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Съжаляваме, но функцията за синхронизиране и архивиране вече не се предлага в тази версия на приложението. Моля, актуализирайте Kahf Browser до най-новата версия, за да продължите.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Функцията за синхронизиране и архивиране не е достъпна";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Синхронизиране с друго устройство";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Данните Ви са изцяло криптирани и DuckDuckGo няма достъп до ключа за криптиране.";
+"sync.with.another.device.footer" = "Данните Ви са изцяло криптирани и Kahf Browser няма достъп до ключа за криптиране.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Сигурно синхронизиране на отметките и паролите между отделни устройства.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Синхронизирани устройства";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Синхронизиране с друго устройство";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Това устройство";

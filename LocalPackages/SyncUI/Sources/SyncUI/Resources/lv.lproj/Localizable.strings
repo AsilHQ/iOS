@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Ieslēgt sinhronizāciju un dublēšanu";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Tādējādi DuckDuckGo drošajā serverī tiek izveidota šifrēta grāmatzīmju un paroļu dublējumkopija, ko var sinhronizēt ar citām ierīcēm.";
+"connect.with.server.sheet.description.part1" = "Tādējādi Kahf Browser drošajā serverī tiek izveidota šifrēta grāmatzīmju un paroļu dublējumkopija, ko var sinhronizēt ar citām ierīcēm.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Šifrēšanas atslēga tiek saglabāta tikai tavā ierīcē – Kahf Browser tai nevar piekļūt.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Paturēt izstrādi";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Dodies uz %1$@ un izvēlies %2$@ DuckDuckGo lietotnē citā sinhronizētā ierīcē, un ielīmē kodu šeit, lai sinhronizētu šo ierīci.";
+"manually.enter.code.instruction.attributed" = "Dodies uz %1$@ un izvēlies %2$@ Kahf Browser lietotnē citā sinhronizētā ierīcē, un ielīmē kodu šeit, lai sinhronizētu šo ierīci.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Manuāla koda ievadīšana";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Nevari skenēt?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Dodies uz Iestatījumi › Sinhronizācija un dublēšana Kahf Browser pārlūkprogrammā citā ierīcē un izvēlies \"Sinhronizēt ar citu ierīci\".";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Dodies uz %@ Kahf Browser pārlūkā citā ierīcē un izvēlies \"Sinhronizēt ar citu ierīci.\".";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Ievadīt kodu manuāli";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "No mobilā uz mobilo?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Kopīgot teksta kodu";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Kvadrātkoda skenēšana";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Diemžēl sinhronizācija un dublēšana pašlaik nav pieejama. Lūdzu, mēģini vēlreiz vēlāk.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Diemžēl sinhronizācija un dublēšana šajā lietotnes versijā vairs nav pieejama. Lai turpinātu, lūdzu, atjaunini DuckDuckGo uz jaunāko versiju.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Diemžēl sinhronizācija un dublēšana šajā lietotnes versijā vairs nav pieejama. Lai turpinātu, lūdzu, atjaunini Kahf Browser uz jaunāko versiju.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Sinhronizācija un dublēšana nav pieejama";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Sinhronizēt ar citu ierīci";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Tavi dati tiek šifrēti no gala līdz galam, un DuckDuckGo nav piekļuves šifrēšanas atslēgai.";
+"sync.with.another.device.footer" = "Tavi dati tiek šifrēti no gala līdz galam, un Kahf Browser nav piekļuves šifrēšanas atslēgai.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Droši sinhronizē grāmatzīmes un paroles starp ierīcēm.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Sinhronizētās ierīces";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Sinhronizēt ar citu ierīci";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Šī ierīce";

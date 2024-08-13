@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Ενεργοποίηση συγχρονισμού και δημιουργίας αντιγράφων ασφαλείας";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Αυτό δημιουργεί ένα κρυπτογραφημένο αντίγραφο ασφάλειας των σελιδοδεικτών και των κωδικών πρόσβασής σας στον ασφαλή διακομιστή του DuckDuckGo, το οποίο μπορεί να συγχρονιστεί με τις άλλες συσκευές σας.";
+"connect.with.server.sheet.description.part1" = "Αυτό δημιουργεί ένα κρυπτογραφημένο αντίγραφο ασφάλειας των σελιδοδεικτών και των κωδικών πρόσβασής σας στον ασφαλή διακομιστή του Kahf Browser, το οποίο μπορεί να συγχρονιστεί με τις άλλες συσκευές σας.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Το κλειδί κρυπτογράφησης αποθηκεύεται μόνο στη συσκευή σας. Δεν μπορεί να έχει πρόσβαση σε αυτό το Kahf Browser.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Συνεχίστε την ανάπτυξη";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Μεταβείτε στη %1$@ και επιλέξτε %2$@ στην εφαρμογή DuckDuckGo σε μια άλλη συγχρονισμένη συσκευή και επικολλήστε τον κωδικό εδώ για να συγχρονίσετε αυτήν τη συσκευή.";
+"manually.enter.code.instruction.attributed" = "Μεταβείτε στη %1$@ και επιλέξτε %2$@ στην εφαρμογή Kahf Browser σε μια άλλη συγχρονισμένη συσκευή και επικολλήστε τον κωδικό εδώ για να συγχρονίσετε αυτήν τη συσκευή.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Μη αυτόματη εισαγωγή κωδικού";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Δεν μπορείτε να πραγματοποιήσετε σάρωση;";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Μεταβείτε στην ενότητα Ρυθμίσεις › Συγχρονισμός και δημιουργία αντιγράφων ασφάλειας στο πρόγραμμα περιήγησης Kahf Browser σε άλλη συσκευή και επιλέξτε «Συγχρονισμός με άλλη συσκευή».";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Μεταβείτε στη %@ στο πρόγραμμα περιήγησης Kahf Browser σε μια άλλη συσκευή και επιλέξτε «Συγχρονισμός με άλλη συσκευή».";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Μη αυτόματη εισαγωγή κωδικού";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "Από κινητό σε κινητό;";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Κοινοποίηση κωδικού κειμένου";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Σάρωση κώδικα QR";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Δυστυχώς, η λειτουργία Συγχρονισμός και δημιουργία αντιγράφων ασφαλείας δεν είναι διαθέσιμη προς το παρόν. Ξαναδοκιμάστε αργότερα.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Δυστυχώς, η λειτουργία Συγχρονισμός και δημιουργία αντιγράφων ασφαλείας δεν είναι διαθέσιμη πλέον σε αυτήν την έκδοση της εφαρμογής. Ενημερώστε το DuckDuckGo στην πιο πρόσφατη έκδοση για να συνεχίσετε.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Δυστυχώς, η λειτουργία Συγχρονισμός και δημιουργία αντιγράφων ασφαλείας δεν είναι διαθέσιμη πλέον σε αυτήν την έκδοση της εφαρμογής. Ενημερώστε το Kahf Browser στην πιο πρόσφατη έκδοση για να συνεχίσετε.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Ο συγχρονισμός και η δημιουργία αντιγράφων ασφάλειας δεν είναι διαθέσιμος";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Συγχρονισμός με άλλη συσκευή";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Τα δεδομένα σας είναι κρυπτογραφημένα από άκρο σε άκρο και το DuckDuckGo δεν έχει πρόσβαση στο κλειδί κρυπτογράφησης.";
+"sync.with.another.device.footer" = "Τα δεδομένα σας είναι κρυπτογραφημένα από άκρο σε άκρο και το Kahf Browser δεν έχει πρόσβαση στο κλειδί κρυπτογράφησης.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Συγχρονίστε με ασφάλεια σελιδοδείκτες και κωδικούς πρόσβασης μεταξύ των συσκευών σας.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Συγχρονισμένες συσκευές";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Συγχρονισμός με άλλη συσκευή";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Αυτή η συσκευή";

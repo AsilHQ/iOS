@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "'Synchronisatie en back-up' inschakelen";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Hiermee maak je een versleutelde back-up van je bladwijzers en wachtwoorden op de beveiligde server van DuckDuckGo. Deze back-up kan met je andere apparaten worden gesynchroniseerd.";
+"connect.with.server.sheet.description.part1" = "Hiermee maak je een versleutelde back-up van je bladwijzers en wachtwoorden op de beveiligde server van Kahf Browser. Deze back-up kan met je andere apparaten worden gesynchroniseerd.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "De versleutelingscode wordt alleen op je apparaat opgeslagen. Kahf Browser heeft er geen toegang toe.";
@@ -92,7 +92,7 @@
 "Keep Development" = "In ontwikkelen houden";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Ga naar %1$@ en selecteer %2$@ in de DuckDuckGo-app op een ander gesynchroniseerd apparaat en plak de code hier om dit apparaat te synchroniseren.";
+"manually.enter.code.instruction.attributed" = "Ga naar %1$@ en selecteer %2$@ in de Kahf Browser-app op een ander gesynchroniseerd apparaat en plak de code hier om dit apparaat te synchroniseren.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Code handmatig invoeren";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Kun je niet scannen?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Ga naar 'Instellingen' › 'Synchronisatie en back-up' in de Kahf Browser-browser op een ander apparaat en selecteer 'Synchroniseren met een ander apparaat'.";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Ga naar %@ in de Kahf Browser-browser op een ander apparaat en selecteer 'Synchroniseren met een ander apparaat'.";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Code handmatig invoeren";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "Mobiel-naar-mobiel?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Tekstcode delen?";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "QR-code scannen";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Sorry, maar synchroniseren en back-up is momenteel niet beschikbaar. Probeer het later opnieuw.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Synchroniseren en back-up is helaas niet langer beschikbaar in deze versie van de app. Werk DuckDuckGo bij naar de nieuwste versie om door te gaan.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Synchroniseren en back-up is helaas niet langer beschikbaar in deze versie van de app. Werk Kahf Browser bij naar de nieuwste versie om door te gaan.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "'Synchronisatie en back-up' is niet beschikbaar";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Synchroniseren met een ander apparaat";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Je gegevens zijn volledig versleuteld en DuckDuckGo heeft geen toegang tot de versleutelingscode.";
+"sync.with.another.device.footer" = "Je gegevens zijn volledig versleuteld en Kahf Browser heeft geen toegang tot de versleutelingscode.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Synchroniseer bladwijzers en wachtwoorden veilig tussen je apparaten.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Gesynchroniseerde apparaten";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Synchroniseren met een ander apparaat";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Dit apparaat";

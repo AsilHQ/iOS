@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Slå synkronisering og sikkerhedskopiering til";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "Dette opretter en krypteret sikkerhedskopi af dine bogmærker og adgangskoder på DuckDuckGos sikre server, som kan synkroniseres med dine andre enheder.";
+"connect.with.server.sheet.description.part1" = "Dette opretter en krypteret sikkerhedskopi af dine bogmærker og adgangskoder på Kahf Browsers sikre server, som kan synkroniseres med dine andre enheder.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Krypteringsnøglen gemmes kun på din enhed, Kahf Browser har ikke adgang til den.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Behold udvikling";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Gå til %1$@ og vælg %2$@ i DuckDuckGo-appen på en anden synkroniseret enhed, og indsæt koden her for at synkronisere denne enhed.";
+"manually.enter.code.instruction.attributed" = "Gå til %1$@ og vælg %2$@ i Kahf Browser-appen på en anden synkroniseret enhed, og indsæt koden her for at synkronisere denne enhed.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Indtast kode manuelt";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Kan du ikke scanne?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Gå til Indstillinger › Synkronisering og sikkerhedskopiering i Kahf Browser-browseren på en anden enhed, og vælg \"Synkroniser med en anden enhed.\"";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Gå til %@ i Kahf Browser-browseren på en anden enhed, og vælg \"Synkroniser med en anden enhed\".";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Indtast kode manuelt";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "Mobil-til-mobil?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Del tekstkode";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Scan QR-kode";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Beklager, men synkronisering og sikkerhedskopiering er ikke tilgængelig i øjeblikket. Prøv igen senere.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Beklager, men synkronisering og sikkerhedskopiering er ikke længere tilgængelig i denne app-version. Opdater DuckDuckGo til den nyeste version for at fortsætte.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Beklager, men synkronisering og sikkerhedskopiering er ikke længere tilgængelig i denne app-version. Opdater Kahf Browser til den nyeste version for at fortsætte.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Synkronisering og sikkerhedskopiering er ikke tilgængelig";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Synkroniser med en anden enhed";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Dine data er fuldt krypterede, og DuckDuckGo har ikke adgang til krypteringsnøglen.";
+"sync.with.another.device.footer" = "Dine data er fuldt krypterede, og Kahf Browser har ikke adgang til krypteringsnøglen.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Synkroniser sikkert bogmærker og adgangskoder mellem dine enheder.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Synkroniserede enheder";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Synkroniser med en anden enhed";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Denne enhed";

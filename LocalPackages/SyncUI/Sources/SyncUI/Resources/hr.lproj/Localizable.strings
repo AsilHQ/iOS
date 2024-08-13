@@ -35,7 +35,7 @@
 "connect.with.server.sheet.button" = "Uključi sinkronizaciju i sigurnosno kopiranje";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "To stvara šifriranu sigurnosnu kopiju tvojih oznaka i lozinki na sigurnom poslužitelju DuckDuckGo, koja se može sinkronizirati s drugim uređajima.";
+"connect.with.server.sheet.description.part1" = "To stvara šifriranu sigurnosnu kopiju tvojih oznaka i lozinki na sigurnom poslužitelju Kahf Browser, koja se može sinkronizirati s drugim uređajima.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "Ključ za šifriranje pohranjen je samo na tvom uređaju, Kahf Browser mu ne može pristupiti.";
@@ -92,7 +92,7 @@
 "Keep Development" = "Nastavi razvoj";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Idi na %1$@ i odaberi %2$@ u aplikaciji DuckDuckGo na drugom sinkroniziranom uređaju i zalijepi šifru ovdje za sinkronizaciju ovog uređaja.";
+"manually.enter.code.instruction.attributed" = "Idi na %1$@ i odaberi %2$@ u aplikaciji Kahf Browser na drugom sinkroniziranom uređaju i zalijepi šifru ovdje za sinkronizaciju ovog uređaja.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Ručno unesi šifru";
@@ -194,10 +194,10 @@
 "scan.or.see.code.footer" = "Ne možeš skenirati?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Idi na Postavke › Sinkronizacija i sigurnosno kopiranje u pregledniku Kahf Browser na drugom uređaju i odaberite \"Sinkroniziraj s drugim uređajem\".";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Idi na %@ u pregledniku Kahf Browser na drugom uređaju i odaberite ”Sinkroniziraj s drugim uređajem”.";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Ručno unesi šifru";
@@ -209,7 +209,7 @@
 "scan.or.see.code.scan.code.instructions.title" = "S mobilnog uređaja na mobilni uređaj?";
 
 /* Scan or See Code View - Share Code Link */
-"scan.or.see.code.share.code.link" = "Share Text Code";
+"scan.or.see.code.share.code.link" = "Dijeli tekstnu šifru";
 
 /* Scan or See Code View - Title */
 "scan.or.see.code.title" = "Skeniraj QR kôd";
@@ -233,7 +233,7 @@
 "sync.warning.data.syncing.disabled" = "Nažalost, Sync & Backup (sinkronizacija i sigurnosno kopiranje) trenutno nisu dostupni. Pokušaj ponovno nešto kasnije.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Žao nam je, ali Sync & Backup (sinkronizacija i sigurnosno kopiranje) više nisu dostupni u ovoj verziji aplikacije. Molimo te da za nastavak ažuriraš DuckDuckGo na najnoviju verziju.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Žao nam je, ali Sync & Backup (sinkronizacija i sigurnosno kopiranje) više nisu dostupni u ovoj verziji aplikacije. Molimo te da za nastavak ažuriraš Kahf Browser na najnoviju verziju.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Sinkronizacija i sigurnosno kopiranje nisu dostupni";
@@ -242,7 +242,7 @@
 "sync.with.another.device.button" = "Sinkronizacija s drugim uređajem";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Tvoji su podaci šifrirani od početka do kraja, a DuckDuckGo nema pristup ključu za šifriranje.";
+"sync.with.another.device.footer" = "Tvoji su podaci šifrirani od početka do kraja, a Kahf Browser nema pristup ključu za šifriranje.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Sigurno sinkroniziraj oznake i lozinke između svojih uređaja.";
@@ -254,7 +254,7 @@
 "synced.devices.section.header" = "Sinkronizirani uređaji";
 
 /* Synced Devices - Sync with Another Device Label */
-"synced.devices.sync.with.another.device.label" = "Sync With Another Device";
+"synced.devices.sync.with.another.device.label" = "Sinkronizacija s drugim uređajem";
 
 /* Synced Devices - This Device Label */
 "synced.devices.this.device.label" = "Ovaj uređaj";
