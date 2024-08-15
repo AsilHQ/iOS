@@ -155,6 +155,28 @@ class HomeViewController: UIViewController, NewTabPage {
                                                object: nil)
 
         registerForBookmarksChanges()
+        
+        addWallpaper()
+    }
+    
+    private func addWallpaper() {
+        let wallpaperImageView = UIImageView(frame: self.view.bounds)
+        wallpaperImageView.contentMode = .scaleAspectFill
+        wallpaperImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(wallpaperImageView)
+        self.view.sendSubviewToBack(wallpaperImageView)
+        
+        NSLayoutConstraint.activate([
+            wallpaperImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            wallpaperImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            wallpaperImageView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            wallpaperImageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+        
+        WallpaperManager.getSavedImagePaths().randomElement().map { url in
+            let image = WallpaperManager.loadImageFrom(path: url)
+            wallpaperImageView.image = image
+        }
     }
 
     private func registerForBookmarksChanges() {

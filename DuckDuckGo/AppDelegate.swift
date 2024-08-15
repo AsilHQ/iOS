@@ -114,7 +114,7 @@ import WebKit
 
         // SKAD4 support
         updateSKAd(conversionValue: 1)
-
+        WallpaperManager.fetchWallpapers()
 #if targetEnvironment(simulator)
         if ProcessInfo.processInfo.environment["UITESTING"] == "true" {
             // Disable hardware keyboards.
