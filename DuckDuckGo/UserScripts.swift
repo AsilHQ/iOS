@@ -33,6 +33,7 @@ final class UserScripts: UserScriptsProvider {
     let contentScopeUserScript: ContentScopeUserScript
     let contentScopeUserScriptIsolated: ContentScopeUserScript
     let autoconsentUserScript: AutoconsentUserScript
+    let safegazeScript: SafegazeScript
     
     var specialPages: SpecialPagesUserScript?
     var duckPlayer: DuckPlayerProtocol? {
@@ -64,7 +65,7 @@ final class UserScripts: UserScriptsProvider {
                                                                 properties: sourceProvider.contentScopeProperties,
                                                                 isIsolated: true)
         autoconsentUserScript = AutoconsentUserScript(config: sourceProvider.privacyConfigurationManager.privacyConfig)
-        
+        safegazeScript = SafegazeScript()
         // Special pages - Such as Duck Player
         specialPages = SpecialPagesUserScript()
         if let specialPages {
@@ -88,7 +89,8 @@ final class UserScripts: UserScriptsProvider {
         printingUserScript,
         loginFormDetectionScript,
         contentScopeUserScript,
-        contentScopeUserScriptIsolated
+        contentScopeUserScriptIsolated,
+        safegazeScript
     ].compactMap({ $0 })
     
     // Initialize DuckPlayer scripts
