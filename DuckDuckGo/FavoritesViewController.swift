@@ -37,8 +37,8 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var emptyStateContainer: UIView!
 
     struct Constants {
-        static let margin: CGFloat = 12
-        static let footerPadding: CGFloat = 50
+        static let margin: CGFloat = 120
+        static let footerPadding: CGFloat = 100
     }
 
     private let layout = UICollectionViewFlowLayout()
@@ -89,6 +89,9 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        layout.minimumInteritemSpacing = 60
+        layout.minimumLineSpacing = 60
+        
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
 
         collectionView.register(UINib(nibName: "FavoriteHomeCell", bundle: nil), forCellWithReuseIdentifier: "favorite")
@@ -153,12 +156,7 @@ class FavoritesViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        if AppWidthObserver.shared.isLargeWidth {
-            layout.minimumInteritemSpacing = 32
-        } else {
-            layout.minimumInteritemSpacing = 10
-        }
-
+        
         collectionView.frame = view.bounds
         collectionView.setNeedsLayout()
     }

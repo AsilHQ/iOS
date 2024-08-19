@@ -24,8 +24,8 @@ import Bookmarks
 class FavoriteHomeCell: UICollectionViewCell {
 
     struct Constants {
-        static let smallFaviconSize: CGFloat = 16
-        static let largeFaviconSize: CGFloat = 40
+        static let smallFaviconSize: CGFloat = 30
+        static let largeFaviconSize: CGFloat = 30
     }
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -71,8 +71,6 @@ class FavoriteHomeCell: UICollectionViewCell {
         super.awakeFromNib()
         FavoriteHomeCell.applyDropshadow(to: iconBackground)
         FavoriteHomeCell.applyDropshadow(to: deleteButton)
-        layer.cornerRadius = 8
-
         decorate()
     }
 
@@ -92,32 +90,29 @@ class FavoriteHomeCell: UICollectionViewCell {
         self.favorite = favorite
         
         let host = favorite.host
-        let color = UIColor.forDomain(host)
-        
+
         isAccessibilityElement = true
         accessibilityTraits = .button
         accessibilityLabel = "\(favorite.displayTitle). \(UserText.favorite)"
         
         titleLabel.text = favorite.displayTitle
-        iconBackground.backgroundColor = color
+        iconBackground.backgroundColor = .white
 
         let iconImage = self.iconImage
         let domain = favorite.host
         let fakeFavicon = FaviconsHelper.createFakeFavicon(forDomain: domain,
-                                                           size: iconImage?.frame.width ?? 64,
-                                                           backgroundColor: color,
+                                                           size: 30,
+                                                           backgroundColor: .white,
                                                            bold: false)
         iconImage?.image = fakeFavicon
-
+        iconImage?.layer.cornerRadius = 15
+        
         iconImage?.loadFavicon(forDomain: domain, usingCache: .fireproof, useFakeFavicon: false) { image, _ in
             guard let image = image else {
                 iconImage?.image = fakeFavicon
                 onFaviconMissing?(domain)
                 return
             }
-
-            let useBorder = URL.isDuckDuckGo(domain: domain) || image.size.width < Constants.largeFaviconSize
-            self.useImageBorder(useBorder)
             self.applyFavicon(image)
         }
     }
@@ -132,7 +127,7 @@ class FavoriteHomeCell: UICollectionViewCell {
 
         iconImage.contentMode = image.size.width < Constants.largeFaviconSize ? .center : .scaleAspectFit
 
-        iconBackground.backgroundColor = ThemeManager.shared.currentTheme.faviconBackgroundColor
+        iconBackground.backgroundColor = .white
     }
     
     class func applyDropshadow(to view: UIView) {

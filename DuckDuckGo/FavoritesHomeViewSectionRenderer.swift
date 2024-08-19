@@ -180,7 +180,7 @@ class FavoritesHomeViewSectionRenderer: NSObject, HomeViewSectionRenderer {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: Constants.horizontalMargin + cellWidth, height: cellHeight)
+        return CGSize(width: 17 + cellWidth, height: cellHeight)
     }
     
     func supportsReordering() -> Bool {
