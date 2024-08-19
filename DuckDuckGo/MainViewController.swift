@@ -1072,8 +1072,17 @@ class MainViewController: UIViewController {
     }
 
     fileprivate func refreshBackForwardButtons() {
-        viewCoordinator.toolbarBackButton.isEnabled = currentTab?.canGoBack ?? false
-        viewCoordinator.toolbarForwardButton.isEnabled = currentTab?.canGoForward ?? false
+        if !(currentTab?.canGoBack ?? false) {
+            viewCoordinator.toolbarBackButton.image = UIImage(named: "KahfHome")
+            viewCoordinator.toolbarForwardButton.image = UIImage(named: "KahfPrayer")
+            viewCoordinator.toolbarBackButton.action = #selector(onHomePressed)
+        } else {
+            viewCoordinator.toolbarBackButton.image = UIImage(named: "BrowsePrevious")
+            viewCoordinator.toolbarBackButton.action = #selector(onBackPressed)
+            viewCoordinator.toolbarForwardButton.image = UIImage(named: "BrowseNext")
+            viewCoordinator.toolbarBackButton.isEnabled = currentTab?.canGoBack ?? false
+            viewCoordinator.toolbarForwardButton.isEnabled = currentTab?.canGoForward ?? false
+        }
     }
   
     var orientationPixelWorker: DispatchWorkItem?
@@ -1135,16 +1144,12 @@ class MainViewController: UIViewController {
     func refreshMenuButtonState() {
         let expectedState: MenuButton.State
         if homeViewController != nil {
-            expectedState = .bookmarksImage
+            expectedState = .menuImage
             viewCoordinator.lastToolbarButton.accessibilityLabel = UserText.bookmarksButtonHint
             viewCoordinator.omniBar.menuButton.accessibilityLabel = UserText.bookmarksButtonHint
 
         } else {
-            if presentedViewController is BrowsingMenuViewController {
-                expectedState = .closeImage
-            } else {
-                expectedState = .menuImage
-            }
+            expectedState = .menuImage
             viewCoordinator.lastToolbarButton.accessibilityLabel = UserText.menuButtonHint
             viewCoordinator.omniBar.menuButton.accessibilityLabel = UserText.menuButtonHint
         }
@@ -1789,8 +1794,6 @@ extension MainViewController: OmniBarDelegate {
                 controller.highlightCell(atIndex: IndexPath(row: tab.favoriteEntryIndex, section: 0))
             }
         }
-
-        self.presentedMenuButton.setState(.closeImage, animated: true)
         tab.didLaunchBrowsingMenu()
     }
     
@@ -2804,5 +2807,12 @@ extension MainViewController {
 extension MainViewController: AutofillLoginSettingsListViewControllerDelegate {
     func autofillLoginSettingsListViewControllerDidFinish(_ controller: AutofillLoginSettingsListViewController) {
         controller.dismiss(animated: true)
+    }
+}
+
+// MARK: - Kahf Browser Functions
+extension MainViewController {
+    @objc func onHomePressed() {
+        
     }
 }

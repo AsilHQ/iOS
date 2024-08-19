@@ -238,10 +238,6 @@ class HomeViewController: UIViewController, NewTabPage {
     
     func openedAsNewTab(allowingKeyboard: Bool) {
         collectionView.openedAsNewTab(allowingKeyboard: allowingKeyboard)
-        if !variantManager.isSupported(feature: .newOnboardingIntro) {
-            // In the new onboarding this gets called twice (viewDidAppear in Tab) which then reset the spec to nil.
-            presentNextDaxDialog()
-        }
     }
     
     @IBAction func launchSettings() {
@@ -257,8 +253,6 @@ class HomeViewController: UIViewController, NewTabPage {
 
         Pixel.fire(pixel: .homeScreenShown)
         sendDailyDisplayPixel()
-
-        presentNextDaxDialog()
 
         collectionView.didAppear()
 
