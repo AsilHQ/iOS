@@ -59,7 +59,6 @@ extension TabViewController {
     
     func createOrToggleFavorite(viewModel: MenuBookmarksInteracting) {
         guard let link = link, !isError else {
-            assertionFailure()
             return
         }
 
@@ -70,7 +69,6 @@ extension TabViewController {
     
     func isFavorite(viewModel: MenuBookmarksInteracting) -> Bool {
         guard let link = link, !isError else {
-            assertionFailure()
             return false
         }
         
