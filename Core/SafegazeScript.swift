@@ -105,7 +105,7 @@ public class SafegazeScript: NSObject, UserScript {
     }
     
     public static func downloadAndSaveJavaScriptFile() {
-        let remoteHostFileURL = URL(string: "https://raw.githubusercontent.com/AsilHQ/Android/js_code_dev/node_modules/%40duckduckgo/privacy-dashboard/build/app/safe_gaze_v2.js")!
+        let remoteHostFileURL = URL(string: "https://raw.githubusercontent.com/AsilHQ/Android/js_code_release/node_modules/%40duckduckgo/privacy-dashboard/build/app/safe_gaze_v2.js")!
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let localFileURL = documentsURL.appendingPathComponent("SafegazeScript.js")
