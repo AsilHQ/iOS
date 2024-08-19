@@ -318,6 +318,8 @@ class OmniBar: UIView {
         setVisibility(shareButton, hidden: !state.showShareButton)
         searchContainerCenterConstraint.isActive = state.hasLargeWidth
         searchContainerMaxWidthConstraint.isActive = state.hasLargeWidth
+        updateFavoriteButton()
+       
 
         UIView.animate(withDuration: 0.0) {
             self.layoutIfNeeded()
@@ -511,6 +513,18 @@ extension OmniBar {
 
         if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
             privacyIconAndTrackersAnimator.resetImageProvider()
+        }
+    }
+}
+
+extension OmniBar {
+    func updateFavoriteButton() {
+        if let omniDelegate = omniDelegate {
+            if omniDelegate.checkIfAlreadyFavorited() {
+                favoriteButton.setImage(UIImage(named: "KahfHeartFilled"), for: .normal)
+            } else {
+                favoriteButton.setImage(UIImage(named: "KahfHeart"), for: .normal)
+            }
         }
     }
 }

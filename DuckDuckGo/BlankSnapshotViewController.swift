@@ -158,6 +158,10 @@ extension BlankSnapshotViewController: UICollectionViewDataSource {
 }
 
 extension BlankSnapshotViewController: OmniBarDelegate {
+    func checkIfAlreadyFavorited() -> Bool {
+        return false
+    }
+    
     func onFavoritePressed() {
         // No-op
     }

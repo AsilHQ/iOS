@@ -56,4 +56,28 @@ extension TabViewController {
             }
         }
     }
+    
+    func createOrToggleFavorite(viewModel: MenuBookmarksInteracting) {
+        guard let link = link, !isError else {
+            assertionFailure()
+            return
+        }
+
+        viewModel.createOrToggleFavorite(title: link.displayTitle, url: link.url)
+        WidgetCenter.shared.reloadAllTimelines()
+        syncService.scheduler.notifyDataChanged()
+    }
+    
+    func isFavorite(viewModel: MenuBookmarksInteracting) -> Bool {
+        guard let link = link, !isError else {
+            assertionFailure()
+            return false
+        }
+        
+        if nil == viewModel.favorite(for: link.url) {
+            return false
+        } else {
+           return true
+        }
+    }
 }

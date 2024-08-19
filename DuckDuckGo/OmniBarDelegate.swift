@@ -71,6 +71,8 @@ protocol OmniBarDelegate: AnyObject {
     func onVoiceSearchPressed()
     
     func onFavoritePressed()
+    
+    func checkIfAlreadyFavorited() -> Bool
 }
 
 extension OmniBarDelegate {

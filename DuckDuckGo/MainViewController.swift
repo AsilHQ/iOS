@@ -1698,6 +1698,14 @@ extension MainViewController: BrowserChromeDelegate {
 }
 
 extension MainViewController: OmniBarDelegate {
+    func checkIfAlreadyFavorited() -> Bool {
+        if let currentTab = currentTab {
+            return currentTab.isFavorite(viewModel: menuBookmarksViewModel)
+        } else {
+            return false
+        }
+    }
+    
 
     func selectedSuggestion() -> Suggestion? {
         return suggestionTrayController?.selectedSuggestion
@@ -1924,7 +1932,8 @@ extension MainViewController: OmniBarDelegate {
     }
     
     func onFavoritePressed() {
-        print("onFavoritePressed")
+        currentTab?.createOrToggleFavorite(viewModel: menuBookmarksViewModel)
+        omniBar.updateFavoriteButton()
     }
 
     func onShareLongPressed() {
