@@ -198,7 +198,7 @@
                                     </constraints>
                                     <state key="normal" image="KahfSafegaze"/>
                                     <connections>
-                                        <action selector="onRefreshPressed:" destination="ojX-nM-dyN" eventType="touchUpInside" id="4Dg-IX-SdK"/>
+                                        <action selector="onSafegazePressed:" destination="ojX-nM-dyN" eventType="touchUpInside" id="cNY-D4-Vor"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ita-iD-8ad" userLabel="Share Button">

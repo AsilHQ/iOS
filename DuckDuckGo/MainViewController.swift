@@ -1935,6 +1935,15 @@ extension MainViewController: OmniBarDelegate {
         currentTab?.createOrToggleFavorite(viewModel: menuBookmarksViewModel)
         omniBar.updateFavoriteButton()
     }
+    
+    func onSafegazePressed() {
+        if let tab = self.currentTab?.tabModel {
+            let shields = SafegazeViewController(tab: tab)
+            let container = PopoverNavigationController(rootViewController: shields)
+            let popover = PopoverController(contentController: container, contentSizeBehavior: .preferredContentSize)
+            popover.present(from: omniBar.safegazeButton.imageView!, on: self)
+        }
+    }
 
     func onShareLongPressed() {
         if featureFlagger.isFeatureOn(.debugMenu) || isDebugBuild {

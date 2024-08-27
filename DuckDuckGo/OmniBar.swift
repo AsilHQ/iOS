@@ -425,7 +425,7 @@ class OmniBar: UIView {
     }
     
     @IBAction func onSafegazePressed(_ sender: Any) {
-        //
+        omniDelegate?.onSafegazePressed()
     }
     
     

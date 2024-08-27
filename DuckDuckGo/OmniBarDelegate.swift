@@ -73,6 +73,8 @@ protocol OmniBarDelegate: AnyObject {
     func onFavoritePressed()
     
     func checkIfAlreadyFavorited() -> Bool
+    
+    func onSafegazePressed()
 }
 
 extension OmniBarDelegate {
@@ -134,4 +136,5 @@ extension OmniBarDelegate {
     func onForwardPressed() {
     }
     
+    func onSafegazePressed() {}
 }
