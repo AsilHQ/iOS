@@ -47,7 +47,7 @@ struct SettingsRootView: View {
 
         List {
             SettingsPrivacyProtectionsView()
-            SettingsSubscriptionView().environmentObject(subscriptionNavigationCoordinator)
+//            SettingsSubscriptionView().environmentObject(subscriptionNavigationCoordinator)
             SettingsMainSettingsView()
             SettingsNextStepsView()
             SettingsOthersView()
