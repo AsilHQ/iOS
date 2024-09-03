@@ -81,7 +81,6 @@ public class AppUserDefaults: AppSettings {
         static let duckPlayerAskModeOverlayHidden = "com.duckduckgo.ios.duckPlayerAskModeOverlayHidden"
         
         static let safegazeBlurIntensity = "com.duckduckgo.app.safegazeBlurIntensity"
-        static let safegazeOn = "com.duckduckgo.app.safegazeOn"
         static let safegazeBlurredImageCount = "com.duckduckgo.app.safegazeBlurredImageCount"
         static let blockedTrackersCount = "com.duckduckgo.app.blockedTrackersCount"
     }
@@ -435,6 +434,9 @@ public class AppUserDefaults: AppSettings {
 
     @UserDefaultsWrapper(key: .newTabPageIntroMessageSeenCount, defaultValue: 0)
     var newTabPageIntroMessageSeenCount: Int
+    
+    @UserDefaultsWrapper(key: .safegazeOn, defaultValue: true)
+    var safegazeOn: Bool
 }
 
 extension AppUserDefaults: AppConfigurationFetchStatistics {
@@ -499,16 +501,6 @@ extension AppUserDefaults: AppConfigurationFetchStatistics {
         }
         set {
             userDefaults?.setValue(newValue, forKey: Keys.backgroundFetchTaskExpirationCount)
-        }
-    }
-    
-    
-    var safegazeOn: Bool {
-        get {
-            return userDefaults?.bool(forKey: Keys.safegazeOn) ?? false
-        }
-        set {
-            userDefaults?.setValue(newValue, forKey: Keys.safegazeOn)
         }
     }
     
