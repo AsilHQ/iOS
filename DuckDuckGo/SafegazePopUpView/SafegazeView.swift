@@ -159,64 +159,77 @@ struct SafegazeView: View {
     }
     
     var decentInternetSection: some View {
-        VStack {
-            HStack {
-                VStack(spacing: 10) {
-                    sectionTitle("Decent Internet")
-                    sectionSubtitle("Blue indecent photos. Avoid major sins")
-                    SliderView(value: $value)
-                    Spacer()
-                }
-
-                VStack {
-                    imageViewColumn(image: "KahfBoyFullImage", title: "Full Image", subtitle: "(Free)")
-                    Spacer() // Spacer added to avoid pushing content
-                }
-
-                VStack {
-                    imageViewColumn(image: "KahfFullImage", title: "Human Only", subtitle: "(Premium)")
-                        .padding(.bottom, 10)
-                    Spacer(minLength: 0) // Add Spacer here to prevent pushing
+            VStack {
+                HStack {
+                    VStack(spacing: 10) {
+                        sectionTitle("Decent Internet")
+                        VStack(spacing: 0) {
+                            sectionSubtitle("Blue indecent photos.")
+                            sectionSubtitle("Avoid major sins")
+                        }
+                        SliderView(value: $value)
+                        Spacer()
+                    }
                     
-                    switch safeInternet {
-                    case .high:
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Circle().frame(width: 4, height: 4).foregroundColor(green)
-                                Text("Daily Free Limit")
-                                    .font(FontHelper.lato(size: 12.0, weight: .bold))
-                                    .foregroundColor(green)
-                            }
-                            Text("100 images")
-                                .font(FontHelper.lato(size: 12.0, weight: .bold))
-                                .foregroundColor(green)
-                            Spacer()
-                        }
-                    case .medium, .low:
-                        VStack(spacing: 10) {
-                            HStack {
-                                Circle().frame(width: 4, height: 4).foregroundColor(red)
-                                Text("Free Limit Over")
-                                    .font(FontHelper.lato(size: 11.0, weight: .bold))
-                                    .foregroundColor(red)
-                            }
-                            Button(action: {
-                                // Action for button
-                            }, label: {
-                                Text("Buy Premium")
-                                    .foregroundColor(Color.white)
-                                    .font(FontHelper.inter(size: 12, weight: .bold))
-                            })
-                            .frame(width: 80, height: 26)
-                            .background(green)
-                            .cornerRadius(27)
-                        }
-                        Spacer() // Add Spacer here to prevent pushing
+                    VStack {
+                        imageViewColumn(image: "KahfBoyFullImage", title: "Full Image", subtitle: "(Free)")
+                        Spacer()
+                    }
+                    
+                    VStack {
+                        imageViewColumn(image: "KahfFullImage", title: "Human Only", subtitle: "(Premium)")
+                        Spacer()
                     }
                 }
-            }
-        }.frame(height: 160)
+                
+                HStack {
+                    Spacer()
+                    Group {
+                        switch safeInternet {
+                        case .high:
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Circle()
+                                        .frame(width: 4, height: 4)
+                                        .foregroundColor(green)
+                                        .padding(.leading, 4)
+                                    VStack(spacing: 0) {
+                                        Text("Daily Free Limit")
+                                            .font(FontHelper.lato(size: 8.0, weight: .bold))
+                                            .foregroundColor(green)
+                                    }
+                                }
+                                Text("100 images")
+                                    .font(FontHelper.lato(size: 8.0, weight: .bold))
+                                    .foregroundColor(green)
+                                    .padding(.leading, 8)
+                                Spacer()
+                            }
+                        case .medium, .low:
+                            VStack(spacing: 10) {
+                                HStack {
+                                    Circle().frame(width: 4, height: 4).foregroundColor(red)
+                                    Text("Free Limit Over")
+                                        .font(FontHelper.lato(size: 8, weight: .bold))
+                                        .foregroundColor(red)
+                                }
+                                Button(action: {
+                                    // Action for button
+                                }, label: {
+                                    Text("Buy Premium")
+                                        .foregroundColor(Color.white)
+                                        .font(FontHelper.lato(size: 8, weight: .bold))
+                                })
+                                .frame(width: 80, height: 26)
+                                .background(green)
+                                .cornerRadius(27)
+                            }.padding(.leading, 4)
+                        }
+                    }.frame(width: 80, height: 40)
+                }
+            }.frame(height: 160)
     }
+    
     
     var harmAvoidedSection: some View {
         sectionView(title: "Harm Avoided") {
@@ -236,9 +249,13 @@ struct SafegazeView: View {
     
     var footerSection: some View {
         HStack {
-            footerButton(icon: "square.and.arrow.up", title: "Share")
+            footerButton(icon: "KahfShare", title: "Share") { // TODO: Add share action
+            }
             Spacer()
-            footerButton(icon: "headphones", title: "Support")
+            footerButton(icon: "KahfSupport", title: "Support") {
+                guard let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSeaW7PjI-K3yqZZ4gpuXbbx5qOFxAwILLy5uy7PTerXfdzFqw/viewform") else { return }
+                UIApplication.shared.open(url)
+            }
         }
         .padding(.horizontal, 70)
         .padding(.top, 5)
@@ -265,7 +282,6 @@ struct SafegazeView: View {
         Text(subtitle)
             .font(FontHelper.lato(size: 13, weight: .regular))
             .foregroundColor(Color(designSystemColor: .textPrimary))
-            .frame(width: 158, height: 32)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 
@@ -273,7 +289,7 @@ struct SafegazeView: View {
         VStack {
             Image(image)
                 .resizable()
-                .frame(width: 60, height: 60)
+                .frame(width: 80, height: 80)
                 .cornerRadius(6)
                 .foregroundColor(.black)
             Text(title)
@@ -296,17 +312,19 @@ struct SafegazeView: View {
         }
     }
 
-    func footerButton(icon: String, title: String) -> some View {
-        Button(action: {}) {
+    func footerButton(icon: String, title: String, action: @escaping () -> Void) -> some View {
+        Button(action: {
+            action()
+        }, label: {
             VStack(spacing: 5) {
-                Image(systemName: icon)
+                Image(icon)
                     .frame(width: 20, height: 20)
-                    .foregroundColor(.black)
+                    .tint(Color(designSystemColor: .textPrimary))
                 Text(title)
                     .font(FontHelper.lato(size: 12))
-                    .foregroundColor(gray130)
+                    .foregroundColor(Color(designSystemColor: .textPrimary))
             }
-        }
+        })
         .frame(width: 50)
     }
 
@@ -325,7 +343,7 @@ struct SafegazeView: View {
     func saferInternetButton(mode: SafeInternet) -> some View {
         Button(action: {
             safeInternet = mode
-        }) {
+        }, label: {
             ZStack {
                 Text(mode.title)
                     .font(.headline)
@@ -343,7 +361,7 @@ struct SafegazeView: View {
                     checkmarkCircle(color: safeInternet.color)
                 }
             }
-        }
+        })
     }
 
     func checkmarkCircle(color: Color) -> some View {
