@@ -126,6 +126,7 @@ struct SafegazeView: View {
     var headerSection: some View {
         HStack {
             Image(.kahfGuard)
+                .resizable()
                 .frame(width: 137, height: 31)
                 .foregroundColor(Color(designSystemColor: .textPrimary))
 
