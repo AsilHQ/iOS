@@ -51,6 +51,7 @@ final class UserScripts: UserScriptsProvider {
     private(set) var printingUserScript = PrintingUserScript()
     private(set) var textSizeUserScript = TextSizeUserScript(textSizeAdjustmentInPercents: AppDependencyProvider.shared.appSettings.textSize)
     private(set) var debugScript = DebugUserScript()
+    private let userDefaults = AppUserDefaults()
 
     init(with sourceProvider: ScriptSourceProviding) {
         contentBlockerUserScript = ContentBlockerRulesUserScript(configuration: sourceProvider.contentBlockerRulesConfig)
@@ -66,12 +67,16 @@ final class UserScripts: UserScriptsProvider {
                                                                 isIsolated: true)
         autoconsentUserScript = AutoconsentUserScript(config: sourceProvider.privacyConfigurationManager.privacyConfig)
         safegazeScript = SafegazeScript()
-        safegazeScript.increaseSafegazeBlurredImageCount = {
-            AppUserDefaults().safegazeBlurredImageCount += 1
-        }
+
         if AppUserDefaults().safegazeOn {
-            userScripts.append(SafegazeScript())
+            safegazeScript.increaseSafegazeBlurredImageCount = {
+                DispatchQueue.main.async {
+                    self.userDefaults.safegazeBlurredImageCount += 1
+                }
+            }
+            userScripts.append(safegazeScript)
         }
+        
         // Special pages - Such as Duck Player
         specialPages = SpecialPagesUserScript()
         if let specialPages {

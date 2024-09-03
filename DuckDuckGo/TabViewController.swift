@@ -2416,6 +2416,10 @@ extension TabViewController: ContentBlockerRulesUserScriptDelegate {
         }
 
         privacyInfo?.trackerInfo.addDetectedTracker(tracker, onPageWithURL: url)
+        
+        if tracker.state == .blocked {
+            AppUserDefaults().blockedTrackersCount += 1
+        }
     }
 }
 

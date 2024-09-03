@@ -208,7 +208,7 @@ struct SafegazeView: View {
                                     .font(FontHelper.inter(size: 12, weight: .bold))
                             })
                             .frame(width: 80, height: 26)
-                            .background(safeInternet == SafeInternet.medium ? black : green)
+                            .background(green)
                             .cornerRadius(27)
                         }
                         Spacer() // Add Spacer here to prevent pushing
@@ -229,7 +229,7 @@ struct SafegazeView: View {
                 Spacer()
                 verticalDivider
                 Spacer()
-                harmAvoidedColumn(number: "1293", label: "Ads + Trackers")
+                harmAvoidedColumn(number: "\(AppUserDefaults().blockedTrackersCount)", label: "Ads + Trackers")
             }.frame(maxWidth: .infinity)
         }
     }

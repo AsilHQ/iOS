@@ -83,6 +83,7 @@ public class AppUserDefaults: AppSettings {
         static let safegazeBlurIntensity = "com.duckduckgo.app.safegazeBlurIntensity"
         static let safegazeOn = "com.duckduckgo.app.safegazeOn"
         static let safegazeBlurredImageCount = "com.duckduckgo.app.safegazeBlurredImageCount"
+        static let blockedTrackersCount = "com.duckduckgo.app.blockedTrackersCount"
     }
 
     private struct DebugKeys {
@@ -526,6 +527,15 @@ extension AppUserDefaults: AppConfigurationFetchStatistics {
         }
         set {
             userDefaults?.setValue(newValue, forKey: Keys.safegazeBlurredImageCount)
+        }
+    }
+    
+    var blockedTrackersCount: Int {
+        get {
+            return userDefaults?.integer(forKey: Keys.blockedTrackersCount) ?? 0
+        }
+        set {
+            userDefaults?.setValue(newValue, forKey: Keys.blockedTrackersCount)
         }
     }
 }
