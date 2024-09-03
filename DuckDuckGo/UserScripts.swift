@@ -66,6 +66,12 @@ final class UserScripts: UserScriptsProvider {
                                                                 isIsolated: true)
         autoconsentUserScript = AutoconsentUserScript(config: sourceProvider.privacyConfigurationManager.privacyConfig)
         safegazeScript = SafegazeScript()
+        safegazeScript.increaseSafegazeBlurredImageCount = {
+            AppUserDefaults().safegazeBlurredImageCount += 1
+        }
+        if AppUserDefaults().safegazeOn {
+            userScripts.append(SafegazeScript())
+        }
         // Special pages - Such as Duck Player
         specialPages = SpecialPagesUserScript()
         if let specialPages {
@@ -90,7 +96,6 @@ final class UserScripts: UserScriptsProvider {
         loginFormDetectionScript,
         contentScopeUserScript,
         contentScopeUserScriptIsolated,
-        safegazeScript
     ].compactMap({ $0 })
     
     // Initialize DuckPlayer scripts

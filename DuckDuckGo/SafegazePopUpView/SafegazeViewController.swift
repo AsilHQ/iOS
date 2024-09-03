@@ -19,25 +19,22 @@
 
 import Foundation
 import SnapKit
+import WebKit
 import UIKit
 
 /// Displays shield settings and shield stats for a given URL
 class SafegazeViewController: UIViewController, PopoverContentComponent {
 
   let tab: Tab
-  lazy var url: URL? = {
-    guard let url = tab.link?.url else { return nil }
-    return url
-  }()
-
-  //var safegazeSettingsChanged: ((SafegazeViewController, BraveShield) -> Void)?
-  var showGlobalShieldsSettings: ((SafegazeViewController) -> Void)?
+  let webView: WKWebView
+    
+  var safegazeSettingsChanged: ((SafegazeViewController) -> Void)?
 
   private var statsUpdateObservable: AnyObject?
 
-  /// Create with an initial URL and block stats (or nil if you are not on any web page)
-  init(tab: Tab) {
+  init(tab: Tab, webView: WKWebView) {
     self.tab = tab
+    self.webView = webView
 
     super.init(nibName: nil, bundle: nil)
   }
@@ -113,28 +110,20 @@ class SafegazeViewController: UIViewController, PopoverContentComponent {
   }
 
   override func loadView() {
-      let newView = View(frame: .zero, url: url, tab: tab)
-      newView.updateBgView = {  updatedView, animated in
-//          self.updateContentView(to: updatedView, animated: animated)
-      }
+      let newView = View(frame: .zero, tab: tab)
       newView.updateBlurIntensity = {
-//          let jsString =
-//            """
-//                window.blurIntensity = \(Preferences.Safegaze.blurIntensity.value);
-//                updateBluredImageOpacity();
-//            """
-//          self.tab.webView?.evaluateSafeJavaScript(functionName: jsString, contentWorld: .page, asFunction: false) { object, error in
-//              if let error = error {
-//                  print("SafegazeContentScriptHandler coreML script\(error)")
-//              } else {
-//                  print("blurChanged")
-//              }
-//          }
+          let jsString =
+            """
+                window.blurIntensity = \(AppUserDefaults().safegazeBlurIntensityValue);
+                updateBluredImageOpacity();
+            """
+          
+          self.webView.evaluateJavaScript(jsString)
       }
-      newView.shieldsSettingsChanged = {
-//          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//            self.safegazeSettingsChanged?(self, .AllOff)
-//          }
+      newView.safegazeSettingsChanged = {
+          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+              self.webView.reload()
+          }
       }
       view = newView
   }
@@ -147,44 +136,6 @@ class SafegazeViewController: UIViewController, PopoverContentComponent {
     navigationController?.setNavigationBarHidden(true, animated: false)
 
     updatePreferredContentSize()
-
-//    shieldControlMapping.forEach { shield, toggle, option in
-//      toggle.valueToggled = { [weak self] on in
-//        guard let self = self else { return }
-//        // Localized / per domain toggles triggered here
-//        self.updateSafegazeState(on: on, option: option)
-//        // Wait a fraction of a second to allow DB write to complete otherwise it will not use the
-//        // updated shield settings when reloading the page
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//          self.safegazeSettingsChanged?(self, shield)
-//        }
-//      }
-//    }
-  }
-    
-//   private func updateSafegazeState(on: Bool, option: Preferences.Option<Bool>?) {
-//      guard let url = url else { return }
-//      // `.AllOff` uses inverse logic. Technically we set "all off" when the switch is OFF, unlike all the others
-//      // If the new state is the same as the global preference, reset it to nil so future shield state queries
-//      // respect the global preference rather than the overridden value. (Prevents toggling domain state from
-//      // affecting future changes to the global pref)
-//      Domain.setSafegaze(
-//        forUrl: url, isOn: on,
-//        isPrivateBrowsing: PrivateBrowsingManager.shared.isPrivateBrowsing)
-//  }
-//
-//  @objc private func shieldsOverrideSwitchValueChanged() {
-//    let isOn = shieldsUpSwitch.isOn
-//    self.updateSafegazeState(on: isOn, option: nil)
-//    // Wait a fraction of a second to allow DB write to complete otherwise it will not use the updated
-//    // shield settings when reloading the page
-//    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//      self.safegazeSettingsChanged?(self, .AllOff)
-//    }
-//  }
-
-  @objc private func tappedGlobalShieldsButton() {
-    showGlobalShieldsSettings?(self)
   }
 
   @available(*, unavailable)
@@ -220,25 +171,23 @@ extension SafegazeViewController {
 
     public var updateBgView: ((UIView, Bool) -> Void)?
     public var updateBlurIntensity: (() -> Void)?
-    public var shieldsSettingsChanged: (() -> Void)?
-    var url: URL?
+    public var safegazeSettingsChanged: (() -> Void)?
     var tab: Tab
       
-    init(frame: CGRect, url: URL?, tab: Tab) {
-      self.url = url
+    init(frame: CGRect, tab: Tab) {
       self.tab = tab
       super.init(frame: frame)
 
       backgroundColor = .systemBackground
 
-      let popupView = SafegazePopUpView.redirect(url: url, updateView: { [self] in
+      let popupView = SafegazeView.redirect(updateView: { [self] in
           setNeedsUpdateConstraints()
           layoutIfNeeded()
           updateBgView?(stackView, true)
       }, updateBlurIntensity: {
           self.updateBlurIntensity?()
-      }, shieldsSettingsChanged: {
-          self.shieldsSettingsChanged?()
+      }, safegazeSettingsChanged: {
+          self.safegazeSettingsChanged?()
       }, tab: tab)
       stackView.addArrangedSubview(popupView)
 
@@ -266,4 +215,3 @@ extension SafegazeViewController {
     }
   }
 }
-

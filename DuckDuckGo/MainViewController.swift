@@ -1937,8 +1937,8 @@ extension MainViewController: OmniBarDelegate {
     }
     
     func onSafegazePressed() {
-        if let tab = self.currentTab?.tabModel {
-            let shields = SafegazeViewController(tab: tab)
+        if let tab = self.currentTab?.tabModel, let webView = self.currentTab?.webView {
+            let shields = SafegazeViewController(tab: tab, webView: webView)
             let container = PopoverNavigationController(rootViewController: shields)
             let popover = PopoverController(contentController: container, contentSizeBehavior: .preferredContentSize)
             popover.present(from: omniBar.safegazeButton.imageView!, on: self)

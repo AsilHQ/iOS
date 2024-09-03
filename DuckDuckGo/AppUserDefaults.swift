@@ -39,6 +39,7 @@ public class AppUserDefaults: AppSettings {
         public static let autofillDebugScriptToggled = Notification.Name("com.duckduckgo.app.DidToggleAutofillDebugScript")
         public static let duckPlayerSettingsUpdated = Notification.Name("com.duckduckgo.app.DuckPlayerSettingsUpdated")
         public static let appDataClearingUpdated = Notification.Name("com.duckduckgo.app.dataClearingUpdates")
+        public static let safegazeStatusChanged = Notification.Name("com.duckduckgo.app.safegazeStatusChanged")
     }
 
     private let groupName: String
@@ -78,6 +79,10 @@ public class AppUserDefaults: AppSettings {
         
         static let duckPlayerMode = "com.duckduckgo.ios.duckPlayerMode"
         static let duckPlayerAskModeOverlayHidden = "com.duckduckgo.ios.duckPlayerAskModeOverlayHidden"
+        
+        static let safegazeBlurIntensity = "com.duckduckgo.app.safegazeBlurIntensity"
+        static let safegazeOn = "com.duckduckgo.app.safegazeOn"
+        static let safegazeBlurredImageCount = "com.duckduckgo.app.safegazeBlurredImageCount"
     }
 
     private struct DebugKeys {
@@ -493,6 +498,34 @@ extension AppUserDefaults: AppConfigurationFetchStatistics {
         }
         set {
             userDefaults?.setValue(newValue, forKey: Keys.backgroundFetchTaskExpirationCount)
+        }
+    }
+    
+    
+    var safegazeOn: Bool {
+        get {
+            return userDefaults?.bool(forKey: Keys.safegazeOn) ?? false
+        }
+        set {
+            userDefaults?.setValue(newValue, forKey: Keys.safegazeOn)
+        }
+    }
+    
+    var safegazeBlurIntensityValue: Float {
+        get {
+            return userDefaults?.float(forKey: Keys.safegazeBlurIntensity) ?? Float(0.0)
+        }
+        set {
+            userDefaults?.setValue(newValue, forKey: Keys.safegazeBlurIntensity)
+        }
+    }
+    
+    var safegazeBlurredImageCount: Int {
+        get {
+            return userDefaults?.integer(forKey: Keys.safegazeBlurredImageCount) ?? 0
+        }
+        set {
+            userDefaults?.setValue(newValue, forKey: Keys.safegazeBlurredImageCount)
         }
     }
 }

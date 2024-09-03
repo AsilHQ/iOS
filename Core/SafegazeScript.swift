@@ -47,16 +47,14 @@ public class SafegazeScript: NSObject, UserScript {
     public let injectionTime: WKUserScriptInjectionTime = .atDocumentEnd
     public let forMainFrameOnly = true
     public let requiresRunInPageContentWorld = true
-    
+    public var increaseSafegazeBlurredImageCount: (() -> Void)?
     let nsfwDetector = NsfwDetector()
     let genderDetector = GenderDetector()
 
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if let messageString = message.body as? String {
             if messageString == "replaced" {
-//                BraveGlobalShieldStats.shared.safegazeCount += 1
-//                tab.contentBlocker.stats = tab.contentBlocker.stats.adding(safegazeCount: 1)
-                // TODO: increase safegazeCount +1
+                increaseSafegazeBlurredImageCount?()
             } else if messageString.contains("coreML") {
                 let messageArray = messageString.components(separatedBy: "/-/")
                 if messageArray.count == 3 {

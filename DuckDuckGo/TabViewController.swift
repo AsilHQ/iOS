@@ -1263,7 +1263,6 @@ extension TabViewController: WKNavigationDelegate {
                 }
             }
         } else if isSuccessfulResponse {
-            webView.configuration.userContentController.addUserScript(SafegazeScript().makeWKUserScriptSync())
             if FilePreviewHelper.canAutoPreviewMIMEType(mimeType) {
                 let download = self.startDownload(with: navigationResponse, decisionHandler: decisionHandler)
                 mostRecentAutoPreviewDownloadID = download?.id

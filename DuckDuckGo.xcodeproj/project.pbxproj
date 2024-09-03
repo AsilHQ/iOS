@@ -253,7 +253,6 @@
 		4E1E3EF42C74692B00C19FDD /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E3EE72C74692B00C19FDD /* FontHelper.swift */; };
 		4E1E3EF62C74692B00C19FDD /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E3EE92C74692B00C19FDD /* SliderView.swift */; };
 		4E1E3EFB2C74692B00C19FDD /* SafegazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E3EEE2C74692B00C19FDD /* SafegazeView.swift */; };
-		4E1E3EFC2C74692B00C19FDD /* SafegazePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E3EEF2C74692B00C19FDD /* SafegazePopUpView.swift */; };
 		4E1E3F032C74745900C19FDD /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E3EFF2C74744B00C19FDD /* Quicksand-Light.ttf */; };
 		4E1E3F042C74745900C19FDD /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E3F012C74744C00C19FDD /* Quicksand-SemiBold.ttf */; };
 		4E1E3F052C74745900C19FDD /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E3EFE2C74744B00C19FDD /* Quicksand-Bold.ttf */; };
@@ -1505,7 +1504,6 @@
 		4E1E3EE72C74692B00C19FDD /* FontHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		4E1E3EE92C74692B00C19FDD /* SliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		4E1E3EEE2C74692B00C19FDD /* SafegazeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafegazeView.swift; sourceTree = "<group>"; };
-		4E1E3EEF2C74692B00C19FDD /* SafegazePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafegazePopUpView.swift; sourceTree = "<group>"; };
 		4E1E3EFE2C74744B00C19FDD /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		4E1E3EFF2C74744B00C19FDD /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		4E1E3F002C74744C00C19FDD /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
@@ -3711,7 +3709,6 @@
 			children = (
 				4E1E3EE92C74692B00C19FDD /* SliderView.swift */,
 				4E1E3EEE2C74692B00C19FDD /* SafegazeView.swift */,
-				4E1E3EEF2C74692B00C19FDD /* SafegazePopUpView.swift */,
 				4E1E3F192C747CE100C19FDD /* SafegazeViewController.swift */,
 			);
 			path = SafegazePopUpView;
@@ -7678,7 +7675,6 @@
 				F1AE54E81F0425FC00D9A700 /* AuthenticationViewController.swift in Sources */,
 				560E990F2BEE2CB800507CE0 /* SyncErrorMessage.swift in Sources */,
 				983D71B12A286E810072E26D /* SyncDebugViewController.swift in Sources */,
-				4E1E3EFC2C74692B00C19FDD /* SafegazePopUpView.swift in Sources */,
 				4E1E3F102C7476A200C19FDD /* PopoverNavigationController.swift in Sources */,
 				6FDA1FB32B59584400AC962A /* AddressDisplayHelper.swift in Sources */,
 				F103073B1E7C91330059FEC7 /* BookmarksDataSource.swift in Sources */,

@@ -67,19 +67,22 @@ enum DecentInternet {
 struct SafegazeView: View {
     @State var safeInternet: SafeInternet = .high
     @State var decentInternet: DecentInternet = .fullImage
-    @Binding var value: Float
-    @Binding var isOn: Bool
-    @State var url: URL?
-    @State var domainAvoidedContentCount: Int
-    @State var lifetimeAvoidedContentCount: Int
+    @State var value: Float = AppUserDefaults().safegazeBlurIntensityValue
+    @State var isOn: Bool = AppUserDefaults().safegazeOn
+    @State var domainAvoidedContentCount: Int = 0
+    @State var lifetimeAvoidedContentCount: Int = 0
     @State private var selection: Int = 0
     @State private var isShareSheetPresented: Bool = false
     let sharedText: String = "https://apps.apple.com/us/app/asil-browser/id1669467773"
+    var tab: Tab
     
     let gray130 = Color(red: 130 / 255, green: 130 / 255, blue: 130 / 255, opacity: 1)
     let green = Color(red: 57 / 255, green: 182 / 255, blue: 53 / 255, opacity: 1)
     let black = Color(red: 34 / 255, green: 34 / 255, blue: 34 / 255, opacity: 1)
     let red = Color(red: 254 / 255, green: 16 / 255, blue: 42 / 255, opacity: 1)
+    
+    var updateBlurIntensity: (() -> Void)?
+    var safegazeSettingsChanged: (() -> Void)?
     
     var body: some View {
         VStack(spacing: 10) {
@@ -95,6 +98,15 @@ struct SafegazeView: View {
         }
         .padding(.top)
         .padding(.horizontal, 20)
+        .onChange(of: isOn, perform: { _ in
+            AppUserDefaults().safegazeOn = isOn
+            safegazeSettingsChanged?()
+            NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
+        })
+        .onDisappear {
+            AppUserDefaults().safegazeBlurIntensityValue = value
+            updateBlurIntensity?()
+        }
     }
 
     var horizontalDivider: some View {
@@ -115,6 +127,8 @@ struct SafegazeView: View {
         HStack {
             Image(.kahfGuard)
                 .frame(width: 137, height: 31)
+                .foregroundColor(Color(designSystemColor: .textPrimary))
+
             Spacer()
             HStack(spacing: 5) {
                 Text("On/Off")
@@ -208,11 +222,15 @@ struct SafegazeView: View {
         sectionView(title: "Harm Avoided") {
             HStack {
                 harmAvoidedColumn(number: "23", label: "Harmful Sites")
+                Spacer()
                 verticalDivider
-                harmAvoidedColumn(number: "528", label: "Indecent Pictures")
+                Spacer()
+                harmAvoidedColumn(number: "\(AppUserDefaults().safegazeBlurredImageCount)", label: "Indecent Pictures")
+                Spacer()
                 verticalDivider
+                Spacer()
                 harmAvoidedColumn(number: "1293", label: "Ads + Trackers")
-            }
+            }.frame(maxWidth: .infinity)
         }
     }
     
@@ -221,8 +239,6 @@ struct SafegazeView: View {
             footerButton(icon: "square.and.arrow.up", title: "Share")
             Spacer()
             footerButton(icon: "headphones", title: "Support")
-            Spacer()
-            footerButton(icon: "moon", title: "Dark Mode")
         }
         .padding(.horizontal, 70)
         .padding(.top, 5)
@@ -241,14 +257,14 @@ struct SafegazeView: View {
     func sectionTitle(_ title: String) -> some View {
         Text(title)
             .font(FontHelper.poppins(size: 18, weight: .bold))
-            .foregroundColor(.black)
+            .foregroundColor(Color(designSystemColor: .textPrimary))
             .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     func sectionSubtitle(_ subtitle: String) -> some View {
         Text(subtitle)
             .font(FontHelper.lato(size: 13, weight: .regular))
-            .foregroundColor(.black)
+            .foregroundColor(Color(designSystemColor: .textPrimary))
             .frame(width: 158, height: 32)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -262,7 +278,7 @@ struct SafegazeView: View {
                 .foregroundColor(.black)
             Text(title)
                 .font(FontHelper.poppins(size: 11, weight: .semibold))
-                .foregroundColor(.black)
+                .foregroundColor(Color(designSystemColor: .textPrimary))
             Text(subtitle)
                 .font(FontHelper.lato(size: 11))
                 .foregroundColor(gray130)
@@ -273,7 +289,7 @@ struct SafegazeView: View {
         VStack(alignment: .leading) {
             Text(number)
                 .font(FontHelper.poppins(size: 24, weight: .bold))
-                .foregroundColor(.black)
+                .foregroundColor(Color(designSystemColor: .textPrimary))
             Text(label)
                 .font(FontHelper.lato(size: 13))
                 .foregroundColor(gray130)
@@ -298,7 +314,7 @@ struct SafegazeView: View {
         Text(text)
             .multilineTextAlignment(.leading)
             .font(FontHelper.lato(size: 14))
-            .foregroundColor(.black)
+            .foregroundColor(Color(designSystemColor: .textPrimary))
             .padding(.horizontal, 14.5)
             .frame(maxWidth: .infinity, alignment: .leading)
             .frame(height: 60)
@@ -339,6 +355,11 @@ struct SafegazeView: View {
             .cornerRadius(10)
             .offset(y: -21)
     }
+    
+    @MainActor static func redirect(updateView: (() -> Void)?, updateBlurIntensity: (() -> Void)?, safegazeSettingsChanged: (() -> Void)?, tab: Tab) -> UIView {
+        let popupView = SafegazeView(tab: tab, updateBlurIntensity: updateBlurIntensity, safegazeSettingsChanged: safegazeSettingsChanged)
+        return UIHostingController(rootView: popupView).view
+    }
 }
 
 struct ShareSheet: UIViewControllerRepresentable {
@@ -354,6 +375,6 @@ struct ShareSheet: UIViewControllerRepresentable {
 
 #if DEBUG
 #Preview {
-    SafegazeView(value: .constant(0.3), isOn: .constant(true), domainAvoidedContentCount: 1000, lifetimeAvoidedContentCount: 1000)
+    SafegazeView(domainAvoidedContentCount: 1000, lifetimeAvoidedContentCount: 1000, tab: Tab())
 }
 #endif
