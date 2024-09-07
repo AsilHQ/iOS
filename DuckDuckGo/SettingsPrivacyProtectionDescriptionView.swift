@@ -18,7 +18,7 @@
 //
 
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct PrivacyProtectionDescription {
     let imageName: String

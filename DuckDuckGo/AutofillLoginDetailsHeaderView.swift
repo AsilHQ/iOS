@@ -18,7 +18,7 @@
 //
 
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct AutofillLoginDetailsHeaderView: View {
     @Environment(\.colorScheme) private var colorScheme

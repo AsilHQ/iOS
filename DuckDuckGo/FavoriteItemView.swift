@@ -17,7 +17,7 @@
 //  limitations under the License.
 //
 
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import SwiftUI
 
 struct FavoriteItemView: View {

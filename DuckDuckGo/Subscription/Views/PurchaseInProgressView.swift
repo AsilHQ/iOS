@@ -17,7 +17,7 @@
 //  limitations under the License.
 //
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct PurchaseInProgressView: View {
     @Environment(\.colorScheme) var colorScheme

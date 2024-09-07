@@ -19,7 +19,7 @@
 
 import SwiftUI
 import WidgetKit
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct FavoriteView: View {
 

@@ -21,7 +21,7 @@ import Foundation
 import WebKit
 import UserScript
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import Core
 
 struct AsyncHeadlessWebViewSettings {

@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 import Then
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 extension PopoverController {
 

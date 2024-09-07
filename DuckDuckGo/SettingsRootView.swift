@@ -19,7 +19,7 @@
 
 import SwiftUI
 import UIKit
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct SettingsRootView: View {
 

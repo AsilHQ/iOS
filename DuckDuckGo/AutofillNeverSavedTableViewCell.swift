@@ -18,7 +18,7 @@
 //
 
 import UIKit
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 class AutofillNeverSavedTableViewCell: UITableViewCell {
 

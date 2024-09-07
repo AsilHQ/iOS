@@ -18,7 +18,7 @@
 //
 
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct NetworkProtectionVPNSettingsView: View {
     @StateObject var viewModel = NetworkProtectionVPNSettingsViewModel()

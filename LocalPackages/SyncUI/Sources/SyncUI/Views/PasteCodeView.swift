@@ -19,7 +19,7 @@
 
 import SwiftUI
 import DuckUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 public struct PasteCodeView: View {
 

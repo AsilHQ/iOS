@@ -24,7 +24,7 @@ import Core
 import Networking
 import UserScript
 import WebKit
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import SecureStorage
 
 class EmailSignupViewController: UIViewController {

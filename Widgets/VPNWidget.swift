@@ -20,7 +20,7 @@
 import Foundation
 import AppIntents
 import Core
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import SwiftUI
 import WidgetKit
 import NetworkExtension

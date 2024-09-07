@@ -21,7 +21,7 @@ import Common
 import UIKit
 import Core
 import PrivacyDashboard
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import DuckPlayer
 
 extension OmniBar: NibLoading {}

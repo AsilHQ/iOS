@@ -18,7 +18,7 @@
 //
 
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct DownloadsList: View {
     @Environment(\.presentationMode) var presentationMode

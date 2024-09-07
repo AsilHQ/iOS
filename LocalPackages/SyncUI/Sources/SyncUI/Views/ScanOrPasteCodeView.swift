@@ -18,7 +18,7 @@
 //
 
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 public struct ScanOrSeeCode: View {
     @ObservedObject var model: ScanOrPasteCodeViewModel

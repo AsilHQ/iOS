@@ -19,7 +19,7 @@
 
 import Core
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct PrivateSearchView: View {
 

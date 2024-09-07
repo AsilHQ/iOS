@@ -21,7 +21,7 @@ import UIKit
 import WebKit
 import Core
 import Configuration
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 final class ConfigurationURLDebugViewController: UITableViewController {
 

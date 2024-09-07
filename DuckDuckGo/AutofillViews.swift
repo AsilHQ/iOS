@@ -19,7 +19,7 @@
 
 import Foundation
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct AutofillViews {
 

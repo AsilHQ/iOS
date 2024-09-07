@@ -19,7 +19,7 @@
 
 import Foundation
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import Core
 
 struct SubscriptionSettingsView: View {

@@ -19,7 +19,7 @@
 
 import UIKit
 import Core
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 class TabsBarCell: UICollectionViewCell {
 

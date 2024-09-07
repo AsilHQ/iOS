@@ -20,7 +20,7 @@
 import UIKit
 import Core
 import Bookmarks
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 protocol BookmarkFoldersViewControllerDelegate: AnyObject {
 

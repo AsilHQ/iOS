@@ -270,6 +270,8 @@
 		4E1E3F222C75E0FB00C19FDD /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E3F212C75E0FB00C19FDD /* Poppins-Bold.ttf */; };
 		4E1E3F242C75E43200C19FDD /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E3F232C75E43200C19FDD /* Poppins-SemiBold.ttf */; };
 		4E1E3F2E2C7E078700C19FDD /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E3F2B2C7DC6F900C19FDD /* Lato-Bold.ttf */; };
+		4E2880C12C8C44BB00B00CD2 /* KahfDesignResourcesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2880C02C8C44BB00B00CD2 /* KahfDesignResourcesKit */; };
+		4E2880C32C8C469A00B00CD2 /* KahfDesignResourcesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2880C22C8C469A00B00CD2 /* KahfDesignResourcesKit */; };
 		4EBD78242C6DE393006E2DE3 /* WallpaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */; };
 		4EFA92DB2C5A72D60002DC0E /* SafegazeScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */; };
 		560E990F2BEE2CB800507CE0 /* SyncErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E990E2BEE2CB800507CE0 /* SyncErrorMessage.swift */; };
@@ -3002,6 +3004,7 @@
 				F42D541D29DCA40B004C4FF1 /* DesignResourcesKit in Frameworks */,
 				85875B6129912A9900115F05 /* SyncUI in Frameworks */,
 				F4D7F634298C00C3006C3AE9 /* FindInPageIOSJSSupport in Frameworks */,
+				4E2880C12C8C44BB00B00CD2 /* KahfDesignResourcesKit in Frameworks */,
 				85D598872927F84C00FA3B1B /* Crashes in Frameworks */,
 				D664C7DD2B28A02800CBFA76 /* StoreKit.framework in Frameworks */,
 			);
@@ -3027,6 +3030,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8512EA5124ED30D20073EE19 /* SwiftUI.framework in Frameworks */,
+				4E2880C32C8C469A00B00CD2 /* KahfDesignResourcesKit in Frameworks */,
 				4BD96E062C4DBC93003BC32C /* NetworkExtension.framework in Frameworks */,
 				85DF714624F7FE6100C89288 /* Core.framework in Frameworks */,
 				8512EA4F24ED30D20073EE19 /* WidgetKit.framework in Frameworks */,
@@ -6386,6 +6390,7 @@
 				9F8FE9482BAE50E50071E372 /* Lottie */,
 				4E1E3F122C7477CE00C19FDD /* SnapKit */,
 				4E1E3F172C74783400C19FDD /* Then */,
+				4E2880C02C8C44BB00B00CD2 /* KahfDesignResourcesKit */,
 			);
 			productName = DuckDuckGo;
 			productReference = 84E341921E2F7EFB00BDBA6F /* KahfBrowser.app */;
@@ -6435,6 +6440,7 @@
 			name = WidgetsExtension;
 			packageProductDependencies = (
 				4BBBBA862B02E85400D965DA /* DesignResourcesKit */,
+				4E2880C22C8C469A00B00CD2 /* KahfDesignResourcesKit */,
 			);
 			productName = WidgetsExtension;
 			productReference = 8512EA4D24ED30D20073EE19 /* WidgetsExtension.appex */;
@@ -6719,6 +6725,7 @@
 				9F8FE9472BAE50E50071E372 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				4E1E3F112C7477CE00C19FDD /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4E1E3F162C74783400C19FDD /* XCRemoteSwiftPackageReference "Then" */,
+				4E2880BF2C8C44BB00B00CD2 /* XCRemoteSwiftPackageReference "KahfDesignResourcesKit" */,
 			);
 			productRefGroup = 84E341931E2F7EFB00BDBA6F /* Products */;
 			projectDirPath = "";
@@ -10789,6 +10796,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		4E2880BF2C8C44BB00B00CD2 /* XCRemoteSwiftPackageReference "KahfDesignResourcesKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AsilHQ/KahfDesignResourcesKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		854007E52B57FB020001BD98 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
@@ -10967,6 +10982,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4E1E3F162C74783400C19FDD /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		4E2880C02C8C44BB00B00CD2 /* KahfDesignResourcesKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E2880BF2C8C44BB00B00CD2 /* XCRemoteSwiftPackageReference "KahfDesignResourcesKit" */;
+			productName = KahfDesignResourcesKit;
+		};
+		4E2880C22C8C469A00B00CD2 /* KahfDesignResourcesKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E2880BF2C8C44BB00B00CD2 /* XCRemoteSwiftPackageReference "KahfDesignResourcesKit" */;
+			productName = KahfDesignResourcesKit;
 		};
 		851481872A600EFC00ABC65F /* RemoteMessaging */ = {
 			isa = XCSwiftPackageProductDependency;

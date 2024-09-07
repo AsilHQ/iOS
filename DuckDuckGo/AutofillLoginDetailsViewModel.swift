@@ -21,7 +21,7 @@ import BrowserServicesKit
 import Common
 import Core
 import DDGSync
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import Foundation
 import SecureStorage
 import SwiftUI

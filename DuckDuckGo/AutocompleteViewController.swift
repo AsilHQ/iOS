@@ -20,7 +20,7 @@
 import Common
 import UIKit
 import Core
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import Suggestions
 import Networking
 import CoreData

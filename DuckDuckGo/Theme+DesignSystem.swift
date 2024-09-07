@@ -18,7 +18,7 @@
 //
 
 import UIKit
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import DuckUI
 
 // Once all colours are from the design system we can consider removing having multiple themes.

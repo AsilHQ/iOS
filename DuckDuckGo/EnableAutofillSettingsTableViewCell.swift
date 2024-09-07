@@ -18,7 +18,7 @@
 //
 
 import UIKit
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 protocol EnableAutofillSettingsTableViewCellDelegate: AnyObject {
     func enableAutofillSettingsTableViewCell(_ cell: EnableAutofillSettingsTableViewCell, didChangeSettings value: Bool)

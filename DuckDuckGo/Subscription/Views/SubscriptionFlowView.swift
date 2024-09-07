@@ -19,7 +19,7 @@
 
 import SwiftUI
 import Foundation
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import Core
 
 struct SubscriptionFlowView: View {

@@ -20,7 +20,7 @@
 import SwiftUI
 import DuckUI
 import BrowserServicesKit
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 struct SaveLoginView: View {
     enum LayoutType {

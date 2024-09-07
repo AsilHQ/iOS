@@ -23,7 +23,7 @@ import Core
 import BrowserServicesKit
 import Common
 import DDGSync
-import DesignResourcesKit
+import KahfDesignResourcesKit
 import SwiftUI
 
 enum AutofillSettingsSource: String {

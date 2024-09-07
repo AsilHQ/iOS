@@ -18,7 +18,7 @@
 //
 
 import SwiftUI
-import DesignResourcesKit
+import KahfDesignResourcesKit
 
 class DownloadsListHostingController: UIHostingController<DownloadsList> {
     required init?(coder aDecoder: NSCoder) {
