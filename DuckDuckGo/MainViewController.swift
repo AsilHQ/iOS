@@ -319,9 +319,11 @@ class MainViewController: UIViewController {
         _ = AppWidthObserver.shared.willResize(toWidth: view.frame.width)
         applyWidth()
 
-        if DaxDialogs.shared.shouldShowFireButtonPulse {
-            showFireButtonPulse()
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        startOnboardingFlowIfNotSeenBefore()
+        super.viewWillAppear(animated)
     }
 
     override func performSegue(withIdentifier identifier: String, sender: Any?) {
@@ -443,6 +445,33 @@ class MainViewController: UIViewController {
                                                name: UIResponder.keyboardDidHideNotification, object: nil)
     }
 
+    func startOnboardingFlowIfNotSeenBefore() {
+        
+        guard ProcessInfo.processInfo.environment["ONBOARDING"] != "false" else {
+            // explicitly skip onboarding, e.g. for integration tests
+            return
+        }
+
+        let showOnboarding = !tutorialSettings.hasSeenOnboarding ||
+            // explicitly show onboarding, can be set in the scheme > Run > Environment Variables
+            ProcessInfo.processInfo.environment["ONBOARDING"] == "true"
+        guard showOnboarding else { return }
+
+        segueToKahfOnboarding()
+    }
+    
+    func segueToKahfOnboarding() {
+        DispatchQueue.main.async {
+            var view = KahfBrowserOnboardingView(tutorialSettings: self.tutorialSettings)
+            view.addFavorite = { title, url in
+                self.menuBookmarksViewModel.createOrToggleFavorite(title: title, url: url)
+                self.syncService.scheduler.notifyDataChanged()
+            }
+            let vc = UIHostingController(rootView: view)
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
+    }
 
     var keyboardShowing = false
 

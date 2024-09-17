@@ -272,6 +272,7 @@
 		4E1E3F2E2C7E078700C19FDD /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E3F2B2C7DC6F900C19FDD /* Lato-Bold.ttf */; };
 		4E2880C12C8C44BB00B00CD2 /* KahfDesignResourcesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2880C02C8C44BB00B00CD2 /* KahfDesignResourcesKit */; };
 		4E2880C32C8C469A00B00CD2 /* KahfDesignResourcesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2880C22C8C469A00B00CD2 /* KahfDesignResourcesKit */; };
+		4E2880C72C9036E800B00CD2 /* KahfBrowserOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */; };
 		4EBD78242C6DE393006E2DE3 /* WallpaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */; };
 		4EFA92DB2C5A72D60002DC0E /* SafegazeScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */; };
 		560E990F2BEE2CB800507CE0 /* SyncErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E990E2BEE2CB800507CE0 /* SyncErrorMessage.swift */; };
@@ -1521,6 +1522,7 @@
 		4E1E3F212C75E0FB00C19FDD /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		4E1E3F232C75E43200C19FDD /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		4E1E3F2B2C7DC6F900C19FDD /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KahfBrowserOnboardingView.swift; sourceTree = "<group>"; };
 		4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperManager.swift; sourceTree = "<group>"; };
 		4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafegazeScript.swift; sourceTree = "<group>"; };
 		560E990E2BEE2CB800507CE0 /* SyncErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncErrorMessage.swift; sourceTree = "<group>"; };
@@ -3690,6 +3692,7 @@
 		4E1E3EE22C7467B800C19FDD /* KahfBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				4E2880C52C9036D800B00CD2 /* Onboarding */,
 				4E1E3F0C2C7476A200C19FDD /* Popover */,
 				4E1E3EFD2C74743900C19FDD /* Fonts */,
 				4E1E3EE32C7467CE00C19FDD /* Safegaze */,
@@ -3744,6 +3747,14 @@
 				4E1E3F0B2C7476A200C19FDD /* PopoverNavigationController.swift */,
 			);
 			path = Popover;
+			sourceTree = "<group>";
+		};
+		4E2880C52C9036D800B00CD2 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */,
+			);
+			name = Onboarding;
 			sourceTree = "<group>";
 		};
 		4EBD78222C6DE37B006E2DE3 /* Wallpaper */ = {
@@ -6609,7 +6620,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1500;
-				ORGANIZATIONNAME = DuckDuckGo;
+				ORGANIZATIONNAME = KahfBrowser;
 				TargetAttributes = {
 					02025661298818B100E694E7 = {
 						CreatedOnToolsVersion = 14.2;
@@ -7517,6 +7528,7 @@
 				85047C772A0D5D3D00D2FF3F /* SyncSettingsViewController+SyncDelegate.swift in Sources */,
 				85DDE0402AC6FF65006ABCA2 /* MainView.swift in Sources */,
 				980891A72237D5D800313A70 /* FeedbackPresenter.swift in Sources */,
+				4E2880C72C9036E800B00CD2 /* KahfBrowserOnboardingView.swift in Sources */,
 				989B337522D7EF2100437824 /* EmptyCollectionReusableView.swift in Sources */,
 				8524CC94246C5C8900E59D45 /* DaxDialogViewController.swift in Sources */,
 				851672CF2BED1F9500592F24 /* HistoryMessageManager.swift in Sources */,
@@ -9313,12 +9325,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DuckDuckGo/DuckDuckGo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HKE973VLUW;
+				DEVELOPMENT_TEAM = 2DVSJM88ZU;
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -9326,7 +9338,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Development - App";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 			};

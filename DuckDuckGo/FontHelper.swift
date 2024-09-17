@@ -55,6 +55,7 @@ struct FontHelper {
         
         switch weight {
         case .bold: weightString = "Bold"
+        case .semibold: weightString = "SemiBold"
         case .regular: weightString = "Regular"
         default: weightString = "Regular"
         }
