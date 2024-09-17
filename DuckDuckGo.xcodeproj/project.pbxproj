@@ -1497,6 +1497,7 @@
 		4BD96E0C2C4DCEAA003BC32C /* VPNSnoozeLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNSnoozeLiveActivityWidget.swift; sourceTree = "<group>"; };
 		4BE27566272F878F006B20B0 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLRequestExtension.swift; path = ../DuckDuckGo/URLRequestExtension.swift; sourceTree = "<group>"; };
 		4BF3E4AE2C06A85200ED5D57 /* VPNRedditSessionWorkaround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNRedditSessionWorkaround.swift; sourceTree = "<group>"; };
+		4E15FAF82C91D734009C638A /* KahfBrowserDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KahfBrowserDebug.entitlements; sourceTree = "<group>"; };
 		4E1B26DE2C5BA22800076E8E /* GenderDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDetector.swift; sourceTree = "<group>"; };
 		4E1B26E02C5BA24F00076E8E /* gender.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gender.tflite; sourceTree = "<group>"; };
 		4E1B26E42C5BA29200076E8E /* nsfw.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = nsfw.tflite; sourceTree = "<group>"; };
@@ -4169,6 +4170,7 @@
 		84E341891E2F7EFB00BDBA6F = {
 			isa = PBXGroup;
 			children = (
+				4E15FAF82C91D734009C638A /* KahfBrowserDebug.entitlements */,
 				EE3B98EB2A963515002F63A0 /* WidgetsExtensionAlpha.entitlements */,
 				6FB030C7234331B400A10DB9 /* Configuration.xcconfig */,
 				EEB8FDB92A990AEE00EBEDCF /* Configuration-Alpha.xcconfig */,
@@ -9017,6 +9019,7 @@
 		0202566D298818B200E694E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = "";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -9025,9 +9028,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = HKE973VLUW;
+				DEVELOPMENT_TEAM = 2DVSJM88ZU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				GROUP_ID_PREFIX = group.com.halalz.kahfbrowser;
 				INFOPLIST_FILE = PacketTunnelProvider/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PacketTunnelProvider;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Kahf Browser. All rights reserved.";
@@ -9040,7 +9044,7 @@
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_SWIFT_FLAGS = "-D NETWORK_EXTENSION";
-				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.mobile.ios.NetworkExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.halalz.kahfbrowser.NetworkExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -9053,6 +9057,7 @@
 		0202566E298818B200E694E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = "";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -9066,6 +9071,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HKE973VLUW;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GENERATE_INFOPLIST_FILE = YES;
+				GROUP_ID_PREFIX = group.com.halalz.kahfbrowser;
 				INFOPLIST_FILE = PacketTunnelProvider/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PacketTunnelProvider;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Kahf Browser. All rights reserved.";
@@ -9077,7 +9083,7 @@
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_SWIFT_FLAGS = "-D NETWORK_EXTENSION";
-				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.mobile.ios.NetworkExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.halalz.kahfbrowser.NetworkExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.duckduckgo.mobile.ios.NetworkExtension";
@@ -9144,6 +9150,7 @@
 		8390447820BDCE10006461CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = com.halalz.kahfbrowser;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -9152,6 +9159,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 2DVSJM88ZU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -9171,6 +9179,7 @@
 		8390447920BDCE10006461CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = com.halalz.kahfbrowser;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -9323,14 +9332,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APP_ID = com.halalz.kahfbrowser;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DuckDuckGo/DuckDuckGo.entitlements;
+				CODE_SIGN_ENTITLEMENTS = KahfBrowserDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 2DVSJM88ZU;
+				GROUP_ID_PREFIX = group.com.halalz.kahfbrowser;
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -9348,12 +9359,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APP_ID = com.halalz.kahfbrowser;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DuckDuckGo/DuckDuckGo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HKE973VLUW;
+				DEVELOPMENT_TEAM = 2DVSJM88ZU;
+				GROUP_ID_PREFIX = group.com.halalz.kahfbrowser;
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -9361,7 +9374,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.duckduckgo.mobile.ios";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_VERSION = 5.0;
 			};
@@ -9410,6 +9423,7 @@
 		8512EA5E24ED30D30073EE19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = com.halalz.kahfbrowser;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -9423,7 +9437,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 2DVSJM88ZU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GROUP_ID_PREFIX = group.com.halalz.kahfbrowser;
 				INFOPLIST_FILE = Widgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -9444,6 +9460,7 @@
 		8512EA5F24ED30D30073EE19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = com.halalz.kahfbrowser;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -9460,6 +9477,7 @@
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HKE973VLUW;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GROUP_ID_PREFIX = group.com.halalz.kahfbrowser;
 				INFOPLIST_FILE = Widgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -9480,6 +9498,7 @@
 		85482D952462DCD100EDEDD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = com.halalz.kahfbrowser;
 				ASSETCATALOG_COMPILER_APPICON_NAME = ActionIcons;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -9489,6 +9508,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 2DVSJM88ZU;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = OpenAction/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -9510,6 +9530,7 @@
 		85482D962462DCD100EDEDD1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = com.halalz.kahfbrowser;
 				ASSETCATALOG_COMPILER_APPICON_NAME = ActionIcons;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -9943,6 +9964,7 @@
 		D664C7E32B28A0FD00CBFA76 /* Alpha Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = "";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -9966,7 +9988,7 @@
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_SWIFT_FLAGS = "-D NETWORK_EXTENSION";
-				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.mobile.ios.alpha.NetworkExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.halalz.kahfbrowser.NetworkExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -10344,6 +10366,7 @@
 		EE5A7C4B2A82BBB700387C84 /* Alpha */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_ID = "";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -10369,7 +10392,7 @@
 				MTL_FAST_MATH = YES;
 				OTHER_CFLAGS = "";
 				OTHER_SWIFT_FLAGS = "-D NETWORK_EXTENSION";
-				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.mobile.ios.alpha.NetworkExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.halalz.kahfbrowser.NetworkExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.duckduckgo.mobile.ios.alpha.NetworkExtension";

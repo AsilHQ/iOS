@@ -10,11 +10,11 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.duckduckgo.alpha.bookmarks</string>
-		<string>group.com.duckduckgo.alpha.contentblocker</string>
-		<string>group.com.duckduckgo.alpha.database</string>
-		<string>group.com.duckduckgo.alpha.netp</string>
-		<string>group.com.duckduckgo.alpha.statistics</string>
+		<string>group.com.kahfbrowser.alpha.bookmarks</string>
+		<string>group.com.kahfbrowser.alpha.contentblocker</string>
+		<string>group.com.kahfbrowser.alpha.database</string>
+		<string>group.com.kahfbrowser.alpha.netp</string>
+		<string>group.com.kahfbrowser.alpha.statistics</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
