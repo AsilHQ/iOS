@@ -176,6 +176,12 @@ struct KahfBrowserOnboardingView: View {
                 
                 VStack(spacing: 15) {
                     HStack(spacing: 15) {
+                        appButton(for: .x)
+                        appButton(for: .gmail)
+                        appButton(for: .facebook)
+                    }
+                    
+                    HStack(spacing: 15) {
                         appButton(for: .youtube)
                         appButton(for: .spotify)
                         appButton(for: .instagram)
