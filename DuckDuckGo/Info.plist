@@ -240,6 +240,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>InterVariable.ttf</string>
 		<string>Poppins-SemiBold.ttf</string>
 		<string>Poppins-Regular.ttf</string>
 		<string>Poppins-Bold.ttf</string>

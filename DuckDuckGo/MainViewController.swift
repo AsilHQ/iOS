@@ -1104,7 +1104,10 @@ class MainViewController: UIViewController {
         if !(currentTab?.canGoBack ?? false) {
             viewCoordinator.toolbarBackButton.image = UIImage(named: "KahfHome")
             viewCoordinator.toolbarForwardButton.image = UIImage(named: "KahfPrayer")
+            viewCoordinator.toolbarForwardButton.action = #selector(onPrayerPressed)
             viewCoordinator.toolbarBackButton.action = #selector(onHomePressed)
+            viewCoordinator.toolbarBackButton.isEnabled = true
+            viewCoordinator.toolbarForwardButton.isEnabled = true
         } else {
             viewCoordinator.toolbarBackButton.image = UIImage(named: "BrowsePrevious")
             viewCoordinator.toolbarBackButton.action = #selector(onBackPressed)
@@ -2861,5 +2864,15 @@ extension MainViewController: AutofillLoginSettingsListViewControllerDelegate {
 extension MainViewController {
     @objc func onHomePressed() {
         
+    }
+    
+    @objc func onPrayerPressed() {
+        let vc = PrayerVC()
+        vc.modalPresentationStyle = .popover
+        omniBar.isHidden = true
+        vc.willDisappear = {
+            self.omniBar.isHidden = false
+        }
+        addToContentContainer(controller: vc)
     }
 }
