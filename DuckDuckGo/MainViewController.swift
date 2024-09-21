@@ -1103,11 +1103,10 @@ class MainViewController: UIViewController {
 
     fileprivate func refreshBackForwardButtons() {
         if !(currentTab?.canGoBack ?? false) {
-            viewCoordinator.toolbarBackButton.image = UIImage(named: "KahfHome")
+            viewCoordinator.toolbarBackButton.image = UIImage(named: "BrowsePrevious")
             viewCoordinator.toolbarForwardButton.image = UIImage(named: "KahfPrayer")
             viewCoordinator.toolbarForwardButton.action = #selector(onPrayerPressed)
-            viewCoordinator.toolbarBackButton.action = #selector(onHomePressed)
-            viewCoordinator.toolbarBackButton.isEnabled = true
+            viewCoordinator.toolbarBackButton.isEnabled = false
             viewCoordinator.toolbarForwardButton.isEnabled = true
         } else {
             viewCoordinator.toolbarBackButton.image = UIImage(named: "BrowsePrevious")
@@ -1349,7 +1348,7 @@ class MainViewController: UIViewController {
         tabsBarController?.backgroundTabAdded()
     }
 
-    func newTab(reuseExisting: Bool = false, allowingKeyboard: Bool = true) {
+    func newTab(reuseExisting: Bool = false, allowingKeyboard: Bool = false) {
         if DaxDialogs.shared.shouldShowFireButtonPulse {
             ViewHighlighter.hideAll()
         }
@@ -2863,10 +2862,6 @@ extension MainViewController: AutofillLoginSettingsListViewControllerDelegate {
 
 // MARK: - Kahf Browser Functions
 extension MainViewController {
-    @objc func onHomePressed() {
-        
-    }
-    
     @objc func onPrayerPressed() {
         if prayerVC == nil {
             prayerVC = PrayerVC()
