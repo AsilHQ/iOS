@@ -77,9 +77,6 @@ class PrayerVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.contents.removeAll()
-        self.tableView.reloadData()
-        clearOldAlarms()
         if let coordinate = coordinate {
             fetchTimes(coordinate: coordinate)
         }
@@ -122,6 +119,7 @@ class PrayerVC: UITableViewController {
     func fetchTimes(coordinate: CLLocationCoordinate2D) {
         getAddressFromCoordinates(latitude: coordinate.latitude, longitude: coordinate.longitude) { city in
             self.contents.removeAll()
+            self.clearOldAlarms()
             self.prayerManager.getCurrentNextPrayerTimes(coordinate: coordinate, completion: { current, next, countdown in
                 guard let current = current, let next = next, let countdown = countdown else { return }
                 self.contents.append(.runningPrayer(current: current, next: next, countdown: countdown))
@@ -179,8 +177,7 @@ class PrayerVC: UITableViewController {
                     if let alarm = self.alarms.getAlarm(ByUUIDStr: "alarm_set_at_\(time.timeIntervalSince1970)") {
                         if alarm.mediaLabel.isEmpty {
                             vc.selectedMethod = .notification
-                        }
-                        else {
+                        } else {
                             vc.selectedMethod = .adhan
                         }
                     } else {
