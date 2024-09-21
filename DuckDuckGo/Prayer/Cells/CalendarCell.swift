@@ -36,7 +36,7 @@ class CalendarCell: UITableViewCell {
     
     lazy var leftButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "KahfCalenderLeft"), for: .normal)
+        button.setImage(UIImage(named: "KahfCalendarLeft"), for: .normal)
         button.snp.makeConstraints { make in make.width.height.equalTo(30) }
         button.addTarget(self, action: #selector(leftButtonTapped), for: .touchUpInside)
         return button
@@ -44,7 +44,7 @@ class CalendarCell: UITableViewCell {
     
     lazy var rightButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "KahfCalenderRight"), for: .normal)
+        button.setImage(UIImage(named: "KahfCalendarRight"), for: .normal)
         button.snp.makeConstraints { make in make.width.height.equalTo(30) }
         button.addTarget(self, action: #selector(rightButtonTapped), for: .touchUpInside)
         return button
@@ -114,11 +114,11 @@ class CalendarCell: UITableViewCell {
             make.centerX.equalToSuperview()
         }
         leftButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(36)
+            make.leading.equalToSuperview().offset(20)
             make.top.equalToSuperview().offset(55)
         }
         rightButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-36)
+            make.trailing.equalToSuperview().offset(-20)
             make.top.equalToSuperview().offset(55)
         }
     }
