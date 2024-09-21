@@ -1,6 +1,20 @@
 //
-// Copyright 2021 Kahf Messenger, LLC
-// SPDX-License-Identifier: AGPL-3.0-only
+//  KahfBrowserOnboardingView.swift
+//  DuckDuckGo
+//
+//  Copyright © 2024 KahfBrowser. All rights reserved.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 
@@ -15,22 +29,22 @@ class CalendarCell: UITableViewCell {
     
     lazy var smallTitleLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .blue
-//        view.font = UIFont.interSemiBold12
+        view.textColor = UIColor(hex: "3E8DFF")
+        view.font = UIFont.interVariable(ofSize: 12, weight: .semibold)
         return view
     }()
     
     lazy var bigTitleLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .black
-//        view.font = UIFont.interBold24
+        view.textColor = .white
+        view.font = UIFont.interVariable(ofSize: 24, weight: .bold)
         return view
     }()
     
     lazy var contentLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .ows_gray03
-//        view.font = UIFont.interRegular12
+        view.textColor = .white
+        view.font = UIFont.interVariable(ofSize: 12, weight: .regular)
         return view
     }()
     
@@ -50,19 +64,8 @@ class CalendarCell: UITableViewCell {
         return button
     }()
     
-    var leftButtonAction : (() -> Void)?
-    var rightButtonAction : (() -> Void)?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    var leftButtonAction: (() -> Void)?
+    var rightButtonAction: (() -> Void)?
 
     init(reuseIdentifier: String?, day: Day, city: String) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)

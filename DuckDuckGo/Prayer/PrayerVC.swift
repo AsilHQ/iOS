@@ -1,6 +1,20 @@
 //
-// Copyright 2021 Kahf Messenger, LLC
-// SPDX-License-Identifier: AGPL-3.0-only
+//  KahfBrowserOnboardingView.swift
+//  DuckDuckGo
+//
+//  Copyright © 2024 KahfBrowser. All rights reserved.
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 //
 
 
@@ -200,9 +214,9 @@ class PrayerVC: UITableViewController {
         let content = contents[indexPath.row]
 
         switch content {
-            case .runningPrayer: return 146
-            case .calendar:  return 119
-            case .times: return 70
+        case .runningPrayer: return 146
+        case .calendar:  return 119
+        case .times: return 70
         }
     }
     
@@ -211,8 +225,7 @@ class PrayerVC: UITableViewController {
             day = .yesterday
         } else if day == .tomorrow {
             day = .today
-        }
-        else {
+        } else {
             return
         }
         update()
@@ -223,8 +236,7 @@ class PrayerVC: UITableViewController {
             day = .tomorrow
         } else if day == .yesterday {
             day = .today
-        }
-        else {
+        } else {
             return
         }
         update()
@@ -238,20 +250,19 @@ class PrayerVC: UITableViewController {
     func editNotification(method: NotificationMethod, time: Date, name: String) {
         if let alarm = self.alarms.getAlarm(ByUUIDStr: "alarm_set_at_\(time.timeIntervalSince1970)") {
             switch method {
-                case .silent: self.alarms.remove("alarm_set_at_\(time.timeIntervalSince1970)")
-                case .notification: alarm.mediaLabel = ""
-                case .adhan: alarm.mediaLabel = "tickle.mp3"
+            case .silent: self.alarms.remove("alarm_set_at_\(time.timeIntervalSince1970)")
+            case .notification: alarm.mediaLabel = ""
+            case .adhan: alarm.mediaLabel = "tickle.mp3"
             }
-        }
-        else {
+        } else {
             switch method {
-                case .silent: return
-                case .notification:
-                    let alarm = Alarm(id: "alarm_set_at_\(time.timeIntervalSince1970)", date: time, enabled: true, snoozeEnabled: true, repeatWeekdays: [], mediaID: "bell", mediaLabel: "", label: name)
-                    self.alarms.add(alarm)
-                case .adhan:
-                    let alarm = Alarm(id: "alarm_set_at_\(time.timeIntervalSince1970)", date: time, enabled: true, snoozeEnabled: true, repeatWeekdays: [], mediaID: "bell", mediaLabel:  "tickle.mp3", label: name)
-                    self.alarms.add(alarm)
+            case .silent: return
+            case .notification:
+                let alarm = Alarm(id: "alarm_set_at_\(time.timeIntervalSince1970)", date: time, enabled: true, snoozeEnabled: true, repeatWeekdays: [], mediaID: "bell", mediaLabel: "", label: name)
+                self.alarms.add(alarm)
+            case .adhan:
+                let alarm = Alarm(id: "alarm_set_at_\(time.timeIntervalSince1970)", date: time, enabled: true, snoozeEnabled: true, repeatWeekdays: [], mediaID: "bell", mediaLabel:  "tickle.mp3", label: name)
+                self.alarms.add(alarm)
             }
         }
         self.tableView.reloadData()
