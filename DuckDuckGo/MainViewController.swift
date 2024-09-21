@@ -173,7 +173,8 @@ class MainViewController: UIViewController {
     
     var historyManager: HistoryManaging
     var viewCoordinator: MainViewCoordinator!
-
+    var prayerVC: PrayerVC?
+    
     init(
         bookmarksDatabase: CoreDataDatabase,
         bookmarksDatabaseCleaner: BookmarkDatabaseCleaner,
@@ -2867,12 +2868,17 @@ extension MainViewController {
     }
     
     @objc func onPrayerPressed() {
-        let vc = PrayerVC()
-        vc.modalPresentationStyle = .popover
-        omniBar.isHidden = true
-        vc.willDisappear = {
-            self.omniBar.isHidden = false
+        if prayerVC == nil {
+            prayerVC = PrayerVC()
+            if let prayerVC = prayerVC {
+                prayerVC.modalPresentationStyle = .popover
+                omniBar.isHidden = true
+                prayerVC.willDisappear = {
+                    self.omniBar.isHidden = false
+                    self.prayerVC = nil
+                }
+                addToContentContainer(controller: prayerVC)
+            }
         }
-        addToContentContainer(controller: vc)
     }
 }

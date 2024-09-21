@@ -16,6 +16,7 @@ class AlarmNotificationOptionsVC: UIViewController {
     private var contents: [NotificationMethod] = [.silent, .notification, .adhan]
     var changeNotificationOption: ((_ method: NotificationMethod) -> Void)?
     var selectedMethod : NotificationMethod = .silent
+    var willDisappear: (()-> Void)?
     
     lazy var tableView: UITableView = {
        let view = UITableView()
@@ -61,6 +62,7 @@ class AlarmNotificationOptionsVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        willDisappear?()
     }
     
     func addSubview() {

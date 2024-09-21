@@ -52,20 +52,21 @@ enum Day: CaseIterable {
 class PrayerVC: UITableViewController {
 
     private var contents: [PrayerContent] = []
+    private var alarmNotificationOptions:  AlarmNotificationOptionsVC?
     var locationManager = CLLocationManager()
     var coordinate: CLLocationCoordinate2D?
     var day: Day = .today
     var prayerManager = PrayerManager.shared
     private let scheduler: NotificationSchedulerDelegate = NotificationScheduler()
     var alarms = Store.shared.alarms
-    var willDisappear: (()->Void)?
+    var willDisappear: (()-> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.contentInset = UIEdgeInsets(top: 22, left: 0, bottom: 0, right: 0)
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = .blue40
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         checkAndRequestLocationAuthorization()
@@ -86,7 +87,9 @@ class PrayerVC: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        willDisappear?()
+        if alarmNotificationOptions == nil {
+            willDisappear?()
+        }
     }
     
 //    func settingsContextMenu() -> ContextMenu {
@@ -159,16 +162,20 @@ class PrayerVC: UITableViewController {
         let content = contents[indexPath.row]
 
         switch content {
-            case .runningPrayer(let current, let next, let nextPrayerTime):
-            return RunningPrayerCell(reuseIdentifier: nil, current: PrayerManager.shared.getRawValue(prayer: current), next: next, nextPrayerTime: nextPrayerTime)
-            case .calendar(let day, let city):
-                let cell = CalendarCell(reuseIdentifier: nil, day: day, city: city)
-                cell.leftButtonAction = { self.goToPrevDay() }
-                cell.rightButtonAction = { self.goToNextDay() }
-                return cell
-            case .times(let name, let time):
-                let buttonAction = {
-                    let vc = AlarmNotificationOptionsVC()
+        case .runningPrayer(let current, let next, let nextPrayerTime):
+        return RunningPrayerCell(reuseIdentifier: nil, current: PrayerManager.shared.getRawValue(prayer: current), next: next, nextPrayerTime: nextPrayerTime)
+        case .calendar(let day, let city):
+            let cell = CalendarCell(reuseIdentifier: nil, day: day, city: city)
+            cell.leftButtonAction = { self.goToPrevDay() }
+            cell.rightButtonAction = { self.goToNextDay() }
+            return cell
+        case .times(let name, let time):
+            let buttonAction = {
+                self.alarmNotificationOptions = AlarmNotificationOptionsVC()
+                if let vc = self.alarmNotificationOptions {
+                    vc.willDisappear = {
+                        self.alarmNotificationOptions = nil
+                    }
                     if let alarm = self.alarms.getAlarm(ByUUIDStr: "alarm_set_at_\(time.timeIntervalSince1970)") {
                         if alarm.mediaLabel.isEmpty {
                             vc.selectedMethod = .notification
@@ -185,9 +192,10 @@ class PrayerVC: UITableViewController {
                     }
                     self.presentPanModal(vc)
                 }
-                let cell = TimeCell(reuseIdentifier: nil, name: name, time: time, alarm: self.alarms.getAlarm(ByUUIDStr: "alarm_set_at_\(time.timeIntervalSince1970)"))
-                cell.alarmButtonAction = buttonAction
-                return cell
+            }
+            let cell = TimeCell(reuseIdentifier: nil, name: name, time: time, alarm: self.alarms.getAlarm(ByUUIDStr: "alarm_set_at_\(time.timeIntervalSince1970)"))
+            cell.alarmButtonAction = buttonAction
+            return cell
         }
     }
     
