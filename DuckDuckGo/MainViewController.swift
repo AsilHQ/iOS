@@ -2726,17 +2726,17 @@ extension MainViewController {
         }
     }
 
-    private func decorate() {
+    private func decorate(customColor: UIColor? = nil) {
         let theme = ThemeManager.shared.currentTheme
 
         updateStatusBarBackgroundColor()
 
         setNeedsStatusBarAppearanceUpdate()
 
-        view.backgroundColor = theme.mainViewBackgroundColor
+        view.backgroundColor = customColor ?? theme.mainViewBackgroundColor
 
-        viewCoordinator.navigationBarContainer.backgroundColor = theme.barBackgroundColor
-        viewCoordinator.navigationBarContainer.tintColor = theme.barTintColor
+        viewCoordinator.navigationBarContainer.backgroundColor = customColor ?? theme.barBackgroundColor
+        viewCoordinator.navigationBarContainer.tintColor = customColor ?? theme.barTintColor
 
         viewCoordinator.toolbar.barTintColor = theme.barBackgroundColor
         viewCoordinator.toolbar.tintColor = theme.barTintColor
@@ -2865,11 +2865,12 @@ extension MainViewController {
     @objc func onPrayerPressed() {
         if prayerVC == nil {
             prayerVC = PrayerVC()
+            decorate(customColor: .blue40)
             if let prayerVC = prayerVC {
-                prayerVC.modalPresentationStyle = .popover
-                omniBar.isHidden = true
+                self.setNavigationBarHidden(true)
                 prayerVC.willDisappear = {
-                    self.omniBar.isHidden = false
+                    self.decorate()
+                    self.setNavigationBarHidden(false)
                     self.prayerVC = nil
                 }
                 addToContentContainer(controller: prayerVC)

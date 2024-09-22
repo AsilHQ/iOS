@@ -73,7 +73,7 @@ class PrayerVC: UITableViewController {
     var prayerManager = PrayerManager.shared
     private let scheduler: NotificationSchedulerDelegate = NotificationScheduler()
     var alarms = Store.shared.alarms
-    var willDisappear: (()-> Void)?
+    var willDisappear: (() -> Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
