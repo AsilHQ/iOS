@@ -29,13 +29,13 @@ public struct UserText {
     static let syncWithAnotherDeviceTitle = NSLocalizedString("sync.with.another.device.title", bundle: Bundle.module, value: "Begin Syncing", comment: "Title for syncing with another device")
     static let syncWithAnotherDeviceMessage = NSLocalizedString("sync.with.another.device.message", bundle: Bundle.module, value: "Securely sync bookmarks and passwords between your devices.", comment: "Message for syncing with another device")
     static let syncWithAnotherDeviceButton = NSLocalizedString("sync.with.another.device.button", bundle: Bundle.module, value: "Sync With Another Device", comment: "Button label for syncing with another device")
-    static let syncWithAnotherDeviceFooter = NSLocalizedString("sync.with.another.device.footer", bundle: Bundle.module, value: "Your data is end-to-end encrypted, and DuckDuckGo does not have access to the encryption key.", comment: "Footer message for syncing with another device")
+    static let syncWithAnotherDeviceFooter = NSLocalizedString("sync.with.another.device.footer", bundle: Bundle.module, value: "Your data is end-to-end encrypted, and Kahf Browser does not have access to the encryption key.", comment: "Footer message for syncing with another device")
     // Other Options
     static let syncAndBackUpThisDeviceLink = NSLocalizedString("sync.and.backup.this.device.link", bundle: Bundle.module, value: "Sync and Back Up This Device", comment: "Link label for syncing and backing up the device")
     static let recoverSyncedDataLink = NSLocalizedString("recover.synced.data.link", bundle: Bundle.module, value: "Recover Synced Data", comment: "Link label for recovering synced data")
     static let otherOptionsSectionHeader = NSLocalizedString("other.options.section.header", bundle: Bundle.module, value: "Other Options", comment: "Section header for other syncing options")
     // Other Platforms
-    static let syncGetOnOtherDevices = NSLocalizedString("sync.get.other.devices", bundle: Bundle.module, value: "Get DuckDuckGo on Other Devices", comment: "Button to get DuckDuckGo on other devices")
+    static let syncGetOnOtherDevices = NSLocalizedString("sync.get.other.devices", bundle: Bundle.module, value: "Get Kahf Browser on Other Devices", comment: "Button to get Kahf Browser on other devices")
 
     // Sync Enabled View
     // Turn Sync Off
@@ -75,7 +75,7 @@ public struct UserText {
 
     // Connect With Server Sheet
     static let connectWithServerSheetTitle = NSLocalizedString("connect.with.server.sheet.title", bundle: Bundle.module, value: "Sync and Back Up This Device", comment: "Connect With Server Sheet - Title")
-    static let connectWithServerSheetDescriptionPart1 = NSLocalizedString("connect.with.server.sheet.description.part1", bundle: Bundle.module, value: "This creates an encrypted backup of your bookmarks and passwords on DuckDuckGo’s secure server, which can be synced with your other devices.", comment: "Connect With Server Sheet - Description Part 1")
+    static let connectWithServerSheetDescriptionPart1 = NSLocalizedString("connect.with.server.sheet.description.part1", bundle: Bundle.module, value: "This creates an encrypted backup of your bookmarks and passwords on Kahf Browser’s secure server, which can be synced with your other devices.", comment: "Connect With Server Sheet - Description Part 1")
     static let connectWithServerSheetDescriptionPart2 = NSLocalizedString("connect.with.server.sheet.description.part2", bundle: Bundle.module, value: "The encryption key is only stored on your device, Kahf Browser cannot access it.", comment: "Connect With Server Sheet - Description Part 2")
     static let connectWithServerSheetButton = NSLocalizedString("connect.with.server.sheet.button", bundle: Bundle.module, value: "Turn On Sync & Back Up", comment: "Connect With Server Sheet - Button")
     static let connectWithServerSheetFooter = NSLocalizedString("connect.with.server.sheet.footer", bundle: Bundle.module, value: "You can sync with your other devices later.", comment: "Connect With Server Sheet - Footer")
@@ -95,7 +95,7 @@ public struct UserText {
 
     // Device Synced Sheet
     static let deviceSyncedSheetTitle = NSLocalizedString("device.synced.sheet.title", bundle: Bundle.module, value: "Your data is synced!", comment: "Device SyncedSheet - Title")
-    static let deviceSyncedSheetGetOnOtherDevicesButton = NSLocalizedString("device.synced.sheet.button.get.other.devices", bundle: Bundle.module, value: "Get DuckDuckGo on Other Devices", comment: "Device SyncedSheet Button to go get DuckDuckGo on other devices")
+    static let deviceSyncedSheetGetOnOtherDevicesButton = NSLocalizedString("device.synced.sheet.button.get.other.devices", bundle: Bundle.module, value: "Get Kahf Browser on Other Devices", comment: "Device SyncedSheet Button to go get Kahf Browser on other devices")
 
     // Recover Synced Data Sheet
     static let recoverSyncedDataTitle = NSLocalizedString("recover.synced.data.sheet.title", bundle: Bundle.module, value: "Recover Synced Data", comment: "Recover Synced Data Sheet - Title")
@@ -120,7 +120,7 @@ public struct UserText {
     static let manuallyEnterCodeValidatingCodeAction = NSLocalizedString("manually.enter.code.validating.code.action", bundle: Bundle.module, value: "Validating code", comment: "Manually Enter Code View - Validating Code Action")
     static let manuallyEnterCodeValidatingCodeFailedAction = NSLocalizedString("manually.enter.code.validating.code.failed.action", bundle: Bundle.module, value: "Invalid code.", comment: "Manually Enter Code View - Validating Code Failed Action")
     static func manuallyEnterCodeInstructionAttributed(syncMenuPath: String, menuItem: String) -> String {
-        let localized = NSLocalizedString("manually.enter.code.instruction.attributed", bundle: Bundle.module, value: "Go to %@ and select %@ in the DuckDuckGo App on another synced device and paste the code here to sync this device.", comment: "Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted")
+        let localized = NSLocalizedString("manually.enter.code.instruction.attributed", bundle: Bundle.module, value: "Go to %@ and select %@ in the Kahf Browser App on another synced device and paste the code here to sync this device.", comment: "Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted")
         return String(format: localized, syncMenuPath, menuItem)
     }
     static let syncMenuPath = NSLocalizedString("sync.menu.path", bundle: Bundle.module, value: "Settings > Sync & Backup > Sync With Another Device", comment: "Sync Menu Path")
@@ -128,9 +128,9 @@ public struct UserText {
 
     // Scan or See Code View
     static let scanOrSeeCodeTitle = NSLocalizedString("scan.or.see.code.title", bundle: Bundle.module, value: "Scan QR Code", comment: "Scan or See Code View - Title")
-    static let scanOrSeeCodeInstruction = NSLocalizedString("scan.or.see.code.instruction", bundle: Bundle.module, value: "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”", comment: "Scan or See Code View - Instruction")
+    static let scanOrSeeCodeInstruction = NSLocalizedString("scan.or.see.code.instruction", bundle: Bundle.module, value: "Go to Settings › Sync & Backup in the Kahf Browser Browser on another device and select ”Sync With Another Device.”", comment: "Scan or See Code View - Instruction")
     static func scanOrSeeCodeInstructionAttributed(syncMenuPath: String) -> String {
-        let localized = NSLocalizedString("scan.or.see.code.instruction.attributed", bundle: Bundle.module, value: "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.", comment: "Scan or See Code View - Instruction with syncMenuPath")
+        let localized = NSLocalizedString("scan.or.see.code.instruction.attributed", bundle: Bundle.module, value: "Go to %@ in the Kahf Browser Browser on another device and select ”Sync With Another Device.”.", comment: "Scan or See Code View - Instruction with syncMenuPath")
         return String(format: localized, syncMenuPath)
     }
 
@@ -172,13 +172,13 @@ public struct UserText {
     // Sync Feature Flags
     static let syncUnavailableTitle = NSLocalizedString("sync.warning.sync.unavailable", bundle: Bundle.module, value: "Sync & Backup is Unavailable", comment: "Title of the warning message")
     static let syncUnavailableMessage = NSLocalizedString("sync.warning.data.syncing.disabled", bundle: Bundle.module, value: "Sorry, but Sync & Backup is currently unavailable. Please try again later.", comment: "Data syncing unavailable warning message")
-    static let syncUnavailableMessageUpgradeRequired = NSLocalizedString("sync.warning.data.syncing.disabled.upgrade.required", bundle: Bundle.module, value: "Sorry, but Sync & Backup is no longer available in this app version. Please update DuckDuckGo to the latest version to continue.", comment: "Data syncing unavailable warning message")
+    static let syncUnavailableMessageUpgradeRequired = NSLocalizedString("sync.warning.data.syncing.disabled.upgrade.required", bundle: Bundle.module, value: "Sorry, but Sync & Backup is no longer available in this app version. Please update Kahf Browser to the latest version to continue.", comment: "Data syncing unavailable warning message")
 
     // Sync Get Other Devices
-    static let syncGetOtherDevicesScreenTitle = NSLocalizedString("sync.get.other.devices.screen.title", bundle: Bundle.module, value: "Get DuckDuckGo", comment: "Title of screen with share links for users to download DuckDuckGo on other devices")
-    static let syncGetOtherDevicesTitle = NSLocalizedString("sync.get.other.devices.card.title", bundle: Bundle.module, value: "Get DuckDuckGo on other devices to sync with this one", comment: "Title of card with share links for users to download DuckDuckGo on other devices")
-    static let syncGetOtherDevicesMessage = NSLocalizedString("sync.get.other.devices.card.message", bundle: Bundle.module, value: "To download DuckDuckGo on desktop or another mobile device, visit:", comment: "Message before share link for downloading DuckDuckGo on other devices")
-    static let syncGetOtherDevicesButtonTitle = NSLocalizedString("sync.get.other.devices.card.button.title", bundle: Bundle.module, value: "Share Download Link", comment: "Button title to share link for downloading DuckDuckGo on other devices")
-    static let syncGetOtherDeviceShareLinkMessage = NSLocalizedString("sync.get.other.devices.share.link.message", bundle: Bundle.module, value: "Install the DuckDuckGo browser on your devices to start securely syncing your bookmarks and passwords:", comment: "Message included when sharing a url via the system share sheet")
+    static let syncGetOtherDevicesScreenTitle = NSLocalizedString("sync.get.other.devices.screen.title", bundle: Bundle.module, value: "Get Kahf Browser", comment: "Title of screen with share links for users to download Kahf Browser on other devices")
+    static let syncGetOtherDevicesTitle = NSLocalizedString("sync.get.other.devices.card.title", bundle: Bundle.module, value: "Get Kahf Browser on other devices to sync with this one", comment: "Title of card with share links for users to download Kahf Browser on other devices")
+    static let syncGetOtherDevicesMessage = NSLocalizedString("sync.get.other.devices.card.message", bundle: Bundle.module, value: "To download Kahf Browser on desktop or another mobile device, visit:", comment: "Message before share link for downloading Kahf Browser on other devices")
+    static let syncGetOtherDevicesButtonTitle = NSLocalizedString("sync.get.other.devices.card.button.title", bundle: Bundle.module, value: "Share Download Link", comment: "Button title to share link for downloading Kahf Browser on other devices")
+    static let syncGetOtherDeviceShareLinkMessage = NSLocalizedString("sync.get.other.devices.share.link.message", bundle: Bundle.module, value: "Install the Kahf Browser browser on your devices to start securely syncing your bookmarks and passwords:", comment: "Message included when sharing a url via the system share sheet")
 
 }

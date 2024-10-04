@@ -29,7 +29,7 @@
 "connect.with.server.sheet.button" = "Turn On Sync & Back Up";
 
 /* Connect With Server Sheet - Description Part 1 */
-"connect.with.server.sheet.description.part1" = "This creates an encrypted backup of your bookmarks and passwords on DuckDuckGo’s secure server, which can be synced with your other devices.";
+"connect.with.server.sheet.description.part1" = "This creates an encrypted backup of your bookmarks and passwords on Kahf Browser’s secure server, which can be synced with your other devices.";
 
 /* Connect With Server Sheet - Description Part 2 */
 "connect.with.server.sheet.description.part2" = "The encryption key is only stored on your device, Kahf Browser cannot access it.";
@@ -52,8 +52,8 @@
 /* Delete Server Data - Button */
 "delete.server.data" = "Turn Off and Delete Server Data...";
 
-/* Device SyncedSheet Button to go get DuckDuckGo on other devices */
-"device.synced.sheet.button.get.other.devices" = "Get DuckDuckGo on Other Devices";
+/* Device SyncedSheet Button to go get Kahf Browser on other devices */
+"device.synced.sheet.button.get.other.devices" = "Get Kahf Browser on Other Devices";
 
 /* Device SyncedSheet - Title */
 "device.synced.sheet.title" = "Your data is synced!";
@@ -83,7 +83,7 @@
 "fetch.favicons.option.title" = "Auto-Download Icons";
 
 /* Manually Enter Code View - Instruction with sync menu path and view text code menu item inserted */
-"manually.enter.code.instruction.attributed" = "Go to %1$@ and select %2$@ in the DuckDuckGo App on another synced device and paste the code here to sync this device.";
+"manually.enter.code.instruction.attributed" = "Go to %1$@ and select %2$@ in the Kahf Browser App on another synced device and paste the code here to sync this device.";
 
 /* Manually Enter Code View - Title */
 "manually.enter.code.title" = "Manually Enter Code";
@@ -185,10 +185,10 @@
 "scan.or.see.code.footer" = "Can’t Scan?";
 
 /* Scan or See Code View - Instruction */
-"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”";
+"scan.or.see.code.instruction" = "Go to Settings › Sync & Backup in the Kahf Browser Browser on another device and select ”Sync With Another Device.”";
 
 /* Scan or See Code View - Instruction with syncMenuPath */
-"scan.or.see.code.instruction.attributed" = "Go to %@ in the DuckDuckGo Browser on another device and select ”Sync With Another Device.”.";
+"scan.or.see.code.instruction.attributed" = "Go to %@ in the Kahf Browser Browser on another device and select ”Sync With Another Device.”.";
 
 /* Scan or See Code View - Manually Enter Code Link */
 "scan.or.see.code.manually.enter.code.link" = "Manually Enter Code";
@@ -208,23 +208,23 @@
 /* Link label for syncing and backing up the device */
 "sync.and.backup.this.device.link" = "Sync and Back Up This Device";
 
-/* Button to get DuckDuckGo on other devices */
-"sync.get.other.devices" = "Get DuckDuckGo on Other Devices";
+/* Button to get Kahf Browser on other devices */
+"sync.get.other.devices" = "Get Kahf Browser on Other Devices";
 
-/* Button title to share link for downloading DuckDuckGo on other devices */
+/* Button title to share link for downloading Kahf Browser on other devices */
 "sync.get.other.devices.card.button.title" = "Share Download Link";
 
-/* Message before share link for downloading DuckDuckGo on other devices */
-"sync.get.other.devices.card.message" = "To download DuckDuckGo on desktop or another mobile device, visit:";
+/* Message before share link for downloading Kahf Browser on other devices */
+"sync.get.other.devices.card.message" = "To download Kahf Browser on desktop or another mobile device, visit:";
 
-/* Title of card with share links for users to download DuckDuckGo on other devices */
-"sync.get.other.devices.card.title" = "Get DuckDuckGo on other devices to sync with this one";
+/* Title of card with share links for users to download Kahf Browser on other devices */
+"sync.get.other.devices.card.title" = "Get Kahf Browser on other devices to sync with this one";
 
-/* Title of screen with share links for users to download DuckDuckGo on other devices */
-"sync.get.other.devices.screen.title" = "Get DuckDuckGo";
+/* Title of screen with share links for users to download Kahf Browser on other devices */
+"sync.get.other.devices.screen.title" = "Get Kahf Browser";
 
 /* Message included when sharing a url via the system share sheet */
-"sync.get.other.devices.share.link.message" = "Install the DuckDuckGo browser on your devices to start securely syncing your bookmarks and passwords:";
+"sync.get.other.devices.share.link.message" = "Install the Kahf Browser browser on your devices to start securely syncing your bookmarks and passwords:";
 
 /* Sync Menu Path */
 "sync.menu.path" = "Settings > Sync & Backup > Sync With Another Device";
@@ -236,7 +236,7 @@
 "sync.warning.data.syncing.disabled" = "Sorry, but Sync & Backup is currently unavailable. Please try again later.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Sorry, but Sync & Backup is no longer available in this app version. Please update DuckDuckGo to the latest version to continue.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Sorry, but Sync & Backup is no longer available in this app version. Please update Kahf Browser to the latest version to continue.";
 
 /* Title of the warning message */
 "sync.warning.sync.unavailable" = "Sync & Backup is Unavailable";
@@ -245,7 +245,7 @@
 "sync.with.another.device.button" = "Sync With Another Device";
 
 /* Footer message for syncing with another device */
-"sync.with.another.device.footer" = "Your data is end-to-end encrypted, and DuckDuckGo does not have access to the encryption key.";
+"sync.with.another.device.footer" = "Your data is end-to-end encrypted, and Kahf Browser does not have access to the encryption key.";
 
 /* Message for syncing with another device */
 "sync.with.another.device.message" = "Securely sync bookmarks and passwords between your devices.";
