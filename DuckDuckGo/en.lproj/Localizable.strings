@@ -242,7 +242,7 @@
 "autoclear.on" = "On";
 
 /* Subtitle for search history items */
-"autocomplete.history.search.duckduckgo" = "Search DuckDuckGo";
+"autocomplete.history.search.duckduckgo" = "Search Kahf Browser";
 
 /* The message text shown in suggestions */
 "autocomplete.history.warning.message" = "Search suggestions now include your recently visited sites. Turn off in Settings, or clear anytime with the 🔥 Fire Button.";
@@ -325,7 +325,7 @@
 /* Disable action for alert when asking the user if they want to keep using autofill */
 "autofill.keep-enabled.alert.disable" = "Disable";
 
-/* A link that takes the user to the DuckDuckGo help pages explaining password managers */
+/* A link that takes the user to the Kahf Browser help pages explaining password managers */
 "autofill.learn.more.link.title" = "Learn More";
 
 /* Button displayed after saving/updating an autofill login that takes the user to the saved login */
@@ -422,7 +422,7 @@
 "autofill.logins.empty-view.button.title" = "Import Passwords";
 
 /* Subtitle for view displayed when no autofill passwords have been saved */
-"autofill.logins.empty-view.subtitle.first.paragraph" = "You can import saved passwords from another browser into DuckDuckGo.";
+"autofill.logins.empty-view.subtitle.first.paragraph" = "You can import saved passwords from another browser into Kahf Browser.";
 
 /* Title for view displayed when autofill has no items */
 "autofill.logins.empty-view.title" = "No passwords saved yet";
@@ -594,7 +594,7 @@
 "autofill.save-login.new-user.title" = "Save this password?";
 
 /* Message displayed on modal asking for the user to save the login for the first time */
-"autofill.save-login.security.message" = "Securely store your password on device with DuckDuckGo Passwords & Autofill.";
+"autofill.save-login.security.message" = "Securely store your password on device with Kahf Browser Passwords & Autofill.";
 
 /* Title displayed on modal asking for the user to save the login */
 "autofill.save-login.title" = "Save password?";
@@ -785,11 +785,11 @@
 /* Message of the last screen of the onboarding to the browser app. */
 "contextual.onboarding.highlights.final-screen.message" = "Remember: every time you browse with me a creepy ad loses its wings.";
 
-/* After the user performs their first search using the browser, this dialog explains the advantages of using DuckDuckGo */
-"contextual.onboarding.highlights.first-search-done.message" = "That’s DuckDuckGo Search! Private. Fast. Fewer ads.";
+/* After the user performs their first search using the browser, this dialog explains the advantages of using Kahf Browser */
+"contextual.onboarding.highlights.first-search-done.message" = "That’s Kahf Browser Search! Private. Fast. Fewer ads.";
 
 /* Message of a popover on the browser that invites the user to try a search explaining that their searches are private */
-"contextual.onboarding.highlights.try-a-search.message" = "Your DuckDuckGo searches are always private.";
+"contextual.onboarding.highlights.try-a-search.message" = "Your Kahf Browser searches are always private.";
 
 /* Browser Search query for baby ducklings */
 "contextual.onboarding.highlights.try-search.surprise-me" = "baby ducklings";
@@ -1029,7 +1029,7 @@
 "duckPlayer.never.label" = "Never";
 
 /* Body text for the modal feature explanation */
-"duckplayer.presentation.modal.body" = "Duck Player lets you watch YouTube without targeted ads in DuckDuckGo and what you watch won’t influence your recommendations.";
+"duckplayer.presentation.modal.body" = "Duck Player lets you watch YouTube without targeted ads in Kahf Browser and what you watch won’t influence your recommendations.";
 
 /* Button that will dismiss the modal */
 "duckplayer.presentation.modal.dismiss-button" = "Got it!";
@@ -1044,7 +1044,7 @@
 "duckplayer.settings.footer" = "Kahf Browser provides all the privacy essentials you need to protect yourself as you browse the web.";
 
 /* Text explaining what Duck Player is in the settings screen. */
-"duckplayer.settings.info-text" = "Duck Player lets you watch YouTube without targeted ads in DuckDuckGo and what you watch won’t influence your recommendations.";
+"duckplayer.settings.info-text" = "Duck Player lets you watch YouTube without targeted ads in Kahf Browser and what you watch won’t influence your recommendations.";
 
 /* Button that takes the user to learn more about Duck Player. */
 "duckplayer.settings.learn-more" = "Learn More";
@@ -1916,7 +1916,7 @@ https://duckduckgo.com/mac";
 /* Message to highlight browser capability ofblocking 3rd party trackers */
 "onboarding.highlights.browsers.features.trackerBlocker.title" = "Block 3rd party trackers";
 
-/* The title of the dialog to show the privacy features that DuckDuckGo offers */
+/* The title of the dialog to show the privacy features that Kahf Browser offers */
 "onboarding.highlights.browsers.title" = "Protections activated!";
 
 /* The title of the fire button CTA to skip erasing the data. */
@@ -2019,7 +2019,7 @@ https://duckduckgo.com/mac";
 "ppro.feedback-form.text-4" = "• Aggregate app diagnostics (e.g., error codes)";
 
 /* Text for the body of the PPro feedback form */
-"ppro.feedback-form.text-5" = "By tapping \"Submit\" you agree that DuckDuckGo may use information submitted to improve the app.";
+"ppro.feedback-form.text-5" = "By tapping \"Submit\" you agree that Kahf Browser may use information submitted to improve the app.";
 
 /* Title for the text box in the Privacy Pro feedback form */
 "ppro.feedback-form.text-box.title" = "Feedback";
@@ -2214,8 +2214,8 @@ But if you *do* want a peek under the hood, you can find more information about 
 /* Label of a button disabling email protection */
 "settings.disable.email.protection.autofill" = "Disable Email Protection Autofill";
 
-/* Settings cell to link users to other products by DuckDuckGo */
-"settings.duckduckgo.on.other.platforms" = "DuckDuckGo on Other Platforms";
+/* Settings cell to link users to other products by Kahf Browser */
+"settings.duckduckgo.on.other.platforms" = "Kahf Browser on Other Platforms";
 
 /* Explanation in Settings how the email protection feature works */
 "settings.email.protection.explanation" = "Block email trackers and hide your address without switching your email provider.\n[Learn More](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/email-protection/what-is-duckduckgo-email-protection/)";
@@ -2395,7 +2395,7 @@ But if you *do* want a peek under the hood, you can find more information about 
 "site.not.working.subtitle" = "This helps us improve the browser.";
 
 /* Prompt asking user to send report to us if we suspect site may be broken */
-"site.not.working.title" = "Site not working? Let DuckDuckGo know.";
+"site.not.working.title" = "Site not working? Let Kahf Browser know.";
 
 /* Button that triggers flow to report broken site */
 "site.not.working.website.is.broken" = "Website Is Broken";
@@ -2863,7 +2863,7 @@ But if you *do* want a peek under the hood, you can find more information about 
 "vpn.feedback-form.text-5" = "By tapping \"Submit\" I agree that Kahf Browser may use the information in this report for purposes of improving the app's features.";
 
 /* Title for each screen of the VPN feedback form */
-"vpn.feedback-form.title" = "Help Improve the DuckDuckGo VPN";
+"vpn.feedback-form.title" = "Help Improve the Kahf Browser VPN";
 
 /* VPN settings screen cell text for adding the VPN widget to the home screen */
 "vpn.settings.add.widget" = "Add VPN Widget to Home Screen";

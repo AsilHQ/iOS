@@ -128,7 +128,7 @@
 "addWidget.settings.secondParagraph.%@" = "Koppints a plusz %@ gombra.";
 
 /* No comment provided by engineer. */
-"addWidget.settings.title" = "Keresd meg és jelöld ki a DuckDuckGo elemet. Ezután válassz egy minialkalmazást.";
+"addWidget.settings.title" = "Keresd meg és jelöld ki a Kahf Browser elemet. Ezután válassz egy minialkalmazást.";
 
 /* No comment provided by engineer. */
 "addWidget.title" = "Egyetlen koppintással nyisd meg kedvenc oldalaidat.";
@@ -221,7 +221,7 @@
 "alert.unable-to-update-device-name-description" = "Nem sikerült frissíteni az eszköz nevét.";
 
 /* Shown on authentication screen */
-"app.authentication.unlock" = "Oldd fel a DuckDuckGo-t.";
+"app.authentication.unlock" = "Oldd fel a Kahf Browser-t.";
 
 /* Authentication Alert Sign In Button */
 "auth.alert.login.button" = "Bejelentkezés";
@@ -248,7 +248,7 @@
 "autoclear.on" = "Be";
 
 /* Subtitle for search history items */
-"autocomplete.history.search.duckduckgo" = "DuckDuckGo keresés";
+"autocomplete.history.search.duckduckgo" = "Kahf Browser keresés";
 
 /* The message text shown in suggestions */
 "autocomplete.history.warning.message" = "A keresési javaslatok között már a legutóbb meglátogatott webhelyek is szerepelnek. A Beállítások alatt kikapcsolhatod, vagy bármikor törölheted a 🔥 Tűz gombbal.";
@@ -266,7 +266,7 @@
 "autoconsent.enabled" = "Engedélyezve";
 
 /* No comment provided by engineer. */
-"autoconsent.info.header" = "Amikor a DuckDuckGo a meglátogatott webhelyeken sütik elfogadására szolgáló felugró ablakokat észlel, a sütik minimalizálása és az adatvédelem maximalizálása érdekében automatikusan megpróbálhatjuk megadni a sütikre vonatkozó beállításaidat, és bezárhatjuk a felugró ablakokat. Egyes webhelyek nem adnak lehetőséget a sütikre vonatkozó beállítások kezelésére, így csak az ilyen felugró ablakokat tudjuk elrejteni.";
+"autoconsent.info.header" = "Amikor a Kahf Browser a meglátogatott webhelyeken sütik elfogadására szolgáló felugró ablakokat észlel, a sütik minimalizálása és az adatvédelem maximalizálása érdekében automatikusan megpróbálhatjuk megadni a sütikre vonatkozó beállításaidat, és bezárhatjuk a felugró ablakokat. Egyes webhelyek nem adnak lehetőséget a sütikre vonatkozó beállítások kezelésére, így csak az ilyen felugró ablakokat tudjuk elrejteni.";
 
 /* Do not translate - stringsdict entry */
 "autofill.delete.all.passwords.completion" = "autofill.delete.all.passwords.completion";
@@ -296,7 +296,7 @@
 "autofill.import.passwords.get-browser-button" = "Asztali böngésző letöltése";
 
 /* Step 1 for instructions to import passwords */
-"autofill.import.passwords.instructions.step1" = "Nyisd meg Mac vagy Windows rendszeren a DuckDuckGo böngészőt";
+"autofill.import.passwords.instructions.step1" = "Nyisd meg Mac vagy Windows rendszeren a Kahf Browser böngészőt";
 
 /* Step 2 for instructions to import passwords. This reads as 'Go to Settings > Passwords' */
 "autofill.import.passwords.instructions.step2" = "Lépj a %1$@ > %2$@ menüpontra";
@@ -320,7 +320,7 @@
 "autofill.import.passwords.instructions.title" = "Importálás az asztali böngészőből:";
 
 /* Subtitle for screen to import passwords */
-"autofill.import.passwords.subtitle" = "Importálj jelszavakat a DuckDuckGo böngésző asztali verziójába, majd szinkronizáld őket az eszközök között.";
+"autofill.import.passwords.subtitle" = "Importálj jelszavakat a Kahf Browser böngésző asztali verziójába, majd szinkronizáld őket az eszközök között.";
 
 /* Button label to sync passwords with desktop browser */
 "autofill.import.passwords.sync-button" = "Szinkronizálás asztali böngészővel";
@@ -331,7 +331,7 @@
 /* Disable action for alert when asking the user if they want to keep using autofill */
 "autofill.keep-enabled.alert.disable" = "Letilt";
 
-/* A link that takes the user to the DuckDuckGo help pages explaining password managers */
+/* A link that takes the user to the Kahf Browser help pages explaining password managers */
 "autofill.learn.more.link.title" = "Learn More";
 
 /* Button displayed after saving/updating an autofill login that takes the user to the saved login */
@@ -428,7 +428,7 @@
 "autofill.logins.empty-view.button.title" = "Jelszavak importálása";
 
 /* Subtitle for view displayed when no autofill passwords have been saved */
-"autofill.logins.empty-view.subtitle.first.paragraph" = "Importálhatod a mentett jelszavaidat egy másik böngészőből a DuckDuckGo böngészőjébe.";
+"autofill.logins.empty-view.subtitle.first.paragraph" = "Importálhatod a mentett jelszavaidat egy másik böngészőből a Kahf Browser böngészőjébe.";
 
 /* Title for view displayed when autofill has no items */
 "autofill.logins.empty-view.title" = "Még nincsenek mentett jelszavak";
@@ -552,7 +552,7 @@
 "autofill.password-generation-prompt.subtitle" = "A jelszavakat az eszközöd biztonságosan tárolja.";
 
 /* Title for prompt to use suggested strong password for creating a login */
-"autofill.password-generation-prompt.title" = "A DuckDuckGo által kínált erős jelszót kívánsz használni?";
+"autofill.password-generation-prompt.title" = "A Kahf Browser által kínált erős jelszót kívánsz használni?";
 
 /* Button title choosing to use the suggested generated password for creating a login */
 "autofill.password-generation-prompt.use-generated-password.cta" = "Erős jelszó használata";
@@ -597,7 +597,7 @@
 "autofill.save-login.new-user.title" = "Mented a jelszót?";
 
 /* Message displayed on modal asking for the user to save the login for the first time */
-"autofill.save-login.security.message" = "Tárold biztonságosan a jelszavaidat az eszközödön a DuckDuckGo Jelszavak és automatikus kitöltés funkciójával.";
+"autofill.save-login.security.message" = "Tárold biztonságosan a jelszavaidat az eszközödön a Kahf Browser Jelszavak és automatikus kitöltés funkciójával.";
 
 /* Title displayed on modal asking for the user to save the login */
 "autofill.save-login.title" = "Mented a jelszót?";
@@ -618,7 +618,7 @@
 "autofill.settings.report.not.working.confirmation.title" = "Jelented, hogy az automatikus kitöltés nem működik a megnyitni kívánt %@ webhelyen?";
 
 /* Message shown to user when they submit a report that autofill is not working for a website */
-"autofill.settings.report.not.working.sent.confirmation" = "Köszönjük! A jelentésed segít nekünk abban, hogy a DuckDuckGo mindenki számára jobb élményt nyújthasson.";
+"autofill.settings.report.not.working.sent.confirmation" = "Köszönjük! A jelentésed segít nekünk abban, hogy a Kahf Browser mindenki számára jobb élményt nyújthasson.";
 
 /* Subtitle for the row to report that autofill is not working on a site in autofill settings */
 "autofill.settings.report.not.working.subtitle" = "Jelentsd névtelenül, hogy az automatikus kitöltés nem működik ezen a webhelyen. Jelszavak megosztására soha nem kerül sor.";
@@ -633,7 +633,7 @@
 "autofill.signin.to.manage" = "%@ a Duck-címek kezeléséhez ezen az eszközön.";
 
 /* Message displayed on modal asking for the user to update the password */
-"autofill.update-password.message" = "A DuckDuckGo frissíti az eszközödön ezt a tárolt jelszót.";
+"autofill.update-password.message" = "A Kahf Browser frissíti az eszközödön ezt a tárolt jelszót.";
 
 /* Confirm CTA displayed on modal asking for the user to update the password */
 "autofill.update-password.save.CTA" = "Jelszó frissítése";
@@ -753,7 +753,7 @@
 "broken.site.report.missing.description.alert.title" = "Leírás szükséges";
 
 /* Message that appears after submitting report */
-"broken.site.report.success.toast" = "A jelentésed segít nekünk abban, hogy a DuckDuckGo mindenki számára jobb élményt nyújthasson!";
+"broken.site.report.success.toast" = "A jelentésed segít nekünk abban, hogy a Kahf Browser mindenki számára jobb élményt nyújthasson!";
 
 /* Button to answer question 'Did turning off protections resolve the issue on this site?' */
 "broken.site.report.toggle.alert.no.button" = "Nem";
@@ -779,8 +779,8 @@
 /* Title of the last screen of the onboarding to the browser app */
 "contextual.onboarding.final-screen.title" = "Megvan, ez az!";
 
-/* After the user performs their first search using the browser, this dialog explains the advantages of using DuckDuckGo */
-"contextual.onboarding.first-search-done.message" = "Ez a DuckDuckGo Search. Privát. Gyors. Kevesebb hirdetés.";
+/* After the user performs their first search using the browser, this dialog explains the advantages of using Kahf Browser */
+"contextual.onboarding.first-search-done.message" = "Ez a Kahf Browser Search. Privát. Gyors. Kevesebb hirdetés.";
 
 /* During onboarding steps this button is shown and takes either to the next steps or closes the onboarding. */
 "contextual.onboarding.got-it.button" = "Megvan!";
@@ -788,11 +788,11 @@
 /* Message of the last screen of the onboarding to the browser app. */
 "contextual.onboarding.highlights.final-screen.message" = "Ne feledd: minden alkalommal, amikor velem böngészel, egy undok hirdetés elveszíti az erejét.";
 
-/* After the user performs their first search using the browser, this dialog explains the advantages of using DuckDuckGo */
-"contextual.onboarding.highlights.first-search-done.message" = "Ez a DuckDuckGo Search! Privát. Gyors. Kevesebb hirdetés.";
+/* After the user performs their first search using the browser, this dialog explains the advantages of using Kahf Browser */
+"contextual.onboarding.highlights.first-search-done.message" = "Ez a Kahf Browser Search! Privát. Gyors. Kevesebb hirdetés.";
 
 /* Message of a popover on the browser that invites the user to try a search explaining that their searches are private */
-"contextual.onboarding.highlights.try-a-search.message" = "A DuckDuckGo-kereséseid mindig privátak maradnak.";
+"contextual.onboarding.highlights.try-a-search.message" = "A Kahf Browser-kereséseid mindig privátak maradnak.";
 
 /* Browser Search query for baby ducklings */
 "contextual.onboarding.highlights.try-search.surprise-me" = "kiskacsák";
@@ -801,7 +801,7 @@
 "contextual.onboarding.ntp.try-a-site.title" = "Próbálj meg ellátogatni egy webhelyre!";
 
 /* Message of a popover on the browser that invites the user to try a search explaining that their searches are anonymous */
-"contextual.onboarding.try-a-search.message" = "A DuckDuckGo-kereséseid mindig névtelenek.";
+"contextual.onboarding.try-a-search.message" = "A Kahf Browser-kereséseid mindig névtelenek.";
 
 /* Title of a popover on the browser that invites the user to try a search */
 "contextual.onboarding.try-a-search.title" = "Készen állsz a kezdésre?\nKeress rá!";
@@ -846,7 +846,7 @@
 "crash.report.dialog.hide.details" = "Elrejtés";
 
 /* Crash Report dialog message */
-"crash.report.dialog.message" = "A hibajelentések segítséget nyújtanak ahhoz, hogy a DuckDuckGo diagnosztizálhassa a problémákat, és tökéletesíthesse termékeit. A jelentések nem tartalmaznak személyes azonosításra alkalmas adatokat.";
+"crash.report.dialog.message" = "A hibajelentések segítséget nyújtanak ahhoz, hogy a Kahf Browser diagnosztizálhassa a problémákat, és tökéletesíthesse termékeit. A jelentések nem tartalmaznak személyes azonosításra alkalmas adatokat.";
 
 /* Crash Report never send button title */
 "crash.report.dialog.never.send" = "Soha ne küldjön";
@@ -882,7 +882,7 @@
 "dax.hide.title" = "Elrejti a többi tippet?";
 
 /* No comment provided by engineer. */
-"dax.onboarding.browsing.after.search" = "A DuckDuckGo keresések névtelenek. Mindig. 🙌";
+"dax.onboarding.browsing.after.search" = "A Kahf Browser keresések névtelenek. Mindig. 🙌";
 
 /* No comment provided by engineer. */
 "dax.onboarding.browsing.after.search.cta" = "Pfuj!";
@@ -963,7 +963,7 @@
 "donotsell.enabled" = "Engedélyezve";
 
 /* No comment provided by engineer. */
-"donotsell.info.headertext" = "A DuckDuckGo számos nyomkövetőt automatikusan blokkol. A Global Privacy Control (GPC, Globális Adatvédelmi Ellenőrzés) segítségével arra is megkérheted a részt vevő webhelyeket, hogy korlátozzák személyes adataid eladását vagy megosztását más vállalatokkal.";
+"donotsell.info.headertext" = "A Kahf Browser számos nyomkövetőt automatikusan blokkol. A Global Privacy Control (GPC, Globális Adatvédelmi Ellenőrzés) segítségével arra is megkérheted a részt vevő webhelyeket, hogy korlátozzák személyes adataid eladását vagy megosztását más vállalatokkal.";
 
 /* Alert action for starting a file dowload */
 "downloads.alert.action.save-to-downloads" = "Mentés a Letöltések közé";
@@ -1029,7 +1029,7 @@
 "duck-player.video-contingency-message" = "A YouTube legutóbbi módosításai érintik a Duck Player működését. Dolgozunk a problémák megoldásán, és köszönjük a megértésedet.";
 
 /* No comment provided by engineer. */
-"DuckDuckGo for iOS" = "DuckDuckGo iOS verzió";
+"Kahf Browser for iOS" = "Kahf Browser iOS verzió";
 
 /* Text displayed when DuckPlayer is always enabled */
 "duckPlayer.alwaysEnabled.label" = "Mindig";
@@ -1064,7 +1064,7 @@
 /* Settings screen cell text for DuckPlayer settings */
 "duckplayer.settings.title" = "Duck Player";
 
-/* Email protection service offered by DuckDuckGo */
+/* Email protection service offered by Kahf Browser */
 "email-protection" = "E-mail védelem";
 
 /* Cancel option for the email alias alert */
@@ -1257,10 +1257,10 @@
 "feedback.ddgSearch.caption" = "Melyik keresési funkciót vezessük be vagy javítsuk?";
 
 /* No comment provided by engineer. */
-"feedback.ddgSearch.description" = "DuckDuckGo keresési problémák";
+"feedback.ddgSearch.description" = "Kahf Browser keresési problémák";
 
 /* No comment provided by engineer. */
-"feedback.ddgSearch.entry" = "A DuckDuckGo keresés nem elég jó";
+"feedback.ddgSearch.entry" = "A Kahf Browser keresés nem elég jó";
 
 /* No comment provided by engineer. */
 "feedback.ddgSearch.languageOrRegion" = "Keresés egy adott nyelven vagy régióban";
@@ -1392,22 +1392,22 @@
 "get.browser.share-link" = "Letöltési link megosztása";
 
 /* Message displayed in the share action when sharing via email */
-"get.browser.share-link.message" = "Keress privát módon, és blokkold a nyomkövetőket a DuckDuckGo asztali böngészőjével. A letöltéshez nyisd meg ezt a linket a számítógépen.";
+"get.browser.share-link.message" = "Keress privát módon, és blokkold a nyomkövetőket a Kahf Browser asztali böngészőjével. A letöltéshez nyisd meg ezt a linket a számítógépen.";
 
 /* Title displayed in the share action */
-"get.browser.share-link.title" = "Mac vagy Windows verziójú DuckDuckGo böngésző letöltése";
+"get.browser.share-link.title" = "Mac vagy Windows verziójú Kahf Browser böngésző letöltése";
 
 /* Title for the get desktop browser feature */
-"get.browser.title" = "Mac vagy Windows verziójú DuckDuckGo letöltése";
+"get.browser.title" = "Mac vagy Windows verziójú Kahf Browser letöltése";
 
 /* No comment provided by engineer. */
-"home.row.onboarding.header" = "Add hozzá a DuckDuckGo-t a kezdőképernyődhöz!";
+"home.row.onboarding.header" = "Add hozzá a Kahf Browser-t a kezdőképernyődhöz!";
 
 /* No comment provided by engineer. */
-"home.row.reminder.message" = "A könnyű hozzáférés érdekében add hozzá a dokkodhoz a DuckDuckGo-t!";
+"home.row.reminder.message" = "A könnyű hozzáférés érdekében add hozzá a dokkodhoz a Kahf Browser-t!";
 
 /* Home is this context is the bottom home row (dock) */
-"home.row.reminder.title" = "Vidd haza a DuckDuckGo-t";
+"home.row.reminder.title" = "Vidd haza a Kahf Browser-t";
 
 /* This describes empty tab */
 "homeTab.searchAndFavorites" = "Keresés vagy cím megadása";
@@ -1497,10 +1497,10 @@
 "LOREM IPSUM" = "LOREM IPSUM";
 
 /* Summary text for the macOS browser waitlist */
-"mac-browser.waitlist.summary" = "A DuckDuckGo Mac verziója gyors, böngészési funkciókban gazdag, és kategóriája legjobb adatvédelmi megoldásait kínálja.";
+"mac-browser.waitlist.summary" = "A Kahf Browser Mac verziója gyors, böngészési funkciókban gazdag, és kategóriája legjobb adatvédelmi megoldásait kínálja.";
 
 /* Title for the macOS waitlist notification */
-"mac-waitlist.available.notification.title" = "Elkészült a DuckDuckGo Maces verziója!";
+"mac-waitlist.available.notification.title" = "Elkészült a Kahf Browser Maces verziója!";
 
 /* Title for the copy action */
 "mac-waitlist.copy" = "Másolás";
@@ -1515,7 +1515,7 @@
 "mac-waitlist.join-waitlist-screen.share-link" = "Link megosztása";
 
 /* Title for the Join Waitlist screen */
-"mac-waitlist.join-waitlist-screen.try-duckduckgo-for-mac" = "Töltsd le a DuckDuckGo Mac verzióját!";
+"mac-waitlist.join-waitlist-screen.try-duckduckgo-for-mac" = "Töltsd le a Kahf Browser Mac verzióját!";
 
 /* Title for the macOS waitlist button redirecting to Windows waitlist */
 "mac-waitlist.join-waitlist-screen.windows-waitlist" = "A Windowsra készült verziót keresed?";
@@ -1527,10 +1527,10 @@
 "mac-waitlist.share-sheet.message" = "Készen állsz a privát böngészésre a Macen?\n\nA letöltéshez látogass el erre az URL-címre a Macen:\nhttps://duckduckgo.com/mac";
 
 /* Title for the share sheet entry */
-"mac-waitlist.share-sheet.title" = "DuckDuckGo Mac verzió";
+"mac-waitlist.share-sheet.title" = "Kahf Browser Mac verzió";
 
 /* Title for the Mac Waitlist feature */
-"mac-waitlist.title" = "DuckDuckGo alkalmazás Machez";
+"mac-waitlist.title" = "Kahf Browser alkalmazás Machez";
 
 /* No comment provided by engineer. */
 "menu.button.hint" = "Tallózás a menüben";
@@ -1553,20 +1553,20 @@
 /* String indicating NetP is disconnected when viewed from the settings screen */
 "netP.cell.disconnected" = "Not connected";
 
-/* Title for the DuckDuckGo VPN feature in settings */
+/* Title for the Kahf Browser VPN feature in settings */
 "netP.settings.title" = "VPN";
 
-/* Title for the DuckDuckGo VPN feature */
-"netP.title" = "DuckDuckGo VPN";
+/* Title for the Kahf Browser VPN feature */
+"netP.title" = "Kahf Browser VPN";
 
 /* The body of the notification when Privacy Pro subscription expired */
-"network.protection.entitlement.expired.notification.body" = "VPN disconnected due to expired subscription. Subscribe to Privacy Pro to reconnect DuckDuckGo VPN.";
+"network.protection.entitlement.expired.notification.body" = "VPN disconnected due to expired subscription. Subscribe to Privacy Pro to reconnect Kahf Browser VPN.";
 
 /* The body of the notification shown when Network Protection fails to reconnect */
 "network.protection.failure.notification.body" = "A hálózatvédelmi funkció csatlakozása sikertelen. Próbálkozz újra később.";
 
 /* Title for the VPN FAQ screen. */
-"network.protection.faq.title" = "DuckDuckGo VPN – gyakori kérdések";
+"network.protection.faq.title" = "Kahf Browser VPN – gyakori kérdések";
 
 /* The body of the notification shown when Network Protection's connection is interrupted */
 "network.protection.interrupted.notification.body" = "A hálózatvédelmi funkció kapcsolata megszakadt. Újracsatlakozási kísérlet folyamatban…";
@@ -1575,7 +1575,7 @@
 "network.protection.invite.dialog.message" = "Enter your invite code to get started.";
 
 /* Title for the network protection invite screen */
-"network.protection.invite.dialog.title" = "Meghívót kaptál a DuckDuckGo VPN kipróbálására";
+"network.protection.invite.dialog.title" = "Meghívót kaptál a Kahf Browser VPN kipróbálására";
 
 /* Prompt for the network protection invite code text field */
 "network.protection.invite.field.prompt" = "Invite Code";
@@ -1587,7 +1587,7 @@
 "network.protection.invite.success.title" = "Success! You’re in.";
 
 /* The title of the notifications shown from Network Protection */
-"network.protection.notification.title" = "DuckDuckGo";
+"network.protection.notification.title" = "Kahf Browser";
 
 /* Title text for an iOS quick action that opens VPN settings */
 "network.protection.quick-action.open-vpn" = "VPN megnyitása";
@@ -1611,10 +1611,10 @@
 "network.protection.status.header.message.on" = "A VPN védi az összes eszköz\ninternetes forgalmát.";
 
 /* Header title label text for the status view when VPN is disconnected */
-"network.protection.status.header.title.off" = "A DuckDuckGo VPN ki van kapcsolva";
+"network.protection.status.header.title.off" = "A Kahf Browser VPN ki van kapcsolva";
 
 /* Header title label text for the status view when VPN is connected */
-"network.protection.status.header.title.on" = "A DuckDuckGo VPN be van kapcsolva";
+"network.protection.status.header.title.on" = "A Kahf Browser VPN be van kapcsolva";
 
 /* The status view 'Share Feedback' button which is shown inline on the status view after the temporary free use footer text */
 "network.protection.status.menu.share.feedback" = "Share Feedback";
@@ -1653,7 +1653,7 @@
 "network.protection.turn.on.notifications.button.title" = "Értesítések bekapcsolása";
 
 /* Footer text under the button to link to the iOS app settings and enable notifications app-wide. */
-"network.protection.turn.on.notifications.section.footer" = "Engedélyezd, hogy a DuckDuckGo értesítsen, ha a kapcsolat megszakad vagy a VPN állapota megváltozik.";
+"network.protection.turn.on.notifications.section.footer" = "Engedélyezd, hogy a Kahf Browser értesítsen, ha a kapcsolat megszakad vagy a VPN állapota megváltozik.";
 
 /* Title of the About section in the VPN status screen */
 "network.protection.vpn.about" = "Rólunk";
@@ -1716,7 +1716,7 @@
 "network.protection.vpn.preferred.location.title" = "Preferred Location";
 
 /* Footer text for the DNS server setting item. */
-"network.protection.vpn.secure.dns.setting.footer" = "DuckDuckGo routes DNS queries through our DNS servers so your internet provider can't see what websites you visit.";
+"network.protection.vpn.secure.dns.setting.footer" = "Kahf Browser routes DNS queries through our DNS servers so your internet provider can't see what websites you visit.";
 
 /* Title for the FAQ row in the VPN status screen. */
 "network.protection.vpn.settings.faq" = "FAQs and Support";
@@ -1796,7 +1796,7 @@
 /* Message to highlight browser capability ofblocking 3rd party trackers */
 "onboarding.browsers.features.trackerBlocker.title" = "Harmadik féltől származó nyomkövetők blokkolása";
 
-/* The title of the dialog to show the privacy features that DuckDuckGo offers */
+/* The title of the dialog to show the privacy features that Kahf Browser offers */
 "onboarding.browsers.title" = "Adatvédelem aktiválva!";
 
 /* The message of the option to set the address bar to the bottom. */
@@ -1841,7 +1841,7 @@
 /* Message to highlight browser capability ofblocking 3rd party trackers */
 "onboarding.highlights.browsers.features.trackerBlocker.title" = "Harmadik féltől származó nyomkövetők blokkolása";
 
-/* The title of the dialog to show the privacy features that DuckDuckGo offers */
+/* The title of the dialog to show the privacy features that Kahf Browser offers */
 "onboarding.highlights.browsers.title" = "Védelem aktiválva!";
 
 /* The title of the fire button CTA to skip erasing the data. */
@@ -1860,7 +1860,7 @@
 "onboarding.widgets.continueButton" = "Minialkalmazás hozzáadása";
 
 /* No comment provided by engineer. */
-"onboarding.widgets.header" = "A DuckDuckGo használata még könnyebb lett.";
+"onboarding.widgets.header" = "A Kahf Browser használata még könnyebb lett.";
 
 /* No comment provided by engineer. */
 "onboarding.widgets.skipButton" = "Talán később";
@@ -1884,7 +1884,7 @@
 "onboardingStartBrowsing" = "Böngészés indítása";
 
 /* No comment provided by engineer. */
-"onboardingWelcomeHeader" = "Üdvözlünk a DuckDuckGo-ban!";
+"onboardingWelcomeHeader" = "Üdvözlünk a Kahf Browser-ban!";
 
 /* ’Link’ is link on a website */
 "open.externally.failed" = "A link megnyitásához szükséges alkalmazás nem található.";
@@ -1958,7 +1958,7 @@
 "Privacy Protections" = "Adatvédelem";
 
 /* Privacy Icon accessibility title */
-"privacy.icon.dax" = "DuckDuckGo logó";
+"privacy.icon.dax" = "Kahf Browser logó";
 
 /* Privacy Icon accessibility hint */
 "privacy.icon.hint" = "Koppints ide az Adatvédelmi műszerfal képernyőjének megnyitásához";
@@ -1973,7 +1973,7 @@
 "prompt.custom.url.scheme.open" = "Megnyitás";
 
 /* No comment provided by engineer. */
-"prompt.custom.url.scheme.prompt" = "Szeretnél kilépni a DuckDuckGo programból a tartalom megtekintéséhez?";
+"prompt.custom.url.scheme.prompt" = "Szeretnél kilépni a Kahf Browser programból a tartalom megtekintéséhez?";
 
 /* Alert title */
 "prompt.custom.url.scheme.title" = "Megnyitás másik alkalmazásban?";
@@ -1990,11 +1990,11 @@
 /* Settings cell for About DDG */
 "settings.about.ddg" = "A DuckDuckGóról";
 
-/* Settings section title for About DuckDuckGo */
+/* Settings section title for About Kahf Browser */
 "settings.about.section" = "Rólunk";
 
 /* about page */
-"settings.about.text" = "A 2008-ban alapított független internetes adatvédelmi cég, a DuckDuckGo egyszerű megoldást kínál azoknak, akiknek elegük van abból, hogy állandóan nyomon követik őket az interneten. Mi vagyunk annak a bizonyítéka, hogy kompromisszumok nélkül is lehet valódi online adatvédelmet biztosítani.\n\nA DuckDuckGo böngésző rendelkezik a böngészőktől elvárt funkciókkal, mint például könyvjelzők, lapok, jelszavak és egyéb funkciók, valamint több mint [egy tucat olyan hatékony adatvédelmi megoldással](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/), amelyet a legtöbb népszerű böngésző nem kínál alapértelmezés szerint. Ezek az egyedülállóan átfogó adatvédelmi megoldások segítenek megvédeni online tevékenységeid, legyen szó keresésről, böngészésről, e-mailezésről vagy sok minden másról.\n\nAdatvédelmi megoldásaink anélkül működnek, hogy bármit is tudnod kellene a technikai részletekről vagy bonyolult beállításokkal kellene foglalkoznod. Mindössze annyit kell tenned, hogy minden eszközödön a DuckDuckGo böngészőre váltasz, és máris igénybe veheted az alapértelmezés szerinti adatvédelmet.\n\nHa azonban *igazán* szeretnél bepillantani a motorháztető alá is, a [súgóoldalainkon](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/) további információkat találhatsz a DuckDuckGo adatvédelmi megoldásainak működéséről.";
+"settings.about.text" = "A 2008-ban alapított független internetes adatvédelmi cég, a Kahf Browser egyszerű megoldást kínál azoknak, akiknek elegük van abból, hogy állandóan nyomon követik őket az interneten. Mi vagyunk annak a bizonyítéka, hogy kompromisszumok nélkül is lehet valódi online adatvédelmet biztosítani.\n\nA Kahf Browser böngésző rendelkezik a böngészőktől elvárt funkciókkal, mint például könyvjelzők, lapok, jelszavak és egyéb funkciók, valamint több mint [egy tucat olyan hatékony adatvédelmi megoldással](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/), amelyet a legtöbb népszerű böngésző nem kínál alapértelmezés szerint. Ezek az egyedülállóan átfogó adatvédelmi megoldások segítenek megvédeni online tevékenységeid, legyen szó keresésről, böngészésről, e-mailezésről vagy sok minden másról.\n\nAdatvédelmi megoldásaink anélkül működnek, hogy bármit is tudnod kellene a technikai részletekről vagy bonyolult beállításokkal kellene foglalkoznod. Mindössze annyit kell tenned, hogy minden eszközödön a Kahf Browser böngészőre váltasz, és máris igénybe veheted az alapértelmezés szerinti adatvédelmet.\n\nHa azonban *igazán* szeretnél bepillantani a motorháztető alá is, a [súgóoldalainkon](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/) további információkat találhatsz a Kahf Browser adatvédelmi megoldásainak működéséről.";
 
 /* Settings screen accessibility section title */
 "settings.accessibility" = "Kisegítő lehetőségek";
@@ -2049,7 +2049,7 @@
 "settings.cookie.pop-up-protection.protection" = "Felugró sütiablak elleni védelem";
 
 /* Explanation in Settings how the cookie pop up protection feature works */
-"settings.cookie.pop.up.protection.explanation" = "A DuckDuckGo megpróbálja kiválasztani a rendelkezésre álló leginkább privát beállításokat, és elrejteni az ilyen felugró ablakokat.\n[További részletek](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/#cookie-pop-up-management)";
+"settings.cookie.pop.up.protection.explanation" = "A Kahf Browser megpróbálja kiválasztani a rendelkezésre álló leginkább privát beállításokat, és elrejteni az ilyen felugró ablakokat.\n[További részletek](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/#cookie-pop-up-management)";
 
 /* Settings screen cell text for Cookie popups */
 "settings.cookie.popups" = "Felugró sütiablakok kezelése";
@@ -2067,8 +2067,8 @@
 /* Label of a button disabling email protection */
 "settings.disable.email.protection.autofill" = "Email Protection automatikus kitöltésének letiltása";
 
-/* Settings cell to link users to other products by DuckDuckGo */
-"settings.duckduckgo.on.other.platforms" = "DuckDuckGo más platformokhoz";
+/* Settings cell to link users to other products by Kahf Browser */
+"settings.duckduckgo.on.other.platforms" = "Kahf Browser más platformokhoz";
 
 /* Explanation in Settings how the email protection feature works */
 "settings.email.protection.explanation" = "Tiltsd le az e-mail-nyomkövetőket, és rejtsd el a címedet anélkül, hogy e-mail-szolgáltatót váltanál.\n[További információ](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/email-protection/what-is-duckduckgo-email-protection/)";
@@ -2107,7 +2107,7 @@
 "settings.keyboard" = "Billentyűzet";
 
 /* Switch button label. */
-"settings.let.duckduckgo.manage.cookie.consent.popups" = "A DuckDuckGo kezelheti a sütik elfogadására szolgáló felugró ablakokat";
+"settings.let.duckduckgo.manage.cookie.consent.popups" = "A Kahf Browser kezelheti a sütik elfogadására szolgáló felugró ablakokat";
 
 /* Settings screen cell text for passwords */
 "settings.logins" = "Jelszavak";
@@ -2119,7 +2119,7 @@
 "settings.manage.account" = "Fiók kezelése";
 
 /* Settings title for the 'More' section */
-"settings.more" = "Továbbiak a DuckDuckGo-tól";
+"settings.more" = "Továbbiak a Kahf Browser-tól";
 
 /* Button navigating to other settings related to search */
 "settings.more.search.settings" = "További keresési beállítások";
@@ -2152,7 +2152,7 @@
 "settings.private.search" = "privát keresés";
 
 /* Explanation in Settings how the private search feature works */
-"settings.private.search.explanation" = "A DuckDuckGo Private Search az alapértelmezett keresőmotor, így nyomon követés nélkül kereshetsz az interneten.";
+"settings.private.search.explanation" = "A Kahf Browser Private Search az alapértelmezett keresőmotor, így nyomon követés nélkül kereshetsz az interneten.";
 
 /* Header of settings related to search */
 "settings.search.settings" = "Keresési beállítások";
@@ -2161,7 +2161,7 @@
 "settings.send.crash.reports" = "Hibajelentések küldése";
 
 /* Explanation of Send Crash Reports settings option */
-"settings.send.crash.reports.description" = "Hibajelentések automatikus küldése a DuckDuckGo részére.";
+"settings.send.crash.reports.description" = "Hibajelentések automatikus küldése a Kahf Browser részére.";
 
 /* Settings screen cell text for setting address bar position */
 "settings.set.your.address.bar.position" = "Állítsd be a címsor elhelyezkedését";
@@ -2239,7 +2239,7 @@
 "settings.web.tracking.protection" = "Webes követés elleni védelem";
 
 /* Explanation in Settings how the web tracking protection feature works */
-"settings.web.tracking.protection.explanation" = "A DuckDuckGo böngészés közben automatikusan blokkolja a rejtett nyomkövetőket.\n[További információ](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/)";
+"settings.web.tracking.protection.explanation" = "A Kahf Browser böngészés közben automatikusan blokkolja a rejtett nyomkövetőket.\n[További információ](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/)";
 
 /* Description on a report broken site page. */
 "site.not.working.description" = "Válaszd ki azt a lehetőséget, amelyik a legjobban leírja a tapasztalt problémát.";
@@ -2251,7 +2251,7 @@
 "site.not.working.subtitle" = "Ez segít minket a böngésző tökéletesítésében.";
 
 /* Prompt asking user to send report to us if we suspect site may be broken */
-"site.not.working.title" = "Nem működik a webhely? Jelezd a DuckDuckGo felé.";
+"site.not.working.title" = "Nem működik a webhely? Jelezd a Kahf Browser felé.";
 
 /* Button that triggers flow to report broken site */
 "site.not.working.website.is.broken" = "Nem működik a webhely";
@@ -2290,7 +2290,7 @@
 "subscription.activate.appleid.description" = "Restore your purchase to activate your subscription on this device.";
 
 /* Subscription Activation Info */
-"subscription.activate.description" = "Your subscription is automatically available in DuckDuckGo on any device signed in to your Apple ID.";
+"subscription.activate.description" = "Your subscription is automatically available in Kahf Browser on any device signed in to your Apple ID.";
 
 /* Button for editing email address added to subscription */
 "subscription.activate.edit.email.button" = "Edit Email";
@@ -2368,7 +2368,7 @@
 "subscription.devices.no.email.footer" = "Add an optional email to your subscription or use your Apple ID to access Privacy Pro on other devices. **[Learn more](https://duckduckgo.com/duckduckgo-help-pages/privacy-pro/adding-email/)**";
 
 /* Footer for section for activating subscription on other devices when email is added */
-"subscription.devices.with.email.footer" = "Use this email to activate your subscription in Settings > Privacy Pro in the DuckDuckGo app on your other devices. **[Learn more](https://duckduckgo.com/duckduckgo-help-pages/privacy-pro/adding-email/)**";
+"subscription.devices.with.email.footer" = "Use this email to activate your subscription in Settings > Privacy Pro in the Kahf Browser app on your other devices. **[Learn more](https://duckduckgo.com/duckduckgo-help-pages/privacy-pro/adding-email/)**";
 
 /* Alert content for not found subscription */
 "subscription.email.inactive.alert.message" = "The subscription associated with this email is no longer active.";
@@ -2419,7 +2419,7 @@
 "subscription.pir.hero" = "Activate Privacy Pro on desktop to set up Personal Information Removal";
 
 /* Description on how to use Personal information removal in desktop. The first placeholder references a location in the Desktop application. <i.e: Settings > Privacy Pro>, and the second, the menu entry. i.e. <I have a Subscription> */
-"subscription.pir.heroText" = "In the DuckDuckGo browser for desktop, go to %1$@ and click %2$@ to get started.";
+"subscription.pir.heroText" = "In the Kahf Browser browser for desktop, go to %1$@ and click %2$@ to get started.";
 
 /* Settings references a menu in the Desktop app, Privacy Pro, references our product name */
 "subscription.pir.heroTextLocation" = "Settings > Privacy Pro";
@@ -2548,7 +2548,7 @@
 "sync.warning.data.syncing.disabled" = "A szinkronizálás és biztonsági mentés jelenleg sajnos nem érhető el. Próbálkozz újra később.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "A szinkronizálás és biztonsági mentés az alkalmazás ezen verziójában már nem érhető el. A folytatáshoz frissíts a DuckDuckGo a legújabb verziójára.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "A szinkronizálás és biztonsági mentés az alkalmazás ezen verziójában már nem érhető el. A folytatáshoz frissíts a Kahf Browser a legújabb verziójára.";
 
 /* Accessibility label on remove button */
 "tab.close.home" = "Kezdőlap bezárása";
@@ -2566,7 +2566,7 @@
 "tab.switcher.accessibility.label" = "Lapváltó";
 
 /* Description text for the text size adjustment setting */
-"textSize.description" = "Válaszd ki a kívánt szövegméretet. A DuckDuckGo ennek használatával jeleníti meg a webhelyeket.";
+"textSize.description" = "Válaszd ki a kívánt szövegméretet. A Kahf Browser ennek használatával jeleníti meg a webhelyeket.";
 
 /* Replacement string is a current percent value e.g. '120%' */
 "textSize.footer" = "Szövegméret: %@";
@@ -2617,7 +2617,7 @@
 "voiceSearch.alert.no-permission.action.settings" = "Beállítások";
 
 /* Message for alert warning the user about missing microphone permission */
-"voiceSearch.alert.no-permission.message" = "A beszédhangfunkciók használatához az iOS rendszerbeállításaiban engedélyezd a DuckDuckGo számára a Mikrofon-hozzáférést.";
+"voiceSearch.alert.no-permission.message" = "A beszédhangfunkciók használatához az iOS rendszerbeállításaiban engedélyezd a Kahf Browser számára a Mikrofon-hozzáférést.";
 
 /* OK button alert warning the user about missing microphone permission */
 "voiceSearch.alert.no-permission.ok" = "OK";
@@ -2641,13 +2641,13 @@
 "vpn.access-revoked.alert.action.subscribe" = "Subscribe";
 
 /* Alert message for the alert when the Privacy Pro subscription expiress */
-"vpn.access-revoked.alert.message" = "Subscribe to Privacy Pro to reconnect DuckDuckGo VPN.";
+"vpn.access-revoked.alert.message" = "Subscribe to Privacy Pro to reconnect Kahf Browser VPN.";
 
 /* Alert title for the alert when the Privacy Pro subscription expires */
 "vpn.access-revoked.alert.title" = "VPN disconnected due to expired subscription";
 
 /* Title for the VPN widget onboarding screen */
-"vpn.addWidget.settings.title" = "Keresd meg, és jelöld ki a DuckDuckGo elemet. Ezután csúsztasd az ujjad a VPN elemre, majd válaszd a Minialkalmazás hozzáadása lehetőséget.";
+"vpn.addWidget.settings.title" = "Keresd meg, és jelöld ki a Kahf Browser elemet. Ezután csúsztasd az ujjad a VPN elemre, majd válaszd a Minialkalmazás hozzáadása lehetőséget.";
 
 /* Title for the Cancel button of the VPN feedback form */
 "vpn.feedback-form.button.cancel" = "Cancel";
@@ -2707,16 +2707,16 @@
 "vpn.feedback-form.text-2" = "In addition to the details entered into this form, your app issue report will contain:";
 
 /* Bullet text for the body of the VPN feedback form */
-"vpn.feedback-form.text-3" = "• Whether specific DuckDuckGo features are enabled";
+"vpn.feedback-form.text-3" = "• Whether specific Kahf Browser features are enabled";
 
 /* Bullet text for the body of the VPN feedback form */
-"vpn.feedback-form.text-4" = "• Aggregate DuckDuckGo app diagnostics";
+"vpn.feedback-form.text-4" = "• Aggregate Kahf Browser app diagnostics";
 
 /* Text for the body of the VPN feedback form */
-"vpn.feedback-form.text-5" = "By tapping \"Submit\" I agree that DuckDuckGo may use the information in this report for purposes of improving the app's features.";
+"vpn.feedback-form.text-5" = "By tapping \"Submit\" I agree that Kahf Browser may use the information in this report for purposes of improving the app's features.";
 
 /* Title for each screen of the VPN feedback form */
-"vpn.feedback-form.title" = "Help Improve the DuckDuckGo VPN";
+"vpn.feedback-form.title" = "Help Improve the Kahf Browser VPN";
 
 /* VPN settings screen cell text for adding the VPN widget to the home screen */
 "vpn.settings.add.widget" = "VPN-minialkalmazás hozzáadása a kezdőképernyőhöz";
@@ -2731,7 +2731,7 @@
 "vpn.settings.dns.server.apply.button.title" = "Apply";
 
 /* Default value for the DNS Server row on the VPN Settings screen */
-"vpn.settings.dns.server.default.value" = "DuckDuckGo";
+"vpn.settings.dns.server.default.value" = "Kahf Browser";
 
 /* Title for the IPv4 Address setting */
 "vpn.settings.dns.server.ipv4.title" = "IPv4 Address";
@@ -2740,7 +2740,7 @@
 "vpn.settings.dns.server.option.custom" = "Custom";
 
 /* Recommended option for the DNS Server setting */
-"vpn.settings.dns.server.option.default" = "DuckDuckGo (Recommended)";
+"vpn.settings.dns.server.option.default" = "Kahf Browser (Recommended)";
 
 /* Title for the DNS Server setting screen */
 "vpn.settings.dns.server.screen.title" = "DNS Server";
@@ -2785,7 +2785,7 @@
 "waitlist.joined.no-notification.no-thanks" = "Nem, köszönöm";
 
 /* Text used for the Notifications Disabled state */
-"waitlist.notification.disabled" = "Értesíthetünk, ha sorra kerülsz, de a DuckDuckGo értesítései jelenleg le vannak tiltva.";
+"waitlist.notification.disabled" = "Értesíthetünk, ha sorra kerülsz, de a Kahf Browser értesítései jelenleg le vannak tiltva.";
 
 /* Privacy disclaimer for the Waitlist feature */
 "waitlist.privacy-disclaimer" = "Nem kell megosztanod a személyes adataid a várólistához való csatlakozáshoz. A sorban elfoglalt helyedet egy olyan időbélyegző igazolja, amely kizárólag az eszközödön található meg, így értesíteni tudunk, amikor sorra kerülsz.";
@@ -2836,11 +2836,11 @@
 "windows-waitlist.share-sheet.message" = "Készen állsz a privát böngészésre a Windowson?\n\nSzámítógépen látogass el erre a címre a letöltéshez:\nhttps://duckduckgo.com/windows";
 
 /* Summary text for the Windows browser waitlist */
-"windows-waitlist.summary" = "A windowsos DuckDuckGo tartalmazza mindazt, ami a privát böngészéshez szükséges – támogatja a privát keresést, a nyomkövetők blokkolását, a kényszerített titkosítást és a felugró sütiablakok blokkolását, valamint további, a kategóriájában legjobb védelmet nyújtó megoldásokat kínál.";
+"windows-waitlist.summary" = "A windowsos Kahf Browser tartalmazza mindazt, ami a privát böngészéshez szükséges – támogatja a privát keresést, a nyomkövetők blokkolását, a kényszerített titkosítást és a felugró sütiablakok blokkolását, valamint további, a kategóriájában legjobb védelmet nyújtó megoldásokat kínál.";
 
 /* Title for the Windows Waitlist feature */
-"windows-waitlist.title" = "DuckDuckGo alkalmazás Windowshoz";
+"windows-waitlist.title" = "Kahf Browser alkalmazás Windowshoz";
 
 /* Title for the Windows browser download link page */
-"windows-waitlist.waitlist-download-screen.try-duckduckgo-for-windows" = "Töltsd le a DuckDuckGo Windows verzióját!";
+"windows-waitlist.waitlist-download-screen.try-duckduckgo-for-windows" = "Töltsd le a Kahf Browser Windows verzióját!";
 

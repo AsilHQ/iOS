@@ -128,7 +128,7 @@
 "addWidget.settings.secondParagraph.%@" = "Tryck på plusknappen för %@.";
 
 /* No comment provided by engineer. */
-"addWidget.settings.title" = "Leta upp och välj DuckDuckGo. Välj sedan en widget.";
+"addWidget.settings.title" = "Leta upp och välj Kahf Browser. Välj sedan en widget.";
 
 /* No comment provided by engineer. */
 "addWidget.title" = "Besök dina favoritwebbplatser med ett enda tryck.";
@@ -221,7 +221,7 @@
 "alert.unable-to-update-device-name-description" = "Det gick inte att uppdatera enhetens namn.";
 
 /* Shown on authentication screen */
-"app.authentication.unlock" = "Lås upp DuckDuckGo.";
+"app.authentication.unlock" = "Lås upp Kahf Browser.";
 
 /* Authentication Alert Sign In Button */
 "auth.alert.login.button" = "Logga in";
@@ -248,7 +248,7 @@
 "autoclear.on" = "På";
 
 /* Subtitle for search history items */
-"autocomplete.history.search.duckduckgo" = "Sök med DuckDuckGo";
+"autocomplete.history.search.duckduckgo" = "Sök med Kahf Browser";
 
 /* The message text shown in suggestions */
 "autocomplete.history.warning.message" = "Sökförslag inkluderar nu dina nyligen besökta webbplatser. Stäng av funktionen i inställningarna, eller rensa när som helst med 🔥 Fire Button.";
@@ -266,7 +266,7 @@
 "autoconsent.enabled" = "Aktiverad";
 
 /* No comment provided by engineer. */
-"autoconsent.info.header" = "När DuckDuckGo upptäcker popup-fönster för godkännande av cookies på webbplatser som du besöker kan vi försöka att automatiskt ställa in dina cookieinställningar på att minimera cookies och maximera din integritet, och därefter stänga popup-fönstren. På vissa webbplatser finns ingen möjlighet att justera cookieinställningarna, så vi kan enbart dölja popup-fönster som dessa.";
+"autoconsent.info.header" = "När Kahf Browser upptäcker popup-fönster för godkännande av cookies på webbplatser som du besöker kan vi försöka att automatiskt ställa in dina cookieinställningar på att minimera cookies och maximera din integritet, och därefter stänga popup-fönstren. På vissa webbplatser finns ingen möjlighet att justera cookieinställningarna, så vi kan enbart dölja popup-fönster som dessa.";
 
 /* Do not translate - stringsdict entry */
 "autofill.delete.all.passwords.completion" = "autofill.delete.all.passwords.completion";
@@ -296,7 +296,7 @@
 "autofill.import.passwords.get-browser-button" = "Hämta webbläsare för dator";
 
 /* Step 1 for instructions to import passwords */
-"autofill.import.passwords.instructions.step1" = "Öppna DuckDuckGo på Mac eller Windows";
+"autofill.import.passwords.instructions.step1" = "Öppna Kahf Browser på Mac eller Windows";
 
 /* Step 2 for instructions to import passwords. This reads as 'Go to Settings > Passwords' */
 "autofill.import.passwords.instructions.step2" = "Gå till %1$@ > %2$@";
@@ -320,7 +320,7 @@
 "autofill.import.passwords.instructions.title" = "Importera från webbläsare för dator:";
 
 /* Subtitle for screen to import passwords */
-"autofill.import.passwords.subtitle" = "Importera lösenord i versionen av DuckDuckGo-webbläsaren för dator och synkronisera sedan mellan enheter.";
+"autofill.import.passwords.subtitle" = "Importera lösenord i versionen av Kahf Browser-webbläsaren för dator och synkronisera sedan mellan enheter.";
 
 /* Button label to sync passwords with desktop browser */
 "autofill.import.passwords.sync-button" = "Synkronisera med dator";
@@ -331,7 +331,7 @@
 /* Disable action for alert when asking the user if they want to keep using autofill */
 "autofill.keep-enabled.alert.disable" = "Inaktivera";
 
-/* A link that takes the user to the DuckDuckGo help pages explaining password managers */
+/* A link that takes the user to the Kahf Browser help pages explaining password managers */
 "autofill.learn.more.link.title" = "Learn More";
 
 /* Button displayed after saving/updating an autofill login that takes the user to the saved login */
@@ -428,7 +428,7 @@
 "autofill.logins.empty-view.button.title" = "Importera lösenord";
 
 /* Subtitle for view displayed when no autofill passwords have been saved */
-"autofill.logins.empty-view.subtitle.first.paragraph" = "Du kan importera sparade lösenord från andra webbläsare till DuckDuckGo.";
+"autofill.logins.empty-view.subtitle.first.paragraph" = "Du kan importera sparade lösenord från andra webbläsare till Kahf Browser.";
 
 /* Title for view displayed when autofill has no items */
 "autofill.logins.empty-view.title" = "Inga lösenord sparade ännu";
@@ -552,7 +552,7 @@
 "autofill.password-generation-prompt.subtitle" = "Lösenord lagras säkert på din enhet.";
 
 /* Title for prompt to use suggested strong password for creating a login */
-"autofill.password-generation-prompt.title" = "Använd ett starkt lösenord från DuckDuckGo?";
+"autofill.password-generation-prompt.title" = "Använd ett starkt lösenord från Kahf Browser?";
 
 /* Button title choosing to use the suggested generated password for creating a login */
 "autofill.password-generation-prompt.use-generated-password.cta" = "Använd starkt lösenord";
@@ -597,7 +597,7 @@
 "autofill.save-login.new-user.title" = "Spara det här lösenordet?";
 
 /* Message displayed on modal asking for the user to save the login for the first time */
-"autofill.save-login.security.message" = "Förvara ditt lösenord säkert på enheten med DuckDuckGo Lösenord och autofyll.";
+"autofill.save-login.security.message" = "Förvara ditt lösenord säkert på enheten med Kahf Browser Lösenord och autofyll.";
 
 /* Title displayed on modal asking for the user to save the login */
 "autofill.save-login.title" = "Spara lösenord?";
@@ -612,13 +612,13 @@
 "autofill.settings.report.not.working.confirmation.button" = "Skicka anmälan";
 
 /* Message for the confirmation prompt when reporting autofill is not working for a website */
-"autofill.settings.report.not.working.confirmation.message" = "Rapporter som skickas till DuckDuckGo är anonyma och innehåller inte ditt användarnamn, lösenord eller någon annan personligt identifierbar information.\n\nRapporten innehåller endast webbplatsens webbadress och status för vissa inställningar för automatisk ifyllning.";
+"autofill.settings.report.not.working.confirmation.message" = "Rapporter som skickas till Kahf Browser är anonyma och innehåller inte ditt användarnamn, lösenord eller någon annan personligt identifierbar information.\n\nRapporten innehåller endast webbplatsens webbadress och status för vissa inställningar för automatisk ifyllning.";
 
 /* Title for the confirmation prompt when reporting autofill is not working for a website */
 "autofill.settings.report.not.working.confirmation.title" = "Rapportera att automatisk ifyllning inte fungerar på %@?";
 
 /* Message shown to user when they submit a report that autofill is not working for a website */
-"autofill.settings.report.not.working.sent.confirmation" = "Tack! Din rapport hjälper oss att göra DuckDuckGo bättre för alla.";
+"autofill.settings.report.not.working.sent.confirmation" = "Tack! Din rapport hjälper oss att göra Kahf Browser bättre för alla.";
 
 /* Subtitle for the row to report that autofill is not working on a site in autofill settings */
 "autofill.settings.report.not.working.subtitle" = "Rapportera anonymt att automatisk ifyllning inte fungerar på den här webbplatsen. Lösenord delas aldrig.";
@@ -633,7 +633,7 @@
 "autofill.signin.to.manage" = "%@ för att hantera Duck Addresses på denna enhet.";
 
 /* Message displayed on modal asking for the user to update the password */
-"autofill.update-password.message" = "DuckDuckGo kommer att uppdatera det lagrade lösenordet på din enhet.";
+"autofill.update-password.message" = "Kahf Browser kommer att uppdatera det lagrade lösenordet på din enhet.";
 
 /* Confirm CTA displayed on modal asking for the user to update the password */
 "autofill.update-password.save.CTA" = "Uppdatera lösenord";
@@ -753,7 +753,7 @@
 "broken.site.report.missing.description.alert.title" = "Beskrivning krävs";
 
 /* Message that appears after submitting report */
-"broken.site.report.success.toast" = "Din rapport hjälper till att göra DuckDuckGo bättre för alla!";
+"broken.site.report.success.toast" = "Din rapport hjälper till att göra Kahf Browser bättre för alla!";
 
 /* Button to answer question 'Did turning off protections resolve the issue on this site?' */
 "broken.site.report.toggle.alert.no.button" = "Nej";
@@ -779,8 +779,8 @@
 /* Title of the last screen of the onboarding to the browser app */
 "contextual.onboarding.final-screen.title" = "Du klarar det här!";
 
-/* After the user performs their first search using the browser, this dialog explains the advantages of using DuckDuckGo */
-"contextual.onboarding.first-search-done.message" = "Det är DuckDuckGo Search. Privat. Snabbt. Färre annonser.";
+/* After the user performs their first search using the browser, this dialog explains the advantages of using Kahf Browser */
+"contextual.onboarding.first-search-done.message" = "Det är Kahf Browser Search. Privat. Snabbt. Färre annonser.";
 
 /* During onboarding steps this button is shown and takes either to the next steps or closes the onboarding. */
 "contextual.onboarding.got-it.button" = "Jag förstår!";
@@ -788,11 +788,11 @@
 /* Message of the last screen of the onboarding to the browser app. */
 "contextual.onboarding.highlights.final-screen.message" = "Kom ihåg: varje gång du surfar med mig förlorar en läskig annons sina vingar.";
 
-/* After the user performs their first search using the browser, this dialog explains the advantages of using DuckDuckGo */
-"contextual.onboarding.highlights.first-search-done.message" = "Det är DuckDuckGo Search! Privat. Snabbt. Färre annonser.";
+/* After the user performs their first search using the browser, this dialog explains the advantages of using Kahf Browser */
+"contextual.onboarding.highlights.first-search-done.message" = "Det är Kahf Browser Search! Privat. Snabbt. Färre annonser.";
 
 /* Message of a popover on the browser that invites the user to try a search explaining that their searches are private */
-"contextual.onboarding.highlights.try-a-search.message" = "Dina DuckDuckGo-sökningar är alltid privata.";
+"contextual.onboarding.highlights.try-a-search.message" = "Dina Kahf Browser-sökningar är alltid privata.";
 
 /* Browser Search query for baby ducklings */
 "contextual.onboarding.highlights.try-search.surprise-me" = "ankungar";
@@ -801,7 +801,7 @@
 "contextual.onboarding.ntp.try-a-site.title" = "Prova att besöka en webbplats!";
 
 /* Message of a popover on the browser that invites the user to try a search explaining that their searches are anonymous */
-"contextual.onboarding.try-a-search.message" = "Dina DuckDuckGo-sökningar är alltid anonyma.";
+"contextual.onboarding.try-a-search.message" = "Dina Kahf Browser-sökningar är alltid anonyma.";
 
 /* Title of a popover on the browser that invites the user to try a search */
 "contextual.onboarding.try-a-search.title" = "Är du redo att komma igång?\nProva att söka!";
@@ -846,7 +846,7 @@
 "crash.report.dialog.hide.details" = "Dölj";
 
 /* Crash Report dialog message */
-"crash.report.dialog.message" = "Kraschrapporter hjälper DuckDuckGo att diagnostisera problem och förbättra sina produkter. De innehåller ingen personligt identifierbar information.";
+"crash.report.dialog.message" = "Kraschrapporter hjälper Kahf Browser att diagnostisera problem och förbättra sina produkter. De innehåller ingen personligt identifierbar information.";
 
 /* Crash Report never send button title */
 "crash.report.dialog.never.send" = "Skicka aldrig";
@@ -882,7 +882,7 @@
 "dax.hide.title" = "Dölj återstående tips?";
 
 /* No comment provided by engineer. */
-"dax.onboarding.browsing.after.search" = "Dina DuckDuckGo-sökningar är anonyma. Alltid. 🙌";
+"dax.onboarding.browsing.after.search" = "Dina Kahf Browser-sökningar är anonyma. Alltid. 🙌";
 
 /* No comment provided by engineer. */
 "dax.onboarding.browsing.after.search.cta" = "Puh!";
@@ -963,7 +963,7 @@
 "donotsell.enabled" = "Aktiverad";
 
 /* No comment provided by engineer. */
-"donotsell.info.headertext" = "DuckDuckGo blockerar många spårare automatiskt. Med Global Privacy Control (GPC) kan du dessutom be deltagande webbplatser att begränsa försäljning eller delning av dina personuppgifter till andra företag.";
+"donotsell.info.headertext" = "Kahf Browser blockerar många spårare automatiskt. Med Global Privacy Control (GPC) kan du dessutom be deltagande webbplatser att begränsa försäljning eller delning av dina personuppgifter till andra företag.";
 
 /* Alert action for starting a file dowload */
 "downloads.alert.action.save-to-downloads" = "Spara till Nerladdningar";
@@ -1029,7 +1029,7 @@
 "duck-player.video-contingency-message" = "De senaste ändringarna på YouTube har påverkat funktionaliteten hos Duck Player. Vi arbetar för att åtgärda problemen och tackar för din förståelse.";
 
 /* No comment provided by engineer. */
-"DuckDuckGo for iOS" = "DuckDuckGo för iOS";
+"Kahf Browser for iOS" = "Kahf Browser för iOS";
 
 /* Text displayed when DuckPlayer is always enabled */
 "duckPlayer.alwaysEnabled.label" = "Alltid";
@@ -1041,7 +1041,7 @@
 "duckPlayer.never.label" = "Aldrig";
 
 /* Body text for the modal feature explanation */
-"duckplayer.presentation.modal.body" = "Med Duck Player kan du titta på YouTube utan riktade annonser i en teaterliknande upplevelse i DuckDuckGo, och dina rekommendationer påverkas inte av vad du tittar på.";
+"duckplayer.presentation.modal.body" = "Med Duck Player kan du titta på YouTube utan riktade annonser i en teaterliknande upplevelse i Kahf Browser, och dina rekommendationer påverkas inte av vad du tittar på.";
 
 /* Button that will dismiss the modal */
 "duckplayer.presentation.modal.dismiss-button" = "Jag förstår!";
@@ -1050,7 +1050,7 @@
 "duckplayer.presentation.modal.title" = "Drunknar du i annonser på YouTube? Prova Duck Player!";
 
 /* Footer label in the settings screen for Duck Player */
-"duckplayer.settings.footer" = "DuckDuckGo tillhandahåller allt du behöver för att skydda dig själv när du surfar på webben.";
+"duckplayer.settings.footer" = "Kahf Browser tillhandahåller allt du behöver för att skydda dig själv när du surfar på webben.";
 
 /* Text explaining what Duck Player is in the settings screen. */
 "duckplayer.settings.info-text" = "Duck Player ger en störningsfri visningsupplevelse utan personliga annonser och förhindrar att din tittaraktivitet påverkar YouTube-rekommendationer.";
@@ -1064,7 +1064,7 @@
 /* Settings screen cell text for DuckPlayer settings */
 "duckplayer.settings.title" = "Duck Player";
 
-/* Email protection service offered by DuckDuckGo */
+/* Email protection service offered by Kahf Browser */
 "email-protection" = "E-postskydd";
 
 /* Cancel option for the email alias alert */
@@ -1257,10 +1257,10 @@
 "feedback.ddgSearch.caption" = "Vilken sökfunktion kan vi lägga till eller förbättra?";
 
 /* No comment provided by engineer. */
-"feedback.ddgSearch.description" = "Problem med DuckDuckGo-sökning";
+"feedback.ddgSearch.description" = "Problem med Kahf Browser-sökning";
 
 /* No comment provided by engineer. */
-"feedback.ddgSearch.entry" = "DuckDuckGo-sökning är inte tillräckligt bra";
+"feedback.ddgSearch.entry" = "Kahf Browser-sökning är inte tillräckligt bra";
 
 /* No comment provided by engineer. */
 "feedback.ddgSearch.languageOrRegion" = "Sökning på ett specifikt språk eller i en viss region";
@@ -1392,22 +1392,22 @@
 "get.browser.share-link" = "Dela nedladdningslänk";
 
 /* Message displayed in the share action when sharing via email */
-"get.browser.share-link.message" = "Sök privat och blockera spårare med DuckDuckGo-webbläsaren för datorn. Gå till denna länk på din dator för att ladda ner den idag.";
+"get.browser.share-link.message" = "Sök privat och blockera spårare med Kahf Browser-webbläsaren för datorn. Gå till denna länk på din dator för att ladda ner den idag.";
 
 /* Title displayed in the share action */
-"get.browser.share-link.title" = "Hämta DuckDuckGo-webbläsaren för Mac eller Windows";
+"get.browser.share-link.title" = "Hämta Kahf Browser-webbläsaren för Mac eller Windows";
 
 /* Title for the get desktop browser feature */
-"get.browser.title" = "Hämta DuckDuckGo för Mac eller Windows";
+"get.browser.title" = "Hämta Kahf Browser för Mac eller Windows";
 
 /* No comment provided by engineer. */
-"home.row.onboarding.header" = "Lägg till DuckDuckGo på din hemskärm!";
+"home.row.onboarding.header" = "Lägg till Kahf Browser på din hemskärm!";
 
 /* No comment provided by engineer. */
-"home.row.reminder.message" = "Lägg DuckDuckGo i din Dock för enkel åtkomst!";
+"home.row.reminder.message" = "Lägg Kahf Browser i din Dock för enkel åtkomst!";
 
 /* Home is this context is the bottom home row (dock) */
-"home.row.reminder.title" = "Ta hem DuckDuckGo";
+"home.row.reminder.title" = "Ta hem Kahf Browser";
 
 /* This describes empty tab */
 "homeTab.searchAndFavorites" = "Sök eller ange adress";
@@ -1497,10 +1497,10 @@
 "LOREM IPSUM" = "LOREM IPSUM";
 
 /* Summary text for the macOS browser waitlist */
-"mac-browser.waitlist.summary" = "DuckDuckGo för Mac har hastigheten du behöver, webbläsarfunktionerna du förväntar dig och våra många förstklassiga integritetsfunktioner.";
+"mac-browser.waitlist.summary" = "Kahf Browser för Mac har hastigheten du behöver, webbläsarfunktionerna du förväntar dig och våra många förstklassiga integritetsfunktioner.";
 
 /* Title for the macOS waitlist notification */
-"mac-waitlist.available.notification.title" = "DuckDuckGo för Mac är klar!";
+"mac-waitlist.available.notification.title" = "Kahf Browser för Mac är klar!";
 
 /* Title for the copy action */
 "mac-waitlist.copy" = "Kopiera";
@@ -1515,7 +1515,7 @@
 "mac-waitlist.join-waitlist-screen.share-link" = "Dela länk";
 
 /* Title for the Join Waitlist screen */
-"mac-waitlist.join-waitlist-screen.try-duckduckgo-for-mac" = "Skaffa DuckDuckGo för Mac!";
+"mac-waitlist.join-waitlist-screen.try-duckduckgo-for-mac" = "Skaffa Kahf Browser för Mac!";
 
 /* Title for the macOS waitlist button redirecting to Windows waitlist */
 "mac-waitlist.join-waitlist-screen.windows-waitlist" = "Letar du efter Windows-versionen?";
@@ -1527,10 +1527,10 @@
 "mac-waitlist.share-sheet.message" = "Är du redo att börja surfa privat på din Mac?\n\nLadda ner genom att gå till den här webbadressen på din Mac:\nhttps://duckduckgo.com/mac\n\n";
 
 /* Title for the share sheet entry */
-"mac-waitlist.share-sheet.title" = "DuckDuckGo för Mac";
+"mac-waitlist.share-sheet.title" = "Kahf Browser för Mac";
 
 /* Title for the Mac Waitlist feature */
-"mac-waitlist.title" = "DuckDuckGo-app för Mac";
+"mac-waitlist.title" = "Kahf Browser-app för Mac";
 
 /* No comment provided by engineer. */
 "menu.button.hint" = "Bläddra-meny";
@@ -1553,20 +1553,20 @@
 /* String indicating NetP is disconnected when viewed from the settings screen */
 "netP.cell.disconnected" = "Not connected";
 
-/* Title for the DuckDuckGo VPN feature in settings */
+/* Title for the Kahf Browser VPN feature in settings */
 "netP.settings.title" = "VPN";
 
-/* Title for the DuckDuckGo VPN feature */
-"netP.title" = "DuckDuckGo VPN";
+/* Title for the Kahf Browser VPN feature */
+"netP.title" = "Kahf Browser VPN";
 
 /* The body of the notification when Privacy Pro subscription expired */
-"network.protection.entitlement.expired.notification.body" = "VPN disconnected due to expired subscription. Subscribe to Privacy Pro to reconnect DuckDuckGo VPN.";
+"network.protection.entitlement.expired.notification.body" = "VPN disconnected due to expired subscription. Subscribe to Privacy Pro to reconnect Kahf Browser VPN.";
 
 /* The body of the notification shown when Network Protection fails to reconnect */
 "network.protection.failure.notification.body" = "Nätverksskyddet kunde inte ansluta. Försök igen senare.";
 
 /* Title for the VPN FAQ screen. */
-"network.protection.faq.title" = "Vanliga frågor om DuckDuckGo VPN";
+"network.protection.faq.title" = "Vanliga frågor om Kahf Browser VPN";
 
 /* The body of the notification shown when Network Protection's connection is interrupted */
 "network.protection.interrupted.notification.body" = "Nätverksskyddet avbröts. Försöker återuppta kontakten nu...";
@@ -1575,7 +1575,7 @@
 "network.protection.invite.dialog.message" = "Enter your invite code to get started.";
 
 /* Title for the network protection invite screen */
-"network.protection.invite.dialog.title" = "Du är inbjuden att prova DuckDuckGo VPN";
+"network.protection.invite.dialog.title" = "Du är inbjuden att prova Kahf Browser VPN";
 
 /* Prompt for the network protection invite code text field */
 "network.protection.invite.field.prompt" = "Invite Code";
@@ -1587,7 +1587,7 @@
 "network.protection.invite.success.title" = "Success! You’re in.";
 
 /* The title of the notifications shown from Network Protection */
-"network.protection.notification.title" = "DuckDuckGo";
+"network.protection.notification.title" = "Kahf Browser";
 
 /* Title text for an iOS quick action that opens VPN settings */
 "network.protection.quick-action.open-vpn" = "Öppna VPN";
@@ -1611,10 +1611,10 @@
 "network.protection.status.header.message.on" = "All internettrafik för enheten\nsäkras genom VPN.";
 
 /* Header title label text for the status view when VPN is disconnected */
-"network.protection.status.header.title.off" = "DuckDuckGo VPN är Av";
+"network.protection.status.header.title.off" = "Kahf Browser VPN är Av";
 
 /* Header title label text for the status view when VPN is connected */
-"network.protection.status.header.title.on" = "DuckDuckGo VPN är På";
+"network.protection.status.header.title.on" = "Kahf Browser VPN är På";
 
 /* The status view 'Share Feedback' button which is shown inline on the status view after the temporary free use footer text */
 "network.protection.status.menu.share.feedback" = "Share Feedback";
@@ -1653,7 +1653,7 @@
 "network.protection.turn.on.notifications.button.title" = "Aktivera aviseringar";
 
 /* Footer text under the button to link to the iOS app settings and enable notifications app-wide. */
-"network.protection.turn.on.notifications.section.footer" = "Tillåt DuckDuckGo att meddela dig om din anslutning bryts eller VPN-statusen ändras.";
+"network.protection.turn.on.notifications.section.footer" = "Tillåt Kahf Browser att meddela dig om din anslutning bryts eller VPN-statusen ändras.";
 
 /* Title of the About section in the VPN status screen */
 "network.protection.vpn.about" = "Om";
@@ -1716,7 +1716,7 @@
 "network.protection.vpn.preferred.location.title" = "Preferred Location";
 
 /* Footer text for the DNS server setting item. */
-"network.protection.vpn.secure.dns.setting.footer" = "DuckDuckGo routes DNS queries through our DNS servers so your internet provider can't see what websites you visit.";
+"network.protection.vpn.secure.dns.setting.footer" = "Kahf Browser routes DNS queries through our DNS servers so your internet provider can't see what websites you visit.";
 
 /* Title for the FAQ row in the VPN status screen. */
 "network.protection.vpn.settings.faq" = "FAQs and Support";
@@ -1796,7 +1796,7 @@
 /* Message to highlight browser capability ofblocking 3rd party trackers */
 "onboarding.browsers.features.trackerBlocker.title" = "Blockera spårare från tredje part";
 
-/* The title of the dialog to show the privacy features that DuckDuckGo offers */
+/* The title of the dialog to show the privacy features that Kahf Browser offers */
 "onboarding.browsers.title" = "Integritetsskydd aktiverat!";
 
 /* The message of the option to set the address bar to the bottom. */
@@ -1841,7 +1841,7 @@
 /* Message to highlight browser capability ofblocking 3rd party trackers */
 "onboarding.highlights.browsers.features.trackerBlocker.title" = "Blockera spårare från tredje part";
 
-/* The title of the dialog to show the privacy features that DuckDuckGo offers */
+/* The title of the dialog to show the privacy features that Kahf Browser offers */
 "onboarding.highlights.browsers.title" = "Skydd aktiverat!";
 
 /* The title of the fire button CTA to skip erasing the data. */
@@ -1860,7 +1860,7 @@
 "onboarding.widgets.continueButton" = "Lägg till widget";
 
 /* No comment provided by engineer. */
-"onboarding.widgets.header" = "Nu är det ännu enklare att använda DuckDuckGo.";
+"onboarding.widgets.header" = "Nu är det ännu enklare att använda Kahf Browser.";
 
 /* No comment provided by engineer. */
 "onboarding.widgets.skipButton" = "Kanske senare";
@@ -1872,7 +1872,7 @@
 "onboardingDefaultBrowserMaybeLater" = "Kanske senare";
 
 /* No comment provided by engineer. */
-"onboardingDefaultBrowserTitle" = "Gör DuckDuckGo till din standardwebbläsare.";
+"onboardingDefaultBrowserTitle" = "Gör Kahf Browser till din standardwebbläsare.";
 
 /* No comment provided by engineer. */
 "onboardingSetAsDefaultBrowser" = "Ställ in som standardwebbläsare";
@@ -1884,7 +1884,7 @@
 "onboardingStartBrowsing" = "Börja bläddra";
 
 /* No comment provided by engineer. */
-"onboardingWelcomeHeader" = "Välkommen till DuckDuckGo!";
+"onboardingWelcomeHeader" = "Välkommen till Kahf Browser!";
 
 /* ’Link’ is link on a website */
 "open.externally.failed" = "Kan inte hitta appen som krävs för att öppna den här länken";
@@ -1973,7 +1973,7 @@
 "prompt.custom.url.scheme.open" = "Öppna";
 
 /* No comment provided by engineer. */
-"prompt.custom.url.scheme.prompt" = "Vill du lämna DuckDuckGo för att se detta innehåll?";
+"prompt.custom.url.scheme.prompt" = "Vill du lämna Kahf Browser för att se detta innehåll?";
 
 /* Alert title */
 "prompt.custom.url.scheme.title" = "Öppna i annan app?";
@@ -1988,13 +1988,13 @@
 "section.title.favorites" = "Favoriter";
 
 /* Settings cell for About DDG */
-"settings.about.ddg" = "Om DuckDuckGo";
+"settings.about.ddg" = "Om Kahf Browser";
 
-/* Settings section title for About DuckDuckGo */
+/* Settings section title for About Kahf Browser */
 "settings.about.section" = "Om";
 
 /* about page */
-"settings.about.text" = "DuckDuckGo är det oberoende integritetsskyddsföretaget som grundades 2008 för alla som är trötta på att bli spårade online och vill ha en enkel lösning. Vi är beviset på att man kan få riktigt integritetsskydd på nätet utan att kompromissa.\n\nDuckDuckGo-webbläsaren har de funktioner du förväntar dig av en vanlig webbläsare, som bokmärken, flikar, lösenord och mer, plus över [ett dussin kraftfulla integritetsskydd](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) som inte ingår som standard i de flesta populära webbläsare. Den här omfattande uppsättningen av integritetsskydd hjälper dig att skydda dina onlineaktiviteter, från sökning och surfning till e-post och mycket mer.\n\nVårt integritetsskydd fungerar utan att du behöver känna till de tekniska detaljerna eller ta itu med komplicerade inställningar. Det enda du behöver göra är att byta webbläsare till DuckDuckGo på alla dina enheter för att få integritet som standard.\n\nMen om du * verkligen* vill ta en titt under huven hittar du mer information om hur DuckDuckGos integritetsskydd fungerar på våra [hjälpsidor](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
+"settings.about.text" = "Kahf Browser är det oberoende integritetsskyddsföretaget som grundades 2008 för alla som är trötta på att bli spårade online och vill ha en enkel lösning. Vi är beviset på att man kan få riktigt integritetsskydd på nätet utan att kompromissa.\n\nDuckDuckGo-webbläsaren har de funktioner du förväntar dig av en vanlig webbläsare, som bokmärken, flikar, lösenord och mer, plus över [ett dussin kraftfulla integritetsskydd](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) som inte ingår som standard i de flesta populära webbläsare. Den här omfattande uppsättningen av integritetsskydd hjälper dig att skydda dina onlineaktiviteter, från sökning och surfning till e-post och mycket mer.\n\nVårt integritetsskydd fungerar utan att du behöver känna till de tekniska detaljerna eller ta itu med komplicerade inställningar. Det enda du behöver göra är att byta webbläsare till Kahf Browser på alla dina enheter för att få integritet som standard.\n\nMen om du * verkligen* vill ta en titt under huven hittar du mer information om hur DuckDuckGos integritetsskydd fungerar på våra [hjälpsidor](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
 
 /* Settings screen accessibility section title */
 "settings.accessibility" = "Tillgänglighet";
@@ -2049,7 +2049,7 @@
 "settings.cookie.pop-up-protection.protection" = "Skydd mot popup-fönster för cookies";
 
 /* Explanation in Settings how the cookie pop up protection feature works */
-"settings.cookie.pop.up.protection.explanation" = "DuckDuckGo kommer att försöka välja de mest privata inställningarna som finns tillgängliga och dölja dessa popup-fönster åt dig.\n[Läs mer](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/#cookie-pop-up-management)";
+"settings.cookie.pop.up.protection.explanation" = "Kahf Browser kommer att försöka välja de mest privata inställningarna som finns tillgängliga och dölja dessa popup-fönster åt dig.\n[Läs mer](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/#cookie-pop-up-management)";
 
 /* Settings screen cell text for Cookie popups */
 "settings.cookie.popups" = "Hantera popup-fönster för cookies";
@@ -2067,8 +2067,8 @@
 /* Label of a button disabling email protection */
 "settings.disable.email.protection.autofill" = "Inaktivera automatisk ifyllning för Email Protection";
 
-/* Settings cell to link users to other products by DuckDuckGo */
-"settings.duckduckgo.on.other.platforms" = "DuckDuckGo på andra plattformar";
+/* Settings cell to link users to other products by Kahf Browser */
+"settings.duckduckgo.on.other.platforms" = "Kahf Browser på andra plattformar";
 
 /* Explanation in Settings how the email protection feature works */
 "settings.email.protection.explanation" = "Blockera e-postspårare och dölj din adress utan att byta e-postleverantör.\n[Läs mer](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/email-protection/what-is-duckduckgo-email-protection/)";
@@ -2107,7 +2107,7 @@
 "settings.keyboard" = "Tangentbord";
 
 /* Switch button label. */
-"settings.let.duckduckgo.manage.cookie.consent.popups" = "Låt DuckDuckGo hantera popup-fönster för godkännande av cookies";
+"settings.let.duckduckgo.manage.cookie.consent.popups" = "Låt Kahf Browser hantera popup-fönster för godkännande av cookies";
 
 /* Settings screen cell text for passwords */
 "settings.logins" = "Lösenord";
@@ -2119,7 +2119,7 @@
 "settings.manage.account" = "Hantera konto";
 
 /* Settings title for the 'More' section */
-"settings.more" = "Mer från DuckDuckGo";
+"settings.more" = "Mer från Kahf Browser";
 
 /* Button navigating to other settings related to search */
 "settings.more.search.settings" = "Fler sökinställningar";
@@ -2152,7 +2152,7 @@
 "settings.private.search" = "Privatsökning";
 
 /* Explanation in Settings how the private search feature works */
-"settings.private.search.explanation" = "DuckDuckGo Private Search är din standardsökmotor, så att du kan söka på webben utan att bli spårad.";
+"settings.private.search.explanation" = "Kahf Browser Private Search är din standardsökmotor, så att du kan söka på webben utan att bli spårad.";
 
 /* Header of settings related to search */
 "settings.search.settings" = "Sökinställningar";
@@ -2161,7 +2161,7 @@
 "settings.send.crash.reports" = "Skicka kraschrapporter";
 
 /* Explanation of Send Crash Reports settings option */
-"settings.send.crash.reports.description" = "Skicka kraschrapporter automatiskt till DuckDuckGo.";
+"settings.send.crash.reports.description" = "Skicka kraschrapporter automatiskt till Kahf Browser.";
 
 /* Settings screen cell text for setting address bar position */
 "settings.set.your.address.bar.position" = "Ange din adressfältsposition";
@@ -2239,7 +2239,7 @@
 "settings.web.tracking.protection" = "Web Tracking Protection";
 
 /* Explanation in Settings how the web tracking protection feature works */
-"settings.web.tracking.protection.explanation" = "DuckDuckGo blockerar automatiskt dolda spårare när du surfar på webben.\n[Läs mer](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/)";
+"settings.web.tracking.protection.explanation" = "Kahf Browser blockerar automatiskt dolda spårare när du surfar på webben.\n[Läs mer](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/)";
 
 /* Description on a report broken site page. */
 "site.not.working.description" = "Välj det alternativ som bäst beskriver det problem som du har stött på.";
@@ -2251,7 +2251,7 @@
 "site.not.working.subtitle" = "Det hjälper oss att förbättra webbläsaren.";
 
 /* Prompt asking user to send report to us if we suspect site may be broken */
-"site.not.working.title" = "Fungerar inte webbplatsen? Informera DuckDuckGo.";
+"site.not.working.title" = "Fungerar inte webbplatsen? Informera Kahf Browser.";
 
 /* Button that triggers flow to report broken site */
 "site.not.working.website.is.broken" = "Webbplatsen fungerar inte";
@@ -2290,7 +2290,7 @@
 "subscription.activate.appleid.description" = "Restore your purchase to activate your subscription on this device.";
 
 /* Subscription Activation Info */
-"subscription.activate.description" = "Your subscription is automatically available in DuckDuckGo on any device signed in to your Apple ID.";
+"subscription.activate.description" = "Your subscription is automatically available in Kahf Browser on any device signed in to your Apple ID.";
 
 /* Button for editing email address added to subscription */
 "subscription.activate.edit.email.button" = "Edit Email";
@@ -2368,7 +2368,7 @@
 "subscription.devices.no.email.footer" = "Add an optional email to your subscription or use your Apple ID to access Privacy Pro on other devices. **[Learn more](https://duckduckgo.com/duckduckgo-help-pages/privacy-pro/adding-email/)**";
 
 /* Footer for section for activating subscription on other devices when email is added */
-"subscription.devices.with.email.footer" = "Use this email to activate your subscription in Settings > Privacy Pro in the DuckDuckGo app on your other devices. **[Learn more](https://duckduckgo.com/duckduckgo-help-pages/privacy-pro/adding-email/)**";
+"subscription.devices.with.email.footer" = "Use this email to activate your subscription in Settings > Privacy Pro in the Kahf Browser app on your other devices. **[Learn more](https://duckduckgo.com/duckduckgo-help-pages/privacy-pro/adding-email/)**";
 
 /* Alert content for not found subscription */
 "subscription.email.inactive.alert.message" = "The subscription associated with this email is no longer active.";
@@ -2419,7 +2419,7 @@
 "subscription.pir.hero" = "Activate Privacy Pro on desktop to set up Personal Information Removal";
 
 /* Description on how to use Personal information removal in desktop. The first placeholder references a location in the Desktop application. <i.e: Settings > Privacy Pro>, and the second, the menu entry. i.e. <I have a Subscription> */
-"subscription.pir.heroText" = "In the DuckDuckGo browser for desktop, go to %1$@ and click %2$@ to get started.";
+"subscription.pir.heroText" = "In the Kahf Browser browser for desktop, go to %1$@ and click %2$@ to get started.";
 
 /* Settings references a menu in the Desktop app, Privacy Pro, references our product name */
 "subscription.pir.heroTextLocation" = "Settings > Privacy Pro";
@@ -2548,7 +2548,7 @@
 "sync.warning.data.syncing.disabled" = "Tyvärr är synkronisering och säkerhetskopiering inte tillgängliga för närvarande. Försök igen senare.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Tyvärr är synkronisering och säkerhetskopiering inte längre tillgängliga i den här appversionen. Uppdatera DuckDuckGo till den senaste versionen för att fortsätta.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Tyvärr är synkronisering och säkerhetskopiering inte längre tillgängliga i den här appversionen. Uppdatera Kahf Browser till den senaste versionen för att fortsätta.";
 
 /* Accessibility label on remove button */
 "tab.close.home" = "Stäng hemfliken";
@@ -2566,7 +2566,7 @@
 "tab.switcher.accessibility.label" = "Flikväxlare";
 
 /* Description text for the text size adjustment setting */
-"textSize.description" = "Välj önskad textstorlek. Webbplatser som du visar i DuckDuckGo anpassas efter din inställning.";
+"textSize.description" = "Välj önskad textstorlek. Webbplatser som du visar i Kahf Browser anpassas efter din inställning.";
 
 /* Replacement string is a current percent value e.g. '120%' */
 "textSize.footer" = "Textstorlek – %@";
@@ -2608,7 +2608,7 @@
 "voiceover.suggestion.type.bookmark" = "Bokmärk";
 
 /* Search for suggestion action accessibility title */
-"voiceover.suggestion.type.search" = "Sök på DuckDuckGo";
+"voiceover.suggestion.type.search" = "Sök på Kahf Browser";
 
 /* Open suggested website action accessibility title */
 "voiceover.suggestion.type.website" = "Öppna webbplatsen";
@@ -2617,7 +2617,7 @@
 "voiceSearch.alert.no-permission.action.settings" = "Inställningar";
 
 /* Message for alert warning the user about missing microphone permission */
-"voiceSearch.alert.no-permission.message" = "För att DuckDuckGo ska kunna använda röstfunktionerna måste du tillåta åtkomst till mikrofonen i systeminställningarna för iOS.";
+"voiceSearch.alert.no-permission.message" = "För att Kahf Browser ska kunna använda röstfunktionerna måste du tillåta åtkomst till mikrofonen i systeminställningarna för iOS.";
 
 /* OK button alert warning the user about missing microphone permission */
 "voiceSearch.alert.no-permission.ok" = "OK";
@@ -2629,10 +2629,10 @@
 "voiceSearch.cancel" = "Avbryt";
 
 /* Voice-search footer note with on-device privacy warning */
-"voiceSearch.footer.note" = "Lägg till alternativet privat röstsökning i adressfältet Ljud lagras inte och delas inte med någon, inte ens DuckDuckGo.";
+"voiceSearch.footer.note" = "Lägg till alternativet privat röstsökning i adressfältet Ljud lagras inte och delas inte med någon, inte ens Kahf Browser.";
 
 /* Voice-search footer note with on-device privacy warning */
-"voiceSearch.footer.note.old" = "Ljudet bearbetas på enheten. Det lagras inte och delas inte med någon, inte ens DuckDuckGo.";
+"voiceSearch.footer.note.old" = "Ljudet bearbetas på enheten. Det lagras inte och delas inte med någon, inte ens Kahf Browser.";
 
 /* Cancel action for the alert when the subscription expires */
 "vpn.access-revoked.alert.action.cancel" = "Dismiss";
@@ -2641,13 +2641,13 @@
 "vpn.access-revoked.alert.action.subscribe" = "Subscribe";
 
 /* Alert message for the alert when the Privacy Pro subscription expiress */
-"vpn.access-revoked.alert.message" = "Subscribe to Privacy Pro to reconnect DuckDuckGo VPN.";
+"vpn.access-revoked.alert.message" = "Subscribe to Privacy Pro to reconnect Kahf Browser VPN.";
 
 /* Alert title for the alert when the Privacy Pro subscription expires */
 "vpn.access-revoked.alert.title" = "VPN disconnected due to expired subscription";
 
 /* Title for the VPN widget onboarding screen */
-"vpn.addWidget.settings.title" = "Hitta och välj DuckDuckGo. Svep sedan till VPN och välj Lägg till widget.";
+"vpn.addWidget.settings.title" = "Hitta och välj Kahf Browser. Svep sedan till VPN och välj Lägg till widget.";
 
 /* Title for the Cancel button of the VPN feedback form */
 "vpn.feedback-form.button.cancel" = "Cancel";
@@ -2707,16 +2707,16 @@
 "vpn.feedback-form.text-2" = "In addition to the details entered into this form, your app issue report will contain:";
 
 /* Bullet text for the body of the VPN feedback form */
-"vpn.feedback-form.text-3" = "• Whether specific DuckDuckGo features are enabled";
+"vpn.feedback-form.text-3" = "• Whether specific Kahf Browser features are enabled";
 
 /* Bullet text for the body of the VPN feedback form */
-"vpn.feedback-form.text-4" = "• Aggregate DuckDuckGo app diagnostics";
+"vpn.feedback-form.text-4" = "• Aggregate Kahf Browser app diagnostics";
 
 /* Text for the body of the VPN feedback form */
-"vpn.feedback-form.text-5" = "By tapping \"Submit\" I agree that DuckDuckGo may use the information in this report for purposes of improving the app's features.";
+"vpn.feedback-form.text-5" = "By tapping \"Submit\" I agree that Kahf Browser may use the information in this report for purposes of improving the app's features.";
 
 /* Title for each screen of the VPN feedback form */
-"vpn.feedback-form.title" = "Help Improve the DuckDuckGo VPN";
+"vpn.feedback-form.title" = "Help Improve the Kahf Browser VPN";
 
 /* VPN settings screen cell text for adding the VPN widget to the home screen */
 "vpn.settings.add.widget" = "Lägg till VPN-widget på startsidan";
@@ -2731,7 +2731,7 @@
 "vpn.settings.dns.server.apply.button.title" = "Apply";
 
 /* Default value for the DNS Server row on the VPN Settings screen */
-"vpn.settings.dns.server.default.value" = "DuckDuckGo";
+"vpn.settings.dns.server.default.value" = "Kahf Browser";
 
 /* Title for the IPv4 Address setting */
 "vpn.settings.dns.server.ipv4.title" = "IPv4 Address";
@@ -2740,7 +2740,7 @@
 "vpn.settings.dns.server.option.custom" = "Custom";
 
 /* Recommended option for the DNS Server setting */
-"vpn.settings.dns.server.option.default" = "DuckDuckGo (Recommended)";
+"vpn.settings.dns.server.option.default" = "Kahf Browser (Recommended)";
 
 /* Title for the DNS Server setting screen */
 "vpn.settings.dns.server.screen.title" = "DNS Server";
@@ -2785,7 +2785,7 @@
 "waitlist.joined.no-notification.no-thanks" = "Nej tack";
 
 /* Text used for the Notifications Disabled state */
-"waitlist.notification.disabled" = "Vi kan meddela dig när det är din tur, men meddelanden är för närvarande avstängda för DuckDuckGo.";
+"waitlist.notification.disabled" = "Vi kan meddela dig när det är din tur, men meddelanden är för närvarande avstängda för Kahf Browser.";
 
 /* Privacy disclaimer for the Waitlist feature */
 "waitlist.privacy-disclaimer" = "Du behöver inte dela någon personlig information för att ställa dig på väntelistan. Du reserverar din plats i kön med en tidsstämpel som bara finns på din enhet, så att vi kan meddela dig när det är din tur.";
@@ -2836,11 +2836,11 @@
 "windows-waitlist.share-sheet.message" = "Är du redo att börja surfa privat på Windows?\n\nLadda ner genom att gå till den här webbadressen på din dator:\nhttps://duckduckgo.com/windows";
 
 /* Summary text for the Windows browser waitlist */
-"windows-waitlist.summary" = "DuckDuckGo för Windows har allt du behöver för att surfa med högre integritet – privat sökning, spårningsblockering, tvingad kryptering och blockering av popup-cookies – och fler förstklassiga skydd är på gång.";
+"windows-waitlist.summary" = "Kahf Browser för Windows har allt du behöver för att surfa med högre integritet – privat sökning, spårningsblockering, tvingad kryptering och blockering av popup-cookies – och fler förstklassiga skydd är på gång.";
 
 /* Title for the Windows Waitlist feature */
-"windows-waitlist.title" = "DuckDuckGo-app för Windows";
+"windows-waitlist.title" = "Kahf Browser-app för Windows";
 
 /* Title for the Windows browser download link page */
-"windows-waitlist.waitlist-download-screen.try-duckduckgo-for-windows" = "Skaffa DuckDuckGo för Windows!";
+"windows-waitlist.waitlist-download-screen.try-duckduckgo-for-windows" = "Skaffa Kahf Browser för Windows!";
 
