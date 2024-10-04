@@ -131,9 +131,11 @@ extension Pixel {
         case autocompleteClickFavorite
         case autocompleteClickSearchHistory
         case autocompleteClickSiteHistory
+        case autocompleteClickOpenTab
         case autocompleteDisplayedLocalBookmark
         case autocompleteDisplayedLocalFavorite
         case autocompleteDisplayedLocalHistory
+        case autocompleteDisplayedOpenedTab
         case autocompleteSwipeToDelete
 
         case feedbackPositive
@@ -144,6 +146,11 @@ extension Pixel {
         case onboardingIntroShownUnique
         case onboardingIntroComparisonChartShownUnique
         case onboardingIntroChooseBrowserCTAPressed
+        case onboardingIntroChooseAppIconImpressionUnique
+        case onboardingIntroChooseCustomAppIconColorCTAPressed
+        case onboardingIntroChooseAddressBarImpressionUnique
+        case onboardingIntroBottomAddressBarSelected
+
         case onboardingContextualSearchOptionTappedUnique
         case onboardingContextualSearchCustomUnique
         case onboardingContextualSiteOptionTappedUnique
@@ -164,6 +171,7 @@ extension Pixel {
         case daxDialogsFireEducationCancelledUnique
         case daxDialogsEndOfJourneyTabUnique
         case daxDialogsEndOfJourneyNewTabUnique
+        case daxDialogsEndOfJourneyDismissed
 
         case widgetsOnboardingCTAPressed
         case widgetsOnboardingDeclineOptionPressed
@@ -292,12 +300,13 @@ extension Pixel {
         case autofillManagementSaveLogin
         case autofillManagementUpdateLogin
 
-        case autofillMultipleAuthCallsTriggered
         case autofillLoginsReportFailure
         case autofillLoginsReportAvailable
         case autofillLoginsReportConfirmationPromptDisplayed
         case autofillLoginsReportConfirmationPromptConfirmed
         case autofillLoginsReportConfirmationPromptDismissed
+
+        case autofillManagementScreenVisitSurveyAvailable
 
         case getDesktopCopy
         case getDesktopShare
@@ -413,7 +422,6 @@ extension Pixel {
         case networkProtectionFailedToLoadFromPreferences
         case networkProtectionFailedToSaveToPreferences
         case networkProtectionActivationRequestFailed
-        case networkProtectionFailedToStartTunnel
         
         case networkProtectionDisconnected
         
@@ -449,6 +457,9 @@ extension Pixel {
         case networkProtectionVPNConfigurationRemoved
         case networkProtectionVPNConfigurationRemovalFailed
 
+        case networkProtectionConfigurationInvalidPayload(configuration: Configuration)
+        case networkProtectionConfigurationPixelTest
+
         // MARK: remote messaging pixels
         
         case remoteMessageShown
@@ -482,6 +493,7 @@ extension Pixel {
         case trackerDataReloadFailed
         case trackerDataCouldNotBeLoaded
         case fileStoreWriteFailed
+        case fileStoreCoordinatorFailed
         case privacyConfigurationReloadFailed
         case privacyConfigurationParseFailed
         case privacyConfigurationCouldNotBeLoaded
@@ -612,6 +624,14 @@ extension Pixel {
         case syncDeleteAccountError
         case syncLoginExistingAccountError
 
+        case syncGetOtherDevices
+        case syncGetOtherDevicesCopy
+        case syncGetOtherDevicesShare
+
+        case syncPromoDisplayed
+        case syncPromoConfirmed
+        case syncPromoDismissed
+
         case swipeTabsUsedDaily
         case swipeToOpenNewTab
 
@@ -688,6 +708,7 @@ extension Pixel {
         case privacyProSubscriptionManagementRemoval
         case privacyProTransactionProgressNotHiddenAfter60s
         case privacyProSuccessfulSubscriptionAttribution
+        case privacyProKeychainAccessError
 
         // MARK: Pixel Experiment
         case pixelExperimentEnrollment
@@ -745,7 +766,6 @@ extension Pixel {
         case newTabPageMessageDismissed
 
         case newTabPageFavoritesPlaceholderTapped
-        case newTabPageFavoritesInfoTooltip
 
         case newTabPageFavoritesSeeMore
         case newTabPageFavoritesSeeLess
@@ -779,6 +799,33 @@ extension Pixel {
         case duckPlayerSettingNeverOverlayYoutube
         case duckPlayerContingencySettingsDisplayed
         case duckPlayerContingencyLearnMoreClicked
+
+        // MARK: enhanced statistics
+        case usageSegments
+
+        // MARK: Certificate warnings
+        case certificateWarningDisplayed(_ errorType: String)
+        case certificateWarningLeaveClicked
+        case certificateWarningAdvancedClicked
+        case certificateWarningProceedClicked
+
+        // MARK: Unified Feedback Form
+        case pproFeedbackFeatureRequest(description: String, source: String)
+        case pproFeedbackGeneralFeedback(description: String, source: String)
+        case pproFeedbackReportIssue(source: String, category: String, subcategory: String, description: String, metadata: String)
+        case pproFeedbackFormShow
+        case pproFeedbackActionsScreenShow(source: String)
+        case pproFeedbackCategoryScreenShow(source: String, reportType: String)
+        case pproFeedbackSubcategoryScreenShow(source: String, reportType: String, category: String)
+        case pproFeedbackSubmitScreenShow(source: String, reportType: String, category: String, subcategory: String)
+        case pproFeedbackSubmitScreenFAQClick(source: String, reportType: String, category: String, subcategory: String)
+        
+        // MARK: DuckPlayer Pixel Experiment
+        case duckplayerExperimentCohortAssign
+        case duckplayerExperimentSearch
+        case duckplayerExperimentDailySearch
+        case duckplayerExperimentWeeklySearch
+        case duckplayerExperimentYoutubePageView
     }
 
 }
@@ -900,9 +947,11 @@ extension Pixel.Event {
         case .autocompleteClickFavorite: return "m_autocomplete_click_favorite"
         case .autocompleteClickSearchHistory: return "m_autocomplete_click_history_search"
         case .autocompleteClickSiteHistory: return "m_autocomplete_click_history_site"
+        case .autocompleteClickOpenTab: return "m_autocomplete_click_switch_to_tab"
         case .autocompleteDisplayedLocalBookmark: return "m_autocomplete_display_local_bookmark"
         case .autocompleteDisplayedLocalFavorite: return "m_autocomplete_display_local_favorite"
         case .autocompleteDisplayedLocalHistory: return "m_autocomplete_display_local_history"
+        case .autocompleteDisplayedOpenedTab: return "m_autocomplete_display_switch_to_tab"
         case .autocompleteSwipeToDelete: return "m_autocomplete_result_deleted"
 
         case .feedbackPositive: return "mfbs_positive_submit"
@@ -913,6 +962,11 @@ extension Pixel.Event {
         case .onboardingIntroShownUnique: return "m_preonboarding_intro_shown_unique"
         case .onboardingIntroComparisonChartShownUnique: return "m_preonboarding_comparison_chart_shown_unique"
         case .onboardingIntroChooseBrowserCTAPressed: return "m_preonboarding_choose_browser_pressed"
+        case .onboardingIntroChooseAppIconImpressionUnique: return "m_preonboarding_choose_icon_impressions_unique"
+        case .onboardingIntroChooseCustomAppIconColorCTAPressed: return "m_preonboarding_icon_color_chosen"
+        case .onboardingIntroChooseAddressBarImpressionUnique: return "m_preonboarding_choose_address_bar_impressions_unique"
+        case .onboardingIntroBottomAddressBarSelected: return "m_preonboarding_bottom_address_bar_selected"
+
         case .onboardingContextualSearchOptionTappedUnique: return "m_onboarding_search_option_tapped_unique"
         case .onboardingContextualSiteOptionTappedUnique: return "m_onboarding_visit_site_option_tapped_unique"
         case .onboardingContextualSecondSiteVisitUnique: return "m_second_sitevisit_unique"
@@ -933,6 +987,7 @@ extension Pixel.Event {
         case .daxDialogsFireEducationCancelledUnique: return "m_dx_fe_ca_unique"
         case .daxDialogsEndOfJourneyTabUnique: return "m_dx_end_tab_unique"
         case .daxDialogsEndOfJourneyNewTabUnique: return "m_dx_end_new_tab_unique"
+        case .daxDialogsEndOfJourneyDismissed: return "m_dx_end_dialog_dismissed"
 
         case .widgetsOnboardingCTAPressed: return "m_o_w_a"
         case .widgetsOnboardingDeclineOptionPressed: return "m_o_w_d"
@@ -1068,12 +1123,13 @@ extension Pixel.Event {
         case .autofillManagementUpdateLogin:
             return "m_autofill_management_update_login"
 
-        case .autofillMultipleAuthCallsTriggered: return "m_autofill_multiple_auth_calls_triggered"
         case .autofillLoginsReportFailure: return "autofill_logins_report_failure"
         case .autofillLoginsReportAvailable: return "autofill_logins_report_available"
-        case .autofillLoginsReportConfirmationPromptDisplayed: return "autofill_logins_report_confirmation_prompt_displayed"
-        case .autofillLoginsReportConfirmationPromptConfirmed: return "autofill_logins_report_confirmation_prompt_confirmed"
-        case .autofillLoginsReportConfirmationPromptDismissed: return "autofill_logins_report_confirmation_prompt_dismissed"
+        case .autofillLoginsReportConfirmationPromptDisplayed: return "autofill_logins_report_confirmation_displayed"
+        case .autofillLoginsReportConfirmationPromptConfirmed: return "autofill_logins_report_confirmation_confirmed"
+        case .autofillLoginsReportConfirmationPromptDismissed: return "autofill_logins_report_confirmation_dismissed"
+
+        case .autofillManagementScreenVisitSurveyAvailable: return "m_autofill_management_screen_visit_survey_available"
 
         case .getDesktopCopy: return "m_get_desktop_copy"
         case .getDesktopShare: return "m_get_desktop_share"
@@ -1169,7 +1225,6 @@ extension Pixel.Event {
         case .networkProtectionFailedToLoadFromPreferences: return "m_netp_network_extension_error_failed_to_load_from_preferences"
         case .networkProtectionFailedToSaveToPreferences: return "m_netp_network_extension_error_failed_to_save_to_preferences"
         case .networkProtectionActivationRequestFailed: return "m_netp_network_extension_error_activation_request_failed"
-        case .networkProtectionFailedToStartTunnel: return "m_netp_failed_to_start_tunnel"
         case .networkProtectionDisconnected: return "m_netp_vpn_disconnect"
         case .networkProtectionNoAccessTokenFoundError: return "m_netp_no_access_token_found_error"
         case .networkProtectionMemoryWarning: return "m_netp_vpn_memory_warning"
@@ -1197,6 +1252,9 @@ extension Pixel.Event {
 
         case .networkProtectionVPNConfigurationRemoved: return "m_netp_vpn_configuration_removed"
         case .networkProtectionVPNConfigurationRemovalFailed: return "m_netp_vpn_configuration_removal_failed"
+
+        case .networkProtectionConfigurationInvalidPayload(let config): return "m_netp_vpn_configuration_\(config.rawValue)_invalid_payload"
+        case .networkProtectionConfigurationPixelTest: return "m_netp_vpn_configuration_pixel_test"
 
             // MARK: remote messaging pixels
             
@@ -1233,6 +1291,7 @@ extension Pixel.Event {
         case .trackerDataReloadFailed: return "m_d_tds_r"
         case .trackerDataCouldNotBeLoaded: return "m_d_tds_l"
         case .fileStoreWriteFailed: return "m_d_fswf"
+        case .fileStoreCoordinatorFailed: return "m_d_configuration_file_coordinator_error"
         case .privacyConfigurationReloadFailed: return "m_d_pc_r"
         case .privacyConfigurationParseFailed: return "m_d_pc_p"
         case .privacyConfigurationCouldNotBeLoaded: return "m_d_pc_l"
@@ -1364,6 +1423,14 @@ extension Pixel.Event {
         case .syncDeleteAccountError: return "m_d_sync_delete_account_error"
         case .syncLoginExistingAccountError: return "m_d_sync_login_existing_account_error"
 
+        case .syncGetOtherDevices: return "sync_get_other_devices"
+        case .syncGetOtherDevicesCopy: return "sync_get_other_devices_copy"
+        case .syncGetOtherDevicesShare: return "sync_get_other_devices_share"
+
+        case .syncPromoDisplayed: return "sync_promotion_displayed"
+        case .syncPromoConfirmed: return "sync_promotion_confirmed"
+        case .syncPromoDismissed: return "sync_promotion_dismissed"
+
         case .swipeTabsUsedDaily: return "m_swipe-tabs-used-daily"
         case .swipeToOpenNewTab: return "m_addressbar_swipe_new_tab"
 
@@ -1449,6 +1516,7 @@ extension Pixel.Event {
         case .privacyProSubscriptionManagementRemoval: return "m_privacy-pro_settings_remove-from-device_click"
         case .privacyProTransactionProgressNotHiddenAfter60s: return "m_privacy-pro_progress_not_hidden_after_60s"
         case .privacyProSuccessfulSubscriptionAttribution: return "m_subscribe"
+        case .privacyProKeychainAccessError: return "m_privacy-pro_keychain_access_error"
 
         // MARK: Pixel Experiment
         case .pixelExperimentEnrollment: return "pixel_experiment_enrollment"
@@ -1512,7 +1580,6 @@ extension Pixel.Event {
         case .newTabPageMessageDismissed: return "m_new_tab_page_message_dismissed"
 
         case .newTabPageFavoritesPlaceholderTapped: return "m_new_tab_page_favorites_placeholder_click"
-        case .newTabPageFavoritesInfoTooltip: return "m_new_tab_page_favorites_info_tooltip"
 
         case .newTabPageFavoritesSeeMore: return "m_new_tab_page_favorites_see_more"
         case .newTabPageFavoritesSeeLess: return "m_new_tab_page_favorites_see_less"
@@ -1551,6 +1618,35 @@ extension Pixel.Event {
         case .duckPlayerSettingNeverOverlayYoutube: return "duckplayer_setting_never_overlay_youtube"
         case .duckPlayerContingencySettingsDisplayed: return "duckplayer_ios_contingency_settings-displayed"
         case .duckPlayerContingencyLearnMoreClicked: return "duckplayer_ios_contingency_learn-more-clicked"
+
+        // MARK: Enhanced statistics
+        case .usageSegments: return "m_retention_segments"
+
+        // MARK: Certificate warnings
+        case .certificateWarningDisplayed(let errorType):
+            return "m_certificate_warning_displayed_\(errorType)"
+        case .certificateWarningLeaveClicked: return "m_certificate_warning_leave_clicked"
+        case .certificateWarningAdvancedClicked: return "m_certificate_warning_advanced_clicked"
+        case .certificateWarningProceedClicked: return "m_certificate_warning_proceed_clicked"
+
+        // MARK: Unified Feedback Form
+        case .pproFeedbackFeatureRequest: return "m_ppro_feedback_feature-request"
+        case .pproFeedbackGeneralFeedback: return "m_ppro_feedback_general-feedback"
+        case .pproFeedbackReportIssue: return "m_ppro_feedback_report-issue"
+        case .pproFeedbackFormShow: return "m_ppro_feedback_general-screen_show"
+        case .pproFeedbackActionsScreenShow: return "m_ppro_feedback_actions-screen_show"
+        case .pproFeedbackCategoryScreenShow: return "m_ppro_feedback_category-screen_show"
+        case .pproFeedbackSubcategoryScreenShow: return "m_ppro_feedback_subcategory-screen_show"
+        case .pproFeedbackSubmitScreenShow: return "m_ppro_feedback_submit-screen_show"
+        case .pproFeedbackSubmitScreenFAQClick: return "m_ppro_feedback_submit-screen-faq_click"
+            
+        // MARK: Duckplayer experiment
+        case .duckplayerExperimentCohortAssign: return "duckplayer_experiment_cohort_assign_v2"
+        case .duckplayerExperimentSearch: return "duckplayer_experiment_search_v2"
+        case .duckplayerExperimentDailySearch: return "duckplayer_experiment_daily_search_v2"
+        case .duckplayerExperimentWeeklySearch: return "duckplayer_experiment_weekly_search_v2"
+        case .duckplayerExperimentYoutubePageView: return "duckplayer_experiment_youtube_page_view_v2"
+            
         }
     }
 }

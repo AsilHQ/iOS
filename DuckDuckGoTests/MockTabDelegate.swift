@@ -76,8 +76,6 @@ final class MockTabDelegate: TabDelegate {
 
     func tabContentProcessDidTerminate(tab: DuckDuckGo.TabViewController) {}
 
-    func tabDidRequestForgetAll(tab: DuckDuckGo.TabViewController) {}
-
     func tabDidRequestFireButtonPulse(tab: DuckDuckGo.TabViewController) {
         didRequestFireButtonPulseCalled = true
     }
@@ -109,14 +107,20 @@ final class MockTabDelegate: TabDelegate {
         capturedQuery = query
     }
 
+    func tabDidRequestRefresh(tab: DuckDuckGo.TabViewController) {}
+
+    func tabDidRequestNavigationToDifferentSite(tab: DuckDuckGo.TabViewController) {}
+
 }
 
 extension TabViewController {
 
     static func fake(
+        customWebView: ((WKWebViewConfiguration) -> WKWebView)? = nil,
         contextualOnboardingPresenter: ContextualOnboardingPresenting = ContextualOnboardingPresenterMock(),
         contextualOnboardingLogic: ContextualOnboardingLogic = ContextualOnboardingLogicMock(),
-        contextualOnboardingPixelReporter: OnboardingCustomInteractionPixelReporting = OnboardingPixelReporterMock()
+        contextualOnboardingPixelReporter: OnboardingCustomInteractionPixelReporting = OnboardingPixelReporterMock(),
+        featureFlagger: MockFeatureFlagger = MockFeatureFlagger()
     ) -> TabViewController {
         let tab = TabViewController.loadFromStoryboard(
             model: .init(link: Link(title: nil, url: .ddg)),
@@ -124,13 +128,15 @@ extension TabViewController {
             bookmarksDatabase: CoreDataDatabase.bookmarksMock,
             historyManager: MockHistoryManager(historyCoordinator: MockHistoryCoordinator(), isEnabledByUser: true, historyFeatureEnabled: true),
             syncService: MockDDGSyncing(authState: .active, isSyncInProgress: false),
-            duckPlayer: MockDuckPlayer(settings: MockDuckPlayerSettings(privacyConfigManager: PrivacyConfigurationManagerMock())),
+            duckPlayer: MockDuckPlayer(settings: MockDuckPlayerSettings(privacyConfigManager: PrivacyConfigurationManagerMock()), featureFlagger: featureFlagger),
             privacyProDataReporter: MockPrivacyProDataReporter(),
             contextualOnboardingPresenter: contextualOnboardingPresenter,
             contextualOnboardingLogic: contextualOnboardingLogic,
-            onboardingPixelReporter: contextualOnboardingPixelReporter
+            onboardingPixelReporter: contextualOnboardingPixelReporter,
+            urlCredentialCreator: MockCredentialCreator(),
+            featureFlagger: featureFlagger
         )
-        tab.attachWebView(configuration: .nonPersistent(), andLoadRequest: nil, consumeCookies: false)
+        tab.attachWebView(configuration: .nonPersistent(), andLoadRequest: nil, consumeCookies: false, customWebView: customWebView)
         return tab
     }
 

@@ -44,8 +44,10 @@ protocol ContextualOnboardingLogic {
 
     func setSearchMessageSeen()
     func setFireEducationMessageSeen()
+    func clearedBrowserData()
     func setFinalOnboardingDialogSeen()
     func setPrivacyButtonPulseSeen()
+    func setDaxDialogDismiss()
 
     func canEnableAddFavoriteFlow() -> Bool // Temporary during Contextual Onboarding Experiment
     func enableAddFavoriteFlow()
@@ -54,7 +56,7 @@ protocol ContextualOnboardingLogic {
 extension ContentBlockerRulesManager: EntityProviding {
     
     func entity(forHost host: String) -> Entity? {
-        currentMainRules?.trackerData.findEntity(forHost: host)
+        currentMainRules?.trackerData.findParentEntityOrFallback(forHost: host)
     }
     
 }
@@ -227,7 +229,7 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
     }
 
     private var isNewOnboarding: Bool {
-        variantManager.isSupported(feature: .newOnboardingIntro)
+        variantManager.isContextualDaxDialogsEnabled
     }
 
     private var firstBrowsingMessageSeen: Bool {
@@ -316,6 +318,8 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
 
     func dismiss() {
         settings.isDismissed = true
+        // Reset last shown dialog as we don't have to show it anymore.
+        clearOnboardingBrowsingData()
     }
     
     func primeForUse() {
@@ -375,6 +379,7 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
     }
 
     private func removeLastShownDaxDialog() {
+        guard isNewOnboarding else { return }
         settings.lastShownContextualOnboardingDialogType = nil
     }
 
@@ -444,9 +449,19 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
         saveLastShownDaxDialog(specType: .fire)
     }
 
+    func clearedBrowserData() {
+        guard isNewOnboarding else { return }
+        setDaxDialogDismiss()
+    }
+
     func setPrivacyButtonPulseSeen() {
         guard isNewOnboarding else { return }
         settings.privacyButtonPulseShown = true
+    }
+
+    func setDaxDialogDismiss() {
+        guard isNewOnboarding else { return }
+        clearOnboardingBrowsingData()
     }
 
     func setFinalOnboardingDialogSeen() {
@@ -499,11 +514,6 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
 
     private func nextBrowsingMessageExperiment(privacyInfo: PrivacyInfo) -> BrowsingSpec? {
 
-        if let lastVisitedOnboardingWebsiteURLPath,
-            compareUrls(url1: URL(string: lastVisitedOnboardingWebsiteURLPath), url2: privacyInfo.url) {
-            return lastShownDaxDialog(privacyInfo: privacyInfo)
-        }
-
         func hasTrackers(host: String) -> Bool {
             isFacebookOrGoogle(privacyInfo.url) || isOwnedByFacebookOrGoogle(host) != nil || blockedEntityNames(privacyInfo.trackerInfo) != nil
         }
@@ -512,6 +522,11 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
         currentHomeSpec = nil
 
         guard isEnabled, nextHomeScreenMessageOverride == nil else { return nil }
+
+        if let lastVisitedOnboardingWebsiteURLPath,
+            compareUrls(url1: URL(string: lastVisitedOnboardingWebsiteURLPath), url2: privacyInfo.url) {
+            return lastShownDaxDialog(privacyInfo: privacyInfo)
+        }
 
         guard let host = privacyInfo.domain else { return nil }
 
@@ -539,8 +554,7 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
             saveLastShownDaxDialog(specType: spec.type)
             saveLastVisitedOnboardingWebsite(url: privacyInfo.url)
         } else {
-            removeLastVisitedOnboardingWebsite()
-            removeLastShownDaxDialog()
+            clearOnboardingBrowsingData()
         }
 
         return spec
@@ -557,6 +571,9 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
     }
 
     func nextHomeScreenMessageNew() -> HomeScreenSpec? {
+        // Reset the last browsing information when opening a new tab so loading the previous website won't show again the Dax dialog
+        clearedBrowserData()
+
         guard let homeScreenSpec = peekNextHomeScreenMessageExperiment() else {
             currentHomeSpec = nil
             return nil
@@ -588,10 +605,14 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
         if nextHomeScreenMessageOverride != nil {
             return nextHomeScreenMessageOverride
         }
+
         guard isEnabled else { return nil }
 
+        // If the user has already seen the end of journey dialog we don't want to show any other NTP Dax dialog.
+        guard !finalDaxDialogSeen else { return nil }
+
         // Check final first as if we skip anonymous searches we don't want to show this.
-        if settings.fireMessageExperimentShown && !finalDaxDialogSeen {
+        if settings.fireMessageExperimentShown {
             return .final
         }
 
@@ -707,6 +728,11 @@ final class DaxDialogs: NewTabDialogSpecProvider, ContextualOnboardingLogic {
         }
 
         return url1.isSameDuckDuckGoSearchURL(other: url2)
+    }
+
+    private func clearOnboardingBrowsingData() {
+        removeLastShownDaxDialog()
+        removeLastVisitedOnboardingWebsite()
     }
 }
 

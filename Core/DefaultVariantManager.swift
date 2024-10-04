@@ -21,12 +21,15 @@ import Common
 import Foundation
 import Speech
 import BrowserServicesKit
+import os.log
 
 extension FeatureName {
     // Define your feature e.g.:
     // public static let experimentalFeature = FeatureName(rawValue: "experimentalFeature")
 
     public static let newOnboardingIntro = FeatureName(rawValue: "newOnboardingIntro")
+    public static let newOnboardingIntroHighlights = FeatureName(rawValue: "newOnboardingIntroHighlights")
+    public static let contextualDaxDialogs = FeatureName(rawValue: "contextualDaxDialogs")
 }
 
 public struct VariantIOS: Variant {
@@ -55,8 +58,9 @@ public struct VariantIOS: Variant {
         VariantIOS(name: "sd", weight: doNotAllocate, isIncluded: When.always, features: []),
         VariantIOS(name: "se", weight: doNotAllocate, isIncluded: When.always, features: []),
 
-        VariantIOS(name: "ma", weight: 1, isIncluded: When.always, features: []),
-        VariantIOS(name: "mb", weight: 1, isIncluded: When.always, features: [.newOnboardingIntro]),
+        VariantIOS(name: "ms", weight: 1, isIncluded: When.always, features: [.newOnboardingIntro]),
+        VariantIOS(name: "mu", weight: 1, isIncluded: When.always, features: [.newOnboardingIntro, .contextualDaxDialogs]),
+        VariantIOS(name: "mx", weight: 1, isIncluded: When.always, features: [.newOnboardingIntroHighlights, .contextualDaxDialogs]),
 
         returningUser
     ]
@@ -127,17 +131,17 @@ public class DefaultVariantManager: VariantManager {
 
     public func assignVariantIfNeeded(_ newInstallCompletion: (VariantManager) -> Void) {
         guard !storage.hasInstallStatistics else {
-            os_log("no new variant needed for existing user", log: .generalLog, type: .debug)
+            Logger.general.debug("no new variant needed for existing user")
             return
         }
 
         if let variant = currentVariant {
-            os_log("already assigned variant: %s", log: .generalLog, type: .debug, String(describing: variant))
+            Logger.general.debug("already assigned variant: \(String(describing: variant))")
             return
         }
 
         guard let variant = selectVariant() else {
-            os_log("Failed to assign variant", log: .generalLog, type: .debug)
+            Logger.general.debug("Failed to assign variant")
 
             // it's possible this failed because there are none to assign, we should still let new install logic execute
             _ = newInstallCompletion(self)

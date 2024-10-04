@@ -52,7 +52,7 @@ class TabsBarViewController: UIViewController {
     weak var delegate: TabsBarDelegate?
     private weak var tabsModel: TabsModel?
 
-    let tabSwitcherButton = TabSwitcherButton()
+    var tabSwitcherButton: TabSwitcherButton!
     private let longPressTabGesture = UILongPressGestureRecognizer()
     
     private weak var pressedCell: TabsBarCell?
@@ -71,6 +71,8 @@ class TabsBarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tabSwitcherButton = TabSwitcherButton()
 
         decorate()
 
@@ -102,7 +104,7 @@ class TabsBarViewController: UIViewController {
             self.present(controller: alert, fromView: fireButton)
         }
 
-        if DefaultVariantManager().isSupported(feature: .newOnboardingIntro) {
+        if DefaultVariantManager().isContextualDaxDialogsEnabled {
             delegate?.tabsBarDidRequestFireEducationDialog(self)
             showClearDataAlert()
         } else {
@@ -320,7 +322,7 @@ extension MainViewController: TabsBarDelegate {
     }
     
     func tabsBarDidRequestFireEducationDialog(_ controller: TabsBarViewController) {
-        if DefaultVariantManager().isSupported(feature: .newOnboardingIntro) {
+        if DefaultVariantManager().isContextualDaxDialogsEnabled {
             currentTab?.dismissContextualDaxFireDialog()
             ViewHighlighter.hideAll()
         } else {

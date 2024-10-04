@@ -20,6 +20,7 @@
 import XCTest
 import SwiftUI
 import Core
+import Onboarding
 @testable import DuckDuckGo
 
 class ContextualOnboardingNewTabDialogFactoryTests: XCTestCase {
@@ -123,7 +124,7 @@ class ContextualOnboardingNewTabDialogFactoryTests: XCTestCase {
 
     // MARK: - Pixels
 
-    func testWhenOnboardingTrySearchDialogAppearForTheFirstTime_ThenSendFireExpectedPixel() {
+    func testWhenOnboardingTrySearchDialogAppearForTheFirstTime_ThenFireExpectedPixel() {
         // GIVEN
         let spec = DaxDialogs.HomeScreenSpec.initial
         let pixelEvent = Pixel.Event.onboardingContextualTrySearchUnique
@@ -131,7 +132,7 @@ class ContextualOnboardingNewTabDialogFactoryTests: XCTestCase {
         testDialogDefinedBy(spec: spec, firesEvent: pixelEvent)
     }
 
-    func testWhenOnboardingTryVisitSiteDialogAppearForTheFirstTime_ThenSendFireExpectedPixel() {
+    func testWhenOnboardingTryVisitSiteDialogAppearForTheFirstTime_ThenFireExpectedPixel() {
         // GIVEN
         let spec = DaxDialogs.HomeScreenSpec.subsequent
         let pixelEvent = Pixel.Event.onboardingContextualTryVisitSiteUnique
@@ -139,12 +140,27 @@ class ContextualOnboardingNewTabDialogFactoryTests: XCTestCase {
         testDialogDefinedBy(spec: spec, firesEvent: pixelEvent)
     }
 
-    func testWhenOnboardingFinalDialogAppearForTheFirstTime_ThenSendFireExpectedPixel() {
+    func testWhenOnboardingFinalDialogAppearForTheFirstTime_ThenFireExpectedPixel() {
         // GIVEN
         let spec = DaxDialogs.HomeScreenSpec.final
         let pixelEvent = Pixel.Event.daxDialogsEndOfJourneyNewTabUnique
         // TEST
         testDialogDefinedBy(spec: spec, firesEvent: pixelEvent)
+    }
+
+    func testWhenOnboardingFinalDialogCTAIsTapped_ThenFireExpectedPixel() throws {
+        // GIVEN
+        let view = factory.createDaxDialog(for: DaxDialogs.HomeScreenSpec.final, onDismiss: {})
+        let host = UIHostingController(rootView: view)
+        window.rootViewController = host
+        let finalDialog = try XCTUnwrap(find(OnboardingFinalDialog.self, in: host))
+        XCTAssertFalse(pixelReporterMock.didCallTrackEndOfJourneyDialogDismiss)
+
+        // WHEN
+        finalDialog.highFiveAction()
+
+        // THEN
+        XCTAssertTrue(pixelReporterMock.didCallTrackEndOfJourneyDialogDismiss)
     }
 
 }
@@ -170,4 +186,17 @@ private extension ContextualOnboardingNewTabDialogFactoryTests {
         XCTAssertEqual(pixelReporterMock.capturedScreenImpression, event)
     }
 
+}
+
+class CapturingOnboardingNavigationDelegate: OnboardingNavigationDelegate {
+    var suggestedSearchQuery: String?
+    var urlToNavigateTo: URL?
+
+    func searchFor(_ query: String) {
+        suggestedSearchQuery = query
+    }
+
+    func navigateTo(url: URL) {
+        urlToNavigateTo = url
+    }
 }

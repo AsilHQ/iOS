@@ -21,19 +21,20 @@ import Foundation
 import SnapKit
 import WebKit
 import UIKit
+import Core
 
 /// Displays shield settings and shield stats for a given URL
 class SafegazeViewController: UIViewController, PopoverContentComponent {
 
-  let tab: Tab
+  let associatedTab: Tab
   let webView: WKWebView
     
   var safegazeSettingsChanged: ((SafegazeViewController) -> Void)?
 
   private var statsUpdateObservable: AnyObject?
 
-  init(tab: Tab, webView: WKWebView) {
-    self.tab = tab
+  init(associatedTab: Tab, webView: WKWebView) {
+    self.associatedTab = associatedTab
     self.webView = webView
 
     super.init(nibName: nil, bundle: nil)
@@ -110,7 +111,7 @@ class SafegazeViewController: UIViewController, PopoverContentComponent {
   }
 
   override func loadView() {
-      let newView = View(frame: .zero, tab: tab)
+      let newView = View(frame: .zero, associatedTab: associatedTab)
       newView.updateBlurIntensity = {
           let jsString =
             """
@@ -172,10 +173,10 @@ extension SafegazeViewController {
     public var updateBgView: ((UIView, Bool) -> Void)?
     public var updateBlurIntensity: (() -> Void)?
     public var safegazeSettingsChanged: (() -> Void)?
-    var tab: Tab
+    var associatedTab: Tab
       
-    init(frame: CGRect, tab: Tab) {
-      self.tab = tab
+    init(frame: CGRect, associatedTab: Tab) {
+      self.associatedTab = associatedTab
       super.init(frame: frame)
 
       backgroundColor = .systemBackground
@@ -188,7 +189,7 @@ extension SafegazeViewController {
           self.updateBlurIntensity?()
       }, safegazeSettingsChanged: {
           self.safegazeSettingsChanged?()
-      }, tab: tab)
+      }, tab: associatedTab)
       stackView.addArrangedSubview(popupView)
 
       addSubview(scrollView)

@@ -2,8 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>aps-environment</key>
-	<string>development</string>
+	<key>com.apple.developer.browser.app-installation</key>
+	<true/>
 	<key>com.apple.developer.networking.networkextension</key>
 	<array>
 		<string>packet-tunnel-provider</string>
@@ -14,9 +14,10 @@
 	<array>
 		<string>$(GROUP_ID_PREFIX).bookmarks</string>
 		<string>$(GROUP_ID_PREFIX).contentblocker</string>
-		<string>$(GROUP_ID_PREFIX).statistics</string>
 		<string>$(GROUP_ID_PREFIX).database</string>
 		<string>$(GROUP_ID_PREFIX).netp</string>
+		<string>$(GROUP_ID_PREFIX).statistics</string>
+		<string>$(GROUP_ID_PREFIX).app-configuration</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>

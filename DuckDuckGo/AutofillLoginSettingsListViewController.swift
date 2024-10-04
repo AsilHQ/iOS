@@ -25,6 +25,7 @@ import Common
 import DDGSync
 import KahfDesignResourcesKit
 import SwiftUI
+import os.log
 
 enum AutofillSettingsSource: String {
     case settings
@@ -57,7 +58,9 @@ final class AutofillLoginSettingsListViewController: UIViewController {
         }
 
         let hostingController = UIHostingController(rootView: emptyView)
-        hostingController.view.frame = CGRect(origin: .zero, size: hostingController.sizeThatFits(in: UIScreen.main.bounds.size))
+        var size = hostingController.sizeThatFits(in: UIScreen.main.bounds.size)
+        size.height += 50
+        hostingController.view.frame = CGRect(origin: .zero, size: size)
         hostingController.view.layoutIfNeeded()
         hostingController.view.backgroundColor = .clear
 
@@ -65,6 +68,7 @@ final class AutofillLoginSettingsListViewController: UIViewController {
 
         return hostingController.view
     }()
+
     private let lockedView = AutofillItemsLockedView()
     private let enableAutofillFooterView = AutofillSettingsEnableFooterView()
     private let emptySearchView = AutofillEmptySearchView()
@@ -148,6 +152,12 @@ final class AutofillLoginSettingsListViewController: UIViewController {
         return tableView
     }()
 
+    private lazy var headerViewFactory: AutofillHeaderViewFactoryProtocol = AutofillHeaderViewFactory(delegate: self)
+    private var currentHeaderHostingController: UIViewController?
+
+    // This is used to prevent the Sync Promo from being displayed immediately after the Survey is dismissed
+    private var surveyPromptPresented: Bool = false
+
     private lazy var lockedViewBottomConstraint: NSLayoutConstraint = {
         NSLayoutConstraint(item: tableView,
                            attribute: .bottom,
@@ -182,9 +192,9 @@ final class AutofillLoginSettingsListViewController: UIViewController {
          source: AutofillSettingsSource) {
         let secureVault = try? AutofillSecureVaultFactory.makeVault(reporter: SecureVaultReporter())
         if secureVault == nil {
-            os_log("Failed to make vault")
+            Logger.autofill.fault("Failed to make vault")
         }
-        self.viewModel = AutofillLoginListViewModel(appSettings: appSettings, tld: tld, secureVault: secureVault, currentTabUrl: currentTabUrl, currentTabUid: currentTabUid)
+        self.viewModel = AutofillLoginListViewModel(appSettings: appSettings, tld: tld, secureVault: secureVault, currentTabUrl: currentTabUrl, currentTabUid: currentTabUid, syncService: syncService)
         self.syncService = syncService
         self.selectedAccount = selectedAccount
         self.openSearch = openSearch
@@ -265,6 +275,7 @@ final class AutofillLoginSettingsListViewController: UIViewController {
         updateNavigationBarButtons()
         updateSearchController()
         updateToolbar()
+        updateTableHeaderView()
     }
 
     @objc
@@ -331,6 +342,7 @@ final class AutofillLoginSettingsListViewController: UIViewController {
              .receive(on: DispatchQueue.main)
              .sink { [weak self] _ in
                  self?.updateToolbarLabel()
+                 self?.updateTableHeaderView()
              }
              .store(in: &cancellables)
 
@@ -403,6 +415,21 @@ final class AutofillLoginSettingsListViewController: UIViewController {
         navigationController?.pushViewController(importController, animated: true)
     }
 
+    private func segueToSync(source: String? = nil) {
+        if let settingsVC = self.navigationController?.children.first as? SettingsHostingController {
+            navigationController?.popToRootViewController(animated: true)
+            if let source = source {
+                settingsVC.viewModel.shouldPresentSyncViewWithSource(source)
+            } else {
+                settingsVC.viewModel.presentLegacyView(.sync)
+            }
+        } else if let mainVC = self.presentingViewController as? MainViewController {
+            dismiss(animated: true) {
+                mainVC.segueToSettingsSync(with: source)
+            }
+        }
+    }
+
     private func showSelectedAccountIfRequired() {
         if let account = selectedAccount {
             showAccountDetails(account)
@@ -466,7 +493,9 @@ final class AutofillLoginSettingsListViewController: UIViewController {
                 if authenticated {
                     let accountsCount = self?.viewModel.accountsCount ?? 0
                     self?.viewModel.clearAllAccounts()
-                    self?.presentDeleteAllConfirmation(accountsCount)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        self?.presentDeleteAllConfirmation(accountsCount)
+                    })
                 }
             }
         )
@@ -562,6 +591,7 @@ final class AutofillLoginSettingsListViewController: UIViewController {
         updateNavigationBarButtons()
         updateSearchController()
         updateToolbar()
+        updateTableHeaderView()
         tableView.reloadData()
     }
 
@@ -632,6 +662,72 @@ final class AutofillLoginSettingsListViewController: UIViewController {
 
         accountsCountLabel.text = UserText.autofillLoginListToolbarPasswordsCount(viewModel.accountsCount)
         accountsCountLabel.sizeToFit()
+    }
+
+    private func updateTableHeaderView() {
+        guard tableView.frame != .zero else {
+            return
+        }
+
+        if let survey = viewModel.getSurveyToPresent() {
+            if shouldUpdateHeaderView(for: .survey(survey)) {
+                configureTableHeaderView(for: .survey(survey))
+                surveyPromptPresented = true
+            }
+            return
+        }
+
+        if viewModel.shouldShowSyncPromo() && !surveyPromptPresented {
+            if shouldUpdateHeaderView(for: .syncPromo(.passwords)) {
+                configureTableHeaderView(for: .syncPromo(.passwords))
+            }
+            return
+        }
+
+        // No header view is needed, clear the table header
+        clearTableHeaderView()
+    }
+
+    private func shouldUpdateHeaderView(for type: AutofillHeaderViewFactory.ViewType) -> Bool {
+        if let currentHeaderView = tableView.tableHeaderView,
+           let headerView = currentHeaderHostingController?.view,
+           currentHeaderView == headerView {
+            return false
+        }
+        return true
+    }
+
+    private func configureTableHeaderView(for type: AutofillHeaderViewFactory.ViewType) {
+        switch type {
+        case .survey(let survey):
+            currentHeaderHostingController = headerViewFactory.makeHeaderView(for: .survey(survey))
+            if let hostingController = currentHeaderHostingController as? UIHostingController<AutofillSurveyView> {
+                setupTableHeaderView(with: hostingController)
+            }
+        case .syncPromo(let promoType):
+            currentHeaderHostingController = headerViewFactory.makeHeaderView(for: .syncPromo(promoType))
+            if let hostingController = currentHeaderHostingController as? UIHostingController<SyncPromoView> {
+                setupTableHeaderView(with: hostingController)
+            }
+        }
+    }
+
+    private func setupTableHeaderView(with hostingController: UIViewController) {
+        addChild(hostingController)
+
+        let viewWidth = tableView.bounds.width - tableView.layoutMargins.left - tableView.layoutMargins.right
+        let viewHeight = hostingController.view.sizeThatFits(CGSize(width: viewWidth, height: CGFloat.greatestFiniteMagnitude)).height
+
+        hostingController.view.frame = CGRect(x: 0, y: 0, width: viewWidth, height: viewHeight)
+        tableView.tableHeaderView = hostingController.view
+
+        hostingController.didMove(toParent: self)
+    }
+
+    private func clearTableHeaderView() {
+        if tableView.tableHeaderView != nil {
+            tableView.tableHeaderView = nil
+        }
     }
 
     private func installSubviews() {
@@ -761,9 +857,7 @@ extension AutofillLoginSettingsListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         switch viewModel.viewState {
-        case .empty:
-            return viewModel.sections[section] == .enableAutofill ? enableAutofillFooterView : nil
-        case .showItems:
+        case .showItems, .empty:
             return viewModel.sections[section] == .enableAutofill ? enableAutofillFooterView : nil
         default:
             return nil
@@ -951,14 +1045,7 @@ extension AutofillLoginSettingsListViewController: AutofillLoginDetailsViewContr
 extension AutofillLoginSettingsListViewController: ImportPasswordsViewControllerDelegate {
 
     func importPasswordsViewControllerDidRequestOpenSync(_ viewController: ImportPasswordsViewController) {
-        if let settingsVC = self.navigationController?.children.first as? SettingsHostingController {
-            navigationController?.popToRootViewController(animated: true)
-            settingsVC.viewModel.presentLegacyView(.sync)
-        } else if let mainVC = self.presentingViewController as? MainViewController {
-            dismiss(animated: true) {
-                mainVC.segueToSettingsSync()
-            }
-        }
+        segueToSync()
     }
 
 }
@@ -1061,6 +1148,38 @@ extension AutofillLoginSettingsListViewController {
             (keyboardViewEndFrame.minY + emptySearchView.frame.height) / 2 - searchController.searchBar.frame.height,
             (tableView.frame.height / 2) - searchController.searchBar.frame.height
         )
+    }
+}
+
+// MARK: AutofillHeaderViewDelegate
+
+extension AutofillLoginSettingsListViewController: AutofillHeaderViewDelegate {
+
+    func handlePrimaryAction(for headerType: AutofillHeaderViewFactory.ViewType) {
+        switch headerType {
+        case .survey(let survey):
+            if let surveyURL = viewModel.surveyUrl(survey: survey.url) {
+                LaunchTabNotification.postLaunchTabNotification(urlString: surveyURL.absoluteString)
+                self.dismiss(animated: true)
+            }
+            viewModel.dismissSurvey(id: survey.id)
+        case .syncPromo(let touchpoint):
+            segueToSync(source: "promotion_passwords")
+            Pixel.fire(.syncPromoConfirmed, withAdditionalParameters: ["source": touchpoint.rawValue])
+        }
+    }
+
+    func handleDismissAction(for headerType: AutofillHeaderViewFactory.ViewType) {
+        defer {
+            updateTableHeaderView()
+        }
+
+        switch headerType {
+        case .survey(let survey):
+            viewModel.dismissSurvey(id: survey.id)
+        case .syncPromo:
+            viewModel.dismissSyncPromo()
+        }
     }
 }
 

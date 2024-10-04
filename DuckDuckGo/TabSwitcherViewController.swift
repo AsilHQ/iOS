@@ -24,6 +24,7 @@ import DDGSync
 import WebKit
 import Bookmarks
 import Persistence
+import os.log
 
 class TabSwitcherViewController: UIViewController {
     
@@ -223,7 +224,7 @@ class TabSwitcherViewController: UIViewController {
             ActionMessageView.present(message: UserText.bookmarkAllTabsSaved)
         } else {
             let failedToSaveCount = openTabsCount - results.newCount - results.existingCount
-            os_log("Failed to save %d tabs", log: .generalLog, type: .debug, failedToSaveCount)
+            Logger.general.debug("Failed to save \(failedToSaveCount) tabs")
             ActionMessageView.present(message: UserText.bookmarkAllTabsFailedToSave)
         }
     }
@@ -316,8 +317,21 @@ class TabSwitcherViewController: UIViewController {
     }
 
     @IBAction func onFirePressed(sender: AnyObject) {
+        
+        func presentForgetDataAlert() {
+            let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
+                self?.forgetAll()
+            })
+
+            if let anchor = sender as? UIView {
+                self.present(controller: alert, fromView: anchor)
+            } else {
+                self.present(controller: alert, fromView: toolbar)
+            }
+        }
+
         Pixel.fire(pixel: .forgetAllPressedTabSwitching)
-        let isNewOnboarding = DefaultVariantManager().isSupported(feature: .newOnboardingIntro)
+        let isNewOnboarding = DefaultVariantManager().isContextualDaxDialogsEnabled
 
         if !isNewOnboarding
             && DaxDialogs.shared.shouldShowFireButtonPulse {
@@ -327,15 +341,7 @@ class TabSwitcherViewController: UIViewController {
             if isNewOnboarding {
                 ViewHighlighter.hideAll()
             }
-            let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
-                self?.forgetAll()
-            })
-            
-            if let anchor = sender as? UIView {
-                self.present(controller: alert, fromView: anchor)
-            } else {
-                self.present(controller: alert, fromView: toolbar)
-            }
+            presentForgetDataAlert()
         }
     }
 
@@ -517,9 +523,12 @@ extension TabSwitcherViewController: TabObserver {
             return
         }
 
-        if let index = tabsModel.indexOf(tab: tab), index < collectionView.numberOfItems(inSection: 0) {
-            collectionView.reconfigureItems(at: [IndexPath(row: index, section: 0)])
-        }
+        collectionView.performBatchUpdates({}, completion: { [weak self] completed in
+            guard completed, let self = self else { return }
+            if let index = self.tabsModel.indexOf(tab: tab), index < self.collectionView.numberOfItems(inSection: 0) {
+                self.collectionView.reconfigureItems(at: [IndexPath(row: index, section: 0)])
+            }
+        })
     }
 }
 

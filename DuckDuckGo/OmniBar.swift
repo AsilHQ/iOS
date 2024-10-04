@@ -23,6 +23,7 @@ import Core
 import PrivacyDashboard
 import KahfDesignResourcesKit
 import DuckPlayer
+import os.log
 
 extension OmniBar: NibLoading {}
 
@@ -226,7 +227,7 @@ class OmniBar: UIView {
         }
 
         customIconView.isHidden = true
-        privacyInfoContainer.privacyIcon.isHidden = false
+        privacyInfoContainer.privacyIcon.isHidden = privacyInfo.isSpecialErrorPageVisible
         let icon = PrivacyIconLogic.privacyIcon(for: privacyInfo)
         privacyInfoContainer.privacyIcon.updateIcon(icon)
     }
@@ -300,7 +301,7 @@ class OmniBar: UIView {
 
     fileprivate func refreshState(_ newState: OmniBarState) {
         if state.name != newState.name {
-            os_log("OmniBar entering %s from %s", log: .generalLog, type: .debug, newState.name, state.name)
+            Logger.general.debug("OmniBar entering \(newState.name) from \(self.state.name)")
             if newState.clearTextOnStart {
                 clear()
             }

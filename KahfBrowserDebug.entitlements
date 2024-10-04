@@ -12,14 +12,12 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
+		<string>$(GROUP_ID_PREFIX).app-configuration</string>
 		<string>$(GROUP_ID_PREFIX).bookmarks</string>
 		<string>$(GROUP_ID_PREFIX).contentblocker</string>
 		<string>$(GROUP_ID_PREFIX).database</string>
 		<string>$(GROUP_ID_PREFIX).netp</string>
 		<string>$(GROUP_ID_PREFIX).statistics</string>
-		<string>group.com.halalz.kahfbrowser.bookmarks</string>
-		<string>group.com.halalz.kahfbrowser.netp</string>
-		<string>group.com.halalz.kahfbrowser.database</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>

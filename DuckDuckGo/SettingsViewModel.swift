@@ -39,6 +39,7 @@ final class SettingsViewModel: ObservableObject {
     private var legacyViewProvider: SettingsLegacyViewProvider
     private lazy var versionProvider: AppVersion = AppVersion.shared
     private let voiceSearchHelper: VoiceSearchHelperProtocol
+    private let subscriptionFeatureAvailability: SubscriptionFeatureAvailability
     private let syncPausedStateManager: any SyncPausedStateManaging
     var emailManager: EmailManager { EmailManager() }
     private let historyManager: HistoryManaging
@@ -89,6 +90,8 @@ final class SettingsViewModel: ObservableObject {
     @Published var shouldShowRecentlyVisitedSites: Bool = true
     
     @Published var isInternalUser: Bool = AppDependencyProvider.shared.internalUserDecider.isInternalUser
+
+    @Published var selectedFeedbackFlow: String?
 
     // MARK: - Deep linking
     // Used to automatically navigate to a specific section
@@ -335,11 +338,16 @@ final class SettingsViewModel: ObservableObject {
     var syncStatus: StatusIndicator {
         legacyViewProvider.syncService.authState != .inactive ? .on : .off
     }
-    
+
+    var usesUnifiedFeedbackForm: Bool {
+        subscriptionManager.accountManager.isUserAuthenticated && subscriptionFeatureAvailability.usesUnifiedFeedbackForm
+    }
+
     // MARK: Default Init
     init(state: SettingsState? = nil,
          legacyViewProvider: SettingsLegacyViewProvider,
          subscriptionManager: SubscriptionManager,
+         subscriptionFeatureAvailability: SubscriptionFeatureAvailability = AppDependencyProvider.shared.subscriptionFeatureAvailability,
          voiceSearchHelper: VoiceSearchHelperProtocol = AppDependencyProvider.shared.voiceSearchHelper,
          variantManager: VariantManager = AppDependencyProvider.shared.variantManager,
          deepLink: SettingsDeepLinkSection? = nil,
@@ -350,6 +358,7 @@ final class SettingsViewModel: ObservableObject {
         self.state = SettingsState.defaults
         self.legacyViewProvider = legacyViewProvider
         self.subscriptionManager = subscriptionManager
+        self.subscriptionFeatureAvailability = subscriptionFeatureAvailability
         self.voiceSearchHelper = voiceSearchHelper
         self.deepLinkTarget = deepLink
         self.historyManager = historyManager
@@ -399,6 +408,7 @@ extension SettingsViewModel {
             networkProtectionConnected: false,
             subscription: SettingsState.defaults.subscription,
             sync: getSyncState(),
+            syncSource: nil,
             duckPlayerEnabled: featureFlagger.isFeatureOn(.duckPlayer) || shouldDisplayDuckPlayerContingencyMessage,
             duckPlayerMode: appSettings.duckPlayerMode
         )
@@ -454,14 +464,10 @@ extension SettingsViewModel {
     }
 
     private func updateNetPStatus(connectionStatus: ConnectionStatus) {
-        if AppDependencyProvider.shared.vpnFeatureVisibility.isPrivacyProLaunched() {
-            switch connectionStatus {
-            case .connected:
-                self.state.networkProtectionConnected = true
-            default:
-                self.state.networkProtectionConnected = false
-            }
-        } else {
+        switch connectionStatus {
+        case .connected:
+            self.state.networkProtectionConnected = true
+        default:
             self.state.networkProtectionConnected = false
         }
     }
@@ -507,35 +513,30 @@ extension SettingsViewModel {
         state.activeWebsiteAccount = accountDetails
         presentLegacyView(.logins)
     }
-    
+
+    @MainActor func shouldPresentSyncViewWithSource(_ source: String? = nil) {
+        state.syncSource = source
+        presentLegacyView(.sync)
+    }
+
     func openEmailProtection() {
-        UIApplication.shared.open(URL.emailProtectionQuickLink,
-                                  options: [:],
-                                  completionHandler: nil)
+        UIApplication.shared.open(URL.emailProtectionQuickLink)
     }
 
     func openEmailAccountManagement() {
-        UIApplication.shared.open(URL.emailProtectionAccountLink,
-                                  options: [:],
-                                  completionHandler: nil)
+        UIApplication.shared.open(URL.emailProtectionAccountLink)
     }
 
     func openEmailSupport() {
-        UIApplication.shared.open(URL.emailProtectionSupportLink,
-                                  options: [:],
-                                  completionHandler: nil)
+        UIApplication.shared.open(URL.emailProtectionSupportLink)
     }
 
     func openOtherPlatforms() {
-        UIApplication.shared.open(URL.apps,
-                                  options: [:],
-                                  completionHandler: nil)
+        UIApplication.shared.open(URL.apps)
     }
 
     func openMoreSearchSettings() {
-        UIApplication.shared.open(URL.searchSettings,
-                                  options: [:],
-                                  completionHandler: nil)
+        UIApplication.shared.open(URL.searchSettings)
     }
 
     var shouldDisplayDuckPlayerContingencyMessage: Bool {
@@ -545,9 +546,7 @@ extension SettingsViewModel {
     func openDuckPlayerContingencyMessageSite() {
         guard let url = duckPlayerContingencyHandler.learnMoreURL else { return }
         Pixel.fire(pixel: .duckPlayerContingencyLearnMoreClicked)
-        UIApplication.shared.open(url,
-                                  options: [:],
-                                  completionHandler: nil)
+        UIApplication.shared.open(url)
     }
 
     @MainActor func openCookiePopupManagement() {
@@ -573,7 +572,7 @@ extension SettingsViewModel {
         case .addToDock:
             presentViewController(legacyViewProvider.addToDock, modal: true)
         case .sync:
-            pushViewController(legacyViewProvider.syncSettings)
+            pushViewController(legacyViewProvider.syncSettings(source: state.syncSource))
         case .appIcon: pushViewController(legacyViewProvider.appIcon)
         case .unprotectedSites: pushViewController(legacyViewProvider.unprotectedSites)
         case .fireproofSites: pushViewController(legacyViewProvider.fireproofSites)
@@ -598,10 +597,6 @@ extension SettingsViewModel {
         
         case .autoconsent:
             pushViewController(legacyViewProvider.autoConsent)
-
-        case .netP:
-            firePixel(.privacyProVPNSettings)
-            pushViewController(legacyViewProvider.netP)
         }
     }
  
@@ -654,13 +649,7 @@ extension SettingsViewModel {
         // Default to .sheet, specify .push where needed
         var type: DeepLinkType {
             switch self {
-            // Specify cases that require .push presentation
-            // Example:
-            // case .dbp:
-            //     return .sheet
-            case .netP:
-                return .UIKitView
-            default:
+            case .netP, .dbp, .itr, .subscriptionFlow, .restoreFlow, .duckPlayer:
                 return .navigationLink
             }
         }
@@ -670,7 +659,6 @@ extension SettingsViewModel {
     enum DeepLinkType {
         case sheet
         case navigationLink
-        case UIKitView
     }
             
     // Navigate to a section in settings

@@ -37,6 +37,7 @@ import SyncDataProviders
 import Subscription
 import NetworkProtection
 import WebKit
+import os.log
 
 @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -58,6 +59,7 @@ import WebKit
     private let widgetRefreshModel = NetworkProtectionWidgetRefreshModel()
     private let tunnelDefaults = UserDefaults.networkProtectionGroupDefaults
 
+    @MainActor
     private lazy var vpnWorkaround: VPNRedditSessionWorkaround = {
         return VPNRedditSessionWorkaround(
             accountManager: AppDependencyProvider.shared.accountManager,
@@ -79,7 +81,7 @@ import WebKit
     private var syncStateCancellable: AnyCancellable?
     private var isSyncInProgressCancellable: AnyCancellable?
 
-    private let crashCollection = CrashCollection(platform: .iOS, log: .generalLog)
+    private let crashCollection = CrashCollection(platform: .iOS)
     private var crashReportUploaderOnboarding: CrashCollectionOnboarding?
 
     private var autofillPixelReporter: AutofillPixelReporter?
@@ -100,7 +102,9 @@ import WebKit
     private var didCrashDuringCrashHandlersSetUp: Bool
 
     private let launchOptionsHandler = LaunchOptionsHandler()
+    private let onboardingPixelReporter = OnboardingPixelReporter()
 
+    private let marketplaceAdPostbackManager = MarketplaceAdPostbackManager()
     override init() {
         super.init()
 
@@ -116,9 +120,6 @@ import WebKit
         SafegazeScript.downloadAndSaveJavaScriptFile()
 
         WallpaperManager.fetchWallpapers()
-        // Attribution support
-        updateAttribution(conversionValue: 1)
-
 #if targetEnvironment(simulator)
         if ProcessInfo.processInfo.environment["UITESTING"] == "true" {
             // Disable hardware keyboards.
@@ -243,8 +244,6 @@ import WebKit
         // has already been called on the HomeViewController so won't show the home row CTA
         cleanUpATBAndAssignVariant(variantManager: variantManager, daxDialogs: daxDialogs)
 
-        PixelExperiment.install()
-
         // MARK: Sync initialisation
 #if DEBUG
         let defaultEnvironment = ServerEnvironment.development
@@ -273,7 +272,6 @@ import WebKit
             dataProvidersSource: syncDataProviders,
             errorEvents: SyncErrorHandler(),
             privacyConfigurationManager: ContentBlocking.shared.privacyConfigurationManager,
-            log: .syncLog,
             environment: environment
         )
         syncService.initializeIfNeeded()
@@ -296,7 +294,7 @@ import WebKit
             bookmarksDatabase: bookmarksDatabase,
             appSettings: AppDependencyProvider.shared.appSettings,
             internalUserDecider: AppDependencyProvider.shared.internalUserDecider,
-            configurationStore: ConfigurationStore.shared,
+            configurationStore: AppDependencyProvider.shared.configurationStore,
             database: Database.shared,
             errorEvents: RemoteMessagingStoreErrorHandling(),
             remoteMessagingAvailabilityProvider: PrivacyConfigurationRemoteMessagingAvailabilityProvider(
@@ -324,6 +322,8 @@ import WebKit
 
             presentInsufficientDiskSpaceAlert()
         } else {
+            let daxDialogsFactory = ExperimentContextualDaxDialogsFactory(contextualOnboardingLogic: daxDialogs, contextualOnboardingPixelReporter: onboardingPixelReporter)
+            let contextualOnboardingPresenter = ContextualOnboardingPresenter(variantManager: variantManager, daxDialogsFactory: daxDialogsFactory)
             let main = MainViewController(bookmarksDatabase: bookmarksDatabase,
                                           bookmarksDatabaseCleaner: syncDataProviders.bookmarksAdapter.databaseCleaner,
                                           historyManager: historyManager,
@@ -336,9 +336,9 @@ import WebKit
                                           syncPausedStateManager: syncErrorHandler,
                                           privacyProDataReporter: privacyProDataReporter,
                                           variantManager: variantManager,
-                                          contextualOnboardingPresenter: ContextualOnboardingPresenter(variantManager: variantManager),
+                                          contextualOnboardingPresenter: contextualOnboardingPresenter,
                                           contextualOnboardingLogic: daxDialogs,
-                                          contextualOnboardingPixelReporter: OnboardingPixelReporter())
+                                          contextualOnboardingPixelReporter: onboardingPixelReporter)
 
             main.loadViewIfNeeded()
             syncErrorHandler.alertPresenter = main
@@ -476,7 +476,7 @@ import WebKit
         do {
             try FileManager.default.removeItem(at: tmp)
         } catch {
-            os_log("Failed to delete tmp dir")
+            Logger.general.error("Failed to delete tmp dir")
         }
     }
 
@@ -502,6 +502,7 @@ import WebKit
             StatisticsLoader.shared.refreshAppRetentionAtb()
             self.fireAppLaunchPixel()
             self.reportAdAttribution()
+            self.onboardingPixelReporter.fireEnqueuedPixelsIfNeeded()
         }
         
         if appIsLaunching {
@@ -520,8 +521,10 @@ import WebKit
             ContentBlocking.shared.contentBlockingManager.scheduleCompilation()
             AppConfigurationFetch.shouldScheduleRulesCompilationOnAppLaunch = false
         }
+        AppDependencyProvider.shared.configurationManager.loadPrivacyConfigFromDiskIfNeeded()
 
         AppConfigurationFetch().start { result in
+            self.sendAppLaunchPostback()
             if case .assetsUpdated(let protectionsUpdated) = result, protectionsUpdated {
                 ContentBlocking.shared.contentBlockingManager.scheduleCompilation()
             }
@@ -576,7 +579,7 @@ import WebKit
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        Task {
+        Task { @MainActor in
             await refreshShortcuts()
             await vpnWorkaround.removeRedditSessionWorkaround()
         }
@@ -679,11 +682,11 @@ import WebKit
 
     private func suspendSync() {
         if syncService.isSyncInProgress {
-            os_log(.debug, log: .syncLog, "Sync is in progress. Starting background task to allow it to gracefully complete.")
+            Logger.sync.debug("Sync is in progress. Starting background task to allow it to gracefully complete.")
 
             var taskID: UIBackgroundTaskIdentifier!
             taskID = UIApplication.shared.beginBackgroundTask(withName: "Cancelled Sync Completion Task") {
-                os_log(.debug, log: .syncLog, "Forcing background task completion")
+                Logger.sync.debug("Forcing background task completion")
                 UIApplication.shared.endBackgroundTask(taskID)
             }
             syncDidFinishCancellable?.cancel()
@@ -691,7 +694,7 @@ import WebKit
                 .prefix(1)
                 .receive(on: DispatchQueue.main)
                 .sink { _ in
-                    os_log(.debug, log: .syncLog, "Ending background task")
+                    Logger.sync.debug("Ending background task")
                     UIApplication.shared.endBackgroundTask(taskID)
                 }
         }
@@ -706,7 +709,7 @@ import WebKit
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        os_log("App launched with url %s", log: .lifecycleLog, type: .debug, url.absoluteString)
+        Logger.sync.debug("App launched with url \(url.absoluteString)")
 
         // If showing the onboarding intro ignore deeplinks
         guard mainViewController?.needsToShowOnboardingIntro() == false else {
@@ -738,7 +741,7 @@ import WebKit
 
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
-        os_log(#function, log: .lifecycleLog, type: .debug)
+        Logger.lifecycle.debug(#function)
 
         AppConfigurationFetch().start(isBackgroundFetch: true) { result in
             switch result {
@@ -756,6 +759,14 @@ import WebKit
 
     // MARK: private
 
+    private func sendAppLaunchPostback() {
+        // Attribution support
+        let privacyConfigurationManager = ContentBlocking.shared.privacyConfigurationManager
+        if privacyConfigurationManager.privacyConfig.isEnabled(featureKey: .marketplaceAdPostback) {
+            marketplaceAdPostbackManager.sendAppLaunchPostback()
+        }
+    }
+
     private func cleanUpATBAndAssignVariant(variantManager: VariantManager, daxDialogs: DaxDialogs) {
         let historyMessageManager = HistoryMessageManager()
 
@@ -771,6 +782,9 @@ import WebKit
 
             // New users don't see the message
             historyMessageManager.dismiss()
+
+            // Setup storage for marketplace postback
+            marketplaceAdPostbackManager.updateReturningUserValue()
         }
     }
 
@@ -856,7 +870,7 @@ import WebKit
     }
 
     private func handleShortCutItem(_ shortcutItem: UIApplicationShortcutItem) {
-        os_log("Handling shortcut item: %s", log: .generalLog, type: .debug, shortcutItem.type)
+        Logger.general.debug("Handling shortcut item: \(shortcutItem.type)")
 
         Task { @MainActor in
 
@@ -967,7 +981,6 @@ import WebKit
             UIApplication.shared.shortcutItems = nil
         }
     }
-
 }
 
 extension AppDelegate: BlankSnapshotViewRecoveringDelegate {
@@ -1033,10 +1046,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func presentNetworkProtectionStatusSettingsModal() {
         Task {
-            if case .success(let hasEntitlements) = await accountManager.hasEntitlement(forProductName: .networkProtection),
-               hasEntitlements {
-                let networkProtectionRoot = NetworkProtectionRootViewController()
-                presentSettings(with: networkProtectionRoot)
+            if case .success(let hasEntitlements) = await accountManager.hasEntitlement(forProductName: .networkProtection), hasEntitlements {
+                (window?.rootViewController as? MainViewController)?.segueToVPN()
             } else {
                 (window?.rootViewController as? MainViewController)?.segueToPrivacyPro()
             }

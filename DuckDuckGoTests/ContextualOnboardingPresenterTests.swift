@@ -22,14 +22,26 @@ import SwiftUI
 @testable import DuckDuckGo
 
 final class ContextualOnboardingPresenterTests: XCTestCase {
+    private var contextualDaxDialogsFactory: ExperimentContextualDaxDialogsFactory!
 
-    func testWhenPresentContextualOnboardingAndVariantDoesNotSupportOnboardingIntroThenOldContextualOnboardingIsPresented() throws {
+    override func setUpWithError() throws {
+        contextualDaxDialogsFactory = ExperimentContextualDaxDialogsFactory(contextualOnboardingLogic: DaxDialogs.shared, contextualOnboardingPixelReporter: OnboardingPixelReporterMock())
+        try super.setUpWithError()
+    }
+
+    override func tearDownWithError() throws {
+        contextualDaxDialogsFactory = nil
+        try super.tearDownWithError()
+    }
+
+
+    func testWhenPresentContextualOnboardingAndVariantDoesNotSupportContextualDaxDialogsThenOldContextualOnboardingIsPresented() throws {
         // GIVEN
         var variantManagerMock = MockVariantManager()
         variantManagerMock.isSupportedBlock = { feature in
-            feature != .newOnboardingIntro
+            feature != .contextualDaxDialogs
         }
-        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock)
+        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock, daxDialogsFactory: contextualDaxDialogsFactory)
         let parent = TabViewControllerMock()
         XCTAssertFalse(parent.didCallPerformSegue)
         XCTAssertNil(parent.capturedSegueIdentifier)
@@ -45,13 +57,13 @@ final class ContextualOnboardingPresenterTests: XCTestCase {
         XCTAssertEqual(sender, DaxDialogs.BrowsingSpec.afterSearch)
     }
 
-    func testWhenPresentContextualOnboardingAndVariantSupportsNewOnboardingIntroThenThenNewContextualOnboardingIsPresented() {
+    func testWhenPresentContextualOnboardingAndVariantSupportsContextualDaxDialogsThenThenNewContextualOnboardingIsPresented() {
         // GIVEN
         var variantManagerMock = MockVariantManager()
         variantManagerMock.isSupportedBlock = { feature in
-            feature == .newOnboardingIntro
+            feature == .contextualDaxDialogs
         }
-        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock)
+        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock, daxDialogsFactory: contextualDaxDialogsFactory)
         let parent = TabViewControllerMock()
         XCTAssertFalse(parent.didCallAddChild)
         XCTAssertNil(parent.capturedChild)
@@ -68,10 +80,10 @@ final class ContextualOnboardingPresenterTests: XCTestCase {
         // GIVEN
         var variantManagerMock = MockVariantManager()
         variantManagerMock.isSupportedBlock = { feature in
-            feature == .newOnboardingIntro
+            feature == .contextualDaxDialogs
         }
         let appSettings = AppSettingsMock()
-        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock, appSettings: appSettings)
+        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock, daxDialogsFactory: contextualDaxDialogsFactory, appSettings: appSettings)
         let parent = TabViewControllerMock()
 
         // WHEN
@@ -86,11 +98,11 @@ final class ContextualOnboardingPresenterTests: XCTestCase {
         // GIVEN
         var variantManagerMock = MockVariantManager()
         variantManagerMock.isSupportedBlock = { feature in
-            feature == .newOnboardingIntro
+            feature == .contextualDaxDialogs
         }
         let appSettings = AppSettingsMock()
         appSettings.currentAddressBarPosition = .bottom
-        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock, appSettings: appSettings)
+        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock, daxDialogsFactory: contextualDaxDialogsFactory, appSettings: appSettings)
         let parent = TabViewControllerMock()
 
         // WHEN
@@ -101,14 +113,14 @@ final class ContextualOnboardingPresenterTests: XCTestCase {
         XCTAssertTrue(view.message.string.contains("👇"))
     }
 
-    func testWhenDismissContextualOnboardingAndVariantSupportsNewOnboardingIntroThenContextualOnboardingIsDismissed() {
+    func testWhenDismissContextualOnboardingAndVariantSupportsContextualDaxDialogsThenContextualOnboardingIsDismissed() {
         // GIVEN
         let expectation = self.expectation(description: #function)
         var variantManagerMock = MockVariantManager()
         variantManagerMock.isSupportedBlock = { feature in
-            feature == .newOnboardingIntro
+            feature == .contextualDaxDialogs
         }
-        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock)
+        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock, daxDialogsFactory: contextualDaxDialogsFactory)
         let parent = TabViewControllerMock()
         let daxController = DaxContextualOnboardingControllerMock()
         daxController.removeFromParentExpectation = expectation
@@ -128,15 +140,15 @@ final class ContextualOnboardingPresenterTests: XCTestCase {
         XCTAssertFalse(parent.daxDialogsStackView.arrangedSubviews.contains(daxController.view))
     }
 
-    func testWhenDismissContextualOnboardingAndVariantDoesNotSupportsNewOnboardingIntroThenNothingHappens() {
+    func testWhenDismissContextualOnboardingAndVariantDoesNotSupportsContextualDaxDialogsThenNothingHappens() {
         // GIVEN
         let expectation = self.expectation(description: #function)
         expectation.isInverted = true
         var variantManagerMock = MockVariantManager()
         variantManagerMock.isSupportedBlock = { feature in
-            feature != .newOnboardingIntro
+            feature != .contextualDaxDialogs
         }
-        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock)
+        let sut = ContextualOnboardingPresenter(variantManager: variantManagerMock, daxDialogsFactory: contextualDaxDialogsFactory)
         let parent = TabViewControllerMock()
         let daxController = DaxContextualOnboardingControllerMock()
         daxController.removeFromParentExpectation = expectation

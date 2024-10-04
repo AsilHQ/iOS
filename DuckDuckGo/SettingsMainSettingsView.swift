@@ -59,10 +59,13 @@ struct SettingsMainSettingsView: View {
             }
             
             // Duck Player
-            if viewModel.isInternalUser && viewModel.state.duckPlayerEnabled {
-                NavigationLink(destination: SettingsDuckPlayerView().environmentObject(viewModel)) {
-                    SettingsCellView(label: UserText.duckPlayerFeatureName,
-                                     image: Image("SettingsDuckPlayer"))
+            // We need to hide the settings until the user is enrolled in the experiment
+            if DuckPlayerLaunchExperiment().isEnrolled && DuckPlayerLaunchExperiment().isExperimentCohort {
+                if viewModel.isInternalUser || viewModel.state.duckPlayerEnabled {
+                    NavigationLink(destination: SettingsDuckPlayerView().environmentObject(viewModel)) {
+                        SettingsCellView(label: UserText.duckPlayerFeatureName,
+                                         image: Image("SettingsDuckPlayer"))
+                    }
                 }
             }
         }
