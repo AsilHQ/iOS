@@ -2976,7 +2976,7 @@ extension MainViewController {
     @objc func onPrayerPressed() {
         if prayerVC == nil {
             prayerVC = PrayerVC()
-            decorate(customColor: .blue40)
+            decorate(customColor: .clear)
             if let prayerVC = prayerVC {
                 self.setNavigationBarHidden(true)
                 prayerVC.willDisappear = {
