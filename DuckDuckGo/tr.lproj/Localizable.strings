@@ -128,7 +128,7 @@
 "addWidget.settings.secondParagraph.%@" = "Artı %@ düğmesine dokunun.";
 
 /* No comment provided by engineer. */
-"addWidget.settings.title" = "Kahf Browser'yu bulun ve seçin. Ardından bir widget seçin.";
+"addWidget.settings.title" = "Kahf Browser'ı bulun ve seçin. Ardından bir widget seçin.";
 
 /* No comment provided by engineer. */
 "addWidget.title" = "Favori sitelerinize tek dokunuşla erişin.";
@@ -221,7 +221,7 @@
 "alert.unable-to-update-device-name-description" = "Cihaz adı güncellenemiyor.";
 
 /* Shown on authentication screen */
-"app.authentication.unlock" = "Kahf Browser'nun kilidini açın.";
+"app.authentication.unlock" = "Kahf Browser'ın kilidini açın.";
 
 /* Authentication Alert Sign In Button */
 "auth.alert.login.button" = "Oturum Aç";
@@ -296,7 +296,7 @@
 "autofill.import.passwords.get-browser-button" = "Masaüstü Tarayıcısını Edinin";
 
 /* Step 1 for instructions to import passwords */
-"autofill.import.passwords.instructions.step1" = "Kahf Browser'yu Mac veya Windows'ta açın";
+"autofill.import.passwords.instructions.step1" = "Kahf Browser'ı Mac veya Windows'ta açın";
 
 /* Step 2 for instructions to import passwords. This reads as 'Go to Settings > Passwords' */
 "autofill.import.passwords.instructions.step2" = "1$@ > %2$@ adresine gidin";
@@ -428,7 +428,7 @@
 "autofill.logins.empty-view.button.title" = "Şifreleri İçe Aktar";
 
 /* Subtitle for view displayed when no autofill passwords have been saved */
-"autofill.logins.empty-view.subtitle.first.paragraph" = "Kayıtlı parolaları başka bir tarayıcıdan Kahf Browser&apos;ya aktarabilirsiniz.";
+"autofill.logins.empty-view.subtitle.first.paragraph" = "Kayıtlı parolaları başka bir tarayıcıdan Kahf Browser'a aktarabilirsiniz.";
 
 /* Title for view displayed when autofill has no items */
 "autofill.logins.empty-view.title" = "Henüz şifre kaydedilmedi";
@@ -552,7 +552,7 @@
 "autofill.password-generation-prompt.subtitle" = "Şifreler cihazınızda güvenli bir şekilde saklanır.";
 
 /* Title for prompt to use suggested strong password for creating a login */
-"autofill.password-generation-prompt.title" = "Kahf Browser'nun oluşturduğu güçlü bir şifre kullanmak ister misiniz?";
+"autofill.password-generation-prompt.title" = "Kahf Browser'ın oluşturduğu güçlü bir şifre kullanmak ister misiniz?";
 
 /* Button title choosing to use the suggested generated password for creating a login */
 "autofill.password-generation-prompt.use-generated-password.cta" = "Güçlü Şifre Kullan";
@@ -612,13 +612,13 @@
 "autofill.settings.report.not.working.confirmation.button" = "Rapor gönder";
 
 /* Message for the confirmation prompt when reporting autofill is not working for a website */
-"autofill.settings.report.not.working.confirmation.message" = "Kahf Browser'ya gönderilen raporlar anonimdir ve kullanıcı adınızı, şifrenizi veya diğer kişisel olarak tanımlanabilir bilgilerinizi içermez.\n\nRapor yalnızca web sitesi URL'sini ve bazı otomatik doldurma ayarlarının durumunu içerir.";
+"autofill.settings.report.not.working.confirmation.message" = "Kahf Browser'a gönderilen raporlar anonimdir ve kullanıcı adınızı, şifrenizi veya diğer kişisel olarak tanımlanabilir bilgilerinizi içermez.\n\nRapor yalnızca web sitesi URL'sini ve bazı otomatik doldurma ayarlarının durumunu içerir.";
 
 /* Title for the confirmation prompt when reporting autofill is not working for a website */
 "autofill.settings.report.not.working.confirmation.title" = "%@ üzerinde otomatik doldurmanın çalışmadığı bildirilsin mi?";
 
 /* Message shown to user when they submit a report that autofill is not working for a website */
-"autofill.settings.report.not.working.sent.confirmation" = "Teşekkür ederiz! Raporunuz Kahf Browser'yu herkes için daha iyi hale getirmemize yardımcı olacak.";
+"autofill.settings.report.not.working.sent.confirmation" = "Teşekkür ederiz! Raporunuz Kahf Browser'ı herkes için daha iyi hale getirmemize yardımcı olacak.";
 
 /* Subtitle for the row to report that autofill is not working on a site in autofill settings */
 "autofill.settings.report.not.working.subtitle" = "Otomatik doldurmanın bu sitede çalışmadığını anonim olarak bildirin. Şifreler asla paylaşılmaz.";
@@ -753,7 +753,7 @@
 "broken.site.report.missing.description.alert.title" = "Açıklama Gerekli";
 
 /* Message that appears after submitting report */
-"broken.site.report.success.toast" = "Raporunuz Kahf Browser'yu herkes için daha iyi hale getirmeye yardımcı oluyor!";
+"broken.site.report.success.toast" = "Raporunuz Kahf Browser'ı herkes için daha iyi hale getirmeye yardımcı oluyor!";
 
 /* Button to answer question 'Did turning off protections resolve the issue on this site?' */
 "broken.site.report.toggle.alert.no.button" = "Hayır";
@@ -846,7 +846,7 @@
 "crash.report.dialog.hide.details" = "Gizle";
 
 /* Crash Report dialog message */
-"crash.report.dialog.message" = "Kilitlenme raporları Kahf Browser'nun sorunları teşhis etmesine ve ürünlerimizi geliştirmesine yardımcı olur. Kişisel olarak tanımlanabilir hiçbir bilgi içermezler.";
+"crash.report.dialog.message" = "Kilitlenme raporları Kahf Browser'ın sorunları teşhis etmesine ve ürünlerimizi geliştirmesine yardımcı olur. Kişisel olarak tanımlanabilir hiçbir bilgi içermezler.";
 
 /* Crash Report never send button title */
 "crash.report.dialog.never.send" = "Hiçbir Zaman Gönderme";
@@ -1398,16 +1398,16 @@
 "get.browser.share-link.title" = "Mac veya Windows için Kahf Browser Tarayıcısını edinin";
 
 /* Title for the get desktop browser feature */
-"get.browser.title" = "Mac veya Windows için Kahf Browser'yu edinin";
+"get.browser.title" = "Mac veya Windows için Kahf Browser'ı edinin";
 
 /* No comment provided by engineer. */
-"home.row.onboarding.header" = "Kahf Browser'yu ana ekranınıza ekleyin!";
+"home.row.onboarding.header" = "Kahf Browser'ı ana ekranınıza ekleyin!";
 
 /* No comment provided by engineer. */
-"home.row.reminder.message" = "Kolay erişim için Kahf Browser'yu dock'unuza ekleyin!";
+"home.row.reminder.message" = "Kolay erişim için Kahf Browser'ı dock'unuza ekleyin!";
 
 /* Home is this context is the bottom home row (dock) */
-"home.row.reminder.title" = "Kahf Browser'yu ana sayfaya ekleyin";
+"home.row.reminder.title" = "Kahf Browser'ı ana sayfaya ekleyin";
 
 /* This describes empty tab */
 "homeTab.searchAndFavorites" = "Adres ara veya gir";
@@ -1491,7 +1491,7 @@
 "keyCommandShowAllTabs" = "Tüm Sekmeleri Göster";
 
 /* Please preserve newline character */
-"launchscreenWelcomeMessage" = "Kahf Browser'ya\nHoş Geldiniz!";
+"launchscreenWelcomeMessage" = "Kahf Browser'a\nHoş Geldiniz!";
 
 /* No comment provided by engineer. */
 "LOREM IPSUM" = "LOREM IPSUM";
@@ -1515,7 +1515,7 @@
 "mac-waitlist.join-waitlist-screen.share-link" = "Bağlantıyı paylaş";
 
 /* Title for the Join Waitlist screen */
-"mac-waitlist.join-waitlist-screen.try-duckduckgo-for-mac" = "Mac için Kahf Browser'yu edinin!";
+"mac-waitlist.join-waitlist-screen.try-duckduckgo-for-mac" = "Mac için Kahf Browser'ı edinin!";
 
 /* Title for the macOS waitlist button redirecting to Windows waitlist */
 "mac-waitlist.join-waitlist-screen.windows-waitlist" = "Windows Sürümünü mü arıyorsunuz?";
@@ -1653,7 +1653,7 @@
 "network.protection.turn.on.notifications.button.title" = "Bildirimleri Açın";
 
 /* Footer text under the button to link to the iOS app settings and enable notifications app-wide. */
-"network.protection.turn.on.notifications.section.footer" = "Bağlantınız kesilirse veya VPN durumunuz değişirse Kahf Browser'nun sizi bilgilendirmesine izin verin.";
+"network.protection.turn.on.notifications.section.footer" = "Bağlantınız kesilirse veya VPN durumunuz değişirse Kahf Browser'ın sizi bilgilendirmesine izin verin.";
 
 /* Title of the About section in the VPN status screen */
 "network.protection.vpn.about" = "Hakkında";
@@ -1860,7 +1860,7 @@
 "onboarding.widgets.continueButton" = "Widget Ekle";
 
 /* No comment provided by engineer. */
-"onboarding.widgets.header" = "Kahf Browser'yu kullanmak artık daha kolay.";
+"onboarding.widgets.header" = "Kahf Browser'ı kullanmak artık daha kolay.";
 
 /* No comment provided by engineer. */
 "onboarding.widgets.skipButton" = "Belki Sonra";
@@ -1872,7 +1872,7 @@
 "onboardingDefaultBrowserMaybeLater" = "Belki Sonra";
 
 /* No comment provided by engineer. */
-"onboardingDefaultBrowserTitle" = "Kahf Browser'yu varsayılan tarayıcınız yapın.";
+"onboardingDefaultBrowserTitle" = "Kahf Browser'ı varsayılan tarayıcınız yapın.";
 
 /* No comment provided by engineer. */
 "onboardingSetAsDefaultBrowser" = "Varsayılan Tarayıcı olarak ayarla";
@@ -1884,7 +1884,7 @@
 "onboardingStartBrowsing" = "Gezinmeye Başla";
 
 /* No comment provided by engineer. */
-"onboardingWelcomeHeader" = "Kahf Browser'ya Hoş Geldiniz!";
+"onboardingWelcomeHeader" = "Kahf Browser'a Hoş Geldiniz!";
 
 /* ’Link’ is link on a website */
 "open.externally.failed" = "Bu bağlantıyı açmak için gereken uygulama bulunamıyor";
@@ -1994,7 +1994,7 @@
 "settings.about.section" = "Hakkında";
 
 /* about page */
-"settings.about.text" = "Kahf Browser, çevrim içi takip edilmeyi hiç istemeyen ve pratik bir çözüm arayan herkese hizmet veren, 2008 yılında kurulmuş bağımsız bir İnternet gizlilik şirketidir. Biz, çevrim içi ortamda ödün vermeden gerçek gizlilik koruması elde edebileceğinizin kanıtıyız.\n\nKahf Browser tarayıcı; yer imleri, sekmeler, parolalar ve daha fazlası gibi en çok kullandığınız tarayıcıdan beklediğiniz ama çoğu popüler tarayıcıda varsayılan olarak bulunmayan özelliklerin yanı sıra [sayısı ondan fazla güçlü gizlilik koruması](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) ile birlikte gelir. Son derece kapsamlı olan bu gizlilik koruma seti; aramadan gezinmeye, e-posta göndermeye ve daha fazlasına kadar çevrim içi etkinliklerinizde koruma sağlamaya yardımcı olur.\n\nGizlilik korumalarımız, teknik ayrıntılar hakkında hiçbir şey bilmenize veya karmaşık ayarlarla uğraşmanıza gerek kalmadan çalışır. Tüm cihazlarınızda tarayıcı olarak Kahf Browser'yu kullanarak aradığınız gizliliği sağlayabilirsiniz.\n\nAncak ayrıntılara bir göz atmak *istiyorsanız*, Kahf Browser gizlilik korumalarının nasıl çalıştığı hakkında daha fazla bilgiyi [yardım sayfalarımızda](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/) bulabilirsiniz.";
+"settings.about.text" = "Kahf Browser, çevrim içi takip edilmeyi hiç istemeyen ve pratik bir çözüm arayan herkese hizmet veren, 2008 yılında kurulmuş bağımsız bir İnternet gizlilik şirketidir. Biz, çevrim içi ortamda ödün vermeden gerçek gizlilik koruması elde edebileceğinizin kanıtıyız.\n\nKahf Browser tarayıcı; yer imleri, sekmeler, parolalar ve daha fazlası gibi en çok kullandığınız tarayıcıdan beklediğiniz ama çoğu popüler tarayıcıda varsayılan olarak bulunmayan özelliklerin yanı sıra [sayısı ondan fazla güçlü gizlilik koruması](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) ile birlikte gelir. Son derece kapsamlı olan bu gizlilik koruma seti; aramadan gezinmeye, e-posta göndermeye ve daha fazlasına kadar çevrim içi etkinliklerinizde koruma sağlamaya yardımcı olur.\n\nGizlilik korumalarımız, teknik ayrıntılar hakkında hiçbir şey bilmenize veya karmaşık ayarlarla uğraşmanıza gerek kalmadan çalışır. Tüm cihazlarınızda tarayıcı olarak Kahf Browser'ı kullanarak aradığınız gizliliği sağlayabilirsiniz.\n\nAncak ayrıntılara bir göz atmak *istiyorsanız*, Kahf Browser gizlilik korumalarının nasıl çalıştığı hakkında daha fazla bilgiyi [yardım sayfalarımızda](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/) bulabilirsiniz.";
 
 /* Settings screen accessibility section title */
 "settings.accessibility" = "Erişilebilirlik";
@@ -2107,7 +2107,7 @@
 "settings.keyboard" = "Klavye";
 
 /* Switch button label. */
-"settings.let.duckduckgo.manage.cookie.consent.popups" = "Kahf Browser'nun çerez izni açılır pencerelerini yönetmesine izin verin";
+"settings.let.duckduckgo.manage.cookie.consent.popups" = "Kahf Browser'ın çerez izni açılır pencerelerini yönetmesine izin verin";
 
 /* Settings screen cell text for passwords */
 "settings.logins" = "Şifreler";
@@ -2161,7 +2161,7 @@
 "settings.send.crash.reports" = "Kilitlenme Raporlarını Gönder";
 
 /* Explanation of Send Crash Reports settings option */
-"settings.send.crash.reports.description" = "Kilitlenme raporlarını Kahf Browser'ya otomatik olarak gönderin.";
+"settings.send.crash.reports.description" = "Kilitlenme raporlarını Kahf Browser'a otomatik olarak gönderin.";
 
 /* Settings screen cell text for setting address bar position */
 "settings.set.your.address.bar.position" = "Adres Çubuğu Konumunuzu Ayarlayın";
@@ -2548,7 +2548,7 @@
 "sync.warning.data.syncing.disabled" = "Üzgünüz, ancak Senkronizasyon ve Yedekleme şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.";
 
 /* Data syncing unavailable warning message */
-"sync.warning.data.syncing.disabled.upgrade.required" = "Üzgünüz, Senkronizasyon ve Yedekleme bu uygulama sürümünde artık kullanılamıyor. Devam etmek için lütfen Kahf Browser'yu en son sürüme güncelleyin.";
+"sync.warning.data.syncing.disabled.upgrade.required" = "Üzgünüz, Senkronizasyon ve Yedekleme bu uygulama sürümünde artık kullanılamıyor. Devam etmek için lütfen Kahf Browser'ı en son sürüme güncelleyin.";
 
 /* Accessibility label on remove button */
 "tab.close.home" = "Ana sekmeyi kapat";
@@ -2647,7 +2647,7 @@
 "vpn.access-revoked.alert.title" = "VPN disconnected due to expired subscription";
 
 /* Title for the VPN widget onboarding screen */
-"vpn.addWidget.settings.title" = "Kahf Browser'yu bulun ve seçin. Ardından VPN'e kaydırın ve Widget Ekle'yi seçin.";
+"vpn.addWidget.settings.title" = "Kahf Browser'ı bulun ve seçin. Ardından VPN'e kaydırın ve Widget Ekle'yi seçin.";
 
 /* Title for the Cancel button of the VPN feedback form */
 "vpn.feedback-form.button.cancel" = "Cancel";
@@ -2842,5 +2842,5 @@
 "windows-waitlist.title" = "Windows için Kahf Browser Uygulaması";
 
 /* Title for the Windows browser download link page */
-"windows-waitlist.waitlist-download-screen.try-duckduckgo-for-windows" = "Windows için Kahf Browser'yu edinin!";
+"windows-waitlist.waitlist-download-screen.try-duckduckgo-for-windows" = "Windows için Kahf Browser'ı edinin!";
 
