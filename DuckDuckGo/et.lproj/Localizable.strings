@@ -248,7 +248,7 @@
 "autoclear.on" = "Sees";
 
 /* Subtitle for search history items */
-"autocomplete.history.search.duckduckgo" = "Otsi DuckDuckGo'st";
+"autocomplete.history.search.duckduckgo" = "Otsi Kahf Browser'st";
 
 /* The message text shown in suggestions */
 "autocomplete.history.warning.message" = "Otsingusoovitused hõlmavad nüüd sinu hiljuti külastatud saite. Saad selle välja lülitada seadetes või tühjendada igal ajal nupu 🔥 Fire Button abil.";
@@ -612,7 +612,7 @@
 "autofill.settings.report.not.working.confirmation.button" = "Saada aruanne";
 
 /* Message for the confirmation prompt when reporting autofill is not working for a website */
-"autofill.settings.report.not.working.confirmation.message" = "DuckDuckGo'le saadetud aruanded on anonüümsed ega sisalda sinu kasutajanime, parooli ega muid isikuandmeid.\n\nAruanne sisaldab ainult veebisaidi url-i ja mõne automaatse täitmise sätete olekut.";
+"autofill.settings.report.not.working.confirmation.message" = "Kahf Browser'le saadetud aruanded on anonüümsed ega sisalda sinu kasutajanime, parooli ega muid isikuandmeid.\n\nAruanne sisaldab ainult veebisaidi url-i ja mõne automaatse täitmise sätete olekut.";
 
 /* Title for the confirmation prompt when reporting autofill is not working for a website */
 "autofill.settings.report.not.working.confirmation.title" = "Teata, et automaatne täitmine ei tööta saidil %@?";
@@ -1491,7 +1491,7 @@
 "keyCommandShowAllTabs" = "Kuva kõik vahekaardid";
 
 /* Please preserve newline character */
-"launchscreenWelcomeMessage" = "Tere tulemast\nDuckDuckGo kasutajaks!";
+"launchscreenWelcomeMessage" = "Tere tulemast\nKahf Browser kasutajaks!";
 
 /* No comment provided by engineer. */
 "LOREM IPSUM" = "LOREM IPSUM";
@@ -1653,7 +1653,7 @@
 "network.protection.turn.on.notifications.button.title" = "Lülita teavitused sisse";
 
 /* Footer text under the button to link to the iOS app settings and enable notifications app-wide. */
-"network.protection.turn.on.notifications.section.footer" = "Lubab DuckDuckGol sulle teada anda, kui sinu ühendus katkeb või VPN-i olek muutub.";
+"network.protection.turn.on.notifications.section.footer" = "Lubab Kahf Browserl sulle teada anda, kui sinu ühendus katkeb või VPN-i olek muutub.";
 
 /* Title of the About section in the VPN status screen */
 "network.protection.vpn.about" = "Teave";
@@ -1973,7 +1973,7 @@
 "prompt.custom.url.scheme.open" = "Avatud";
 
 /* No comment provided by engineer. */
-"prompt.custom.url.scheme.prompt" = "Kas soovite selle sisu vaatamiseks lahkuda DuckDuckGo'st?";
+"prompt.custom.url.scheme.prompt" = "Kas soovite selle sisu vaatamiseks lahkuda Kahf Browser'st?";
 
 /* Alert title */
 "prompt.custom.url.scheme.title" = "Avada teises rakenduses?";
@@ -1988,13 +1988,13 @@
 "section.title.favorites" = "Lemmikud";
 
 /* Settings cell for About DDG */
-"settings.about.ddg" = "DuckDuckGo'st";
+"settings.about.ddg" = "Kahf Browser'st";
 
 /* Settings section title for About Kahf Browser */
 "settings.about.section" = "Teave";
 
 /* about page */
-"settings.about.text" = "Kahf Browser on 2008. aastal asutatud sõltumatu internetiprivaatsuse ettevõte igaühele, kellel on kõrini varjatud jälgimisest internetis ja kes soovib lihtsat lahendust selle vältimiseks. Me oleme tõestuseks, et internetis on võimalik saada tõelist privaatsuskaitset ilma kompromisse tegemata.\n\nDuckDuckGo brauseril on kõik funktsioonid, mida sa brauserilt ootad, nagu järjehoidjad, vahekaardid, paroolid ja palju muud, lisaks sellele aga ka üle [tosina võimsa privaatsuskaitse funktsiooni](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/), mida enamik populaarsemaid brausereid vaikimisi ei paku. See ainulaadselt terviklik privaatsuskaitse aitab kaitsta sinu tegevust internetis alates otsingutest kuni sirvimiseni, meilide saatmiseni ja palju muuni.\n\nMeie privaatsuskaitse toimib ilma, et peaksid teadma midagi tehnilistest nüanssidest või tegelema keeruliste seadistustega. Ainus, mis sa pead tegema, on vahetada oma brauser kõigis seadmetes Kahf Browser vastu – ja vaikeprivaatsus ongi tagatud.\n\nKui aga *soovid* piiluda kapoti alla, leiate lisateavet Kahf Browser privaatsuskaitse tööpõhimõtete kohta meie [abilehtedelt](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
+"settings.about.text" = "Kahf Browser on 2008. aastal asutatud sõltumatu internetiprivaatsuse ettevõte igaühele, kellel on kõrini varjatud jälgimisest internetis ja kes soovib lihtsat lahendust selle vältimiseks. Me oleme tõestuseks, et internetis on võimalik saada tõelist privaatsuskaitset ilma kompromisse tegemata.\n\nKahf Browser brauseril on kõik funktsioonid, mida sa brauserilt ootad, nagu järjehoidjad, vahekaardid, paroolid ja palju muud, lisaks sellele aga ka üle [tosina võimsa privaatsuskaitse funktsiooni](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/), mida enamik populaarsemaid brausereid vaikimisi ei paku. See ainulaadselt terviklik privaatsuskaitse aitab kaitsta sinu tegevust internetis alates otsingutest kuni sirvimiseni, meilide saatmiseni ja palju muuni.\n\nMeie privaatsuskaitse toimib ilma, et peaksid teadma midagi tehnilistest nüanssidest või tegelema keeruliste seadistustega. Ainus, mis sa pead tegema, on vahetada oma brauser kõigis seadmetes Kahf Browser vastu – ja vaikeprivaatsus ongi tagatud.\n\nKui aga *soovid* piiluda kapoti alla, leiate lisateavet Kahf Browser privaatsuskaitse tööpõhimõtete kohta meie [abilehtedelt](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
 
 /* Settings screen accessibility section title */
 "settings.accessibility" = "Hõlpsus";
@@ -2107,7 +2107,7 @@
 "settings.keyboard" = "Klaviatuur";
 
 /* Switch button label. */
-"settings.let.duckduckgo.manage.cookie.consent.popups" = "Luba DuckDuckGo'l hallata küpsiste nõusoleku hüpikaknaid";
+"settings.let.duckduckgo.manage.cookie.consent.popups" = "Luba Kahf Browser'l hallata küpsiste nõusoleku hüpikaknaid";
 
 /* Settings screen cell text for passwords */
 "settings.logins" = "Paroolid";
@@ -2119,7 +2119,7 @@
 "settings.manage.account" = "Halda kontot";
 
 /* Settings title for the 'More' section */
-"settings.more" = "Veel DuckDuckGo'lt";
+"settings.more" = "Veel Kahf Browser'lt";
 
 /* Button navigating to other settings related to search */
 "settings.more.search.settings" = "Rohkem otsinguseadeid";
@@ -2251,7 +2251,7 @@
 "site.not.working.subtitle" = "See aitab meil brauserit täiustada.";
 
 /* Prompt asking user to send report to us if we suspect site may be broken */
-"site.not.working.title" = "Kas sait ei tööta? Anna DuckDuckGole teada.";
+"site.not.working.title" = "Kas sait ei tööta? Anna Kahf Browserle teada.";
 
 /* Button that triggers flow to report broken site */
 "site.not.working.website.is.broken" = "Veebisait ei toimi";
@@ -2566,7 +2566,7 @@
 "tab.switcher.accessibility.label" = "Vahekaardi vahetaja";
 
 /* Description text for the text size adjustment setting */
-"textSize.description" = "Valige soovitud teksti suurus. Veebisaidid, mida DuckDuckGos vaatate, kohanduvad sellega.";
+"textSize.description" = "Valige soovitud teksti suurus. Veebisaidid, mida Kahf Browsers vaatate, kohanduvad sellega.";
 
 /* Replacement string is a current percent value e.g. '120%' */
 "textSize.footer" = "Teksti suurus - %@";
@@ -2608,7 +2608,7 @@
 "voiceover.suggestion.type.bookmark" = "Järjehoidja";
 
 /* Search for suggestion action accessibility title */
-"voiceover.suggestion.type.search" = "Otsing DuckDuckGo's";
+"voiceover.suggestion.type.search" = "Otsing Kahf Browser's";
 
 /* Open suggested website action accessibility title */
 "voiceover.suggestion.type.website" = "Ava veebisait";
@@ -2629,10 +2629,10 @@
 "voiceSearch.cancel" = "Tühista";
 
 /* Voice-search footer note with on-device privacy warning */
-"voiceSearch.footer.note" = "Lisa aadressiribale privaatse häälotsingu valik. Heli ei salvestata ega jagata kellegagi, sealhulgas DuckDuckGoga.";
+"voiceSearch.footer.note" = "Lisa aadressiribale privaatse häälotsingu valik. Heli ei salvestata ega jagata kellegagi, sealhulgas Kahf Browserga.";
 
 /* Voice-search footer note with on-device privacy warning */
-"voiceSearch.footer.note.old" = "Heli töödeldakse seadmes. Seda ei salvestata ega jagata kellegagi, sealhulgas DuckDuckGoga.";
+"voiceSearch.footer.note.old" = "Heli töödeldakse seadmes. Seda ei salvestata ega jagata kellegagi, sealhulgas Kahf Browserga.";
 
 /* Cancel action for the alert when the subscription expires */
 "vpn.access-revoked.alert.action.cancel" = "Dismiss";
@@ -2689,7 +2689,7 @@
 "vpn.feedback-form.category.unable-to-install" = "Unable to install VPN";
 
 /* Title for the feedback sent view description of the VPN feedback form */
-"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nDuckDuckGo VPN.";
+"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nKahf Browser VPN.";
 
 /* Title for the feedback sending error text of the VPN feedback form */
 "vpn.feedback-form.sending-confirmation.error" = "We couldn't send your feedback right now, please try again.";

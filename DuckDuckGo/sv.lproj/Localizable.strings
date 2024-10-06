@@ -1491,7 +1491,7 @@
 "keyCommandShowAllTabs" = "Visa alla flikar";
 
 /* Please preserve newline character */
-"launchscreenWelcomeMessage" = "Välkommen till\nDuckDuckGo!";
+"launchscreenWelcomeMessage" = "Välkommen till\nKahf Browser!";
 
 /* No comment provided by engineer. */
 "LOREM IPSUM" = "LOREM IPSUM";
@@ -1958,7 +1958,7 @@
 "Privacy Protections" = "Integritetsskydd";
 
 /* Privacy Icon accessibility title */
-"privacy.icon.dax" = "DuckDuckGos logotyp";
+"privacy.icon.dax" = "Kahf Browsers logotyp";
 
 /* Privacy Icon accessibility hint */
 "privacy.icon.hint" = "Tryck för att öppna sekretesspanelen";
@@ -1994,7 +1994,7 @@
 "settings.about.section" = "Om";
 
 /* about page */
-"settings.about.text" = "Kahf Browser är det oberoende integritetsskyddsföretaget som grundades 2008 för alla som är trötta på att bli spårade online och vill ha en enkel lösning. Vi är beviset på att man kan få riktigt integritetsskydd på nätet utan att kompromissa.\n\nDuckDuckGo-webbläsaren har de funktioner du förväntar dig av en vanlig webbläsare, som bokmärken, flikar, lösenord och mer, plus över [ett dussin kraftfulla integritetsskydd](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) som inte ingår som standard i de flesta populära webbläsare. Den här omfattande uppsättningen av integritetsskydd hjälper dig att skydda dina onlineaktiviteter, från sökning och surfning till e-post och mycket mer.\n\nVårt integritetsskydd fungerar utan att du behöver känna till de tekniska detaljerna eller ta itu med komplicerade inställningar. Det enda du behöver göra är att byta webbläsare till Kahf Browser på alla dina enheter för att få integritet som standard.\n\nMen om du * verkligen* vill ta en titt under huven hittar du mer information om hur DuckDuckGos integritetsskydd fungerar på våra [hjälpsidor](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
+"settings.about.text" = "Kahf Browser är det oberoende integritetsskyddsföretaget som grundades 2008 för alla som är trötta på att bli spårade online och vill ha en enkel lösning. Vi är beviset på att man kan få riktigt integritetsskydd på nätet utan att kompromissa.\n\nKahf Browser-webbläsaren har de funktioner du förväntar dig av en vanlig webbläsare, som bokmärken, flikar, lösenord och mer, plus över [ett dussin kraftfulla integritetsskydd](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) som inte ingår som standard i de flesta populära webbläsare. Den här omfattande uppsättningen av integritetsskydd hjälper dig att skydda dina onlineaktiviteter, från sökning och surfning till e-post och mycket mer.\n\nVårt integritetsskydd fungerar utan att du behöver känna till de tekniska detaljerna eller ta itu med komplicerade inställningar. Det enda du behöver göra är att byta webbläsare till Kahf Browser på alla dina enheter för att få integritet som standard.\n\nMen om du * verkligen* vill ta en titt under huven hittar du mer information om hur Kahf Browsers integritetsskydd fungerar på våra [hjälpsidor](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
 
 /* Settings screen accessibility section title */
 "settings.accessibility" = "Tillgänglighet";
@@ -2689,7 +2689,7 @@
 "vpn.feedback-form.category.unable-to-install" = "Unable to install VPN";
 
 /* Title for the feedback sent view description of the VPN feedback form */
-"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nDuckDuckGo VPN.";
+"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nKahf Browser VPN.";
 
 /* Title for the feedback sending error text of the VPN feedback form */
 "vpn.feedback-form.sending-confirmation.error" = "We couldn't send your feedback right now, please try again.";

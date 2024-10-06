@@ -1491,7 +1491,7 @@
 "keyCommandShowAllTabs" = "Rādīt visas cilnes";
 
 /* Please preserve newline character */
-"launchscreenWelcomeMessage" = "Laipni lūdzam\nDuckDuckGo!";
+"launchscreenWelcomeMessage" = "Laipni lūdzam\nKahf Browser!";
 
 /* No comment provided by engineer. */
 "LOREM IPSUM" = "LOREM IPSUM";
@@ -1994,7 +1994,7 @@
 "settings.about.section" = "Par";
 
 /* about page */
-"settings.about.text" = "Kahf Browser ir neatkarīgs 2008. gadā dibināts interneta privātuma uzņēmums ikvienam, kam ir apnikusi izsekošana tiešsaistē un kas vēlas vienkāršu risinājumu. Mēs esam pierādījums tam, ka tiešsaistē var iegūt reālu privātuma aizsardzību bez kompromisiem.\n\nDuckDuckGo pārlūks sniedz visas iespējas, ko gaidi no pārlūkprogrammas, piemēram, grāmatzīmes, cilnes, paroles un citas, kā arī vairāk nekā [duci spēcīgu privātuma aizsardzības funkciju](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) pēc noklusējuma netiek piedāvāts lielākajā daļā populārāko pārlūkprogrammu. Šis unikāli visaptverošais privātuma aizsardzības komplekts palīdz aizsargāt tavas darbības tiešsaistē, sākot no meklēšanas līdz pārlūkošanai, e-pasta sūtīšanai u.c.\n\nMūsu privātuma aizsardzība darbojas vienmēr – tev nav jāpārzina sarežģīti tehniskie aspekti vai iestatījumi. Tev vienkārši jālieto Kahf Browser pārlūks visās savās ierīcēs, un privātums būs tavs standarta risinājums.\n\nBet, ja vēlies paskatīties, kas lācītim vēderā, vairāk informācijas par to, kā darbojas Kahf Browser privātuma aizsardzība, vari atrast mūsu [palīdzības lapās](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
+"settings.about.text" = "Kahf Browser ir neatkarīgs 2008. gadā dibināts interneta privātuma uzņēmums ikvienam, kam ir apnikusi izsekošana tiešsaistē un kas vēlas vienkāršu risinājumu. Mēs esam pierādījums tam, ka tiešsaistē var iegūt reālu privātuma aizsardzību bez kompromisiem.\n\nKahf Browser pārlūks sniedz visas iespējas, ko gaidi no pārlūkprogrammas, piemēram, grāmatzīmes, cilnes, paroles un citas, kā arī vairāk nekā [duci spēcīgu privātuma aizsardzības funkciju](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) pēc noklusējuma netiek piedāvāts lielākajā daļā populārāko pārlūkprogrammu. Šis unikāli visaptverošais privātuma aizsardzības komplekts palīdz aizsargāt tavas darbības tiešsaistē, sākot no meklēšanas līdz pārlūkošanai, e-pasta sūtīšanai u.c.\n\nMūsu privātuma aizsardzība darbojas vienmēr – tev nav jāpārzina sarežģīti tehniskie aspekti vai iestatījumi. Tev vienkārši jālieto Kahf Browser pārlūks visās savās ierīcēs, un privātums būs tavs standarta risinājums.\n\nBet, ja vēlies paskatīties, kas lācītim vēderā, vairāk informācijas par to, kā darbojas Kahf Browser privātuma aizsardzība, vari atrast mūsu [palīdzības lapās](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
 
 /* Settings screen accessibility section title */
 "settings.accessibility" = "Pieejamība";
@@ -2689,7 +2689,7 @@
 "vpn.feedback-form.category.unable-to-install" = "Unable to install VPN";
 
 /* Title for the feedback sent view description of the VPN feedback form */
-"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nDuckDuckGo VPN.";
+"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nKahf Browser VPN.";
 
 /* Title for the feedback sending error text of the VPN feedback form */
 "vpn.feedback-form.sending-confirmation.error" = "We couldn't send your feedback right now, please try again.";

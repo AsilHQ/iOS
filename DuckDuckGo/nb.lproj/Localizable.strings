@@ -597,7 +597,7 @@
 "autofill.save-login.new-user.title" = "Vil du lagre dette passordet?";
 
 /* Message displayed on modal asking for the user to save the login for the first time */
-"autofill.save-login.security.message" = "Lagre passordet ditt trygt på enheten med DuckDuckGos passord og autofyll.";
+"autofill.save-login.security.message" = "Lagre passordet ditt trygt på enheten med Kahf Browsers passord og autofyll.";
 
 /* Title displayed on modal asking for the user to save the login */
 "autofill.save-login.title" = "Vil du lagre passordet?";
@@ -1491,7 +1491,7 @@
 "keyCommandShowAllTabs" = "Vis alle faner";
 
 /* Please preserve newline character */
-"launchscreenWelcomeMessage" = "Velkommen til\nDuckDuckGo!";
+"launchscreenWelcomeMessage" = "Velkommen til\nKahf Browser!";
 
 /* No comment provided by engineer. */
 "LOREM IPSUM" = "LOREM IPSUM";
@@ -1994,7 +1994,7 @@
 "settings.about.section" = "Om";
 
 /* about page */
-"settings.about.text" = "Kahf Browser er et uavhengig personvernselskap som ble grunnlagt i 2008, for alle som er lei av å bli sporet på nettet og vil ha en enkel løsning. Vi er beviset på at ekte personvern er mulig på nettet uten å fire på kravene.\n\nDuckDuckGo-nettleseren har funksjoner du kan forvente i en vanlig nettleser, som bokmerker, faner, passord med mer, pluss over [en rekke kraftige personvernfunksjoner](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) ikke tilbys i de fleste populære nettlesere som standard. Disse usedvanlig omfattende personvernfunksjonene bidrar til å beskytte nettaktivitetene dine, fra søk til surfing, e-poster med mer.\n\nPersonvernfunksjonene fungerer uten at du behøver å kunne noe om de tekniske detaljene eller forholde deg til kompliserte innstillinger. Det eneste du behøver å gjøre, er å bytte nettleser til Kahf Browser på alle enhetene dine, så får du personvern som standard.\n\nMen hvis du *vil* ta en titt under panseret, kan du finne mer informasjon om hvordan DuckDuckGos personvern fungerer på våre [hjelpesider](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
+"settings.about.text" = "Kahf Browser er et uavhengig personvernselskap som ble grunnlagt i 2008, for alle som er lei av å bli sporet på nettet og vil ha en enkel løsning. Vi er beviset på at ekte personvern er mulig på nettet uten å fire på kravene.\n\nKahf Browser-nettleseren har funksjoner du kan forvente i en vanlig nettleser, som bokmerker, faner, passord med mer, pluss over [en rekke kraftige personvernfunksjoner](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/) ikke tilbys i de fleste populære nettlesere som standard. Disse usedvanlig omfattende personvernfunksjonene bidrar til å beskytte nettaktivitetene dine, fra søk til surfing, e-poster med mer.\n\nPersonvernfunksjonene fungerer uten at du behøver å kunne noe om de tekniske detaljene eller forholde deg til kompliserte innstillinger. Det eneste du behøver å gjøre, er å bytte nettleser til Kahf Browser på alle enhetene dine, så får du personvern som standard.\n\nMen hvis du *vil* ta en titt under panseret, kan du finne mer informasjon om hvordan Kahf Browsers personvern fungerer på våre [hjelpesider](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
 
 /* Settings screen accessibility section title */
 "settings.accessibility" = "Tilgjengelighet";
@@ -2689,7 +2689,7 @@
 "vpn.feedback-form.category.unable-to-install" = "Unable to install VPN";
 
 /* Title for the feedback sent view description of the VPN feedback form */
-"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nDuckDuckGo VPN.";
+"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nKahf Browser VPN.";
 
 /* Title for the feedback sending error text of the VPN feedback form */
 "vpn.feedback-form.sending-confirmation.error" = "We couldn't send your feedback right now, please try again.";

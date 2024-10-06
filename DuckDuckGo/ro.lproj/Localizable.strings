@@ -1491,7 +1491,7 @@
 "keyCommandShowAllTabs" = "Afișează toate filele";
 
 /* Please preserve newline character */
-"launchscreenWelcomeMessage" = "Bine ai venit la\nDuckDuckGo!";
+"launchscreenWelcomeMessage" = "Bine ai venit la\nKahf Browser!";
 
 /* No comment provided by engineer. */
 "LOREM IPSUM" = "LOREM IPSUM";
@@ -2689,7 +2689,7 @@
 "vpn.feedback-form.category.unable-to-install" = "Unable to install VPN";
 
 /* Title for the feedback sent view description of the VPN feedback form */
-"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nDuckDuckGo VPN.";
+"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nKahf Browser VPN.";
 
 /* Title for the feedback sending error text of the VPN feedback form */
 "vpn.feedback-form.sending-confirmation.error" = "We couldn't send your feedback right now, please try again.";

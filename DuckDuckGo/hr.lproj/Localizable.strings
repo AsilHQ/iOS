@@ -552,7 +552,7 @@
 "autofill.password-generation-prompt.subtitle" = "Lozinke su sigurno pohranjene na tvom uređaju.";
 
 /* Title for prompt to use suggested strong password for creating a login */
-"autofill.password-generation-prompt.title" = "Koristiti jaku lozinku od DuckDuckGoa?";
+"autofill.password-generation-prompt.title" = "Koristiti jaku lozinku od Kahf Browsera?";
 
 /* Button title choosing to use the suggested generated password for creating a login */
 "autofill.password-generation-prompt.use-generated-password.cta" = "Koristi jaku lozinku";
@@ -846,7 +846,7 @@
 "crash.report.dialog.hide.details" = "Sakrij";
 
 /* Crash Report dialog message */
-"crash.report.dialog.message" = "Izvješća o padovima pomažu DuckDuckGou u dijagnosticiranju problema i poboljšanju naših proizvoda. Oni ne sadrže nikakve osobne podatke koji bi omogućilitvoju  identifikaciju.";
+"crash.report.dialog.message" = "Izvješća o padovima pomažu Kahf Browseru u dijagnosticiranju problema i poboljšanju naših proizvoda. Oni ne sadrže nikakve osobne podatke koji bi omogućilitvoju  identifikaciju.";
 
 /* Crash Report never send button title */
 "crash.report.dialog.never.send" = "Nikada ne šalji";
@@ -1041,7 +1041,7 @@
 "duckPlayer.never.label" = "Nikada";
 
 /* Body text for the modal feature explanation */
-"duckplayer.presentation.modal.body" = "Duck Player omogućuje ti gledanje YouTubea bez ciljanih oglasa, što ti pruža doživljaj nalik kinu u DuckDuckGou, a ono što gledaš neće utjecati na tvoje preporuke.";
+"duckplayer.presentation.modal.body" = "Duck Player omogućuje ti gledanje YouTubea bez ciljanih oglasa, što ti pruža doživljaj nalik kinu u Kahf Browseru, a ono što gledaš neće utjecati na tvoje preporuke.";
 
 /* Button that will dismiss the modal */
 "duckplayer.presentation.modal.dismiss-button" = "Shvaćam!";
@@ -1491,7 +1491,7 @@
 "keyCommandShowAllTabs" = "Prikaži sve kartice";
 
 /* Please preserve newline character */
-"launchscreenWelcomeMessage" = "Dobro došao/la u\nDuckDuckGo!";
+"launchscreenWelcomeMessage" = "Dobro došao/la u\nKahf Browser!";
 
 /* No comment provided by engineer. */
 "LOREM IPSUM" = "LOREM IPSUM";
@@ -1653,7 +1653,7 @@
 "network.protection.turn.on.notifications.button.title" = "Uključi obavijesti";
 
 /* Footer text under the button to link to the iOS app settings and enable notifications app-wide. */
-"network.protection.turn.on.notifications.section.footer" = "Dopusti DuckDuckGou da te obavijesti ako se tvoja veza prekine ili se status VPN-a promijeni.";
+"network.protection.turn.on.notifications.section.footer" = "Dopusti Kahf Browseru da te obavijesti ako se tvoja veza prekine ili se status VPN-a promijeni.";
 
 /* Title of the About section in the VPN status screen */
 "network.protection.vpn.about" = "O nama";
@@ -1988,7 +1988,7 @@
 "section.title.favorites" = "Omiljeno";
 
 /* Settings cell for About DDG */
-"settings.about.ddg" = "O DuckDuckGou";
+"settings.about.ddg" = "O Kahf Browseru";
 
 /* Settings section title for About Kahf Browser */
 "settings.about.section" = "O nama";
@@ -2119,7 +2119,7 @@
 "settings.manage.account" = "Upravljanje računom";
 
 /* Settings title for the 'More' section */
-"settings.more" = "Više od DuckDuckGoa";
+"settings.more" = "Više od Kahf Browsera";
 
 /* Button navigating to other settings related to search */
 "settings.more.search.settings" = "Dodatne postavke pretraživanja";
@@ -2161,7 +2161,7 @@
 "settings.send.crash.reports" = "Šalji izvješća o padu";
 
 /* Explanation of Send Crash Reports settings option */
-"settings.send.crash.reports.description" = "Automatski šalji izvješća o padu DuckDuckGou.";
+"settings.send.crash.reports.description" = "Automatski šalji izvješća o padu Kahf Browseru.";
 
 /* Settings screen cell text for setting address bar position */
 "settings.set.your.address.bar.position" = "Postavi položaj adresne trake";
@@ -2251,7 +2251,7 @@
 "site.not.working.subtitle" = "Ovo nam pomaže da poboljšamo preglednik.";
 
 /* Prompt asking user to send report to us if we suspect site may be broken */
-"site.not.working.title" = "Web-mjesto ne funkcionira? Javi DuckDuckGou.";
+"site.not.working.title" = "Web-mjesto ne funkcionira? Javi Kahf Browseru.";
 
 /* Button that triggers flow to report broken site */
 "site.not.working.website.is.broken" = "Web-mjesto nije ispravno";
@@ -2566,7 +2566,7 @@
 "tab.switcher.accessibility.label" = "Mjenjač kartica";
 
 /* Description text for the text size adjustment setting */
-"textSize.description" = "Odaberite željenu veličinu teksta. Web stranice koje pregledavate u DuckDuckGou prilagodit će se ovoj postavci.";
+"textSize.description" = "Odaberite željenu veličinu teksta. Web stranice koje pregledavate u Kahf Browseru prilagodit će se ovoj postavci.";
 
 /* Replacement string is a current percent value e.g. '120%' */
 "textSize.footer" = "Veličina teksta: %@";
@@ -2608,7 +2608,7 @@
 "voiceover.suggestion.type.bookmark" = "Knjižna oznaka";
 
 /* Search for suggestion action accessibility title */
-"voiceover.suggestion.type.search" = "Pretraži na DuckDuckGou";
+"voiceover.suggestion.type.search" = "Pretraži na Kahf Browseru";
 
 /* Open suggested website action accessibility title */
 "voiceover.suggestion.type.website" = "Otvori web lokaciju";
@@ -2689,7 +2689,7 @@
 "vpn.feedback-form.category.unable-to-install" = "Unable to install VPN";
 
 /* Title for the feedback sent view description of the VPN feedback form */
-"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nDuckDuckGo VPN.";
+"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nKahf Browser VPN.";
 
 /* Title for the feedback sending error text of the VPN feedback form */
 "vpn.feedback-form.sending-confirmation.error" = "We couldn't send your feedback right now, please try again.";

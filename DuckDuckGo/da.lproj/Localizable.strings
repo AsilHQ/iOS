@@ -1491,7 +1491,7 @@
 "keyCommandShowAllTabs" = "Vis alle faner";
 
 /* Please preserve newline character */
-"launchscreenWelcomeMessage" = "Velkommen til\nDuckDuckGo!";
+"launchscreenWelcomeMessage" = "Velkommen til\nKahf Browser!";
 
 /* No comment provided by engineer. */
 "LOREM IPSUM" = "LOREM IPSUM";
@@ -1994,7 +1994,7 @@
 "settings.about.section" = "Omkring";
 
 /* about page */
-"settings.about.text" = "Kahf Browser er en uafhængig virksomhed, grundlagt i 2008, der beskytter privatlivet på internettet for alle, der er trætte af at blive sporet online og ønsker en nem løsning. Vi er bevis på, at du kan få ægte beskyttelse af privatlivet online uden at gå på kompromis.\n\nDuckDuckGo-browseren kommer med de funktioner, du forventer af en standardbrowser, som bogmærker, faner, adgangskoder og meget mere, plus over [et dusin kraftfulde beskyttelser af privatlivet](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/), som ikke tilbydes i de fleste populære browsere som standard. Dette unikke og omfattende sæt af beskyttelsesfunktioner hjælper med at beskytte dine onlineaktiviteter, fra søgning til browsing, e-mailing og meget mere.\n\nVores beskyttelse af privatlivet fungerer, uden at du behøver at vide noget om de tekniske detaljer eller håndtere komplicerede indstillinger. Det eneste, du skal gøre, er at skifte din browser til Kahf Browser på alle dine enheder, så får du privatliv som standard.\n\nMen hvis du gerne vil have et kig under motorhjelmen, kan du finde flere oplysninger om, hvordan DuckDuckGos beskyttelse af privatlivet fungerer, på vores [hjælpesider](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
+"settings.about.text" = "Kahf Browser er en uafhængig virksomhed, grundlagt i 2008, der beskytter privatlivet på internettet for alle, der er trætte af at blive sporet online og ønsker en nem løsning. Vi er bevis på, at du kan få ægte beskyttelse af privatlivet online uden at gå på kompromis.\n\nKahf Browser-browseren kommer med de funktioner, du forventer af en standardbrowser, som bogmærker, faner, adgangskoder og meget mere, plus over [et dusin kraftfulde beskyttelser af privatlivet](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/privacy/web-tracking-protections/), som ikke tilbydes i de fleste populære browsere som standard. Dette unikke og omfattende sæt af beskyttelsesfunktioner hjælper med at beskytte dine onlineaktiviteter, fra søgning til browsing, e-mailing og meget mere.\n\nVores beskyttelse af privatlivet fungerer, uden at du behøver at vide noget om de tekniske detaljer eller håndtere komplicerede indstillinger. Det eneste, du skal gøre, er at skifte din browser til Kahf Browser på alle dine enheder, så får du privatliv som standard.\n\nMen hvis du gerne vil have et kig under motorhjelmen, kan du finde flere oplysninger om, hvordan Kahf Browsers beskyttelse af privatlivet fungerer, på vores [hjælpesider](ddgQuickLink://duckduckgo.com/duckduckgo-help-pages/).";
 
 /* Settings screen accessibility section title */
 "settings.accessibility" = "Tilgængelighed";
@@ -2689,7 +2689,7 @@
 "vpn.feedback-form.category.unable-to-install" = "Unable to install VPN";
 
 /* Title for the feedback sent view description of the VPN feedback form */
-"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nDuckDuckGo VPN.";
+"vpn.feedback-form.sending-confirmation.description" = "Your feedback will help us improve the\nKahf Browser VPN.";
 
 /* Title for the feedback sending error text of the VPN feedback form */
 "vpn.feedback-form.sending-confirmation.error" = "We couldn't send your feedback right now, please try again.";
