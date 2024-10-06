@@ -63,10 +63,10 @@ enum Day: CaseIterable {
 }
 
 @objc
-class PrayerVC: UITableViewController {
+class PrayerVC: UIViewController {
 
     private var contents: [PrayerContent] = []
-    private var alarmNotificationOptions:  AlarmNotificationOptionsVC?
+    private var alarmNotificationOptions: AlarmNotificationOptionsVC?
     var locationManager = CLLocationManager()
     var coordinate: CLLocationCoordinate2D?
     var day: Day = .today
@@ -74,13 +74,35 @@ class PrayerVC: UITableViewController {
     private let scheduler: NotificationSchedulerDelegate = NotificationScheduler()
     var alarms = Store.shared.alarms
     var willDisappear: (() -> Void)?
+    
+    lazy private var backgroundImageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage(named: "KahfPrayerVCBackground")
+        imageView.contentMode = .scaleToFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
+        return imageView
+    }()
+    
+    lazy private var customTableView: UITableView = {
+        let newTableView = UITableView(frame: .zero)
+        newTableView.separatorStyle = .none
+        newTableView.backgroundColor = .clear
+        newTableView.rowHeight = UITableView.automaticDimension
+        newTableView.contentInset = UIEdgeInsets(top: 22, left: 0, bottom: 0, right: 0)
+        newTableView.showsVerticalScrollIndicator = false
+        newTableView.delegate = self
+        newTableView.dataSource = self
+        newTableView.isUserInteractionEnabled = true
+        return newTableView
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.contentInset = UIEdgeInsets(top: 22, left: 0, bottom: 0, right: 0)
-        tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .blue40
+        setupTransparentNavigationBar()
+        applyBackgroundImage()
+        addTableView()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         checkAndRequestLocationAuthorization()
@@ -101,6 +123,32 @@ class PrayerVC: UITableViewController {
         if alarmNotificationOptions == nil {
             willDisappear?()
         }
+    }
+    
+    private func applyBackgroundImage() {
+        view.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(-100)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+    private func addTableView() {
+        backgroundImageView.addSubview(customTableView)
+        customTableView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+
+    private func setupTransparentNavigationBar() {
+        guard let navBar = navigationController?.navigationBar else { return }
+
+        // Make the navigation bar background transparent
+        navBar.setBackgroundImage(UIImage(), for: .default)
+        navBar.shadowImage = UIImage()
+        navBar.isTranslucent = true
+        navBar.backgroundColor = .clear
     }
     
 //    func settingsContextMenu() -> ContextMenu {
@@ -148,7 +196,7 @@ class PrayerVC: UITableViewController {
                     self.contents.append(.times(name: "Asr", time: times.asr))
                     self.contents.append(.times(name: "Magrib", time: times.maghrib))
                     self.contents.append(.times(name: "Isha", time: times.isha))
-                    self.tableView.reloadData()
+                    self.customTableView.reloadData()
                 }
             })
         }
@@ -163,60 +211,6 @@ class PrayerVC: UITableViewController {
                     alarms.remove(alarm.id)
                 }
             }
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contents.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let content = contents[indexPath.row]
-
-        switch content {
-        case .runningPrayer(let current, let next, let nextPrayerTime):
-        return RunningPrayerCell(reuseIdentifier: nil, current: PrayerManager.shared.getRawValue(prayer: current), next: next, nextPrayerTime: nextPrayerTime)
-        case .calendar(let day, let city):
-            let cell = CalendarCell(reuseIdentifier: nil, day: day, city: city)
-            cell.leftButtonAction = { self.goToPrevDay() }
-            cell.rightButtonAction = { self.goToNextDay() }
-            return cell
-        case .times(let name, let time):
-            let buttonAction = {
-                self.alarmNotificationOptions = AlarmNotificationOptionsVC()
-                if let vc = self.alarmNotificationOptions {
-                    vc.willDisappear = {
-                        self.alarmNotificationOptions = nil
-                    }
-                    if let alarm = self.alarms.getAlarm(ByUUIDStr: "alarm_set_at_\(time.timeIntervalSince1970)") {
-                        if alarm.mediaLabel.isEmpty {
-                            vc.selectedMethod = .notification
-                        } else {
-                            vc.selectedMethod = .adhan
-                        }
-                    } else {
-                        vc.selectedMethod = .silent
-                    }
-                    vc .changeNotificationOption = { method in
-                        self.editNotification(method: method, time: time, name: name)
-                        vc.dismiss(animated: true)
-                    }
-                    self.presentPanModal(vc)
-                }
-            }
-            let cell = TimeCell(reuseIdentifier: nil, name: name, time: time, alarm: self.alarms.getAlarm(ByUUIDStr: "alarm_set_at_\(time.timeIntervalSince1970)"))
-            cell.alarmButtonAction = buttonAction
-            return cell
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let content = contents[indexPath.row]
-
-        switch content {
-        case .runningPrayer: return 146
-        case .calendar:  return 119
-        case .times: return 70
         }
     }
     
@@ -265,7 +259,7 @@ class PrayerVC: UITableViewController {
                 self.alarms.add(alarm)
             }
         }
-        self.tableView.reloadData()
+        self.customTableView.reloadData()
     }
     
     @objc func handleChangeNotification(_ notification: Notification) {
@@ -295,10 +289,66 @@ class PrayerVC: UITableViewController {
                 } else {
                     scheduler.cancelNotification(ByUUIDStr: id)
                 }
-            default: tableView.reloadData()
+            default: customTableView.reloadData()
             }
         } else {
-            tableView.reloadData()
+            customTableView.reloadData()
+        }
+    }
+}
+
+extension PrayerVC : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contents.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let content = contents[indexPath.row]
+
+        switch content {
+        case .runningPrayer(let current, let next, let nextPrayerTime):
+        return RunningPrayerCell(reuseIdentifier: nil, current: PrayerManager.shared.getRawValue(prayer: current), next: next, nextPrayerTime: nextPrayerTime)
+        case .calendar(let day, let city):
+            let cell = CalendarCell(reuseIdentifier: nil, day: day, city: city)
+            cell.leftButtonAction = { self.goToPrevDay() }
+            cell.rightButtonAction = { self.goToNextDay() }
+            return cell
+        case .times(let name, let time):
+            let buttonAction = {
+                self.alarmNotificationOptions = AlarmNotificationOptionsVC()
+                if let vc = self.alarmNotificationOptions {
+                    vc.willDisappear = {
+                        self.alarmNotificationOptions = nil
+                    }
+                    if let alarm = self.alarms.getAlarm(ByUUIDStr: "alarm_set_at_\(time.timeIntervalSince1970)") {
+                        if alarm.mediaLabel.isEmpty {
+                            vc.selectedMethod = .notification
+                        } else {
+                            vc.selectedMethod = .adhan
+                        }
+                    } else {
+                        vc.selectedMethod = .silent
+                    }
+                    vc .changeNotificationOption = { method in
+                        self.editNotification(method: method, time: time, name: name)
+                        vc.dismiss(animated: true)
+                    }
+                    self.presentPanModal(vc)
+                }
+            }
+            let cell = TimeCell(reuseIdentifier: nil, name: name, time: time, alarm: self.alarms.getAlarm(ByUUIDStr: "alarm_set_at_\(time.timeIntervalSince1970)"))
+            cell.alarmButtonAction = buttonAction
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let content = contents[indexPath.row]
+
+        switch content {
+        case .runningPrayer: return 146
+        case .calendar:  return 119
+        case .times: return 70
         }
     }
 }
