@@ -26,11 +26,11 @@ struct SettingsOthersView: View {
 
     var body: some View {
         Section {
-            // About
-            NavigationLink(destination: AboutView().environmentObject(viewModel)) {
-                SettingsCellView(label: UserText.settingsAboutSection,
-                                 image: Image("LogoIcon"))
-            }
+//            // About
+//            NavigationLink(destination: AboutView().environmentObject(viewModel)) {
+//                SettingsCellView(label: UserText.settingsAboutSection,
+//                                 image: Image("LogoIcon"))
+//            }
 
             // Share Feedback
             if viewModel.usesUnifiedFeedbackForm {
