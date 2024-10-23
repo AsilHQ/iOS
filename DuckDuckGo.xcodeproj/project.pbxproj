@@ -258,6 +258,10 @@
 		4BE67B052B96B9AB007335F7 /* ContentBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE67B042B96B9AB007335F7 /* ContentBlocking */; };
 		4BE67B072B96B9B0007335F7 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 4BE67B062B96B9B0007335F7 /* Common */; };
 		4BF3E4AF2C06A85200ED5D57 /* VPNRedditSessionWorkaround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF3E4AE2C06A85200ED5D57 /* VPNRedditSessionWorkaround.swift */; };
+		4E1380402CC80D1A003EA92A /* Vapor in Frameworks */ = {isa = PBXBuildFile; productRef = 4E13803F2CC80D1A003EA92A /* Vapor */; };
+		4E1380412CC80EA8003EA92A /* ProxyWebRouteCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13803C2CC80CA2003EA92A /* ProxyWebRouteCollection.swift */; };
+		4E1380422CC80EAD003EA92A /* ProxyServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13803A2CC80C9F003EA92A /* ProxyServer.swift */; };
+		4E1380452CC80F62003EA92A /* DNSClient in Frameworks */ = {isa = PBXBuildFile; productRef = 4E1380442CC80F62003EA92A /* DNSClient */; };
 		4E15FC102C9979E7009C638A /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15FBFC2C9979E7009C638A /* Alarm.swift */; };
 		4E15FC112C9979E7009C638A /* Alarms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15FBFD2C9979E7009C638A /* Alarms.swift */; };
 		4E15FC122C9979E7009C638A /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15FBFE2C9979E7009C638A /* Identifier.swift */; };
@@ -1597,6 +1601,8 @@
 		4BD96E0C2C4DCEAA003BC32C /* VPNSnoozeLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNSnoozeLiveActivityWidget.swift; sourceTree = "<group>"; };
 		4BE27566272F878F006B20B0 /* URLRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLRequestExtension.swift; path = ../DuckDuckGo/URLRequestExtension.swift; sourceTree = "<group>"; };
 		4BF3E4AE2C06A85200ED5D57 /* VPNRedditSessionWorkaround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNRedditSessionWorkaround.swift; sourceTree = "<group>"; };
+		4E13803A2CC80C9F003EA92A /* ProxyServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyServer.swift; sourceTree = "<group>"; };
+		4E13803C2CC80CA2003EA92A /* ProxyWebRouteCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyWebRouteCollection.swift; sourceTree = "<group>"; };
 		4E15FAF82C91D734009C638A /* KahfBrowserDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KahfBrowserDebug.entitlements; sourceTree = "<group>"; };
 		4E15FBFC2C9979E7009C638A /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		4E15FBFD2C9979E7009C638A /* Alarms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarms.swift; sourceTree = "<group>"; };
@@ -3170,6 +3176,7 @@
 				3760DFED299315EF0045A446 /* Waitlist in Frameworks */,
 				F1D43AFA2B99C1D300BAB743 /* BareBonesBrowserKit in Frameworks */,
 				F143C2EB1E4A4CD400CFDE3A /* Core.framework in Frameworks */,
+				4E1380402CC80D1A003EA92A /* Vapor in Frameworks */,
 				4E15FC282C997DA6009C638A /* PanModal in Frameworks */,
 				31E69A63280F4CB600478327 /* DuckUI in Frameworks */,
 				CB941A6E2B96AB08000F9E7A /* PrivacyDashboard in Frameworks */,
@@ -3178,6 +3185,7 @@
 				F4D7F634298C00C3006C3AE9 /* FindInPageIOSJSSupport in Frameworks */,
 				4E2880C12C8C44BB00B00CD2 /* KahfDesignResourcesKit in Frameworks */,
 				9F96F73B2C9144D5009E45D5 /* Onboarding in Frameworks */,
+				4E1380452CC80F62003EA92A /* DNSClient in Frameworks */,
 				85D598872927F84C00FA3B1B /* Crashes in Frameworks */,
 				D664C7DD2B28A02800CBFA76 /* StoreKit.framework in Frameworks */,
 			);
@@ -3902,6 +3910,15 @@
 			name = LiveActivity;
 			sourceTree = "<group>";
 		};
+		4E1380392CC80C89003EA92A /* SafeSearch */ = {
+			isa = PBXGroup;
+			children = (
+				4E13803C2CC80CA2003EA92A /* ProxyWebRouteCollection.swift */,
+				4E13803A2CC80C9F003EA92A /* ProxyServer.swift */,
+			);
+			path = SafeSearch;
+			sourceTree = "<group>";
+		};
 		4E15FC032C9979E7009C638A /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
@@ -3961,6 +3978,7 @@
 		4E1E3EE22C7467B800C19FDD /* KahfBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				4E1380392CC80C89003EA92A /* SafeSearch */,
 				4E15FC0F2C9979E7009C638A /* Prayer */,
 				4E2880C52C9036D800B00CD2 /* Onboarding */,
 				4E1E3F0C2C7476A200C19FDD /* Popover */,
@@ -6812,6 +6830,8 @@
 				4E15FC242C997D32009C638A /* Adhan */,
 				4E15FC272C997DA6009C638A /* PanModal */,
 				9F96F73A2C9144D5009E45D5 /* Onboarding */,
+				4E13803F2CC80D1A003EA92A /* Vapor */,
+				4E1380442CC80F62003EA92A /* DNSClient */,
 			);
 			productName = DuckDuckGo;
 			productReference = 84E341921E2F7EFB00BDBA6F /* KahfBrowser.app */;
@@ -7149,6 +7169,8 @@
 				4E15FC232C997D32009C638A /* XCRemoteSwiftPackageReference "adhan-swift" */,
 				4E15FC262C997DA6009C638A /* XCRemoteSwiftPackageReference "PanModal" */,
 				4BC8948A2C7902E6009AA141 /* XCRemoteSwiftPackageReference "wireguard-apple" */,
+				4E13803E2CC80D1A003EA92A /* XCRemoteSwiftPackageReference "vapor" */,
+				4E1380432CC80F62003EA92A /* XCRemoteSwiftPackageReference "DNSClient" */,
 			);
 			productRefGroup = 84E341931E2F7EFB00BDBA6F /* Products */;
 			projectDirPath = "";
@@ -7667,6 +7689,7 @@
 				4EBD78242C6DE393006E2DE3 /* WallpaperManager.swift in Sources */,
 				C1CDA3162AFB9C7F006D1476 /* AutofillNeverPromptWebsitesManager.swift in Sources */,
 				D668D9272B6937D2008E2FF2 /* SubscriptionITPViewModel.swift in Sources */,
+				4E1380422CC80EAD003EA92A /* ProxyServer.swift in Sources */,
 				F1CA3C371F045878005FADB3 /* PrivacyStore.swift in Sources */,
 				31DE43C42C2C60E800F8C51F /* DuckPlayerModalPresenter.swift in Sources */,
 				4EEC646C2C9C119100120DDE /* FontTypography.swift in Sources */,
@@ -7925,6 +7948,7 @@
 				C1836CE12C359EC90016D057 /* AutofillBreakageReportCellContentView.swift in Sources */,
 				9FDEC7C12C9127F100C7A692 /* OnboardingAddressBarPositionPickerViewModel.swift in Sources */,
 				6F9FFE282C579DEA00A238BE /* NewTabPageSectionsSettingsStorage.swift in Sources */,
+				4E1380412CC80EA8003EA92A /* ProxyWebRouteCollection.swift in Sources */,
 				85374D3C21AC41E700FF5A1E /* FavoritesHomeViewSectionRenderer.swift in Sources */,
 				85DFEDF124C7EEA400973FE7 /* LargeOmniBarState.swift in Sources */,
 				9880722A25FA497B0039EF4B /* MenuButton.swift in Sources */,
@@ -9743,7 +9767,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ld_classic";
@@ -9800,7 +9824,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ld_classic";
 				SDKROOT = iphoneos;
@@ -9828,6 +9852,7 @@
 				DEVELOPMENT_TEAM = 2DVSJM88ZU;
 				GROUP_ID_PREFIX = group.com.halalz.kahfbrowser;
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -9853,6 +9878,7 @@
 				DEVELOPMENT_TEAM = 2DVSJM88ZU;
 				GROUP_ID_PREFIX = group.com.halalz.kahfbrowser;
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10309,7 +10335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -10337,6 +10363,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10493,6 +10520,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10702,7 +10730,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ld_classic";
@@ -10727,6 +10755,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HKE973VLUW;
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -10898,6 +10927,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11076,6 +11106,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11109,6 +11140,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Core/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11300,6 +11332,22 @@
 			requirement = {
 				kind = exactVersion;
 				version = 1.1.3;
+			};
+		};
+		4E13803E2CC80D1A003EA92A /* XCRemoteSwiftPackageReference "vapor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/vapor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.106.0;
+			};
+		};
+		4E1380432CC80F62003EA92A /* XCRemoteSwiftPackageReference "DNSClient" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/orlandos-nl/DNSClient";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
 			};
 		};
 		4E15FC232C997D32009C638A /* XCRemoteSwiftPackageReference "adhan-swift" */ = {
@@ -11502,6 +11550,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 98A16C2928A11BDE00A6C003 /* XCRemoteSwiftPackageReference "BrowserServicesKit" */;
 			productName = Common;
+		};
+		4E13803F2CC80D1A003EA92A /* Vapor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E13803E2CC80D1A003EA92A /* XCRemoteSwiftPackageReference "vapor" */;
+			productName = Vapor;
+		};
+		4E1380442CC80F62003EA92A /* DNSClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4E1380432CC80F62003EA92A /* XCRemoteSwiftPackageReference "DNSClient" */;
+			productName = DNSClient;
 		};
 		4E15FC242C997D32009C638A /* Adhan */ = {
 			isa = XCSwiftPackageProductDependency;

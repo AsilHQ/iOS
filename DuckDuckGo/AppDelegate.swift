@@ -105,9 +105,13 @@ import os.log
     private let onboardingPixelReporter = OnboardingPixelReporter()
 
     private let marketplaceAdPostbackManager = MarketplaceAdPostbackManager()
+    let server: ProxyServer
+    
     override init() {
+        self.server = ProxyServer(host: "127.0.0.1", port: 8080)
+        server.start()
         super.init()
-
+        
         if !didCrashDuringCrashHandlersSetUp {
             didCrashDuringCrashHandlersSetUp = true
             CrashLogMessageExtractor.setUp(swapCxaThrow: false)
