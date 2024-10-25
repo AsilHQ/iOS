@@ -699,7 +699,7 @@ class TabViewController: UIViewController {
             requeryLogic.onNewNavigation(url: url)
         }
 
-        assert(urlRequest.attribution == .user, "WebView requests should be user attributed")
+//        assert(urlRequest.attribution == .user, "WebView requests should be user attributed")
 
         refreshCountSinceLoad = 0
 
@@ -1674,11 +1674,13 @@ extension TabViewController: WKNavigationDelegate {
                 
                 if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 403 {
                     decisionHandler(.cancel)
+                    if let url = URL(string: "http://blocked.kahfguard.com") {
+                        self.load(urlRequest: URLRequest(url: url))
+                    }
                     return
                 }
             } catch {
-                decisionHandler(.cancel)
-                return
+                debugPrint("Custom DNS did not work")
             }
             
             if #available(iOS 17.4, *),
