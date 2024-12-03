@@ -312,6 +312,7 @@
 		4E42EE022CFDAB5B003190EC /* movenet_multipose_fp16.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E42EE012CFDAB5B003190EC /* movenet_multipose_fp16.tflite */; };
 		4E42EE032CFDAB5B003190EC /* movenet_multipose_fp16.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E42EE012CFDAB5B003190EC /* movenet_multipose_fp16.tflite */; };
 		4EBD78242C6DE393006E2DE3 /* WallpaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */; };
+		4EE1F2502CFEF86D00C2DE16 /* MoveNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE1F24F2CFEF86D00C2DE16 /* MoveNet.swift */; };
 		4EEC64662C9C064A00120DDE /* UIColor+OWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64652C9C064900120DDE /* UIColor+OWS.swift */; };
 		4EEC64682C9C073200120DDE /* UIColor+SSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64672C9C073200120DDE /* UIColor+SSK.swift */; };
 		4EEC646C2C9C119100120DDE /* FontTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC646B2C9C119100120DDE /* FontTypography.swift */; };
@@ -1645,6 +1646,7 @@
 		4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KahfBrowserOnboardingView.swift; sourceTree = "<group>"; };
 		4E42EE012CFDAB5B003190EC /* movenet_multipose_fp16.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = movenet_multipose_fp16.tflite; sourceTree = "<group>"; };
 		4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperManager.swift; sourceTree = "<group>"; };
+		4EE1F24F2CFEF86D00C2DE16 /* MoveNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveNet.swift; sourceTree = "<group>"; };
 		4EEC64652C9C064900120DDE /* UIColor+OWS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+OWS.swift"; sourceTree = "<group>"; };
 		4EEC64672C9C073200120DDE /* UIColor+SSK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SSK.swift"; sourceTree = "<group>"; };
 		4EEC646B2C9C119100120DDE /* FontTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontTypography.swift; sourceTree = "<group>"; };
@@ -3952,6 +3954,7 @@
 			isa = PBXGroup;
 			children = (
 				4E42EE002CFDAB4D003190EC /* Models */,
+				4EE1F24F2CFEF86D00C2DE16 /* MoveNet.swift */,
 				4E1B26DE2C5BA22800076E8E /* GenderDetector.swift */,
 				4E1B26E52C5BA29900076E8E /* NsfwDetector.swift */,
 				4E1B26E72C5BA2A300076E8E /* NsfwPrediction.swift */,
@@ -8576,6 +8579,7 @@
 				85E065BC2C73A54700D73E2A /* UsageSegmentationStorage.swift in Sources */,
 				F143C3271E4A9A0E00CFDE3A /* Logger+Multiple.swift in Sources */,
 				85372447220DD103009D09CD /* UIKeyCommandExtension.swift in Sources */,
+				4EE1F2502CFEF86D00C2DE16 /* MoveNet.swift in Sources */,
 				85A1B3B220C6CD9900C18F15 /* CookieStorage.swift in Sources */,
 				9856A1992933D2EB00ACB44F /* BookmarksModelsErrorHandling.swift in Sources */,
 				850559D023CF647C0055C0D5 /* PreserveLogins.swift in Sources */,
