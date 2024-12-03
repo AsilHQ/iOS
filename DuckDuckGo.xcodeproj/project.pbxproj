@@ -313,6 +313,8 @@
 		4E42EE032CFDAB5B003190EC /* movenet_multipose_fp16.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E42EE012CFDAB5B003190EC /* movenet_multipose_fp16.tflite */; };
 		4EBD78242C6DE393006E2DE3 /* WallpaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */; };
 		4EE1F2502CFEF86D00C2DE16 /* MoveNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE1F24F2CFEF86D00C2DE16 /* MoveNet.swift */; };
+		4EE1F2522CFEF90500C2DE16 /* PoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE1F2512CFEF90500C2DE16 /* PoseData.swift */; };
+		4EE1F2532CFEF90500C2DE16 /* PoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE1F2512CFEF90500C2DE16 /* PoseData.swift */; };
 		4EEC64662C9C064A00120DDE /* UIColor+OWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64652C9C064900120DDE /* UIColor+OWS.swift */; };
 		4EEC64682C9C073200120DDE /* UIColor+SSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64672C9C073200120DDE /* UIColor+SSK.swift */; };
 		4EEC646C2C9C119100120DDE /* FontTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC646B2C9C119100120DDE /* FontTypography.swift */; };
@@ -1647,6 +1649,7 @@
 		4E42EE012CFDAB5B003190EC /* movenet_multipose_fp16.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = movenet_multipose_fp16.tflite; sourceTree = "<group>"; };
 		4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperManager.swift; sourceTree = "<group>"; };
 		4EE1F24F2CFEF86D00C2DE16 /* MoveNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveNet.swift; sourceTree = "<group>"; };
+		4EE1F2512CFEF90500C2DE16 /* PoseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseData.swift; sourceTree = "<group>"; };
 		4EEC64652C9C064900120DDE /* UIColor+OWS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+OWS.swift"; sourceTree = "<group>"; };
 		4EEC64672C9C073200120DDE /* UIColor+SSK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SSK.swift"; sourceTree = "<group>"; };
 		4EEC646B2C9C119100120DDE /* FontTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontTypography.swift; sourceTree = "<group>"; };
@@ -3954,6 +3957,7 @@
 			isa = PBXGroup;
 			children = (
 				4E42EE002CFDAB4D003190EC /* Models */,
+				4EE1F2512CFEF90500C2DE16 /* PoseData.swift */,
 				4EE1F24F2CFEF86D00C2DE16 /* MoveNet.swift */,
 				4E1B26DE2C5BA22800076E8E /* GenderDetector.swift */,
 				4E1B26E52C5BA29900076E8E /* NsfwDetector.swift */,
@@ -7753,6 +7757,7 @@
 				858650D12469BCDE00C36F8A /* DaxDialogs.swift in Sources */,
 				9F5E5AB02C3E4C6000165F54 /* ContextualOnboardingPresenter.swift in Sources */,
 				310D091B2799F54900DC0060 /* DownloadManager.swift in Sources */,
+				4EE1F2522CFEF90500C2DE16 /* PoseData.swift in Sources */,
 				98D98A7425ED88D100D8E3DF /* BrowsingMenuEntryViewCell.swift in Sources */,
 				98F3A1D8217B37010011A0D4 /* Theme.swift in Sources */,
 				4B2C79612C5B27AC00A240CC /* VPNSnoozeActivityAttributes.swift in Sources */,
@@ -8622,6 +8627,7 @@
 				31B2F1132C92FEF500CD30E3 /* MarketplaceAdPostbackUpdater.swift in Sources */,
 				4BE2756827304F57006B20B0 /* URLRequestExtension.swift in Sources */,
 				85BA79911F6FF75000F59015 /* ContentBlockerStoreConstants.swift in Sources */,
+				4EE1F2532CFEF90500C2DE16 /* PoseData.swift in Sources */,
 				85E242172AB1B54D000F3E28 /* ReturnUserMeasurement.swift in Sources */,
 				85BDC3142434D8F80053DB07 /* DebugUserScript.swift in Sources */,
 				85011867290028C400BDEE27 /* BookmarksDatabase.swift in Sources */,
