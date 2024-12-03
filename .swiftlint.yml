@@ -84,3 +84,4 @@ excluded:
   - LocalPackages/*/Package.swift
   - PacketTunnelProvider/ProxyServer
   - .ruby-lsp
+  - Pods
