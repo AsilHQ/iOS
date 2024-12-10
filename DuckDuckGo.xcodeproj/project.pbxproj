@@ -310,6 +310,10 @@
 		4E2880C32C8C469A00B00CD2 /* KahfDesignResourcesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2880C22C8C469A00B00CD2 /* KahfDesignResourcesKit */; };
 		4E2880C72C9036E800B00CD2 /* KahfBrowserOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */; };
 		4EBD78242C6DE393006E2DE3 /* WallpaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */; };
+		4ECC97532D05FD320075878D /* Extensions+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC97522D05FD2F0075878D /* Extensions+.swift */; };
+		4ECC97572D0641EF0075878D /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC97562D0641EC0075878D /* ImageProcessor.swift */; };
+		4ECC975B2D06F8220075878D /* Safegaze.js in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC975A2D06F81B0075878D /* Safegaze.js */; };
+		4ECC975C2D06F9B10075878D /* Safegaze.js in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC975A2D06F81B0075878D /* Safegaze.js */; };
 		4EEC64662C9C064A00120DDE /* UIColor+OWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64652C9C064900120DDE /* UIColor+OWS.swift */; };
 		4EEC64682C9C073200120DDE /* UIColor+SSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64672C9C073200120DDE /* UIColor+SSK.swift */; };
 		4EEC646C2C9C119100120DDE /* FontTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC646B2C9C119100120DDE /* FontTypography.swift */; };
@@ -1642,6 +1646,9 @@
 		4E1E3F2B2C7DC6F900C19FDD /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KahfBrowserOnboardingView.swift; sourceTree = "<group>"; };
 		4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperManager.swift; sourceTree = "<group>"; };
+		4ECC97522D05FD2F0075878D /* Extensions+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+.swift"; sourceTree = "<group>"; };
+		4ECC97562D0641EC0075878D /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		4ECC975A2D06F81B0075878D /* Safegaze.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Safegaze.js; sourceTree = "<group>"; };
 		4EEC64652C9C064900120DDE /* UIColor+OWS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+OWS.swift"; sourceTree = "<group>"; };
 		4EEC64672C9C073200120DDE /* UIColor+SSK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SSK.swift"; sourceTree = "<group>"; };
 		4EEC646B2C9C119100120DDE /* FontTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontTypography.swift; sourceTree = "<group>"; };
@@ -4039,8 +4046,11 @@
 		4EFA92D92C5A72B40002DC0E /* Safegaze */ = {
 			isa = PBXGroup;
 			children = (
-				4E1B26E32C5BA28300076E8E /* Detectors */,
+				4ECC975A2D06F81B0075878D /* Safegaze.js */,
+				4ECC97562D0641EC0075878D /* ImageProcessor.swift */,
+				4ECC97522D05FD2F0075878D /* Extensions+.swift */,
 				4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */,
+				4E1B26E32C5BA28300076E8E /* Detectors */,
 			);
 			name = Safegaze;
 			sourceTree = "<group>";
@@ -7311,6 +7321,7 @@
 				AAF2E28323E0495E00962AF8 /* AppIconBlue83.5x83.5@2x.png in Resources */,
 				AA4D6AE223DE4D33007E8790 /* AppIconGreen40x40@2x.png in Resources */,
 				85EE7F55224667DD000FE757 /* WebContainer.storyboard in Resources */,
+				4ECC975C2D06F9B10075878D /* Safegaze.js in Resources */,
 				858566E8252E4F56007501B8 /* Debug.storyboard in Resources */,
 				0A6CC0EF23904D5400E4F627 /* Settings.bundle in Resources */,
 				85A9C37920E0E00C00073340 /* HomeRow.xcassets in Resources */,
@@ -7414,6 +7425,7 @@
 				83E2D2B4253CC16B005605F5 /* httpsMobileV2BloomSpec.json in Resources */,
 				98B001B0251EABB40090EC07 /* InfoPlist.strings in Resources */,
 				4E1B26EB2C5BB1EB00076E8E /* nsfw.tflite in Resources */,
+				4ECC975B2D06F8220075878D /* Safegaze.js in Resources */,
 				02BA15B126A89ECA00472DD7 /* ios-config.json in Resources */,
 				4B52648B25F9613B00CB4C24 /* trackerData.json in Resources */,
 				850559C923C61B5D0055C0D5 /* login-form-detection.js in Resources */,
@@ -8582,6 +8594,7 @@
 				9847C00027A2DDBB00DB07AA /* AppPrivacyConfigurationDataProvider.swift in Sources */,
 				F143C3281E4A9A0E00CFDE3A /* StringExtension.swift in Sources */,
 				85449EFB23FDA0BC00512AAF /* UserDefaultsPropertyWrapper.swift in Sources */,
+				4ECC97532D05FD320075878D /* Extensions+.swift in Sources */,
 				56D8556A2BEA9169009F9698 /* CurrentDateProviding.swift in Sources */,
 				830381C01F850AAF00863075 /* WKWebViewConfigurationExtension.swift in Sources */,
 				85CA53AA24BB376800A6288C /* NotFoundCachingDownloader.swift in Sources */,
@@ -8635,6 +8648,7 @@
 				F1D477CB1F2149C40031ED49 /* Type.swift in Sources */,
 				983C52E42C2C050B007B5747 /* BookmarksStateRepair.swift in Sources */,
 				4EFA92DB2C5A72D60002DC0E /* SafegazeScript.swift in Sources */,
+				4ECC97572D0641EF0075878D /* ImageProcessor.swift in Sources */,
 				1E05D1D629C46EBB00BF9A1F /* DailyPixel.swift in Sources */,
 				1CB7B82123CEA1F800AA24EA /* DateExtension.swift in Sources */,
 				379E877429E97C8D001C8BB0 /* BookmarksCleanupErrorHandling.swift in Sources */,
