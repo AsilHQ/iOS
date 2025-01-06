@@ -277,13 +277,13 @@
 		4E15FC202C9979E7009C638A /* PrayerVCLocation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15FC0E2C9979E7009C638A /* PrayerVCLocation+.swift */; };
 		4E15FC252C997D32009C638A /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = 4E15FC242C997D32009C638A /* Adhan */; };
 		4E15FC282C997DA6009C638A /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 4E15FC272C997DA6009C638A /* PanModal */; };
+		4E161B8C2D1EA56D002AE6D3 /* mobilenet_v2_gender.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E161B8B2D1EA56D002AE6D3 /* mobilenet_v2_gender.tflite */; };
+		4E161B8D2D1EA56D002AE6D3 /* mobilenet_v2_gender.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E161B8B2D1EA56D002AE6D3 /* mobilenet_v2_gender.tflite */; };
 		4E1B26DF2C5BA22800076E8E /* GenderDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B26DE2C5BA22800076E8E /* GenderDetector.swift */; };
 		4E1B26E62C5BA29900076E8E /* NsfwDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B26E52C5BA29900076E8E /* NsfwDetector.swift */; };
 		4E1B26E82C5BA2A300076E8E /* NsfwPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B26E72C5BA2A300076E8E /* NsfwPrediction.swift */; };
 		4E1B26EA2C5BA2DF00076E8E /* TensorflowDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B26E92C5BA2DF00076E8E /* TensorflowDetector.swift */; };
 		4E1B26EB2C5BB1EB00076E8E /* nsfw.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B26E42C5BA29200076E8E /* nsfw.tflite */; };
-		4E1B26EC2C5BB1ED00076E8E /* gender.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B26E02C5BA24F00076E8E /* gender.tflite */; };
-		4E1B26ED2C5BB22D00076E8E /* gender.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B26E02C5BA24F00076E8E /* gender.tflite */; };
 		4E1B26EE2C5BB22F00076E8E /* nsfw.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B26E42C5BA29200076E8E /* nsfw.tflite */; };
 		4E1E3EF22C74692B00C19FDD /* SafegazePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E3EE52C74692B00C19FDD /* SafegazePreferences.swift */; };
 		4E1E3EF42C74692B00C19FDD /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1E3EE72C74692B00C19FDD /* FontHelper.swift */; };
@@ -309,8 +309,25 @@
 		4E2880C12C8C44BB00B00CD2 /* KahfDesignResourcesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2880C02C8C44BB00B00CD2 /* KahfDesignResourcesKit */; };
 		4E2880C32C8C469A00B00CD2 /* KahfDesignResourcesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2880C22C8C469A00B00CD2 /* KahfDesignResourcesKit */; };
 		4E2880C72C9036E800B00CD2 /* KahfBrowserOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */; };
+		4E674A3C2D0886A400D074A9 /* PoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A372D0886A400D074A9 /* PoseData.swift */; };
+		4E674A3D2D0886A400D074A9 /* PoseEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A382D0886A400D074A9 /* PoseEstimator.swift */; };
+		4E674A3E2D0886A400D074A9 /* MoveNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A352D0886A400D074A9 /* MoveNet.swift */; };
+		4E674A3F2D0886A400D074A9 /* PoseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A362D0886A400D074A9 /* PoseConfig.swift */; };
+		4E674A402D0886A400D074A9 /* Data+TFLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A332D0886A400D074A9 /* Data+TFLite.swift */; };
+		4E674A412D0886A400D074A9 /* CVPixelBuffer+TFLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A322D0886A400D074A9 /* CVPixelBuffer+TFLite.swift */; };
+		4E674A422D0886A400D074A9 /* CGSize+TFLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A312D0886A400D074A9 /* CGSize+TFLite.swift */; };
+		4E674A432D0886A400D074A9 /* PoseNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A392D0886A400D074A9 /* PoseNet.swift */; };
+		4E674A442D0886A400D074A9 /* PoseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A372D0886A400D074A9 /* PoseData.swift */; };
+		4E674A452D0886A400D074A9 /* PoseEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A382D0886A400D074A9 /* PoseEstimator.swift */; };
+		4E674A462D0886A400D074A9 /* MoveNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A352D0886A400D074A9 /* MoveNet.swift */; };
+		4E674A472D0886A400D074A9 /* PoseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A362D0886A400D074A9 /* PoseConfig.swift */; };
+		4E674A482D0886A400D074A9 /* Data+TFLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A332D0886A400D074A9 /* Data+TFLite.swift */; };
+		4E674A492D0886A400D074A9 /* CVPixelBuffer+TFLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A322D0886A400D074A9 /* CVPixelBuffer+TFLite.swift */; };
+		4E674A4A2D0886A400D074A9 /* CGSize+TFLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A312D0886A400D074A9 /* CGSize+TFLite.swift */; };
+		4E674A4B2D0886A400D074A9 /* PoseNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E674A392D0886A400D074A9 /* PoseNet.swift */; };
+		4E674A4D2D08BDD600D074A9 /* movenet_multipose_fp16.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E674A4C2D08BDD600D074A9 /* movenet_multipose_fp16.tflite */; };
+		4E674A4E2D08BDD600D074A9 /* movenet_multipose_fp16.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4E674A4C2D08BDD600D074A9 /* movenet_multipose_fp16.tflite */; };
 		4EBD78242C6DE393006E2DE3 /* WallpaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */; };
-		4ECC97532D05FD320075878D /* Extensions+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC97522D05FD2F0075878D /* Extensions+.swift */; };
 		4ECC97572D0641EF0075878D /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECC97562D0641EC0075878D /* ImageProcessor.swift */; };
 		4ECC975B2D06F8220075878D /* Safegaze.js in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC975A2D06F81B0075878D /* Safegaze.js */; };
 		4ECC975C2D06F9B10075878D /* Safegaze.js in Resources */ = {isa = PBXBuildFile; fileRef = 4ECC975A2D06F81B0075878D /* Safegaze.js */; };
@@ -1619,8 +1636,8 @@
 		4E15FC0C2C9979E7009C638A /* PrayerParameterPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerParameterPickerVC.swift; sourceTree = "<group>"; };
 		4E15FC0D2C9979E7009C638A /* PrayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerVC.swift; sourceTree = "<group>"; };
 		4E15FC0E2C9979E7009C638A /* PrayerVCLocation+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PrayerVCLocation+.swift"; sourceTree = "<group>"; };
+		4E161B8B2D1EA56D002AE6D3 /* mobilenet_v2_gender.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = mobilenet_v2_gender.tflite; sourceTree = "<group>"; };
 		4E1B26DE2C5BA22800076E8E /* GenderDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderDetector.swift; sourceTree = "<group>"; };
-		4E1B26E02C5BA24F00076E8E /* gender.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = gender.tflite; sourceTree = "<group>"; };
 		4E1B26E42C5BA29200076E8E /* nsfw.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = nsfw.tflite; sourceTree = "<group>"; };
 		4E1B26E52C5BA29900076E8E /* NsfwDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NsfwDetector.swift; sourceTree = "<group>"; };
 		4E1B26E72C5BA2A300076E8E /* NsfwPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NsfwPrediction.swift; sourceTree = "<group>"; };
@@ -1645,8 +1662,16 @@
 		4E1E3F232C75E43200C19FDD /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		4E1E3F2B2C7DC6F900C19FDD /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KahfBrowserOnboardingView.swift; sourceTree = "<group>"; };
+		4E674A312D0886A400D074A9 /* CGSize+TFLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+TFLite.swift"; sourceTree = "<group>"; };
+		4E674A322D0886A400D074A9 /* CVPixelBuffer+TFLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+TFLite.swift"; sourceTree = "<group>"; };
+		4E674A332D0886A400D074A9 /* Data+TFLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+TFLite.swift"; sourceTree = "<group>"; };
+		4E674A352D0886A400D074A9 /* MoveNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveNet.swift; sourceTree = "<group>"; };
+		4E674A362D0886A400D074A9 /* PoseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseConfig.swift; sourceTree = "<group>"; };
+		4E674A372D0886A400D074A9 /* PoseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseData.swift; sourceTree = "<group>"; };
+		4E674A382D0886A400D074A9 /* PoseEstimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseEstimator.swift; sourceTree = "<group>"; };
+		4E674A392D0886A400D074A9 /* PoseNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseNet.swift; sourceTree = "<group>"; };
+		4E674A4C2D08BDD600D074A9 /* movenet_multipose_fp16.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = movenet_multipose_fp16.tflite; sourceTree = "<group>"; };
 		4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperManager.swift; sourceTree = "<group>"; };
-		4ECC97522D05FD2F0075878D /* Extensions+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+.swift"; sourceTree = "<group>"; };
 		4ECC97562D0641EC0075878D /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		4ECC975A2D06F81B0075878D /* Safegaze.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Safegaze.js; sourceTree = "<group>"; };
 		4EEC64652C9C064900120DDE /* UIColor+OWS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+OWS.swift"; sourceTree = "<group>"; };
@@ -3959,7 +3984,8 @@
 				4E1B26E52C5BA29900076E8E /* NsfwDetector.swift */,
 				4E1B26E72C5BA2A300076E8E /* NsfwPrediction.swift */,
 				4E1B26E92C5BA2DF00076E8E /* TensorflowDetector.swift */,
-				4E1B26E02C5BA24F00076E8E /* gender.tflite */,
+				4E161B8B2D1EA56D002AE6D3 /* mobilenet_v2_gender.tflite */,
+				4E674A4C2D08BDD600D074A9 /* movenet_multipose_fp16.tflite */,
 				4E1B26E42C5BA29200076E8E /* nsfw.tflite */,
 			);
 			name = Detectors;
@@ -4035,6 +4061,37 @@
 			name = Onboarding;
 			sourceTree = "<group>";
 		};
+		4E674A342D0886A400D074A9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4E674A312D0886A400D074A9 /* CGSize+TFLite.swift */,
+				4E674A322D0886A400D074A9 /* CVPixelBuffer+TFLite.swift */,
+				4E674A332D0886A400D074A9 /* Data+TFLite.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4E674A3A2D0886A400D074A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E674A352D0886A400D074A9 /* MoveNet.swift */,
+				4E674A362D0886A400D074A9 /* PoseConfig.swift */,
+				4E674A372D0886A400D074A9 /* PoseData.swift */,
+				4E674A382D0886A400D074A9 /* PoseEstimator.swift */,
+				4E674A392D0886A400D074A9 /* PoseNet.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4E674A3B2D0886A400D074A9 /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				4E674A342D0886A400D074A9 /* Extensions */,
+				4E674A3A2D0886A400D074A9 /* Models */,
+			);
+			path = ML;
+			sourceTree = "<group>";
+		};
 		4EBD78222C6DE37B006E2DE3 /* Wallpaper */ = {
 			isa = PBXGroup;
 			children = (
@@ -4046,9 +4103,9 @@
 		4EFA92D92C5A72B40002DC0E /* Safegaze */ = {
 			isa = PBXGroup;
 			children = (
+				4E674A3B2D0886A400D074A9 /* ML */,
 				4ECC975A2D06F81B0075878D /* Safegaze.js */,
 				4ECC97562D0641EC0075878D /* ImageProcessor.swift */,
-				4ECC97522D05FD2F0075878D /* Extensions+.swift */,
 				4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */,
 				4E1B26E32C5BA28300076E8E /* Detectors */,
 			);
@@ -7001,6 +7058,7 @@
 				F143C2DF1E4A4CD400CFDE3A /* Sources */,
 				F143C2E01E4A4CD400CFDE3A /* Frameworks */,
 				F143C2E21E4A4CD400CFDE3A /* Resources */,
+				F07A00E80412CCB104A5F74E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -7242,6 +7300,7 @@
 				8548D96825262C33005AAE49 /* view_highlight.json in Resources */,
 				AA4D6AD423DE4D27007E8790 /* AppIconPurple40x40@3x.png in Resources */,
 				4E1E3F032C74745900C19FDD /* Quicksand-Light.ttf in Resources */,
+				4E674A4D2D08BDD600D074A9 /* movenet_multipose_fp16.tflite in Resources */,
 				4E1E3F042C74745900C19FDD /* Quicksand-SemiBold.ttf in Resources */,
 				4E1E3F052C74745900C19FDD /* Quicksand-Bold.ttf in Resources */,
 				4E1E3F062C74745900C19FDD /* Quicksand-Medium.ttf in Resources */,
@@ -7255,7 +7314,6 @@
 				85F98F98296F4CB100742F4A /* SyncAssets.xcassets in Resources */,
 				31BC5F412C2B0B540004DF37 /* DuckPlayer.xcassets in Resources */,
 				AA4D6A9423DE49A5007E8790 /* AppIconBlack29x29@2x.png in Resources */,
-				4E1B26ED2C5BB22D00076E8E /* gender.tflite in Resources */,
 				98B001B3251EABB40090EC07 /* InfoPlist.strings in Resources */,
 				AA4D6ACE23DE4D27007E8790 /* AppIconPurple60x60@3x.png in Resources */,
 				D65CEA702B6AC6C9008A759B /* Subscription.xcassets in Resources */,
@@ -7315,6 +7373,7 @@
 				858650DB246B111900C36F8A /* DaxOnboarding.xcassets in Resources */,
 				984147B124F0264300362052 /* Home.storyboard in Resources */,
 				984147C324F026C800362052 /* HomeRow.storyboard in Resources */,
+				4E161B8C2D1EA56D002AE6D3 /* mobilenet_v2_gender.tflite in Resources */,
 				B6BA95E828924730004ABA20 /* JSAlertController.storyboard in Resources */,
 				AA4D6AF623DF0312007E8790 /* AppIconRed60x60@3x.png in Resources */,
 				AA4D6AE423DE4D33007E8790 /* AppIconGreen40x40@3x.png in Resources */,
@@ -7430,9 +7489,10 @@
 				4B52648B25F9613B00CB4C24 /* trackerData.json in Resources */,
 				850559C923C61B5D0055C0D5 /* login-form-detection.js in Resources */,
 				83E2D2B3253CC16B005605F5 /* httpsMobileV2FalsePositives.json in Resources */,
+				4E674A4E2D08BDD600D074A9 /* movenet_multipose_fp16.tflite in Resources */,
+				4E161B8D2D1EA56D002AE6D3 /* mobilenet_v2_gender.tflite in Resources */,
 				4B60AC97252EC07B00E8D219 /* fullscreenvideo.js in Resources */,
 				83E2D2B2253CC16B005605F5 /* httpsMobileV2Bloom.bin in Resources */,
-				4E1B26EC2C5BB1ED00076E8E /* gender.tflite in Resources */,
 				85047B8A1F69692C002A95D8 /* contentblocker.js in Resources */,
 				02CA904924F6BFE700D41DDF /* navigatorsharepatch.js in Resources */,
 			);
@@ -7596,6 +7656,30 @@
 			shellPath = /bin/sh;
 			shellScript = "# Conditionally embeds PacketTunnelProvider extension for Debug and Alpha builds.\n\n# Conditionally embeds the PacketTunnelProvider extension for debug builds.\\n# To be moved to the Embed App Extensions phase on release.\n\nif [ \"${CONFIGURATION}\" = \"Debug\" ] || [ \"${CONFIGURATION}\" = \"Release\" ] || [ \"${CONFIGURATION}\" = \"Alpha\" ] || [ \"${CONFIGURATION}\" = \"Alpha Debug\" ]; then\n# Copy the extension    \n    rsync -r --copy-links \"${CONFIGURATION_BUILD_DIR}/PacketTunnelProvider.appex\" \"${CONFIGURATION_BUILD_DIR}/${PLUGINS_FOLDER_PATH}\"\nfi\n";
 		};
+		F07A00E80412CCB104A5F74E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Core/Pods-Core-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/LiteRTC/TensorFlowLiteC.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/LiteRTC/TensorFlowLiteCCoreML.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/LiteRTC/TensorFlowLiteCMetal.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/LiteRTSwift/TensorFlowLite.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TensorFlowLiteC.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TensorFlowLiteCCoreML.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TensorFlowLiteCMetal.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TensorFlowLite.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Core/Pods-Core-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -7687,6 +7771,14 @@
 				6F0FEF6D2C52639E0090CDE4 /* ReorderableForEach.swift in Sources */,
 				F4E1936625AF722F001D2666 /* HighlightCutOutView.swift in Sources */,
 				1E162605296840D80004127F /* Triangle.swift in Sources */,
+				4E674A3C2D0886A400D074A9 /* PoseData.swift in Sources */,
+				4E674A3D2D0886A400D074A9 /* PoseEstimator.swift in Sources */,
+				4E674A3E2D0886A400D074A9 /* MoveNet.swift in Sources */,
+				4E674A3F2D0886A400D074A9 /* PoseConfig.swift in Sources */,
+				4E674A402D0886A400D074A9 /* Data+TFLite.swift in Sources */,
+				4E674A412D0886A400D074A9 /* CVPixelBuffer+TFLite.swift in Sources */,
+				4E674A422D0886A400D074A9 /* CGSize+TFLite.swift in Sources */,
+				4E674A432D0886A400D074A9 /* PoseNet.swift in Sources */,
 				6FDC64012C92F4A300DB71B3 /* NewTabPageIntroDataStoring.swift in Sources */,
 				B609D5522862EAFF0088CAC2 /* InlineWKDownloadDelegate.swift in Sources */,
 				BDFF03222BA3D8E200F324C9 /* NetworkProtectionFeatureVisibility.swift in Sources */,
@@ -8567,6 +8659,14 @@
 				37CBCA9E2A8A659C0050218F /* SyncSettingsAdapter.swift in Sources */,
 				F1134EB31F40AD2500B73467 /* Atb.swift in Sources */,
 				37E615752A5F533E00ACD63D /* SyncCredentialsAdapter.swift in Sources */,
+				4E674A442D0886A400D074A9 /* PoseData.swift in Sources */,
+				4E674A452D0886A400D074A9 /* PoseEstimator.swift in Sources */,
+				4E674A462D0886A400D074A9 /* MoveNet.swift in Sources */,
+				4E674A472D0886A400D074A9 /* PoseConfig.swift in Sources */,
+				4E674A482D0886A400D074A9 /* Data+TFLite.swift in Sources */,
+				4E674A492D0886A400D074A9 /* CVPixelBuffer+TFLite.swift in Sources */,
+				4E674A4A2D0886A400D074A9 /* CGSize+TFLite.swift in Sources */,
+				4E674A4B2D0886A400D074A9 /* PoseNet.swift in Sources */,
 				02CA904B24F6C11A00D41DDF /* NavigatorSharePatchUserScript.swift in Sources */,
 				85BDC3192436161C0053DB07 /* LoginFormDetectionUserScript.swift in Sources */,
 				37DF000A29F9C416002B7D3E /* SyncMetadataDatabase.swift in Sources */,
@@ -8594,7 +8694,6 @@
 				9847C00027A2DDBB00DB07AA /* AppPrivacyConfigurationDataProvider.swift in Sources */,
 				F143C3281E4A9A0E00CFDE3A /* StringExtension.swift in Sources */,
 				85449EFB23FDA0BC00512AAF /* UserDefaultsPropertyWrapper.swift in Sources */,
-				4ECC97532D05FD320075878D /* Extensions+.swift in Sources */,
 				56D8556A2BEA9169009F9698 /* CurrentDateProviding.swift in Sources */,
 				830381C01F850AAF00863075 /* WKWebViewConfigurationExtension.swift in Sources */,
 				85CA53AA24BB376800A6288C /* NotFoundCachingDownloader.swift in Sources */,
@@ -9837,6 +9936,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 2DVSJM88ZU;
@@ -9864,6 +9964,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2DVSJM88ZU;
 				GROUP_ID_PREFIX = group.com.halalz.kahfbrowser;
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
@@ -10343,6 +10444,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 4;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HKE973VLUW;
@@ -10737,6 +10839,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 4;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = HKE973VLUW;

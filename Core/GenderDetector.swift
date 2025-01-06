@@ -23,10 +23,8 @@ import TensorFlowLite
 
 class GenderPrediction {
     var faceCount: Int = 0
-    var hasMale: Bool = false
-    var hasFemale: Bool = false
-    var maleConfidence: Float = 0.0
-    var femaleConfidence: Float = 0.0
+    var isMale: Bool = false
+    var genderScore: Float = 0.0
 }
 
 class GenderDetector: TensorflowDetector {
@@ -40,7 +38,7 @@ class GenderDetector: TensorflowDetector {
     
     override init() {
         do {
-            interpreter = try Interpreter(modelPath: Bundle.main.path(forResource: "gender", ofType: "tflite") ?? "")
+            interpreter = try Interpreter(modelPath: Bundle.main.path(forResource: "mobilenet_v2_gender", ofType: "tflite") ?? "")
             try interpreter?.allocateTensors()
             print("GenderDetector model has been loaded")
         } catch {
@@ -49,53 +47,21 @@ class GenderDetector: TensorflowDetector {
         super.init()
     }
     
-    func predict(image: UIImage, data: Data, completion: @escaping (GenderPrediction) -> Void) {
-        let requestHandler = VNImageRequestHandler(data: data, options: [:])
+    func predict(image: UIImage, boundingBox: CGRect, completion: @escaping (GenderPrediction) -> Void) {
         
-        let faceDetectionRequest = VNDetectFaceRectanglesRequest { [self] (request, _) in
-            guard let observations = request.results as? [VNFaceObservation] else {
-                DispatchQueue.main.async {
-                    completion(GenderPrediction())
-                }
-                return
-            }
-            
-            let prediction = GenderPrediction()
-            prediction.faceCount = observations.count
-            
-            for faceObservation in observations {
-                guard let faceImage = self.cropToBBox(image: image, boundingBox: faceObservation.boundingBox) else { continue }
-                
-                let genderPredictions = self.getGenderPrediction(image: faceImage)
-                
-                let isMale = genderPredictions.0 > 0.5
-                prediction.hasMale = prediction.hasMale || isMale
-                prediction.maleConfidence = isMale ? genderPredictions.0 : 1 - genderPredictions.0
-                prediction.femaleConfidence = 1 - prediction.maleConfidence
-
-                if !isMale {
-                    prediction.hasFemale = true
-                    break
-                }
-                
-            }
-            
-            DispatchQueue.main.async {
-                completion(prediction)
-            }
-        }
+        let prediction = GenderPrediction()
+        prediction.faceCount = 1
         
-        #if targetEnvironment(simulator)
-                faceDetectionRequest.usesCPUOnly = true
-        #endif
+        guard let faceImage = self.cropToBBox(image: image, boundingBox: boundingBox) else { return }
         
-        do {
-            try requestHandler.perform([faceDetectionRequest])
-        } catch {
-            print("GenderDetector Error in face detection: \(error)")
-            DispatchQueue.main.async {
-                completion(GenderPrediction())
-            }
+        saveImageToAppDirectory(image: faceImage, fileName: UUID().uuidString + ".png")
+        
+        let genderPredictions = self.getGenderPrediction(image: faceImage).0
+        prediction.isMale = genderPredictions > 0.5
+        prediction.genderScore = prediction.isMale ? genderPredictions : 1 - genderPredictions
+        
+        DispatchQueue.main.async {
+            completion(prediction)
         }
     }
     
@@ -141,5 +107,58 @@ class GenderDetector: TensorflowDetector {
         }
         
         return UIImage(cgImage: cgImage)
+    }
+}
+
+extension GenderDetector {
+    func saveImageToAppDirectory(image: UIImage, directory: String? = nil, fileName: String) -> Bool {
+        guard let imageData = image.pngData() else {
+            debugPrint("[ImageProcessor] Failed to convert UIImage to PNG data.")
+            return false
+        }
+        
+        // Access the app's documents directory
+        let fileManager = FileManager.default
+        let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        // Create the full path for the directory (if specified)
+        var savePath = documentsDirectory
+        if let directory = directory {
+            savePath = savePath.appendingPathComponent(directory)
+            
+            // Ensure the directory exists
+            if !fileManager.fileExists(atPath: savePath.path) {
+                do {
+                    try fileManager.createDirectory(at: savePath, withIntermediateDirectories: true, attributes: nil)
+                } catch {
+                    debugPrint("[ImageProcessor] Failed to create directory '\(directory)': \(error)")
+                    return false
+                }
+            }
+        }
+        
+        // Sanitize the file name
+        let sanitizedFileName = sanitizeFileName(fileName)
+        let filePath = savePath.appendingPathComponent(sanitizedFileName)
+        
+        // Save the image data
+        do {
+            try imageData.write(to: filePath)
+            debugPrint("[ImageProcessor] Image saved successfully at: \(filePath.path)")
+            return true
+        } catch {
+            debugPrint("[ImageProcessor] Failed to save image: \(error)")
+            return false
+        }
+    }
+    
+    /// Sanitize a file name by removing invalid characters.
+    /// - Parameter fileName: The original file name.
+    /// - Returns: A sanitized file name safe for the file system.
+    private func sanitizeFileName(_ fileName: String) -> String {
+        let invalidCharacters = CharacterSet(charactersIn: ":/?<>\\|*\"")
+        return fileName
+            .components(separatedBy: invalidCharacters)
+            .joined()
     }
 }

@@ -62,10 +62,8 @@ struct NsfwPrediction: Equatable, Hashable {
     }
     
     func isSafe() -> Bool {
-        guard let maxIndex = predictions.indices.max(by: { predictions[$0] < predictions[$1] }) else {
-            return false
-        }
-        return maxIndex == 0 || maxIndex == 2
+        print("nsfw Unsafe score \(unsafeScore()) Safe score \(safeScore())")
+        return unsafeScore() < 0.85
     }
     
     static func == (lhs: NsfwPrediction, rhs: NsfwPrediction) -> Bool {

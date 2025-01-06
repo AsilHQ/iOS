@@ -268,7 +268,7 @@ license and copyright terms herein.</string>
 			<key>License</key>
 			<string>Apache</string>
 			<key>Title</key>
-			<string>TensorFlowLiteSwift</string>
+			<string>LiteRTSwift</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

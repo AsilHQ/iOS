@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/LiteRTC/LiteRTC-xcframeworks.sh
+${PODS_ROOT}/LiteRTC/Frameworks/TensorFlowLiteC.xcframework
+${PODS_ROOT}/LiteRTC/Frameworks/TensorFlowLiteCCoreML.xcframework
+${PODS_ROOT}/LiteRTC/Frameworks/TensorFlowLiteCMetal.xcframework

@@ -1,0 +1,3 @@
+${PODS_XCFRAMEWORKS_BUILD_DIR}/LiteRTC/Core/TensorFlowLiteC.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/LiteRTC/CoreML/TensorFlowLiteCCoreML.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/LiteRTC/Metal/TensorFlowLiteCMetal.framework

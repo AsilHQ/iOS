@@ -33,15 +33,16 @@ class NsfwDetector: TensorflowDetector {
         do {
             interpreter = try Interpreter(modelPath: Bundle.main.path(forResource: "nsfw", ofType: "tflite") ?? "")
             try interpreter?.allocateTensors()
-            print("NsfwDetector model has been loaded")
+            print("[NsfwDetector] model has been loaded")
         } catch {
-            print("NsfwDetector Failed to create interpreter with error: \(error.localizedDescription)")
+            print("[NsfwDetector] Failed to create interpreter with error: \(error.localizedDescription)")
         }
         super.init()
     }
 
     func isNsfw(image: UIImage) -> NsfwPrediction? {
         guard let thumbnailPixelBuffer = CVPixelBuffer.buffer(from: image)?.centerThumbnail(ofSize: inputImageSize) else {
+            print("[NsfwDetector] nsfw error on thumbnailPixelBuffer")
             return nil
         }
         
@@ -53,7 +54,7 @@ class NsfwDetector: TensorflowDetector {
                 byteCount: batchSize * inputWidth * inputHeight * inputChannels,
                 isModelQuantized: inputTensor?.dataType == .float16
             ) else {
-                print("Failed to convert the image buffer to RGB data.")
+                print("[NsfwDetector] nsfw Failed to convert the image buffer to RGB data.")
                 return nil
             }
 
@@ -65,7 +66,7 @@ class NsfwDetector: TensorflowDetector {
             let prediction = NsfwPrediction(predictions: outputTensor?.data.toArray(type: Float32.self) ?? [])
             return prediction
         } catch {
-            print("GenderDetector Failed to invoke interpreter with error: \(error.localizedDescription)")
+            print("[NsfwDetector] nsfw Failed to invoke interpreter with error: \(error.localizedDescription)")
             return nil
         }
     }

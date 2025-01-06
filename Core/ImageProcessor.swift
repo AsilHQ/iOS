@@ -23,31 +23,66 @@ class ImageProcessor {
     
     let nsfwDetector = NsfwDetector()
     let genderDetector = GenderDetector()
+    var movenet: PoseEstimator?
+    let queue = DispatchQueue(label: "serial_queue")
+    
+    init() {
+        queue.async {
+            do {
+                self.movenet = try MoveNet(threadCount: 4, delegate: .gpu, modelType: .movenetMultipose)
+            } catch {
+                // Print the error directly
+                print("[SafegazeScript] Cannot initialize movenet: \(error)")
+            }
+        }
+    }
     
     func processImage(image: UIImage, imageData: Data, imageUrl: String, completion: @escaping (Bool, [Person]) -> Void) {
+        debugPrint("[SafegazeScript] processImage Starting processImage for \(imageUrl)")
+        
         runFaceAndPoseDetectionInParallel(image: image) { faceRects, poseList in
-            // Match detected poses to face rectangles
-            let personList = self.matchFacesToPoses(personList: poseList, faceRects: faceRects)
+            debugPrint("[SafegazeScript] processImage Detected \(faceRects.count) faces and \(poseList.count) poses for \(imageUrl)")
             
-            for person in personList {
+            var personList = self.matchFacesToPoses(personList: poseList, faceRects: faceRects, imageWidth: image.size.width, imageHeight: image.size.height)
+            
+            let dispatchGroup = DispatchGroup()
+            
+            for i in personList.indices {
+                dispatchGroup.enter()
+                
+                var person = personList[i]
+                
                 if let faceBox = person.faceBox {
-                    if let faceImage = self.cropToBBox(image: image, boundingBox: faceBox) {
-                        // Perform gender detection
-                        self.genderDetector.predict(image: faceImage, data: imageData) { prediction in
-                            if prediction.faceCount > 0 {
-                                person.isFemale = !prediction.hasMale
-                                person.genderScore = prediction.femaleConfidence
-                                debugPrint("[SafegazeScript] Gender Prediction: \(prediction.femaleConfidence) isFemale \(person.isFemale) for Person ID: \(person.id)")
-                            }
+                    
+                    self.genderDetector.predict(image: image, boundingBox: faceBox.rect) { prediction in
+                        defer {
+                            debugPrint("[SafegazeScript] processImage DispatchGroup leave for person \(i) in \(imageUrl)")
+                            dispatchGroup.leave()
+                        }
+                        
+                        if prediction.faceCount > 0 {
+                            person.isFemale = !prediction.isMale
+                            person.genderScore = prediction.genderScore
+                            person.faceBox = person.faceBoxPixel
+                            debugPrint("[SafegazeScript] processImage Gender prediction completed for person \(i) in \(imageUrl). GenderScore: \(prediction.genderScore) isFemale: \(person.isFemale)")
+                            personList[i] = person
+                        } else {
+                            debugPrint("[SafegazeScript] processImage No faces detected in gender prediction for person \(i) in \(imageUrl)")
                         }
                     }
                 } else {
-                    debugPrint("[SafegazeScript] no facebox check \(imageUrl)")
+                    debugPrint("[SafegazeScript] processImage No faceBox for person \(i) in \(imageUrl)")
+                    dispatchGroup.leave()
                 }
             }
             
-            let containsFemale = personList.contains { $0.isFemale }
-            completion(containsFemale, personList)
+            dispatchGroup.notify(queue: .main) {
+                debugPrint("[SafegazeScript] processImage DispatchGroup notify triggered for \(imageUrl)")
+                
+                let containsFemale = personList.contains { $0.isFemale }
+                debugPrint("[SafegazeScript] processImage Process completed for \(imageUrl). Contains female: \(containsFemale) Person Count: \(personList.count)")
+                completion(containsFemale, personList)
+            }
         }
     }
     
@@ -90,25 +125,34 @@ class ImageProcessor {
     }
     
     func detectBodyPoses(image: UIImage, completion: @escaping ([Person]) -> Void) {
-        let request = VNDetectHumanBodyPoseRequest()
-        let requestHandler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
-        
         DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                try requestHandler.perform([request])
-                
-                guard let observations = request.results  else {
-                    debugPrint("[SafegazeScript] There is no observation")
-                    completion([])
-                    return
-                }
-                
-                let poses = self.parsePoses(from: observations, imageSize: image.size)
-
-                completion(poses)
-            } catch {
-                debugPrint("[SafegazeScript] Error detecting body poses: \(error.localizedDescription)")
+            guard let pixelBuffer = CVPixelBuffer.buffer(from: image) else {
+                debugPrint("[SafegazeScript] Error: Could not convert image to pixel buffer.")
                 completion([])
+                return
+            }
+
+            guard let movenet = self.movenet else {
+                debugPrint("[SafegazeScript] Movenet is nil")
+                DispatchQueue.main.async {
+                    completion([])
+                }
+                return
+            }
+            
+            do {
+                // Run your TensorFlow Lite inference
+                let persons = try movenet.estimateMultiplePoses(on: pixelBuffer)
+
+                // Return the detected poses
+                DispatchQueue.main.async {
+                    completion(persons)
+                }
+            } catch {
+                debugPrint("[SafegazeScript] TensorFlow Lite inference error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    completion([])
+                }
             }
         }
     }
@@ -126,29 +170,35 @@ class ImageProcessor {
     }
     
     /// Match faces to poses using bounding box proximity.
-    func matchFacesToPoses(personList: [Person], faceRects: [CGRect]) -> [Person] {
+    func matchFacesToPoses(personList: [Person], faceRects: [CGRect], imageWidth: CGFloat, imageHeight: CGFloat) -> [Person] {
         var updatedPersons = personList
-        
+
         for i in updatedPersons.indices { // Use indices for mutable access
             guard let poseBox = updatedPersons[i].poseBox else { continue }
-            
+
             var bestMatch: CGRect?
             var bestScore: CGFloat = -1
-            
+
+            // Calculate pose center in pixel coordinates
             let poseCenter = CGPoint(
                 x: poseBox.midX,
                 y: poseBox.midY
             )
-            
+
             for faceRect in faceRects {
+                debugPrint("FaceRects detected: \(faceRect)")
+
+                // Calculate face center in pixel coordinates
                 let faceCenter = CGPoint(
                     x: faceRect.midX,
                     y: faceRect.midY
                 )
-                
+
+                // Compute the distance between the pose center and face center
                 let distance = getDistance(point1: poseCenter, point2: faceCenter)
                 let maxAllowedDistance = max(poseBox.width, poseBox.height)
-                
+
+                // Match face to pose if within the allowed distance
                 if distance <= maxAllowedDistance {
                     let score = 1 - (distance / maxAllowedDistance)
                     if score > bestScore {
@@ -157,11 +207,26 @@ class ImageProcessor {
                     }
                 }
             }
-            
-            // Assign the best match to the person
-            updatedPersons[i].faceBox = bestMatch
+
+            if let bestMatch = bestMatch {
+                updatedPersons[i].faceBox = RectF(
+                    left: bestMatch.origin.x,
+                    top: bestMatch.origin.y,
+                    right: bestMatch.origin.x + bestMatch.width,
+                    bottom: bestMatch.origin.y + bestMatch.height
+                )
+                updatedPersons[i].faceBoxPixel = RectF(
+                    left: bestMatch.origin.x * imageWidth,
+                    top: (1 - bestMatch.origin.y - bestMatch.height) * imageHeight,
+                    right: (bestMatch.origin.x + bestMatch.width) * imageWidth,
+                    bottom: (1 - bestMatch.origin.y) * imageHeight
+                )
+            } else {
+                debugPrint("[SafegazeScript] matchFacesToPoses: No bestMatch found for person \(i)")
+                updatedPersons[i].faceBox = nil
+            }
         }
-        
+
         return updatedPersons
     }
     
@@ -170,59 +235,5 @@ class ImageProcessor {
         let dx = point1.x - point2.x
         let dy = point1.y - point2.y
         return sqrt(dx * dx + dy * dy)
-    }
-    
-    func parsePoses(from observations: [VNHumanBodyPoseObservation], imageSize: CGSize) -> [Person] {
-        var persons: [Person] = []
-
-        for (id, observation) in observations.enumerated() {
-            do {
-                let recognizedPoints = try observation.recognizedPoints(.all)
-                var keyPoints: [KeyPoint] = []
-                var totalScore: Float = 0
-
-                // Calculate bounding box for the pose
-                var minX: CGFloat = CGFloat.greatestFiniteMagnitude
-                var minY: CGFloat = CGFloat.greatestFiniteMagnitude
-                var maxX: CGFloat = -CGFloat.greatestFiniteMagnitude
-                var maxY: CGFloat = -CGFloat.greatestFiniteMagnitude
-
-                // Iterate through recognized points
-                for (bodyPart, point) in recognizedPoints {
-                    if point.confidence > 0.1 { // Filter low-confidence points
-                        let coordinate = CGPoint(
-                            x: point.location.x * imageSize.width,
-                            y: (1 - point.location.y) * imageSize.height // Adjust Y-axis
-                        )
-
-                        // Update bounding box
-                        minX = min(minX, coordinate.x)
-                        minY = min(minY, coordinate.y)
-                        maxX = max(maxX, coordinate.x)
-                        maxY = max(maxY, coordinate.y)
-
-                        // Create keypoint
-                        let keyPoint = KeyPoint(bodyPart: bodyPart, coordinate: coordinate, score: point.confidence)
-                        keyPoints.append(keyPoint)
-                        totalScore += point.confidence
-                    }
-                }
-
-                // Skip if no keypoints detected
-                guard !keyPoints.isEmpty else { continue }
-
-                // Calculate average score and create bounding box
-                let averageScore = totalScore / Float(keyPoints.count)
-                let poseBox = CGRect(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
-
-                // Create Person object
-                let person = Person(id: id, keyPoints: keyPoints, score: averageScore, faceBox: nil, poseBox: poseBox)
-                persons.append(person)
-            } catch {
-                debugPrint("[SafegazeScript] Error processing pose observation: \(error.localizedDescription)")
-            }
-        }
-
-        return persons
     }
 }
