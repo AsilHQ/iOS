@@ -309,6 +309,7 @@
 		4E2880C12C8C44BB00B00CD2 /* KahfDesignResourcesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2880C02C8C44BB00B00CD2 /* KahfDesignResourcesKit */; };
 		4E2880C32C8C469A00B00CD2 /* KahfDesignResourcesKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4E2880C22C8C469A00B00CD2 /* KahfDesignResourcesKit */; };
 		4E2880C72C9036E800B00CD2 /* KahfBrowserOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */; };
+		4E52E7C12D418E1600701AC4 /* DNSResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E52E7C02D418E1200701AC4 /* DNSResolver.swift */; };
 		4EBD78242C6DE393006E2DE3 /* WallpaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */; };
 		4EEC64662C9C064A00120DDE /* UIColor+OWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64652C9C064900120DDE /* UIColor+OWS.swift */; };
 		4EEC64682C9C073200120DDE /* UIColor+SSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64672C9C073200120DDE /* UIColor+SSK.swift */; };
@@ -1641,6 +1642,7 @@
 		4E1E3F232C75E43200C19FDD /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		4E1E3F2B2C7DC6F900C19FDD /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		4E2880C62C9036E800B00CD2 /* KahfBrowserOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KahfBrowserOnboardingView.swift; sourceTree = "<group>"; };
+		4E52E7C02D418E1200701AC4 /* DNSResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSResolver.swift; sourceTree = "<group>"; };
 		4EBD78232C6DE393006E2DE3 /* WallpaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperManager.swift; sourceTree = "<group>"; };
 		4EEC64652C9C064900120DDE /* UIColor+OWS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+OWS.swift"; sourceTree = "<group>"; };
 		4EEC64672C9C073200120DDE /* UIColor+SSK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SSK.swift"; sourceTree = "<group>"; };
@@ -5841,6 +5843,7 @@
 				4B274F5E2AFEAEB3003F0745 /* Widget */,
 				EE8594982A44791C008A6D06 /* NetworkProtectionTunnelController.swift */,
 				4BF3E4AE2C06A85200ED5D57 /* VPNRedditSessionWorkaround.swift */,
+				4E52E7C02D418E1200701AC4 /* DNSResolver.swift */,
 			);
 			name = NetworkProtection;
 			sourceTree = "<group>";
@@ -8026,6 +8029,7 @@
 				6F64AA532C47E92600CF4489 /* FavoritesFaviconLoader.swift in Sources */,
 				4B274F602AFEAECC003F0745 /* NetworkProtectionWidgetRefreshModel.swift in Sources */,
 				858650D9246B0D3C00C36F8A /* DaxOnboardingViewController.swift in Sources */,
+				4E52E7C12D418E1600701AC4 /* DNSResolver.swift in Sources */,
 				312E5746283BB04A00C18FA0 /* AutofillEmptySearchView.swift in Sources */,
 				8565A34B1FC8D96B00239327 /* LaunchTabNotification.swift in Sources */,
 				311BD1AD2836BB3900AEF6C1 /* AutofillItemsEmptyView.swift in Sources */,
