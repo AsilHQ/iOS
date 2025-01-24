@@ -1668,7 +1668,7 @@ extension TabViewController: WKNavigationDelegate {
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
         Task {
-            guard let host = navigationAction.request.url?.host else {
+            guard let url = navigationAction.request.url, let host = url.host else {
                 decisionHandler(.cancel)
                 return
             }
@@ -1676,8 +1676,8 @@ extension TabViewController: WKNavigationDelegate {
             dnsResolver.resolveDNS(for: host) { resolvedIP in
                 if resolvedIP == nil {
                     DispatchQueue.main.async {
-                        if let url = URL(string: "http://blocked.kahfguard.com") {
-                            var request = URLRequest(url: url)
+                        if let blockURL = URL(string: "http://blocked.kahfguard.com?url=\(url.absoluteString)") {
+                            var request = URLRequest(url: blockURL)
                             request.attribution = .user
                             self.load(urlRequest: request)
                         }
