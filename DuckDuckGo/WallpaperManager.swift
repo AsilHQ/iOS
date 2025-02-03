@@ -21,48 +21,88 @@ import Foundation
 import UIKit
 import CryptoKit
 
-class WallpaperManager {
+struct Wallpaper: Codable {
+    let name: String
+    let downloadUrl: String
+    let title: String
+    let subtitle: String
+    let credit: String
+    let url: String
     
+    enum CodingKeys: String, CodingKey {
+        case name
+        case downloadUrl = "download_url"
+        case title
+        case subtitle
+        case credit
+        case url
+    }
+}
+
+class WallpaperManager {
     static var filesDir: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
     
-    /**
-     * If there are multiple images in the list, randomly download only 3 to avoid high data consumption at first launch
-     */
-    private static func downloadImages(urls: [String]) {
-        let shuffledUrls = urls.shuffled() // Shuffle the list of URLs to pick randomly
+    private static let metadataFileName = "wallpapers_metadata.json"
+    
+    // Save metadata to local storage
+    private static func saveMetadata(_ wallpapers: [Wallpaper]) {
+        let metadataUrl = filesDir.appendingPathComponent(metadataFileName)
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(wallpapers)
+            try data.write(to: metadataUrl)
+            print("WallpaperManager: metadata saved successfully")
+        } catch {
+            print("WallpaperManager: failed to save metadata: \(error)")
+        }
+    }
+    
+    // Load metadata from local storage
+    private static func loadMetadata() -> [Wallpaper] {
+        let metadataUrl = filesDir.appendingPathComponent(metadataFileName)
+        do {
+            let data = try Data(contentsOf: metadataUrl)
+            let decoder = JSONDecoder()
+            return try decoder.decode([Wallpaper].self, from: data)
+        } catch {
+            print("WallpaperManager: failed to load metadata: \(error)")
+            return []
+        }
+    }
+    
+    private static func downloadImages(wallpapers: [Wallpaper]) {
+        let shuffledWallpapers = wallpapers.shuffled()
         var downloadedCount = 0
         
-        for url in shuffledUrls {
-            let fileName = getFileNameFromUrl(url: url)
+        for wallpaper in shuffledWallpapers {
+            let fileName = getFileNameFromUrl(url: wallpaper.downloadUrl)
             let file = filesDir.appendingPathComponent("wp").appendingPathComponent(fileName)
             
             if !FileManager.default.fileExists(atPath: file.deletingLastPathComponent().path) {
                 try? FileManager.default.createDirectory(at: file.deletingLastPathComponent(), withIntermediateDirectories: true)
             }
             
-            // Check if the file already exists
             if FileManager.default.fileExists(atPath: file.path) {
                 print("WallpaperManager: File already exists: \(file.path)")
                 continue
             }
             
-            // Download and save the image
             do {
-                let imageData = try Data(contentsOf: URL(string: url)!)
-                if let image = UIImage(data: imageData) {
-                    if let data = image.jpegData(compressionQuality: 1.0) {
-                        try data.write(to: file)
-                        print("WallpaperManager: image saved: \(file.path)")
-                    }
+                guard let url = URL(string: wallpaper.downloadUrl) else { continue }
+                let imageData = try Data(contentsOf: url)
+                if let image = UIImage(data: imageData),
+                   let data = image.jpegData(compressionQuality: 1.0) {
+                    try data.write(to: file)
+                    print("WallpaperManager: image saved: \(file.path)")
                 }
                 downloadedCount += 1
-                if (downloadedCount >= 3) {
+                if downloadedCount >= 3 {
                     break
                 }
             } catch {
-                print("WallpaperManager: failed to download image from: \(url)")
+                print("WallpaperManager: failed to download image from: \(wallpaper.downloadUrl)")
             }
         }
     }
@@ -74,37 +114,51 @@ class WallpaperManager {
     }
     
     static func fetchWallpapers() {
-        let jsonUrl = URL(string: "https://api.github.com/repos/Kahf-Browser/public/contents/wallpapers?ref=main")!
+        let jsonUrl = URL(string: "https://raw.githubusercontent.com/Kahf-Browser/public/main/wallpapers/labels.json")!
         
         DispatchQueue.global().async {
             do {
                 let jsonData = try Data(contentsOf: jsonUrl)
-                let jsonArray = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [[String: Any]]
+                let decoder = JSONDecoder()
+                let wallpapers = try decoder.decode([Wallpaper].self, from: jsonData)
                 
-                print("WallpaperManager: wallpaper's list downloaded successfully.")
-                let urls = jsonArray.compactMap { $0["download_url"] as? String }
-                downloadImages(urls: urls)
+                print("WallpaperManager: wallpaper's list downloaded successfully")
+                saveMetadata(wallpapers)
+                downloadImages(wallpapers: wallpapers)
             } catch {
                 print("WallpaperManager: error downloading wallpaper's list: \(error)")
             }
         }
     }
     
-    static func getSavedImagePaths() -> [URL] {
-        let wpDir = filesDir.appendingPathComponent("wp")
-        do {
-            let fileURLs = try FileManager.default.contentsOfDirectory(at: wpDir, includingPropertiesForKeys: nil)
-            return fileURLs
-        } catch {
-            print("WallpaperManager: error while fetching image paths: \(error)")
-            return []
+    // Get a random wallpaper with its metadata
+    static func getRandomWallpaper() -> (image: UIImage?, metadata: Wallpaper?) {
+        let metadata = loadMetadata()
+        guard let randomWallpaper = metadata.randomElement() else {
+            return (nil, nil)
         }
+        
+        let fileName = getFileNameFromUrl(url: randomWallpaper.downloadUrl)
+        let file = filesDir.appendingPathComponent("wp").appendingPathComponent(fileName)
+        
+        if let data = try? Data(contentsOf: file),
+           let image = UIImage(data: data) {
+            return (image, randomWallpaper)
+        }
+        
+        return (nil, nil)
     }
     
-    static func loadImageFrom(path: URL) -> UIImage? {
-        if let data = try? Data(contentsOf: path) {
-            return UIImage(data: data)
-        }
-        return nil
+}
+extension WallpaperManager {
+    static func createAttributedString(from text: String) -> NSAttributedString? {
+        return try? NSAttributedString(
+            data: Data(text.utf8),
+            options: [
+                .documentType: NSAttributedString.DocumentType.html,
+                .characterEncoding: String.Encoding.utf8.rawValue
+            ],
+            documentAttributes: nil
+        )
     }
 }

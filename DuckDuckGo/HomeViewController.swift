@@ -28,6 +28,11 @@ import RemoteMessaging
 import SwiftUI
 import BrowserServicesKit
 import os.log
+import SnapKit
+
+class CreditButton: UIButton {
+    var url: URL?
+}
 
 class HomeViewController: UIViewController, NewTabPage {
 
@@ -161,23 +166,119 @@ class HomeViewController: UIViewController, NewTabPage {
     }
     
     private func addWallpaper() {
-        let wallpaperImageView = UIImageView(frame: self.view.bounds)
+        
+        let wallpaperImageView = UIImageView()
         wallpaperImageView.contentMode = .scaleAspectFill
-        wallpaperImageView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(wallpaperImageView)
         self.view.sendSubviewToBack(wallpaperImageView)
         
-        NSLayoutConstraint.activate([
-            wallpaperImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            wallpaperImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            wallpaperImageView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            wallpaperImageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-        ])
+        // Create container view
+        let containerView = UIView()
+        self.view.addSubview(containerView)
         
-        WallpaperManager.getSavedImagePaths().randomElement().map { url in
-            let image = WallpaperManager.loadImageFrom(path: url)
-            wallpaperImageView.image = image
+        // Create labels
+        let titleLabel = UILabel()
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont(name: "Lato-Regular", size: 13)
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 2
+        containerView.addSubview(titleLabel)
+        
+        let subtitleLabel = UILabel()
+        subtitleLabel.textColor = .white
+        subtitleLabel.font = UIFont(name: "Lato-Regular", size: 11)
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.numberOfLines = 2
+        containerView.addSubview(subtitleLabel)
+        
+        // Create credit button
+        let creditButton = CreditButton()
+        creditButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 7)
+        creditButton.titleLabel?.textAlignment = .center
+        creditButton.setTitleColor(.white, for: .normal)
+        containerView.addSubview(creditButton)
+        
+        // Set up SnapKit constraints
+        wallpaperImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
+        
+        containerView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.centerX.equalToSuperview()
+            make.width.lessThanOrEqualToSuperview().offset(-16)
+        }
+        
+        subtitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+            make.centerX.equalToSuperview()
+            make.width.lessThanOrEqualToSuperview().offset(-16)
+        }
+        
+        creditButton.snp.makeConstraints { make in
+            make.top.equalTo(subtitleLabel.snp.bottom).offset(4)
+            make.centerX.equalToSuperview()
+            make.width.lessThanOrEqualToSuperview().offset(-16)
+            make.height.equalTo(10)
+            make.bottom.equalToSuperview().offset(-6)
+        }
+        
+        // Load and display wallpaper with metadata
+        let (image, metadata) = WallpaperManager.getRandomWallpaper()
+        wallpaperImageView.image = image
+        
+        if let metadata = metadata {
+            titleLabel.text = metadata.title.isEmpty ? nil : metadata.title
+            subtitleLabel.text = metadata.subtitle
+            
+            // Handle HTML in credit text
+            if !metadata.credit.isEmpty {
+                if let attributedString = WallpaperManager.createAttributedString(from: metadata.credit) {
+                    let mutableAttrString = NSMutableAttributedString(attributedString: attributedString)
+                    
+                    let attributes: [NSAttributedString.Key: Any] = [
+                        .font: UIFont(name: "Lato-Regular", size: 11)!,
+                        .foregroundColor: UIColor.white
+                    ]
+                    
+                    mutableAttrString.addAttributes(
+                        attributes,
+                        range: NSRange(location: 0, length: mutableAttrString.length)
+                    )
+                    
+                    creditButton.setAttributedTitle(mutableAttrString, for: .normal)
+                } else {
+                    creditButton.setTitle(metadata.credit, for: .normal)
+                }
+                // ... rest of your code
+                
+                // Add button action if URL exists
+                if !metadata.url.isEmpty {
+                    creditButton.addTarget(self, action: #selector(creditButtonTapped), for: .touchUpInside)
+                    if let url = URL(string: metadata.url) {
+                        creditButton.url = url
+                    }
+                }
+            }
+            
+            // Hide empty elements
+            titleLabel.isHidden = metadata.title.isEmpty
+            subtitleLabel.isHidden = metadata.subtitle.isEmpty
+            creditButton.isHidden = metadata.credit.isEmpty
+            
+            // Hide container if all elements are empty
+            containerView.isHidden = metadata.title.isEmpty && metadata.subtitle.isEmpty && metadata.credit.isEmpty
+        }
+    }
+    
+    @objc private func creditButtonTapped(_ sender: UIButton) {
+        guard let creditButton = sender as? CreditButton, let url = creditButton.url else { return }
+        load(url: url)
     }
 
     private func registerForBookmarksChanges() {
