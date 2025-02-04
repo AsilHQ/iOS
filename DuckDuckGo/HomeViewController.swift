@@ -254,9 +254,7 @@ class HomeViewController: UIViewController, NewTabPage {
                     creditButton.setAttributedTitle(mutableAttrString, for: .normal)
                 } else {
                     creditButton.setTitle(metadata.credit, for: .normal)
-                }
-                // ... rest of your code
-                
+                }                
                 // Add button action if URL exists
                 if !metadata.url.isEmpty {
                     creditButton.addTarget(self, action: #selector(creditButtonTapped), for: .touchUpInside)

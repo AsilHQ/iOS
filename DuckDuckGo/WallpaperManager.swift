@@ -134,16 +134,29 @@ class WallpaperManager {
     // Get a random wallpaper with its metadata
     static func getRandomWallpaper() -> (image: UIImage?, metadata: Wallpaper?) {
         let metadata = loadMetadata()
-        guard let randomWallpaper = metadata.randomElement() else {
+        guard !metadata.isEmpty else {
             return (nil, nil)
         }
         
-        let fileName = getFileNameFromUrl(url: randomWallpaper.downloadUrl)
-        let file = filesDir.appendingPathComponent("wp").appendingPathComponent(fileName)
+        var attemptedWallpapers = Set<String>()
         
-        if let data = try? Data(contentsOf: file),
-           let image = UIImage(data: data) {
-            return (image, randomWallpaper)
+        while attemptedWallpapers.count < metadata.count {
+            guard let randomWallpaper = metadata.randomElement(),
+                  !attemptedWallpapers.contains(randomWallpaper.downloadUrl) else {
+                continue
+            }
+            
+            attemptedWallpapers.insert(randomWallpaper.downloadUrl)
+            
+            let fileName = getFileNameFromUrl(url: randomWallpaper.downloadUrl)
+            let file = filesDir.appendingPathComponent("wp").appendingPathComponent(fileName)
+            
+            if let data = try? Data(contentsOf: file),
+               let image = UIImage(data: data) {
+                return (image, randomWallpaper)
+            }
+            
+            // If the image is nil, the loop continues to try another random wallpaper
         }
         
         return (nil, nil)
