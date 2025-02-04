@@ -155,13 +155,9 @@ class WallpaperManager {
                let image = UIImage(data: data) {
                 return (image, randomWallpaper)
             }
-            
-            // If the image is nil, the loop continues to try another random wallpaper
         }
-        
         return (nil, nil)
     }
-    
 }
 extension WallpaperManager {
     static func createAttributedString(from text: String) -> NSAttributedString? {
