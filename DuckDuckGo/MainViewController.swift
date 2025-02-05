@@ -1436,8 +1436,8 @@ class MainViewController: UIViewController {
             tabManager.selectTab(existing)
         } else {
             tabManager.addHomeTab()
-            attachHomeScreen()
         }
+        attachHomeScreen()
         tabsBarController?.refresh(tabsModel: tabManager.model)
         swipeTabsCoordinator?.refresh(tabsModel: tabManager.model, scrollToSelected: true)
         homeController?.openedAsNewTab(allowingKeyboard: allowingKeyboard)
