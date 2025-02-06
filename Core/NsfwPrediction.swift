@@ -1,8 +1,8 @@
 //
 //  NsfwPrediction.swift
-//  Kahf Browser
+//  DuckDuckGo
 //
-//  Copyright © 2024 Kahf Browser. All rights reserved.
+//  Copyright © 2025 DuckDuckGo. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -62,10 +62,8 @@ struct NsfwPrediction: Equatable, Hashable {
     }
     
     func isSafe() -> Bool {
-        guard let maxIndex = predictions.indices.max(by: { predictions[$0] < predictions[$1] }) else {
-            return false
-        }
-        return maxIndex == 0 || maxIndex == 2
+        print("nsfw Unsafe score \(unsafeScore()) Safe score \(safeScore())")
+        return unsafeScore() < 0.85
     }
     
     static func == (lhs: NsfwPrediction, rhs: NsfwPrediction) -> Bool {
