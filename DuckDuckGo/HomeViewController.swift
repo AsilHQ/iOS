@@ -229,9 +229,9 @@ class HomeViewController: UIViewController, NewTabPage {
         }
         
         // Load and display wallpaper with metadata
-        let (image, metadata) = WallpaperManager.getRandomWallpaper()
+        let (image, metadata, url) = WallpaperManager.getRandomWallpaper(selectedUrl: tabModel.selectedWallpaper)
         wallpaperImageView.image = image
-        
+        tabModel.selectedWallpaper = url
         if let metadata = metadata {
             titleLabel.text = metadata.title.isEmpty ? nil : metadata.title
             subtitleLabel.text = metadata.subtitle

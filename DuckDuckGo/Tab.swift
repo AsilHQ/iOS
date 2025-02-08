@@ -59,6 +59,8 @@ public class Tab: NSObject, NSCoding {
             notifyObservers()
         }
     }
+    
+    var selectedWallpaper: String?
 
     public init(uid: String? = nil,
                 link: Link? = nil,

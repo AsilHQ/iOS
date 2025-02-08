@@ -131,11 +131,23 @@ class WallpaperManager {
         }
     }
     
-    // Get a random wallpaper with its metadata
-    static func getRandomWallpaper() -> (image: UIImage?, metadata: Wallpaper?) {
+    // Get a random wallpaper with its metadata or a specific one if URL is provided
+    static func getRandomWallpaper(selectedUrl: String? = nil) -> (image: UIImage?, metadata: Wallpaper?, url: String?) {
         let metadata = loadMetadata()
         guard !metadata.isEmpty else {
-            return (nil, nil)
+            return (nil, nil, nil)
+        }
+        
+        if let selectedUrl = selectedUrl,
+           let selectedWallpaper = metadata.first(where: { $0.downloadUrl == selectedUrl }) {
+            
+            let fileName = getFileNameFromUrl(url: selectedWallpaper.downloadUrl)
+            let file = filesDir.appendingPathComponent("wp").appendingPathComponent(fileName)
+            
+            if let data = try? Data(contentsOf: file),
+               let image = UIImage(data: data) {
+                return (image, selectedWallpaper, selectedWallpaper.downloadUrl)
+            }
         }
         
         var attemptedWallpapers = Set<String>()
@@ -153,10 +165,11 @@ class WallpaperManager {
             
             if let data = try? Data(contentsOf: file),
                let image = UIImage(data: data) {
-                return (image, randomWallpaper)
+                return (image, randomWallpaper, randomWallpaper.downloadUrl)
             }
         }
-        return (nil, nil)
+        
+        return (nil, nil, nil)
     }
 }
 extension WallpaperManager {
