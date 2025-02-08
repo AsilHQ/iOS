@@ -89,23 +89,35 @@ struct KahfBrowserOnboardingView: View {
                 
                 Spacer()
                 
-                Text("Get what you want twice as fast")
-                    .lineLimit(3)
-                    .font(FontHelper.poppins(size: 35, weight: .bold))
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 238, height: 160)
+                VStack {
+                    Text("Fast, Safe, Decent")
+                        .font(FontHelper.poppins(size: 27, weight: .bold))
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                    
+                    Text("AI powered")
+                        .font(FontHelper.poppins(size: 27, weight: .bold))
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                    
+                    Text("Browser")
+                        .font(FontHelper.poppins(size: 27, weight: .bold))
+                        .foregroundColor(Color.white)
+                        .multilineTextAlignment(.center)
+                }
+                .frame(height: 160)
+                .padding(.horizontal, 24)
                 
                 Button(action: {
                     stage += 1
                 }, label: {
-                    Text("Lets Go").foregroundColor(Color.white)
+                    Text("Let's Go").foregroundColor(Color.white)
                 })
                 .frame(maxWidth: .infinity)
                 .frame(height: 45)
                 .background(Color.black.opacity(0.5).cornerRadius(10))
                 .padding(.horizontal, 16)
-                .padding(.top, 45)
+                .padding(.top, 20)
                 
                 Spacer()
                 
@@ -119,17 +131,32 @@ struct KahfBrowserOnboardingView: View {
             VStack {
                 Spacer()
                 
-                Text("Search quickly and privately")
-                    .font(FontHelper.poppins(size: 35.0, weight: .bold))
-                    .foregroundColor(Color.white)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 238, height: 150)
-                
-                Text("Start exploring the halal web and browse the internet without worrying about haram content, haram ad and adult sites.")
+                VStack {
+                    Text("Fast, Safe, Decent")
+                        .font(FontHelper.poppins(size: 27, weight: .bold))
+                        .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
+                        .multilineTextAlignment(.center)
+                    
+                    Text("AI powered")
+                        .font(FontHelper.poppins(size: 27, weight: .bold))
+                        .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
+                        .multilineTextAlignment(.center)
+                    
+                    Text("Browser")
+                        .font(FontHelper.poppins(size: 27, weight: .bold))
+                        .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
+                        .multilineTextAlignment(.center)
+                }
+                .frame(height: 160)
+                .padding(.horizontal, 24)
+                .padding(.top, 40)
+
+                Text("Browse the internet while keeping to your moral values as the Kahf Browser's AI hides indecent images and harmful content as you browse, making it the safest browser in the world.")
                     .foregroundColor(Color.black)
-                    .font(FontHelper.poppins(size: 15.0, weight: .semibold))
+                    .font(FontHelper.inter(size: 15, weight: .semibold))
                     .multilineTextAlignment(.center)
-                    .frame(width: 289, height: 106)
+                    .frame(height: 106)
+                    .padding(.horizontal, 24)
                 
                 Button(action: {
                     guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
@@ -142,7 +169,7 @@ struct KahfBrowserOnboardingView: View {
                 .frame(height: 45)
                 .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
                 .padding(.horizontal, 16)
-                .padding(.top, 45)
+                .padding(.top, 20 )
                 
                 Button(action: {
                     stage += 1
@@ -151,7 +178,7 @@ struct KahfBrowserOnboardingView: View {
                         .font(FontHelper.poppins(size: 14, weight: .semibold))
                 })
                 .frame(maxWidth: .infinity)
-                .padding(.top, 10)
+                .padding(.top, 20)
                 .padding(.bottom, 50)
     
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -161,65 +188,73 @@ struct KahfBrowserOnboardingView: View {
     var stage3View: some View {
         ZStack {
             Image(.bgImg3).resizable().edgesIgnoringSafeArea(.all)
-            VStack {
-                Text("Choose the app you use most")
-                    .font(FontHelper.poppins(size: 35.0, weight: .bold))
-                    .foregroundColor(Color.black)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 221, height: 160)
+            VStack(spacing: 30) {
                 
-                Text("Select your favorite apps to keep them handy in your home screen")
-                    .font(FontHelper.poppins(size: 14.0, weight: .semibold))
-                    .foregroundColor(Color.black)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 271, height: 62)
+                Image(.onboardingPhone)
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                    .background(Color.clear)
+                    .padding(.top, 60)
+            
                 
-                VStack(spacing: 15) {
-                    HStack(spacing: 15) {
-                        appButton(for: .x)
-                        appButton(for: .gmail)
-                        appButton(for: .facebook)
-                    }
+                Text("Hide Indecent Images")
+                    .font(FontHelper.poppins(size: 30, weight: .bold))
+                    .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
+                    .multilineTextAlignment(.center)
+                
+                VStack(spacing: 0) {
+                    Text("Hiding inappropriate images.")
+                        .foregroundColor(Color.black)
+                        .font(FontHelper.inter(size: 15, weight: .semibold))
+                        .multilineTextAlignment(.center)
+                        
                     
-                    HStack(spacing: 15) {
-                        appButton(for: .youtube)
-                        appButton(for: .spotify)
-                        appButton(for: .instagram)
-                    }
+                    Text("Avoid major sins")
+                        .foregroundColor(Color.black)
+                        .font(FontHelper.inter(size: 15, weight: .semibold))
+                        .multilineTextAlignment(.center)
                 }
                 
-                Button(action: {
-                    tutorialSettings.hasSeenOnboarding = true
-                    selectedApps.forEach { app in
-                        addFavorite?(app.title, URL(string: app.url)!)
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }
-                }, label: {
-                    Text("Next").foregroundColor(Color.white)
-                        .font(FontHelper.poppins(size: 14, weight: .semibold))
-                })
-                .frame(maxWidth: .infinity)
-                .frame(height: 45)
-                .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
-                .padding(.horizontal, 16)
-                .padding(.top, 45)
+                Spacer()
                 
-                Button(action: {
-                    tutorialSettings.hasSeenOnboarding = true
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Skip for now").foregroundColor(Color.black)
-                        .font(FontHelper.poppins(size: 14, weight: .semibold))
-                })
-                .frame(maxWidth: .infinity)
-                .padding(.top, 10)
-                .padding(.bottom, 50)
+                Text("Device is compatible to hide indecent images")
+                    .foregroundColor(Color.green)
+                    .font(FontHelper.poppins(size: 12, weight: .bold))
+                    .multilineTextAlignment(.center)
                 
                 Spacer()
-    
-            }.padding(.top, 20).frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                VStack(spacing: 0) {
+                    Button(action: {
+                        tutorialSettings.hasSeenOnboarding = true
+                        selectedApps.forEach { app in
+                            addFavorite?(app.title, URL(string: app.url)!)
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }, label: {
+                        Text("Next").foregroundColor(Color.white)
+                            .font(FontHelper.poppins(size: 14, weight: .semibold))
+                    })
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 45)
+                    .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
+                    .padding(.horizontal, 16)
+                    .padding(.top, 20)
+                    
+                    Button(action: {
+                        tutorialSettings.hasSeenOnboarding = true
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Skip").foregroundColor(Color.black)
+                            .font(FontHelper.poppins(size: 14, weight: .semibold))
+                    })
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 20)
+                    .padding(.bottom, 50)
+                }
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
     
