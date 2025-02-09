@@ -70,7 +70,7 @@ final class UserScripts: UserScriptsProvider {
         autoconsentUserScript = AutoconsentUserScript(config: sourceProvider.privacyConfigurationManager.privacyConfig)
         safegazeScript = SafegazeScript()
 
-        if AppUserDefaults().safegazeOn {
+        if AppUserDefaults().decentInternetOn {
             safegazeScript.increaseSafegazeBlurredImageCount = {
                 DispatchQueue.main.async {
                     self.userDefaults.safegazeBlurredImageCount += 1

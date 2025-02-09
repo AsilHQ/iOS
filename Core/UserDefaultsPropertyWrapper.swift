@@ -167,6 +167,7 @@ public struct UserDefaultsWrapper<T> {
         case newTabPageIntroMessageEnabled = "com.duckduckgo.ios.newTabPage.introMessageEnabled"
         case newTabPageIntroMessageSeenCount = "com.duckduckgo.ios.newTabPage.introMessageSeenCount"
         case safegazeOn = "com.duckduckgo.ios.safegazeOn"
+        case decentInternetOn = "com.duckduckgo.ios.decentInternetOn"
         
         // Debug keys
         case debugNewTabPageSectionsEnabledKey = "com.duckduckgo.ios.debug.newTabPageSectionsEnabled"

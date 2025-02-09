@@ -20,10 +20,10 @@
 import Foundation
 import SwiftUI
 
-enum SafeInternet {
-    case high
-    case medium
-    case low
+enum SafeInternet: String {
+    case high = "HIGH"
+    case medium = "MEDIUM"
+    case low = "LOW"
     
     var color: Color {
         switch self {
@@ -65,10 +65,11 @@ enum DecentInternet {
 }
 
 struct SafegazeView: View {
-    @State var safeInternet: SafeInternet = .high
+    @State var safeInternet: SafeInternet = (SafeInternet(rawValue: AppUserDefaults().safegazeModeValue) ?? .high)
     @State var decentInternet: DecentInternet = .fullImage
     @State var value: Float = AppUserDefaults().safegazeBlurIntensityValue
-    @State var isOn: Bool = AppUserDefaults().safegazeOn
+    @State var isSafegazeOn: Bool = AppUserDefaults().safegazeOn
+    @State var isDecentInternetOn: Bool = AppUserDefaults().decentInternetOn
     @State var domainAvoidedContentCount: Int = 0
     @State var lifetimeAvoidedContentCount: Int = 0
     @State private var selection: Int = 0
@@ -87,8 +88,10 @@ struct SafegazeView: View {
     var body: some View {
         VStack(spacing: 10) {
             headerSection
-            horizontalDivider
-            saferInternetSection
+            if isSafegazeOn {
+                horizontalDivider
+                saferInternetSection
+            }
             horizontalDivider
             decentInternetSection
             horizontalDivider
@@ -98,8 +101,13 @@ struct SafegazeView: View {
         }
         .padding(.top)
         .padding(.horizontal, 20)
-        .onChange(of: isOn, perform: { _ in
-            AppUserDefaults().safegazeOn = isOn
+        .onChange(of: isSafegazeOn, perform: { _ in
+            AppUserDefaults().safegazeOn = isSafegazeOn
+            safegazeSettingsChanged?()
+            NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
+        })
+        .onChange(of: isDecentInternetOn, perform: { _ in
+            AppUserDefaults().decentInternetOn = isDecentInternetOn
             safegazeSettingsChanged?()
             NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
         })
@@ -136,7 +144,7 @@ struct SafegazeView: View {
                     .foregroundColor(gray130)
                     .font(FontHelper.lato(size: 14))
                 
-                Toggle(isOn: $isOn) {}
+                Toggle(isOn: $isSafegazeOn) {}
                     .controlSize(.mini)
                     .scaleEffect(0.7)
                     .labelsHidden()
@@ -160,75 +168,37 @@ struct SafegazeView: View {
     }
     
     var decentInternetSection: some View {
-            VStack {
+            VStack(spacing: 0) {
                 HStack {
                     VStack(spacing: 10) {
-                        sectionTitle("Decent Internet")
-                        VStack(spacing: 0) {
-                            sectionSubtitle("Blue indecent photos.")
-                            sectionSubtitle("Avoid major sins")
-                        }
-                        SliderView(value: $value)
-                        Spacer()
-                    }
-                    
-                    VStack {
-                        imageViewColumn(image: "KahfBoyFullImage", title: "Full Image", subtitle: "(Free)")
-                        Spacer()
-                    }
-                    
-                    VStack {
-                        imageViewColumn(image: "KahfFullImage", title: "Human Only", subtitle: "(Premium)")
-                        Spacer()
-                    }
-                }
-                
-                HStack {
-                    Spacer()
-                    Group {
-                        switch safeInternet {
-                        case .high:
-                            VStack(alignment: .leading) {
-                                HStack {
-                                    Circle()
-                                        .frame(width: 4, height: 4)
-                                        .foregroundColor(green)
-                                        .padding(.leading, 4)
-                                    VStack(spacing: 0) {
-                                        Text("Daily Free Limit")
-                                            .font(FontHelper.lato(size: 8.0, weight: .bold))
-                                            .foregroundColor(green)
-                                    }
-                                }
-                                Text("100 images")
-                                    .font(FontHelper.lato(size: 8.0, weight: .bold))
-                                    .foregroundColor(green)
-                                    .padding(.leading, 8)
+                        HStack {
+                            sectionTitle("Decent Internet")
+                            Spacer()
+                            HStack(spacing: 5) {
+                                Text("On/Off")
+                                    .foregroundColor(gray130)
+                                    .font(FontHelper.lato(size: 10))
+                                
+                                
+                                Toggle(isOn: $isDecentInternetOn) {}
+                                    .controlSize(.mini)
+                                    .scaleEffect(0.5)
+                                    .labelsHidden()
+                                    .foregroundColor(Color(red: 57 / 255, green: 182 / 255, blue: 53 / 255, opacity: 1))
+                            }
+                        }.frame(height: 20)
+                        
+                        HStack {
+                            VStack {
+                                sectionSubtitle("Blur indecent photos. Avoid major sins.").frame(width: 150)
                                 Spacer()
                             }
-                        case .medium, .low:
-                            VStack(spacing: 10) {
-                                HStack {
-                                    Circle().frame(width: 4, height: 4).foregroundColor(red)
-                                    Text("Free Limit Over")
-                                        .font(FontHelper.lato(size: 8, weight: .bold))
-                                        .foregroundColor(red)
-                                }
-                                Button(action: {
-                                    // Action for button
-                                }, label: {
-                                    Text("Buy Premium")
-                                        .foregroundColor(Color.white)
-                                        .font(FontHelper.lato(size: 8, weight: .bold))
-                                })
-                                .frame(width: 80, height: 26)
-                                .background(green)
-                                .cornerRadius(27)
-                            }.padding(.leading, 4)
-                        }
-                    }.frame(width: 80, height: 40)
+                            Spacer()
+                            imageViewColumn(image: "KahfFullImage")
+                        }.frame(height: 80)
+                    }
                 }
-            }.frame(height: 160)
+            }.frame(height: 100)
     }
     
     
@@ -286,20 +256,12 @@ struct SafegazeView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    func imageViewColumn(image: String, title: String, subtitle: String) -> some View {
-        VStack {
-            Image(image)
-                .resizable()
-                .frame(width: 80, height: 80)
-                .cornerRadius(6)
-                .foregroundColor(.black)
-            Text(title)
-                .font(FontHelper.poppins(size: 11, weight: .semibold))
-                .foregroundColor(Color(designSystemColor: .textPrimary))
-            Text(subtitle)
-                .font(FontHelper.lato(size: 11))
-                .foregroundColor(gray130)
-        }
+    func imageViewColumn(image: String) -> some View {
+        Image(image)
+            .resizable()
+            .frame(width: 80, height: 80)
+            .cornerRadius(6)
+            .foregroundColor(.black)
     }
     
     func harmAvoidedColumn(number: String, label: String) -> some View {
@@ -344,6 +306,7 @@ struct SafegazeView: View {
     func saferInternetButton(mode: SafeInternet) -> some View {
         Button(action: {
             safeInternet = mode
+            AppUserDefaults().safegazeModeValue = mode.rawValue
         }, label: {
             ZStack {
                 Text(mode.title)

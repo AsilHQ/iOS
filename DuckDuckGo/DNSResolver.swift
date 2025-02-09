@@ -22,10 +22,18 @@ import UIKit
 
 class DNSResolver {
     // DNS server to query
-    private let dnsHost = NWEndpoint.Host("high.kahfguard.com")
+    private var dnsHost = NWEndpoint.Host("high.kahfguard.com")
     private let dnsPort: NWEndpoint.Port = 53
     
     func resolveDNS(for host: String, completion: @escaping (String?) -> Void) {
+        if AppUserDefaults().safegazeModeValue == "HIGH" {
+            dnsHost = NWEndpoint.Host("high.kahfguard.com")
+        } else if AppUserDefaults().safegazeModeValue == "LOW" {
+            dnsHost = NWEndpoint.Host("low.kahfguard.com")
+        } else if AppUserDefaults().safegazeModeValue == "MEDIUM" {
+            dnsHost = NWEndpoint.Host("medium.kahfguard.com")
+        }
+        
         let connection = NWConnection(host: dnsHost, port: dnsPort, using: .udp)
         
         connection.stateUpdateHandler = { state in

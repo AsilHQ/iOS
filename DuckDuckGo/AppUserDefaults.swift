@@ -81,6 +81,7 @@ public class AppUserDefaults: AppSettings {
         static let duckPlayerAskModeOverlayHidden = "com.duckduckgo.ios.duckPlayerAskModeOverlayHidden"
         
         static let safegazeBlurIntensity = "com.duckduckgo.app.safegazeBlurIntensity"
+        static let safegazeModeValue = "com.duckduck.app.safegazeModeValue"
         static let safegazeBlurredImageCount = "com.duckduckgo.app.safegazeBlurredImageCount"
         static let blockedTrackersCount = "com.duckduckgo.app.blockedTrackersCount"
     }
@@ -422,6 +423,10 @@ public class AppUserDefaults: AppSettings {
 
     @UserDefaultsWrapper(key: .safegazeOn, defaultValue: true)
     var safegazeOn: Bool
+    
+    @UserDefaultsWrapper(key: .decentInternetOn, defaultValue: false)
+    var decentInternetOn: Bool
+    
     @UserDefaultsWrapper(key: .debugOnboardingHighlightsEnabledKey, defaultValue: false)
     var onboardingHighlightsEnabled: Bool
 }
@@ -497,6 +502,14 @@ extension AppUserDefaults: AppConfigurationFetchStatistics {
         }
         set {
             userDefaults?.setValue(newValue, forKey: Keys.safegazeBlurIntensity)
+        }
+    }
+    
+    var safegazeModeValue: String {
+        get {
+            return userDefaults?.string(forKey: Keys.safegazeModeValue) ?? "HIGH"
+        } set {
+            userDefaults?.setValue(newValue, forKey: Keys.safegazeModeValue)
         }
     }
     

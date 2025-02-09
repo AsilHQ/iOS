@@ -1673,16 +1673,18 @@ extension TabViewController: WKNavigationDelegate {
                 return
             }
             
-            dnsResolver.resolveDNS(for: host) { resolvedIP in
-                if resolvedIP == nil {
-                    DispatchQueue.main.async {
-                        if let blockURL = URL(string: "http://blocked.kahfguard.com?url=\(url.absoluteString)") {
-                            var request = URLRequest(url: blockURL)
-                            request.attribution = .user
-                            self.load(urlRequest: request)
+            if AppUserDefaults().safegazeOn {
+                dnsResolver.resolveDNS(for: host) { resolvedIP in
+                    if resolvedIP == nil {
+                        DispatchQueue.main.async {
+                            if let blockURL = URL(string: "http://blocked.kahfguard.com?url=\(url.absoluteString)") {
+                                var request = URLRequest(url: blockURL)
+                                request.attribution = .user
+                                self.load(urlRequest: request)
+                            }
                         }
+                        return
                     }
-                    return
                 }
             }
             

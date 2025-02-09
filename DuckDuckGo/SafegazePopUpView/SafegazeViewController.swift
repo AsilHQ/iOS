@@ -122,7 +122,8 @@ class SafegazeViewController: UIViewController, PopoverContentComponent {
           self.webView.evaluateJavaScript(jsString)
       }
       newView.safegazeSettingsChanged = {
-          DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+          self.dismiss(animated: true)
+          DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
               self.webView.reload()
           }
       }

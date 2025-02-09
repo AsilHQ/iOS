@@ -63,6 +63,8 @@ enum BestApps {
 
 struct KahfBrowserOnboardingView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State var isDecentInternetOn: Bool = AppUserDefaults().decentInternetOn
+    
     public let tutorialSettings: TutorialSettings
     @State var stage = 1
     @State var selectedApps: [BestApps] = []
@@ -225,23 +227,21 @@ struct KahfBrowserOnboardingView: View {
                 Spacer()
                 
                 VStack(spacing: 0) {
-                    Button(action: {
-                        tutorialSettings.hasSeenOnboarding = true
-                        selectedApps.forEach { app in
-                            addFavorite?(app.title, URL(string: app.url)!)
-                        }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }
-                    }, label: {
-                        Text("Next").foregroundColor(Color.white)
-                            .font(FontHelper.poppins(size: 14, weight: .semibold))
-                    })
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 45)
-                    .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
-                    .padding(.horizontal, 16)
-                    .padding(.top, 20)
+                    if !isDecentInternetOn {
+                        Button(action: {
+                            withAnimation {
+                                isDecentInternetOn = true
+                            }
+                        }, label: {
+                            Text("Enable Image Blurring").foregroundColor(Color.white)
+                                .font(FontHelper.poppins(size: 14, weight: .semibold))
+                        })
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                        .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
+                        .padding(.horizontal, 16)
+                        .padding(.top, 20)
+                    }
                     
                     Button(action: {
                         tutorialSettings.hasSeenOnboarding = true
@@ -255,7 +255,9 @@ struct KahfBrowserOnboardingView: View {
                     .padding(.bottom, 50)
                 }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
+        }.onChange(of: isDecentInternetOn, perform: { _ in
+            AppUserDefaults().decentInternetOn = isDecentInternetOn
+        })
     }
     
     func gradientOverlay(selected: Bool) -> some View {
