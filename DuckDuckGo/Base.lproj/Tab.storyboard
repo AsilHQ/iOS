@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
         <!--Tab View Controller-->
         <scene sceneID="AZu-6t-VLj">
             <objects>
-                <viewController storyboardIdentifier="TabViewController" id="Omk-JQ-4lU" customClass="TabViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TabViewController" id="Omk-JQ-4lU" customClass="TabViewController" customModule="KahfBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cfL-5d-Vrt"/>
                         <viewControllerLayoutGuide type="bottom" id="KkU-8R-dtX"/>
@@ -56,13 +56,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="09V-cw-B4O">
                                         <rect key="frame" x="10" y="0.0" width="748" height="361.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ErrorInfoUniversal" translatesAutoresizingMaskIntoConstraints="NO" id="TUO-E3-s7Q">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_browser_error" translatesAutoresizingMaskIntoConstraints="NO" id="TUO-E3-s7Q">
                                                 <rect key="frame" x="186.5" y="0.0" width="375" height="280"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="375" id="jW1-nd-KTC"/>
+                                                    <constraint firstAttribute="height" constant="280" id="uT0-yf-GCa"/>
+                                                </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="DZ8-qm-cwD">
                                                 <rect key="frame" x="174" y="288" width="400" height="73.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DuckDuckGo can’t load this page." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P7-7R-riV">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kahf Browser can’t load this page." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6P7-7R-riV">
                                                         <rect key="frame" x="0.0" y="0.0" width="400" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -182,6 +186,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ErrorInfoUniversal" width="375" height="280"/>
+        <image name="ic_browser_error" width="498" height="501"/>
     </resources>
 </document>

@@ -1673,21 +1673,6 @@ extension TabViewController: WKNavigationDelegate {
                 return
             }
             
-            if AppUserDefaults().safegazeOn {
-                dnsResolver.resolveDNS(for: host) { resolvedIP in
-                    if resolvedIP == nil {
-                        DispatchQueue.main.async {
-                            if let blockURL = URL(string: "http://blocked.kahfguard.com?url=\(url.absoluteString)") {
-                                var request = URLRequest(url: blockURL)
-                                request.attribution = .user
-                                self.load(urlRequest: request)
-                            }
-                        }
-                        return
-                    }
-                }
-            }
-            
             if #available(iOS 17.4, *),
                 navigationAction.request.url?.scheme == "marketplace-kit",
                 internalUserDecider.isInternalUser {
@@ -1801,6 +1786,24 @@ extension TabViewController: WKNavigationDelegate {
                 }
             }
 
+            
+            if AppUserDefaults().safegazeOn {
+                dnsResolver.resolveDNS(for: host) { resolvedIP in
+                    if resolvedIP == nil {
+                        DispatchQueue.main.async {
+                            if let blockURL = URL(string: "http://blocked.kahfguard.com?url=\(url.absoluteString)") {
+                                var request = URLRequest(url: blockURL)
+                                request.attribution = .user
+                                if self.lastError == nil {
+                                    self.load(urlRequest: request)
+                                }
+                            }
+                        }
+                        return
+                    }
+                }
+            }
+            
             decidePolicyFor(navigationAction: navigationAction) { [weak self] decision in
                 if let self = self,
                    let url = navigationAction.request.url,
