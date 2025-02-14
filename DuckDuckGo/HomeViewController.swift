@@ -92,6 +92,43 @@ class HomeViewController: UIViewController, NewTabPage {
     var hasFavoritesToShow: Bool {
         !favoritesViewModel.favorites.isEmpty
     }
+    
+    private let wallpaperImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    private let containerView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "Lato-Regular", size: 13)
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont(name: "Lato-Regular", size: 11)
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private let creditButton: CreditButton = {
+        let button = CreditButton()
+        button.titleLabel?.font = UIFont(name: "Lato-Regular", size: 7)
+        button.titleLabel?.textAlignment = .center
+        button.setTitleColor(.white, for: .normal)
+        return button
+    }()
 
     static func loadFromStoryboard(
         homePageDependecies: HomePageDependencies
@@ -148,7 +185,7 @@ class HomeViewController: UIViewController, NewTabPage {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupUI()
         NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.onKeyboardChangeFrame),
                                                name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 
@@ -161,44 +198,32 @@ class HomeViewController: UIViewController, NewTabPage {
                                                object: nil)
 
         registerForBookmarksChanges()
-        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         addWallpaper()
     }
     
-    private func addWallpaper() {
+    private func setupUI() {
+        // Add views to hierarchy
+        view.addSubview(wallpaperImageView)
+        view.sendSubviewToBack(wallpaperImageView)
         
-        let wallpaperImageView = UIImageView()
-        wallpaperImageView.contentMode = .scaleAspectFill
-        self.view.addSubview(wallpaperImageView)
-        self.view.sendSubviewToBack(wallpaperImageView)
+        view.addSubview(containerView)
         
-        // Create container view
-        let containerView = UIView()
-        self.view.addSubview(containerView)
-        
-        // Create labels
-        let titleLabel = UILabel()
-        titleLabel.textColor = .white
-        titleLabel.font = UIFont(name: "Lato-Regular", size: 13)
-        titleLabel.textAlignment = .center
-        titleLabel.numberOfLines = 2
+        // Add subviews to containerView
         containerView.addSubview(titleLabel)
-        
-        let subtitleLabel = UILabel()
-        subtitleLabel.textColor = .white
-        subtitleLabel.font = UIFont(name: "Lato-Regular", size: 11)
-        subtitleLabel.textAlignment = .center
-        subtitleLabel.numberOfLines = 2
         containerView.addSubview(subtitleLabel)
-        
-        // Create credit button
-        let creditButton = CreditButton()
-        creditButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 7)
-        creditButton.titleLabel?.textAlignment = .center
-        creditButton.setTitleColor(.white, for: .normal)
         containerView.addSubview(creditButton)
         
-        // Set up SnapKit constraints
+        // Set up layout constraints (if using Auto Layout)
+        setupConstraints()
+        addWallpaper()
+    }
+    
+    private func setupConstraints() {
         wallpaperImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -227,16 +252,16 @@ class HomeViewController: UIViewController, NewTabPage {
             make.height.equalTo(10)
             make.bottom.equalToSuperview().offset(-6)
         }
-        
-        // Load and display wallpaper with metadata
+    }
+    
+    private func addWallpaper() {
         let (image, metadata, url) = WallpaperManager.getRandomWallpaper(selectedUrl: tabModel.selectedWallpaper)
         wallpaperImageView.image = image
         tabModel.selectedWallpaper = url
         if let metadata = metadata {
             titleLabel.text = metadata.title.isEmpty ? nil : metadata.title
             subtitleLabel.text = metadata.subtitle
-            
-            // Handle HTML in credit text
+        
             if !metadata.credit.isEmpty {
                 if let attributedString = WallpaperManager.createAttributedString(from: metadata.credit) {
                     let mutableAttrString = NSMutableAttributedString(attributedString: attributedString)
