@@ -268,6 +268,8 @@ class MainViewController: UIViewController {
         viewCoordinator.toolbarBackButton.action = #selector(onBackPressed)
         viewCoordinator.toolbarForwardButton.action = #selector(onForwardPressed)
         viewCoordinator.toolbarAddTabButton.action = #selector(onAddNewTabPressed)
+        viewCoordinator.toolbarPrayerButton.action = #selector(onPrayerPressed)
+        viewCoordinator.toolbarBookmarkButton.action = #selector(onBookmarkPressed)
 
         installSwipeTabs()
             
@@ -1088,7 +1090,7 @@ class MainViewController: UIViewController {
         refreshMenuButtonState()
         refreshOmniBar()
         refreshBackForwardButtons()
-        refreshBackForwardMenuItems()
+//        refreshBackForwardMenuItems()
     }
 
     private func refreshTabIcon() {
@@ -1130,19 +1132,33 @@ class MainViewController: UIViewController {
     }
 
     fileprivate func refreshBackForwardButtons() {
-        if !(currentTab?.canGoBack ?? false) {
-            viewCoordinator.toolbarBackButton.image = UIImage(named: "BrowsePrevious")
-            viewCoordinator.toolbarForwardButton.image = UIImage(named: "KahfPrayer")
-            viewCoordinator.toolbarForwardButton.action = #selector(onPrayerPressed)
-            viewCoordinator.toolbarBackButton.isEnabled = false
-            viewCoordinator.toolbarForwardButton.isEnabled = true
-        } else {
-            viewCoordinator.toolbarBackButton.image = UIImage(named: "BrowsePrevious")
-            viewCoordinator.toolbarBackButton.action = #selector(onBackPressed)
-            viewCoordinator.toolbarForwardButton.image = UIImage(named: "BrowseNext")
-            viewCoordinator.toolbarBackButton.isEnabled = currentTab?.canGoBack ?? false
-            viewCoordinator.toolbarForwardButton.isEnabled = currentTab?.canGoForward ?? false
+        guard let tab = currentTab, tab.link != nil else {
+            viewCoordinator.toolbar.setItems([
+                viewCoordinator.toolbarBookmarkButton!,
+                .flexibleSpace(),
+                viewCoordinator.toolbarPrayerButton!,
+                .flexibleSpace(),
+                viewCoordinator.toolbarAddTabButton!,
+                .flexibleSpace(),
+                viewCoordinator.toolbarTabSwitcherButton!,
+                .flexibleSpace(),
+                viewCoordinator.lastToolbarButton!,
+            ], animated: true)
+            return
         }
+        viewCoordinator.toolbar.setItems([
+            viewCoordinator.toolbarBackButton!,
+            .flexibleSpace(),
+            viewCoordinator.toolbarForwardButton!,
+            .flexibleSpace(),
+            viewCoordinator.toolbarAddTabButton!,
+            .flexibleSpace(),
+            viewCoordinator.toolbarTabSwitcherButton!,
+            .flexibleSpace(),
+            viewCoordinator.lastToolbarButton!,
+        ], animated: true)
+        viewCoordinator.toolbarBackButton.isEnabled = currentTab?.canGoBack ?? false
+        viewCoordinator.toolbarForwardButton.isEnabled = currentTab?.canGoForward ?? false
     }
   
     var orientationPixelWorker: DispatchWorkItem?
@@ -2987,5 +3003,9 @@ extension MainViewController {
                 addToContentContainer(controller: prayerVC)
             }
         }
+    }
+    
+    @objc func onBookmarkPressed() {
+        onBookmarksPressed()
     }
 }

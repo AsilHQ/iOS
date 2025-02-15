@@ -42,6 +42,8 @@ class MainViewCoordinator {
     var toolbarAddTabButton: UIBarButtonItem!
     var toolbarForwardButton: UIBarButtonItem!
     var toolbarTabSwitcherButton: UIBarButtonItem!
+    var toolbarPrayerButton: UIBarButtonItem!
+    var toolbarBookmarkButton: UIBarButtonItem!
 
     let constraints = Constraints()
 
