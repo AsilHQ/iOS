@@ -67,14 +67,14 @@ enum DecentInternet {
 struct SafegazeView: View {
     @State var safeInternet: SafeInternet = (SafeInternet(rawValue: AppUserDefaults().safegazeModeValue) ?? .high)
     @State var decentInternet: DecentInternet = .fullImage
-    @State var value: Float = AppUserDefaults().safegazeBlurIntensityValue
-    @State var isSafegazeOn: Bool = AppUserDefaults().safegazeOn
-    @State var isDecentInternetOn: Bool = AppUserDefaults().decentInternetOn
-    @State var domainAvoidedContentCount: Int = 0
-    @State var lifetimeAvoidedContentCount: Int = 0
+    @AppStorage("com.duckduckgo.ios.safegazeOn") private var safegazeOn: Bool = AppUserDefaults().safegazeOn
+    @AppStorage("com.duckduckgo.ios.decentInternetOn") private var isDecentInternetOn: Bool = AppUserDefaults().decentInternetOn
+    @AppStorage("com.duckduckgo.ios.blockedTrackersCount") private var blockedTrackersCount: Int = AppUserDefaults().blockedTrackersCount
+    @AppStorage("com.duckduckgo.ios.safegazeBlurredImageCount") private var safegazeBlurredImageCount: Int = AppUserDefaults().safegazeBlurredImageCount
+    @AppStorage("com.duckduckgo.ios.safegazeModeValue") private var safegazeModeValue: String = AppUserDefaults().safegazeModeValue
+    
     @State private var selection: Int = 0
     @State private var isShareSheetPresented: Bool = false
-    let sharedText: String = "https://apps.apple.com/us/app/asil-browser/id1669467773"
     var tab: Tab
     
     let gray130 = Color(red: 130 / 255, green: 130 / 255, blue: 130 / 255, opacity: 1)
@@ -82,13 +82,13 @@ struct SafegazeView: View {
     let black = Color(red: 34 / 255, green: 34 / 255, blue: 34 / 255, opacity: 1)
     let red = Color(red: 254 / 255, green: 16 / 255, blue: 42 / 255, opacity: 1)
     
-    var updateBlurIntensity: (() -> Void)?
     var safegazeSettingsChanged: (() -> Void)?
+    var openShareSheet: (() -> Void)?
     
     var body: some View {
         VStack(spacing: 10) {
             headerSection
-            if isSafegazeOn {
+            if safegazeOn {
                 horizontalDivider
                 saferInternetSection
             }
@@ -101,20 +101,19 @@ struct SafegazeView: View {
         }
         .padding(.top)
         .padding(.horizontal, 20)
-        .onChange(of: isSafegazeOn, perform: { _ in
-            AppUserDefaults().safegazeOn = isSafegazeOn
+        .onChange(of: safegazeOn, perform: { _ in
             safegazeSettingsChanged?()
             NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
         })
         .onChange(of: isDecentInternetOn, perform: { _ in
-            AppUserDefaults().decentInternetOn = isDecentInternetOn
             safegazeSettingsChanged?()
             NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
         })
-        .onDisappear {
-            AppUserDefaults().safegazeBlurIntensityValue = value
-            updateBlurIntensity?()
-        }
+        .onChange(of: safeInternet, perform: { value in
+            safegazeModeValue = value.rawValue
+            safegazeSettingsChanged?()
+            NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
+        })
     }
 
     var horizontalDivider: some View {
@@ -144,7 +143,7 @@ struct SafegazeView: View {
                     .foregroundColor(gray130)
                     .font(FontHelper.lato(size: 14))
                 
-                Toggle(isOn: $isSafegazeOn) {}
+                Toggle(isOn: $safegazeOn) {}
                     .controlSize(.mini)
                     .scaleEffect(0.7)
                     .labelsHidden()
@@ -205,7 +204,7 @@ struct SafegazeView: View {
     var harmAvoidedSection: some View {
         sectionView(title: "Harm Avoided") {
             HStack {
-                harmAvoidedColumn(number: "23", label: "Harmful Sites")
+                harmAvoidedColumn(number: "\(AppUserDefaults().safegazeHarmfulSites)", label: "Harmful Sites")
                 Spacer()
                 verticalDivider
                 Spacer()
@@ -220,7 +219,8 @@ struct SafegazeView: View {
     
     var footerSection: some View {
         HStack {
-            footerButton(icon: "KahfShare", title: "Share") { // TODO: Add share action
+            footerButton(icon: "KahfShare", title: "Share") {
+                openShareSheet?()
             }
             Spacer()
             footerButton(icon: "KahfSupport", title: "Support") {
@@ -338,8 +338,8 @@ struct SafegazeView: View {
             .offset(y: -21)
     }
     
-    @MainActor static func redirect(updateView: (() -> Void)?, updateBlurIntensity: (() -> Void)?, safegazeSettingsChanged: (() -> Void)?, tab: Tab) -> UIView {
-        let popupView = SafegazeView(tab: tab, updateBlurIntensity: updateBlurIntensity, safegazeSettingsChanged: safegazeSettingsChanged)
+    @MainActor static func redirect(updateView: (() -> Void)?, updateBlurIntensity: (() -> Void)?, safegazeSettingsChanged: (() -> Void)?, openShareSheet: (() -> Void)?, tab: Tab) -> UIView {
+        let popupView = SafegazeView(tab: tab, safegazeSettingsChanged: safegazeSettingsChanged, openShareSheet: openShareSheet)
         return UIHostingController(rootView: popupView).view
     }
 }
@@ -357,6 +357,6 @@ struct ShareSheet: UIViewControllerRepresentable {
 
 #if DEBUG
 #Preview {
-    SafegazeView(domainAvoidedContentCount: 1000, lifetimeAvoidedContentCount: 1000, tab: Tab())
+    SafegazeView(tab: Tab())
 }
 #endif

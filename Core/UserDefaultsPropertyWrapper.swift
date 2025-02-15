@@ -166,8 +166,14 @@ public struct UserDefaultsWrapper<T> {
         case newTabPageShortcutsSettings = "com.duckduckgo.ios.newTabPage.shortcuts.settings"
         case newTabPageIntroMessageEnabled = "com.duckduckgo.ios.newTabPage.introMessageEnabled"
         case newTabPageIntroMessageSeenCount = "com.duckduckgo.ios.newTabPage.introMessageSeenCount"
+        
+        // MARK: Safegaze
         case safegazeOn = "com.duckduckgo.ios.safegazeOn"
         case decentInternetOn = "com.duckduckgo.ios.decentInternetOn"
+        case blockedTrackersCount = "com.duckduckgo.ios.blockedTrackersCount"
+        case safegazeBlurredImageCount = "com.duckduckgo.ios.safegazeBlurredImageCount"
+        case safegazeHarmfulSites = "com.duckduckgo.ios.safegazeHarmfulSites"
+        case safegazeModeValue = "com.duckduckgo.ios.safegazeModeValue"
         
         // Debug keys
         case debugNewTabPageSectionsEnabledKey = "com.duckduckgo.ios.debug.newTabPageSectionsEnabled"

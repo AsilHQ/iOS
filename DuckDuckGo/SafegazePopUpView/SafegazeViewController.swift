@@ -112,20 +112,16 @@ class SafegazeViewController: UIViewController, PopoverContentComponent {
 
   override func loadView() {
       let newView = View(frame: .zero, associatedTab: associatedTab)
-      newView.updateBlurIntensity = {
-          let jsString =
-            """
-                window.blurIntensity = \(AppUserDefaults().safegazeBlurIntensityValue);
-                updateBluredImageOpacity();
-            """
-          
-          self.webView.evaluateJavaScript(jsString)
-      }
       newView.safegazeSettingsChanged = {
           self.dismiss(animated: true)
           DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
               self.webView.reload()
           }
+      }
+      newView.openShareSheet = {
+          guard let url = URL(string: "https://apps.apple.com/tr/app/kahf-halal-browser/id6478084743") else { return }
+          let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+          self.present(activityViewController, animated: true)
       }
       view = newView
   }
@@ -174,7 +170,9 @@ extension SafegazeViewController {
     public var updateBgView: ((UIView, Bool) -> Void)?
     public var updateBlurIntensity: (() -> Void)?
     public var safegazeSettingsChanged: (() -> Void)?
+    public var openShareSheet: (() -> Void)?
     var associatedTab: Tab
+    
       
     init(frame: CGRect, associatedTab: Tab) {
       self.associatedTab = associatedTab
@@ -190,6 +188,8 @@ extension SafegazeViewController {
           self.updateBlurIntensity?()
       }, safegazeSettingsChanged: {
           self.safegazeSettingsChanged?()
+      }, openShareSheet: {
+          self.openShareSheet?()
       }, tab: associatedTab)
       stackView.addArrangedSubview(popupView)
 

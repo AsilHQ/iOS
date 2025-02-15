@@ -310,6 +310,7 @@
 		4EEC64662C9C064A00120DDE /* UIColor+OWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64652C9C064900120DDE /* UIColor+OWS.swift */; };
 		4EEC64682C9C073200120DDE /* UIColor+SSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64672C9C073200120DDE /* UIColor+SSK.swift */; };
 		4EEC646C2C9C119100120DDE /* FontTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC646B2C9C119100120DDE /* FontTypography.swift */; };
+		4EF77AAA2D5FA0BB00F1317C /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF77AA92D5FA0B500F1317C /* StatsView.swift */; };
 		4EFA92DB2C5A72D60002DC0E /* SafegazeScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */; };
 		560E990F2BEE2CB800507CE0 /* SyncErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E990E2BEE2CB800507CE0 /* SyncErrorMessage.swift */; };
 		564DE4532C3ED1B700D23241 /* NewTabDaxDialogFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564DE4522C3ED1B700D23241 /* NewTabDaxDialogFactory.swift */; };
@@ -1674,6 +1675,7 @@
 		4EEC64672C9C073200120DDE /* UIColor+SSK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+SSK.swift"; sourceTree = "<group>"; };
 		4EEC646B2C9C119100120DDE /* FontTypography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontTypography.swift; sourceTree = "<group>"; };
 		4EEC646D2C9C130B00120DDE /* InterVariable.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = InterVariable.ttf; sourceTree = "<group>"; };
+		4EF77AA92D5FA0B500F1317C /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafegazeScript.swift; sourceTree = "<group>"; };
 		560E990E2BEE2CB800507CE0 /* SyncErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncErrorMessage.swift; sourceTree = "<group>"; };
 		564DE4522C3ED1B700D23241 /* NewTabDaxDialogFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTabDaxDialogFactory.swift; sourceTree = "<group>"; };
@@ -4024,6 +4026,7 @@
 		4E1E3EF02C74692B00C19FDD /* SafegazePopUpView */ = {
 			isa = PBXGroup;
 			children = (
+				4EF77AA92D5FA0B500F1317C /* StatsView.swift */,
 				4E1E3EE92C74692B00C19FDD /* SliderView.swift */,
 				4E1E3EEE2C74692B00C19FDD /* SafegazeView.swift */,
 				4E1E3F192C747CE100C19FDD /* SafegazeViewController.swift */,
@@ -8015,6 +8018,7 @@
 				EEF0F8CC2ABC832300630031 /* NetworkProtectionDebugFeatures.swift in Sources */,
 				B60DFF072872B64B0061E7C2 /* JSAlertController.swift in Sources */,
 				981FED6E22025151008488D7 /* BlankSnapshotViewController.swift in Sources */,
+				4EF77AAA2D5FA0BB00F1317C /* StatsView.swift in Sources */,
 				D66F683D2BB333C100AE93E2 /* SubscriptionContainerView.swift in Sources */,
 				4E1E3F0D2C7476A200C19FDD /* PopoverContainerView.swift in Sources */,
 				851B128822200575004781BC /* Onboarding.swift in Sources */,

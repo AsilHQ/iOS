@@ -56,9 +56,7 @@ public class SafegazeScript: NSObject, UserScript {
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if let messageString = message.body as? String {
-            if messageString == "replaced" {
-                increaseSafegazeBlurredImageCount?()
-            } else if messageString.contains("coreML") {
+            if messageString.contains("coreML") {
                 let messageArray = messageString.components(separatedBy: "/-/")
                 if messageArray.count > 2 {
                     if let url = URL(string: messageArray[1]) {
@@ -263,7 +261,10 @@ let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_releas
                 }
 
                 self.visionTools.processImage(image: image, imageData: imageData, imageUrl: imageURL.absoluteString) { _, persons in
-                    debugPrint("final persons are: \(persons)")
+                    for person in persons where person.isFemale {
+                        self.increaseSafegazeBlurredImageCount?()
+                        break
+                    }
                     completion(false, base64, CGSize(width: image.size.width, height: image.size.height), persons)
                 }
             }

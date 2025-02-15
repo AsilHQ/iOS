@@ -421,11 +421,24 @@ public class AppUserDefaults: AppSettings {
         }
     }
 
+    // MARK: - Safegaze
     @UserDefaultsWrapper(key: .safegazeOn, defaultValue: true)
     var safegazeOn: Bool
     
     @UserDefaultsWrapper(key: .decentInternetOn, defaultValue: false)
     var decentInternetOn: Bool
+    
+    @UserDefaultsWrapper(key: .blockedTrackersCount, defaultValue: 0)
+    var blockedTrackersCount: Int
+    
+    @UserDefaultsWrapper(key: .safegazeBlurredImageCount, defaultValue: 0)
+    var safegazeBlurredImageCount: Int
+    
+    @UserDefaultsWrapper(key: .safegazeHarmfulSites, defaultValue: 0)
+    var safegazeHarmfulSites: Int
+    
+    @UserDefaultsWrapper(key: .safegazeModeValue, defaultValue: "HIGH")
+    var safegazeModeValue: String
     
     @UserDefaultsWrapper(key: .debugOnboardingHighlightsEnabledKey, defaultValue: false)
     var onboardingHighlightsEnabled: Bool
@@ -493,41 +506,6 @@ extension AppUserDefaults: AppConfigurationFetchStatistics {
         }
         set {
             userDefaults?.setValue(newValue, forKey: Keys.backgroundFetchTaskExpirationCount)
-        }
-    }
-    
-    var safegazeBlurIntensityValue: Float {
-        get {
-            return userDefaults?.float(forKey: Keys.safegazeBlurIntensity) ?? Float(0.0)
-        }
-        set {
-            userDefaults?.setValue(newValue, forKey: Keys.safegazeBlurIntensity)
-        }
-    }
-    
-    var safegazeModeValue: String {
-        get {
-            return userDefaults?.string(forKey: Keys.safegazeModeValue) ?? "HIGH"
-        } set {
-            userDefaults?.setValue(newValue, forKey: Keys.safegazeModeValue)
-        }
-    }
-    
-    var safegazeBlurredImageCount: Int {
-        get {
-            return userDefaults?.integer(forKey: Keys.safegazeBlurredImageCount) ?? 0
-        }
-        set {
-            userDefaults?.setValue(newValue, forKey: Keys.safegazeBlurredImageCount)
-        }
-    }
-    
-    var blockedTrackersCount: Int {
-        get {
-            return userDefaults?.integer(forKey: Keys.blockedTrackersCount) ?? 0
-        }
-        set {
-            userDefaults?.setValue(newValue, forKey: Keys.blockedTrackersCount)
         }
     }
 }

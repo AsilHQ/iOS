@@ -129,6 +129,11 @@ class HomeViewController: UIViewController, NewTabPage {
         button.setTitleColor(.white, for: .normal)
         return button
     }()
+    
+    private let statsView: StatsView = {
+        let view = StatsView()
+        return view
+    }()
 
     static func loadFromStoryboard(
         homePageDependecies: HomePageDependencies
@@ -218,7 +223,8 @@ class HomeViewController: UIViewController, NewTabPage {
         containerView.addSubview(subtitleLabel)
         containerView.addSubview(creditButton)
         
-        // Set up layout constraints (if using Auto Layout)
+        wallpaperImageView.addSubview(statsView)
+        
         setupConstraints()
         addWallpaper()
     }
@@ -251,6 +257,11 @@ class HomeViewController: UIViewController, NewTabPage {
             make.width.lessThanOrEqualToSuperview().offset(-16)
             make.height.equalTo(10)
             make.bottom.equalToSuperview().offset(-6)
+        }
+        
+        statsView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(12)
+            make.top.equalToSuperview().inset(20)
         }
     }
     

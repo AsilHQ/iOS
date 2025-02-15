@@ -1795,6 +1795,9 @@ extension TabViewController: WKNavigationDelegate {
                                 var request = URLRequest(url: blockURL)
                                 request.attribution = .user
                                 if self.lastError == nil {
+                                    DispatchQueue.main.async {
+                                        AppUserDefaults().safegazeHarmfulSites += 1
+                                    }
                                     self.load(urlRequest: request)
                                 }
                             }
