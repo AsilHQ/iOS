@@ -92,7 +92,7 @@ struct LargeOmniBarState {
         let showPrivacyIcon = false
         let showBackground = true
         let showClear = false
-        let showRefresh = false
+        let showRefresh = true
         let showMenu = false
         let showSettings = true
         let showCancel: Bool = false

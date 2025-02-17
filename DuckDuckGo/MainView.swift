@@ -145,6 +145,8 @@ extension MainViewFactory {
         coordinator.toolbarAddTabButton = UIBarButtonItem(title: UserText.actionForgetAll, image: UIImage(named: "AddTab"))
         coordinator.toolbarTabSwitcherButton = UIBarButtonItem(title: UserText.tabSwitcherAccessibilityLabel, image: UIImage(named: "Add-24"))
         coordinator.lastToolbarButton = UIBarButtonItem(title: UserText.actionOpenBookmarks, image: UIImage(named: "Book-24"))
+        coordinator.toolbarPrayerButton =  UIBarButtonItem(title: UserText.actionForgetAll, image: UIImage(named: "KahfPrayer"))
+        coordinator.toolbarBookmarkButton =  UIBarButtonItem(title: UserText.actionForgetAll, image: UIImage(named: "Bookmark-24"))
         superview.addSubview(coordinator.toolbar)
 
         coordinator.toolbar.setItems([

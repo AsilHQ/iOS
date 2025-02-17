@@ -84,12 +84,12 @@ extension TabViewController {
             entries.append(self.buildToggleProtectionEntry(forDomain: domain))
         }
 
-        let name = UserText.actionReportBrokenSite
-        entries.append(BrowsingMenuEntry.regular(name: name,
-                                                 image: UIImage(named: "Feedback-16")!,
-                                                 action: { [weak self] in
-            self?.onReportBrokenSiteAction()
-        }))
+//        let name = UserText.actionReportBrokenSite
+//        entries.append(BrowsingMenuEntry.regular(name: name,
+//                                                 image: UIImage(named: "Feedback-16")!,
+//                                                 action: { [weak self] in
+//            self?.onReportBrokenSiteAction()
+//        }))
 
         entries.append(.separator)
 

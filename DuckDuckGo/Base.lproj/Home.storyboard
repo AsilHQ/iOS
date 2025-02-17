@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="iIP-Az-GLU">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LJ1-RN-ckE" customClass="HomeViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LJ1-RN-ckE" customClass="HomeViewController" customModule="KahfBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hb5-8e-q7S"/>
                         <viewControllerLayoutGuide type="bottom" id="ct2-28-dU6"/>
@@ -20,8 +20,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H74-G9-0WZ" customClass="HomeCollectionView" customModule="DuckDuckGo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H74-G9-0WZ" customClass="HomeCollectionView" customModule="KahfBrowser" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="138" width="414" height="763"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Oqy-WG-n6F"/>
@@ -74,7 +74,7 @@
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3ms-eB-DjL" firstAttribute="width" secondItem="klK-ZJ-wmA" secondAttribute="width" priority="750" id="12Q-iD-RrD"/>
-                            <constraint firstItem="H74-G9-0WZ" firstAttribute="height" secondItem="klK-ZJ-wmA" secondAttribute="height" id="1lu-2N-IOp"/>
+                            <constraint firstItem="H74-G9-0WZ" firstAttribute="height" secondItem="klK-ZJ-wmA" secondAttribute="height" constant="-133" id="1lu-2N-IOp"/>
                             <constraint firstItem="H74-G9-0WZ" firstAttribute="width" secondItem="ijV-Vn-w9w" secondAttribute="width" id="BjB-Gh-zsj"/>
                             <constraint firstItem="5Rf-oV-2W5" firstAttribute="width" secondItem="klK-ZJ-wmA" secondAttribute="width" id="GIH-4s-2om"/>
                             <constraint firstItem="H74-G9-0WZ" firstAttribute="centerX" secondItem="ijV-Vn-w9w" secondAttribute="centerX" id="ZUA-A0-82X"/>
@@ -84,7 +84,7 @@
                             </constraint>
                             <constraint firstItem="5Rf-oV-2W5" firstAttribute="centerX" secondItem="ijV-Vn-w9w" secondAttribute="centerX" id="hb4-fK-0Fp"/>
                             <constraint firstItem="ijV-Vn-w9w" firstAttribute="bottom" secondItem="5Rf-oV-2W5" secondAttribute="bottom" id="iP8-nF-jOV"/>
-                            <constraint firstItem="H74-G9-0WZ" firstAttribute="centerY" secondItem="ijV-Vn-w9w" secondAttribute="centerY" id="vdx-nG-nrB"/>
+                            <constraint firstItem="H74-G9-0WZ" firstAttribute="centerY" secondItem="ijV-Vn-w9w" secondAttribute="centerY" constant="66.5" id="vdx-nG-nrB"/>
                         </constraints>
                         <variation key="heightClass=compact">
                             <mask key="constraints">

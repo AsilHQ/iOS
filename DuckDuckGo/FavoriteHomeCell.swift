@@ -109,8 +109,17 @@ class FavoriteHomeCell: UICollectionViewCell {
         
         iconImage?.loadFavicon(forDomain: domain, usingCache: .fireproof, useFakeFavicon: false) { image, _ in
             guard let image = image else {
-                iconImage?.image = fakeFavicon
-                onFaviconMissing?(domain)
+                switch domain {
+                case "x.com": iconImage?.image = UIImage(named: "x");
+                case "mail.google.com": iconImage?.image = UIImage(named: "gmail")
+                case "m.facebook.com": iconImage?.image = UIImage(named: "facebook")
+                case "m.youtube.com": iconImage?.image = UIImage(named: "youtube")
+                case "www.instagram.com": iconImage?.image = UIImage(named: "instagram")
+                case "open.spotify.com": iconImage?.image =  UIImage(named: "spotify")
+                default:
+                    iconImage?.image = fakeFavicon
+                    onFaviconMissing?(domain)
+                }
                 return
             }
             self.applyFavicon(image)

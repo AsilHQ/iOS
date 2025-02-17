@@ -76,6 +76,7 @@ struct KahfBrowserOnboardingView: View {
         case 1: stage1View
         case 2: stage2View
         case 3: stage3View
+        case 4: stage4View
         default: Text("")
         }
     }
@@ -92,7 +93,7 @@ struct KahfBrowserOnboardingView: View {
                 Spacer()
                 
                 VStack {
-                    Text("Fast, Safe, Decent")
+                    Text("Clean, Safe, Decent")
                         .font(FontHelper.poppins(size: 27, weight: .bold))
                         .foregroundColor(Color.white)
                         .multilineTextAlignment(.center)
@@ -114,10 +115,10 @@ struct KahfBrowserOnboardingView: View {
                     stage += 1
                 }, label: {
                     Text("Let's Go").foregroundColor(Color.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 45)
+                    .background(Color.black.opacity(0.5).cornerRadius(10))
                 })
-                .frame(maxWidth: .infinity)
-                .frame(height: 45)
-                .background(Color.black.opacity(0.5).cornerRadius(10))
                 .padding(.horizontal, 16)
                 .padding(.top, 20)
                 
@@ -134,17 +135,17 @@ struct KahfBrowserOnboardingView: View {
                 Spacer()
                 
                 VStack {
-                    Text("Fast, Safe, Decent")
+                    Text("Clean, Safe and Decent browsing")
                         .font(FontHelper.poppins(size: 27, weight: .bold))
                         .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
                         .multilineTextAlignment(.center)
                     
-                    Text("AI powered")
+                    Text("powered by")
                         .font(FontHelper.poppins(size: 27, weight: .bold))
                         .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
                         .multilineTextAlignment(.center)
                     
-                    Text("Browser")
+                    Text("AI")
                         .font(FontHelper.poppins(size: 27, weight: .bold))
                         .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
                         .multilineTextAlignment(.center)
@@ -153,7 +154,7 @@ struct KahfBrowserOnboardingView: View {
                 .padding(.horizontal, 24)
                 .padding(.top, 40)
 
-                Text("Browse the internet while keeping to your moral values as the Kahf Browser's AI hides indecent images and harmful content as you browse, making it the safest browser in the world.")
+                Text("Experience a safer internet with Kahf Browser. Powered by advanced AI, it filters out indecent images and harmful content in real time, allowing you to browse while staying true to your moral values.")
                     .foregroundColor(Color.black)
                     .font(FontHelper.inter(size: 15, weight: .semibold))
                     .multilineTextAlignment(.center)
@@ -166,10 +167,10 @@ struct KahfBrowserOnboardingView: View {
                 }, label: {
                     Text("Set as Default Browser").foregroundColor(Color.white)
                         .font(FontHelper.poppins(size: 14, weight: .semibold))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                        .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
                 })
-                .frame(maxWidth: .infinity)
-                .frame(height: 45)
-                .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
                 .padding(.horizontal, 16)
                 .padding(.top, 20 )
                 
@@ -178,8 +179,8 @@ struct KahfBrowserOnboardingView: View {
                 }, label: {
                     Text("Skip").foregroundColor(Color.black)
                         .font(FontHelper.poppins(size: 14, weight: .semibold))
+                        .frame(maxWidth: .infinity)
                 })
-                .frame(maxWidth: .infinity)
                 .padding(.top, 20)
                 .padding(.bottom, 50)
     
@@ -188,6 +189,66 @@ struct KahfBrowserOnboardingView: View {
     }
     
     var stage3View: some View {
+        ZStack {
+            Image(.bgImg3).resizable().edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("Choose the app you use most")
+                    .font(FontHelper.poppins(size: 35.0, weight: .bold))
+                    .foregroundColor(Color.black)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 221, height: 160)
+                
+                Text("Select your favorite apps to keep them handy in your home screen")
+                    .font(FontHelper.poppins(size: 14.0, weight: .semibold))
+                    .foregroundColor(Color.black)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 271, height: 62)
+                
+                VStack(alignment: .leading, spacing: 15) {
+                    HStack(spacing: 15) {
+                        appButton(for: .youtube)
+                        appButton(for: .facebook)
+                        appButton(for: .x)
+                    }
+                    
+                    HStack {
+                        appButton(for: .gmail)
+                    }
+                }.frame(maxWidth: .infinity)
+                
+                Button(action: {
+                    selectedApps.forEach { app in
+                        addFavorite?(app.title, URL(string: app.url)!)
+                    }
+                    stage += 1
+                }, label: {
+                    Text("Next").foregroundColor(Color.white)
+                        .font(FontHelper.poppins(size: 14, weight: .semibold))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 45)
+                        .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
+                })
+                .padding(.horizontal, 16)
+                .padding(.top, 45)
+                
+                Button(action: {
+                    stage += 1
+                }, label: {
+                    Text("Skip for now").foregroundColor(Color.black)
+                        .font(FontHelper.poppins(size: 14, weight: .semibold))
+                        .frame(maxWidth: .infinity)
+                })
+                .frame(maxWidth: .infinity)
+                .padding(.top, 10)
+                .padding(.bottom, 50)
+                
+                Spacer()
+    
+            }.padding(.top, 20).frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+    }
+    
+    var stage4View: some View {
         ZStack {
             Image(.bgImg3).resizable().edgesIgnoringSafeArea(.all)
             VStack(spacing: 30) {
@@ -227,30 +288,28 @@ struct KahfBrowserOnboardingView: View {
                 Spacer()
                 
                 VStack(spacing: 0) {
-                    if !isDecentInternetOn {
-                        Button(action: {
-                            withAnimation {
-                                isDecentInternetOn = true
-                            }
-                        }, label: {
-                            Text("Enable Image Blurring").foregroundColor(Color.white)
-                                .font(FontHelper.poppins(size: 14, weight: .semibold))
-                        })
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 45)
-                        .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
-                        .padding(.horizontal, 16)
-                        .padding(.top, 20)
-                    }
+                    Button(action: {
+                        withAnimation {
+                            isDecentInternetOn = true
+                            completeOnboarding()
+                        }
+                    }, label: {
+                        Text("Enable Image Blurring").foregroundColor(Color.white)
+                            .font(FontHelper.poppins(size: 14, weight: .semibold))
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 45)
+                            .background(Color(red: 69 / 255, green: 84 / 255, blue: 245 / 255).cornerRadius(10))
+                    })
+                    .padding(.horizontal, 16)
+                    .padding(.top, 20)
                     
                     Button(action: {
-                        tutorialSettings.hasSeenOnboarding = true
-                        self.presentationMode.wrappedValue.dismiss()
+                        completeOnboarding()
                     }, label: {
                         Text("Skip").foregroundColor(Color.black)
                             .font(FontHelper.poppins(size: 14, weight: .semibold))
+                            .frame(maxWidth: .infinity)
                     })
-                    .frame(maxWidth: .infinity)
                     .padding(.top, 20)
                     .padding(.bottom, 50)
                 }
@@ -297,13 +356,18 @@ struct KahfBrowserOnboardingView: View {
                 app.icon
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 60, height: 60)
+                    .frame(width: 30, height: 30)
             }
             .frame(width: 100, height: 100)
             .background(selectedApps.contains(app) ? Color.blue.opacity(0.2) : Color.white)
             .cornerRadius(10)
             .overlay(gradientOverlay(selected: selectedApps.contains(app)))
         }
+    }
+    
+    func completeOnboarding() {
+        tutorialSettings.hasSeenOnboarding = true
+        self.presentationMode.wrappedValue.dismiss()
     }
 
 }
