@@ -320,7 +320,7 @@ class MainViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        startOnboardingFlowIfNotSeenBefore()
         // Needs to be called here because sometimes the frames are not the expected size during didLoad
         refreshViewsBasedOnAddressBarPosition(appSettings.currentAddressBarPosition)
         tabsBarController?.refresh(tabsModel: tabManager.model)
@@ -332,7 +332,6 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        startOnboardingFlowIfNotSeenBefore()
         super.viewWillAppear(animated)
     }
 

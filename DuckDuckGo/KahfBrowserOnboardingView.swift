@@ -92,24 +92,7 @@ struct KahfBrowserOnboardingView: View {
                 
                 Spacer()
                 
-                VStack {
-                    Text("Clean, Safe, Decent")
-                        .font(FontHelper.poppins(size: 27, weight: .bold))
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.center)
-                    
-                    Text("AI powered")
-                        .font(FontHelper.poppins(size: 27, weight: .bold))
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.center)
-                    
-                    Text("Browser")
-                        .font(FontHelper.poppins(size: 27, weight: .bold))
-                        .foregroundColor(Color.white)
-                        .multilineTextAlignment(.center)
-                }
-                .frame(height: 160)
-                .padding(.horizontal, 24)
+                title(textColor: .white)
                 
                 Button(action: {
                     stage += 1
@@ -134,32 +117,23 @@ struct KahfBrowserOnboardingView: View {
             VStack {
                 Spacer()
                 
-                VStack {
-                    Text("Clean, Safe and Decent browsing")
-                        .font(FontHelper.poppins(size: 27, weight: .bold))
-                        .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
-                        .multilineTextAlignment(.center)
-                    
-                    Text("powered by")
-                        .font(FontHelper.poppins(size: 27, weight: .bold))
-                        .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
-                        .multilineTextAlignment(.center)
-                    
-                    Text("AI")
-                        .font(FontHelper.poppins(size: 27, weight: .bold))
-                        .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
-                        .multilineTextAlignment(.center)
-                }
-                .frame(height: 160)
-                .padding(.horizontal, 24)
-                .padding(.top, 40)
+                title(textColor: Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
 
-                Text("Experience a safer internet with Kahf Browser. Powered by advanced AI, it filters out indecent images and harmful content in real time, allowing you to browse while staying true to your moral values.")
-                    .foregroundColor(Color.black)
-                    .font(FontHelper.inter(size: 15, weight: .semibold))
-                    .multilineTextAlignment(.center)
-                    .frame(height: 106)
-                    .padding(.horizontal, 24)
+                GeometryReader { geometry in
+                    let maxFontSize: CGFloat = 15
+                    let availableWidth = geometry.size.width * 0.9 // Adjust for padding
+                    let calculatedFontSize = min(maxFontSize, availableWidth / 22) // Adjust factor for better fitting
+
+                    Text("Experience a safer internet with Kahf Browser. Powered by advanced AI, it filters out indecent images and harmful content in real time, allowing you to browse while staying true to your moral values.")
+                        .foregroundColor(Color.black)
+                        .font(FontHelper.inter(size: calculatedFontSize, weight: .semibold))
+                        .multilineTextAlignment(.center)
+                        .minimumScaleFactor(0.7) // Allows the text to scale down if needed
+                        .lineLimit(nil) // Allow multiple lines
+                        .frame(height: 106)
+                        .padding(.horizontal, 24)
+                }
+                .frame(height: 120)
                 
                 Button(action: {
                     guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
@@ -191,18 +165,54 @@ struct KahfBrowserOnboardingView: View {
     var stage3View: some View {
         ZStack {
             Image(.bgImg3).resizable().edgesIgnoringSafeArea(.all)
+            
             VStack {
-                Text("Choose the app you use most")
-                    .font(FontHelper.poppins(size: 35.0, weight: .bold))
-                    .foregroundColor(Color.black)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 221, height: 160)
-                
-                Text("Select your favorite apps to keep them handy in your home screen")
-                    .font(FontHelper.poppins(size: 14.0, weight: .semibold))
-                    .foregroundColor(Color.black)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 271, height: 62)
+                GeometryReader { geometry in
+                    let availableWidth = geometry.size.width * 0.8 // Adjust for padding
+
+                    let maxTitleFontSize: CGFloat = 35
+                    let calculatedTitleFontSize = min(maxTitleFontSize, availableWidth / 6.5)
+
+                    let maxSubtitleFontSize: CGFloat = 14
+                    let calculatedSubtitleFontSize = min(maxSubtitleFontSize, availableWidth / 20)
+
+                    VStack(spacing: 20) {
+                        VStack {
+                            Text("Choose")
+                                .font(FontHelper.poppins(size: calculatedTitleFontSize, weight: .bold))
+                                .foregroundColor(Color.black)
+                                .multilineTextAlignment(.center)
+                                .minimumScaleFactor(0.7)
+                                .lineLimit(1)
+                                .frame(maxWidth: availableWidth)
+                            
+                            Text("the app you")
+                                .font(FontHelper.poppins(size: calculatedTitleFontSize, weight: .bold))
+                                .foregroundColor(Color.black)
+                                .multilineTextAlignment(.center)
+                                .minimumScaleFactor(0.7)
+                                .lineLimit(1)
+                                .frame(maxWidth: availableWidth)
+                            
+                            Text("use most")
+                                .font(FontHelper.poppins(size: calculatedTitleFontSize, weight: .bold))
+                                .foregroundColor(Color.black)
+                                .multilineTextAlignment(.center)
+                                .minimumScaleFactor(0.7)
+                                .lineLimit(1)
+                                .frame(maxWidth: availableWidth)
+                        }
+
+                        Text("Select your favorite apps to keep them handy in your home screen")
+                            .font(FontHelper.poppins(size: calculatedSubtitleFontSize, weight: .semibold))
+                            .foregroundColor(Color.black)
+                            .multilineTextAlignment(.center)
+                            .minimumScaleFactor(0.7)
+                            .lineLimit(3)
+                            .frame(maxWidth: availableWidth)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
                 
                 VStack(alignment: .leading, spacing: 15) {
                     HStack(spacing: 15) {
@@ -259,11 +269,26 @@ struct KahfBrowserOnboardingView: View {
                     .background(Color.clear)
                     .padding(.top, 60)
             
+                GeometryReader { geometry in
+                    let availableWidth = geometry.size.width * 0.8 // Use 80% of the screen width
+
+                    let maxTitleFontSize: CGFloat = 30
+                    let calculatedTitleFontSize = min(maxTitleFontSize, availableWidth / 6.5) // Adjust based on width
+
+                    VStack {
+                        Text("Hide Indecent Images")
+                            .font(FontHelper.poppins(size: calculatedTitleFontSize, weight: .bold))
+                            .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
+                            .multilineTextAlignment(.center)
+                            .minimumScaleFactor(0.7) // Allows scaling down if needed
+                            .lineLimit(1) // Ensures it's always one line
+                            .frame(maxWidth: availableWidth) // Limits the width dynamically
+                            .fixedSize(horizontal: false, vertical: true) // Prevents vertical compression
+                    }
+                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center) // Ensures VStack is centered
+                }
+                .frame(height: 50) // Adjust height to make sure it's properly centered
                 
-                Text("Hide Indecent Images")
-                    .font(FontHelper.poppins(size: 30, weight: .bold))
-                    .foregroundColor(Color(red: 187 / 255, green: 92 / 255, blue: 241 / 255))
-                    .multilineTextAlignment(.center)
                 
                 VStack(spacing: 0) {
                     Text("Hiding inappropriate images.")
@@ -319,6 +344,40 @@ struct KahfBrowserOnboardingView: View {
         })
     }
     
+    func title(textColor: Color) -> some View {
+        GeometryReader { geometry in
+            let maxFontSize: CGFloat = 27
+            let availableWidth = geometry.size.width * 0.9 // Adjust for padding
+            let calculatedFontSize = min(maxFontSize, availableWidth / 10) // Adjust factor as needed
+
+            VStack {
+                Text("Clean, Safe and Decent")
+                    .font(FontHelper.poppins(size: calculatedFontSize, weight: .bold))
+                    .foregroundColor(textColor)
+                    .multilineTextAlignment(.center)
+                    .minimumScaleFactor(0.5) // Allows scaling down if needed
+                    .lineLimit(1)
+
+                Text("browsing-powered by")
+                    .font(FontHelper.poppins(size: calculatedFontSize, weight: .bold))
+                    .foregroundColor(textColor)
+                    .multilineTextAlignment(.center)
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+
+                Text("AI")
+                    .font(FontHelper.poppins(size: calculatedFontSize, weight: .bold))
+                    .foregroundColor(textColor)
+                    .multilineTextAlignment(.center)
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+            }
+            .frame(width: availableWidth) // Ensures text doesn't overflow
+            .padding(.horizontal, 16) // Add some padding for better spacing
+        }
+        .frame(height: 120)
+    }
+    
     func gradientOverlay(selected: Bool) -> some View {
         Group {
             if selected {
@@ -338,10 +397,6 @@ struct KahfBrowserOnboardingView: View {
                 EmptyView()
             }
         }
-    }
-    
-    func setDefaultBrowser() {
-        
     }
     
     func appButton(for app: BestApps) -> some View {
