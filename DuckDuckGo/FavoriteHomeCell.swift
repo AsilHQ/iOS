@@ -172,8 +172,7 @@ private extension BookmarkEntity {
 extension FavoriteHomeCell {
     
     private func decorate() {
-        let theme = ThemeManager.shared.currentTheme
-        titleLabel.textColor = theme.favoriteTextColor
+        titleLabel.textColor = .white
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

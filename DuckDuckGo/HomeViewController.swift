@@ -263,6 +263,8 @@ class HomeViewController: UIViewController, NewTabPage {
             make.left.right.equalToSuperview().inset(12)
             make.top.equalToSuperview().inset(20)
         }
+        
+        collectionView.layer.cornerRadius = 10
     }
     
     private func addWallpaper() {

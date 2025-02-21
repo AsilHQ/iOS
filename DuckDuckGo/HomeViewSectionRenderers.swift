@@ -243,9 +243,7 @@ class HomeViewSectionRenderers: NSObject,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int)
         -> UIEdgeInsets {
-            
-            return renderers[section].collectionView(collectionView, layout: collectionViewLayout, insetForSectionAt: section) ??
-                UIEdgeInsets(top: 0, left: Constants.sideInsets, bottom: 0, right: Constants.sideInsets)
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
     // MARK: Drag and Drop

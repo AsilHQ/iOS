@@ -20,18 +20,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H74-G9-0WZ" customClass="HomeCollectionView" customModule="KahfBrowser" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="138" width="414" height="763"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Rf-oV-2W5">
+                                <rect key="frame" x="0.0" y="862" width="414" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="ELS-YG-Sxt"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H74-G9-0WZ" customClass="HomeCollectionView" customModule="KahfBrowser" customModuleProvider="target">
+                                <rect key="frame" x="12" y="179" width="390" height="110"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="Oqy-WG-n6F"/>
+                                    <constraint firstAttribute="height" constant="110" id="byH-zG-85a"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Irl-Ap-Lzn">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="5" id="Irl-Ap-Lzn">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <containerView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" id="3ms-eB-DjL">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="375" id="79Y-G9-tO1"/>
+                                        <constraint firstAttribute="height" constant="250" id="E7k-RF-RsZ"/>
+                                    </constraints>
+                                    <connections>
+                                        <segue destination="Ad2-7l-5O5" kind="embed" id="Df7-k4-eQe"/>
+                                    </connections>
+                                </containerView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="space" id="YY6-mj-6Xj">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -53,38 +71,16 @@
                                     </mask>
                                 </variation>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Rf-oV-2W5">
-                                <rect key="frame" x="0.0" y="862" width="414" height="0.0"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="ELS-YG-Sxt"/>
-                                </constraints>
-                            </view>
-                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ms-eB-DjL">
-                                <rect key="frame" x="19.666666666666657" y="88" width="375" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="375" id="79Y-G9-tO1"/>
-                                    <constraint firstAttribute="height" constant="250" id="E7k-RF-RsZ"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="Ad2-7l-5O5" kind="embed" id="Df7-k4-eQe"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ijV-Vn-w9w"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="3ms-eB-DjL" firstAttribute="width" secondItem="klK-ZJ-wmA" secondAttribute="width" priority="750" id="12Q-iD-RrD"/>
-                            <constraint firstItem="H74-G9-0WZ" firstAttribute="height" secondItem="klK-ZJ-wmA" secondAttribute="height" constant="-133" id="1lu-2N-IOp"/>
-                            <constraint firstItem="H74-G9-0WZ" firstAttribute="width" secondItem="ijV-Vn-w9w" secondAttribute="width" id="BjB-Gh-zsj"/>
+                            <constraint firstItem="H74-G9-0WZ" firstAttribute="width" secondItem="ijV-Vn-w9w" secondAttribute="width" constant="-24" id="BjB-Gh-zsj"/>
                             <constraint firstItem="5Rf-oV-2W5" firstAttribute="width" secondItem="klK-ZJ-wmA" secondAttribute="width" id="GIH-4s-2om"/>
+                            <constraint firstItem="H74-G9-0WZ" firstAttribute="top" secondItem="ijV-Vn-w9w" secondAttribute="top" constant="135" id="Uap-2r-fvO"/>
                             <constraint firstItem="H74-G9-0WZ" firstAttribute="centerX" secondItem="ijV-Vn-w9w" secondAttribute="centerX" id="ZUA-A0-82X"/>
-                            <constraint firstItem="3ms-eB-DjL" firstAttribute="centerX" secondItem="ijV-Vn-w9w" secondAttribute="centerX" id="eW6-mG-0bM"/>
-                            <constraint firstItem="3ms-eB-DjL" firstAttribute="top" secondItem="ijV-Vn-w9w" secondAttribute="top" constant="44" id="gcJ-UD-uID">
-                                <variation key="heightClass=compact-widthClass=compact" constant="4"/>
-                            </constraint>
                             <constraint firstItem="5Rf-oV-2W5" firstAttribute="centerX" secondItem="ijV-Vn-w9w" secondAttribute="centerX" id="hb4-fK-0Fp"/>
                             <constraint firstItem="ijV-Vn-w9w" firstAttribute="bottom" secondItem="5Rf-oV-2W5" secondAttribute="bottom" id="iP8-nF-jOV"/>
-                            <constraint firstItem="H74-G9-0WZ" firstAttribute="centerY" secondItem="ijV-Vn-w9w" secondAttribute="centerY" constant="66.5" id="vdx-nG-nrB"/>
                         </constraints>
                         <variation key="heightClass=compact">
                             <mask key="constraints">

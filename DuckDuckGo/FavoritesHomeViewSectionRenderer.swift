@@ -121,7 +121,7 @@ class FavoritesHomeViewSectionRenderer: NSObject, HomeViewSectionRenderer {
                         insetForSectionAt section: Int) -> UIEdgeInsets? {
         let margin = sectionMargin(in: collectionView)
         
-        return UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -358,14 +358,14 @@ struct KahfBrowserOnboardingView: View {
                     .minimumScaleFactor(0.5) // Allows scaling down if needed
                     .lineLimit(1)
 
-                Text("browsing-powered by")
+                Text("browsing-")
                     .font(FontHelper.poppins(size: calculatedFontSize, weight: .bold))
                     .foregroundColor(textColor)
                     .multilineTextAlignment(.center)
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
 
-                Text("AI")
+                Text("powered by AI")
                     .font(FontHelper.poppins(size: calculatedFontSize, weight: .bold))
                     .foregroundColor(textColor)
                     .multilineTextAlignment(.center)
