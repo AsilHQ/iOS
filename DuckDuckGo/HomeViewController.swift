@@ -209,6 +209,7 @@ class HomeViewController: UIViewController, NewTabPage {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addWallpaper()
+        configureCollectionView()
     }
     
     private func setupUI() {
@@ -350,6 +351,7 @@ class HomeViewController: UIViewController, NewTabPage {
     }
 
     func configureCollectionView() {
+        collectionView.isHidden = !(favoritesViewModel.favorites.count > 0)
         collectionView.configure(withController: self, favoritesViewModel: favoritesViewModel)
     }
     
