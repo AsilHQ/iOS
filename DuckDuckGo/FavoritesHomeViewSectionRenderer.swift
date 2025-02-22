@@ -293,21 +293,21 @@ class FavoritesHomeViewSectionRenderer: NSObject, HomeViewSectionRenderer {
 
     }
 
-    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        guard let cell = self.collectionView(collectionView, cellForItemAt: indexPath) as? FavoriteHomeCell else { return [] }
-
-        if let size = cell.iconImage.image?.size.width, size <= 32 {
-            cell.iconBackground.backgroundColor = ThemeManager.shared.currentTheme.backgroundColor
-        }
-
-        let item = viewModel.favorite(at: indexPath.row)
-        // Using the URL allows this item to be dragged into other apps
-        let dragItem = UIDragItem(itemProvider: NSItemProvider(object: (item?.url ?? "") as NSString))
-        dragItem.previewProvider = { () -> UIDragPreview? in
-            return UIDragPreview(view: cell.iconBackground)
-        }
-        return [ dragItem ]
-    }
+//    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+//        guard let cell = self.collectionView(collectionView, cellForItemAt: indexPath) as? FavoriteHomeCell else { return [] }
+//
+//        if let size = cell.iconImage.image?.size.width, size <= 32 {
+//            cell.iconBackground.backgroundColor = ThemeManager.shared.currentTheme.backgroundColor
+//        }
+//
+//        let item = viewModel.favorite(at: indexPath.row)
+//        // Using the URL allows this item to be dragged into other apps
+//        let dragItem = UIDragItem(itemProvider: NSItemProvider(object: (item?.url ?? "") as NSString))
+//        dragItem.previewProvider = { () -> UIDragPreview? in
+//            return UIDragPreview(view: cell.iconBackground)
+//        }
+//        return [ dragItem ]
+//    }
 
     func collectionView(_ collectionView: UICollectionView,
                         dropSessionDidUpdate session: UIDropSession,

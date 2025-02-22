@@ -502,6 +502,7 @@ extension HomeViewController: FavoritesHomeViewSectionRendererDelegate {
 
     func favoritesRenderer(_ renderer: FavoritesHomeViewSectionRenderer, favoriteDeleted favorite: BookmarkEntity) {
         delegate?.home(self, didRequestHideLogo: renderer.viewModel.favorites.count > 0)
+        collectionView.isHidden = !(renderer.viewModel.favorites.count > 0)
     }
 
 }
