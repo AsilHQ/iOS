@@ -24,100 +24,75 @@ import Lottie
 import Core
 
 protocol MenuButtonDelegate: NSObjectProtocol {
-    
     func showMenu(_ button: MenuButton)
     func showBookmarks(_ button: MenuButton)
-    
 }
 
-class MenuButton: UIView {
+class MenuButton: UIButton {
     
     enum State {
         case menuImage
     }
     
     struct Constants {
-        
         static let labelFadeDuration = 0.3
         static let buttonTouchDuration = 0.2
         static let tintAlpha: CGFloat = 0.5
-
-        static let pointerViewWidth: CGFloat = 48
-        static let pointerViewHeight: CGFloat = 36
-
+        static let buttonSize: CGFloat = 24
     }
     
     weak var delegate: MenuButtonDelegate?
     private var currentState: State = .menuImage
-    
-    private let bookmarksIconView = UIImageView()
 
-    let anim = UIImageView(image: UIImage(named: "Menu-Vertical-24"))
-    let pointerView: UIView = UIView(frame: CGRect(x: 0,
-                                                   y: 0,
-                                                   width: Constants.pointerViewWidth,
-                                                   height: Constants.pointerViewHeight))
+    private let bookmarksIconView = UIImageView()
+    private let anim = UIImageView(image: UIImage(named: "Menu-Vertical-24"))
     
     var hasUnread: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        addSubview(pointerView)
-        addSubview(anim)
+        configureUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        configureUI()
+    }
+    
+    private func configureUI() {
+        frame = CGRect(x: 0, y: 0, width: Constants.buttonSize, height: Constants.buttonSize)
 
-        configureAnimationView()
+        anim.frame = bounds
+        anim.isUserInteractionEnabled = false
+        bookmarksIconView.frame = bounds
+        bookmarksIconView.isHidden = true
+        
+        addSubview(anim)
+        addSubview(bookmarksIconView)
+        
+        addTarget(self, action: #selector(touchDown), for: .touchDown)
+        addTarget(self, action: #selector(touchUp), for: [.touchUpInside, .touchCancel, .touchDragExit])
         
         addInteraction(UIPointerInteraction(delegate: self))
-
         decorate()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        let center = CGPoint(x: bounds.midX, y: bounds.midY)
-        anim.center = center
-        pointerView.center = center
-        bookmarksIconView.center = center
+        let centerPoint = CGPoint(x: bounds.midX, y: bounds.midY)
+        anim.center = centerPoint
+        bookmarksIconView.center = centerPoint
     }
     
-    private func configureAnimationView() {
-        anim.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
-        anim.layer.masksToBounds = false
-        anim.isUserInteractionEnabled = false
-        
-        anim.center = CGPoint(x: bounds.midX, y: bounds.midY)
-    }
-    
-    convenience init() {
-        self.init(frame: CGRect(x: 0, y: 0, width: 29, height: 44))
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("This class does not support NSCoding")
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @objc private func touchDown() {
         tint(alpha: Constants.tintAlpha)
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @objc private func touchUp() {
         tint(alpha: 1)
-        switch currentState {
-        case .menuImage:
+        if currentState == .menuImage {
             delegate?.showMenu(self)
         }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let inside = point(inside: touch.location(in: self), with: event)
-        tint(alpha: inside ? Constants.tintAlpha : 1)
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        tint(alpha: 1, animated: false)
     }
     
     func setState(_ state: State, animated: Bool) {
@@ -133,17 +108,11 @@ class MenuButton: UIView {
     }
     
     private func tint(alpha: CGFloat, animated: Bool = true) {
-    
         let setAlpha = {
             self.anim.alpha = alpha
             self.bookmarksIconView.alpha = alpha
         }
-        
-        if animated {
-            UIView.animate(withDuration: Constants.buttonTouchDuration, animations: setAlpha)
-        } else {
-            setAlpha()
-        }
+        animated ? UIView.animate(withDuration: Constants.buttonTouchDuration, animations: setAlpha) : setAlpha()
     }
 }
 
@@ -152,17 +121,15 @@ extension MenuButton {
     private func decorate() {
         let theme = ThemeManager.shared.currentTheme
         tintColor = theme.barTintColor
-
-        updateAnimationForCurrentAppearance()
+        updateAppearanceForCurrentTheme()
     }
 
-    private func updateAnimationForCurrentAppearance() {}
+    private func updateAppearanceForCurrentTheme() {}
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-
         if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-            updateAnimationForCurrentAppearance()
+            updateAppearanceForCurrentTheme()
         }
     }
 }
@@ -170,7 +137,6 @@ extension MenuButton {
 extension MenuButton: UIPointerInteractionDelegate {
     
     func pointerInteraction(_ interaction: UIPointerInteraction, styleFor region: UIPointerRegion) -> UIPointerStyle? {
-        return .init(effect: .highlight(.init(view: pointerView)))
+        return .init(effect: .highlight(.init(view: self)))
     }
-    
 }

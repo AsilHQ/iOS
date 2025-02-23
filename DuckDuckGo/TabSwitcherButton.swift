@@ -22,16 +22,13 @@ import Lottie
 import Core
 
 protocol TabSwitcherButtonDelegate: NSObjectProtocol {
-    
     func showTabSwitcher(_ button: TabSwitcherButton)
     func launchNewTab(_ button: TabSwitcherButton)
-    
 }
 
-class TabSwitcherButton: UIView {
+class TabSwitcherButton: UIButton {
     
     struct Constants {
-        
         static let fontSize: CGFloat = 10
         static let fontWeight: CGFloat = 5
         static let maxTextTabs = 100
@@ -39,26 +36,66 @@ class TabSwitcherButton: UIView {
         static let buttonTouchDuration = 0.2
         static let tintAlpha: CGFloat = 0.5
 
-        static let pointerViewWidth: CGFloat = 48
-        static let pointerViewHeight: CGFloat = 36
-
+        static let pointerViewWidth: CGFloat = 24
+        static let pointerViewHeight: CGFloat = 24
     }
     
     weak var delegate: TabSwitcherButtonDelegate?
-
-    var workItem: DispatchWorkItem?
-
-    let anim = LottieAnimationView(name: "new_tab")
-    let label = UILabel()
-    let pointerView: UIView = UIView(frame: CGRect(x: 0,
-                                                   y: 0,
-                                                   width: Constants.pointerViewWidth,
-                                                   height: Constants.pointerViewHeight))
-
+    private var workItem: DispatchWorkItem?
+    
+    private let anim = LottieAnimationView(name: "new_tab")
+    private let label = UILabel()
+    let pointerView = UIView()
+    
     var tabCount: Int = 0 {
-        didSet {
-            refresh()
-        }
+        didSet { refresh() }
+    }
+    
+    var hasUnread: Bool = false {
+        didSet { anim.currentProgress = hasUnread ? 1.0 : 0.0 }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        configureUI()
+    }
+    
+    private func configureUI() {
+        frame = CGRect(x: 0, y: 0, width: Constants.pointerViewWidth, height: Constants.pointerViewHeight)
+        
+        anim.frame = bounds
+        anim.isUserInteractionEnabled = false
+        anim.configuration = LottieConfiguration(renderingEngine: .mainThread)
+        
+        label.frame = bounds
+        label.textAlignment = .center
+        label.isUserInteractionEnabled = false
+        
+        pointerView.frame = bounds
+        pointerView.isUserInteractionEnabled = false
+        
+        addSubview(pointerView)
+        addSubview(label)
+        addSubview(anim)
+        
+        addTarget(self, action: #selector(touchDown), for: .touchDown)
+        addTarget(self, action: #selector(touchUp), for: [.touchUpInside, .touchCancel, .touchDragExit])
+        addTarget(self, action: #selector(touchLongPress), for: .touchDownRepeat)
+        
+        decorate()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let centerPoint = CGPoint(x: bounds.midX, y: bounds.midY)
+        anim.center = centerPoint
+        label.center = centerPoint
+        pointerView.center = centerPoint
     }
     
     private func refresh() {
@@ -66,98 +103,32 @@ class TabSwitcherButton: UIView {
             label.text = nil
             return
         }
-        
         let text = tabCount >= Constants.maxTextTabs ? "~" : "\(tabCount)"
         label.attributedText = NSAttributedString(string: text, attributes: attributes())
     }
     
-    var hasUnread: Bool = false {
-        didSet {
-            anim.currentProgress = hasUnread ? 1.0 : 0.0
-        }
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        label.frame = frame
-        
-        label.isUserInteractionEnabled = false
-        
-        addSubview(pointerView)
-        addSubview(label)
-        addSubview(anim)
-        configureAnimationView()
-
-        decorate()
-
-        addInteraction(UIPointerInteraction(delegate: self))
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let center = CGPoint(x: bounds.midX, y: bounds.midY)
-        anim.center = center
-        label.center = center
-        pointerView.center = center
-    }
-
-    private func configureAnimationView() {
-        anim.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
-        anim.layer.masksToBounds = false
-        anim.isUserInteractionEnabled = false
-        
-        anim.center = CGPoint(x: bounds.midX, y: bounds.midY)
-        anim.layer.zPosition = -0.1
-
-        // Animation is not rendering properly when going back from background, hence the change here
-        anim.configuration = LottieConfiguration(renderingEngine: .mainThread)
-    }
-        
-    override var tintColor: UIColor! {
-        didSet {
-            refresh()
-        }
-    }
-    
-    convenience init() {
-        self.init(frame: CGRect(x: 0, y: 0, width: 29, height: 44))
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("This class does not support NSCoding")
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @objc private func touchDown() {
         tint(alpha: Constants.tintAlpha)
         workItem?.cancel()
-        let workItem = DispatchWorkItem {
+        
+        workItem = DispatchWorkItem {
             UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
             self.delegate?.launchNewTab(self)
             self.workItem = nil
         }
-        let longPressDelay = GestureToolbarButton.Constants.minLongPressDuration
-        DispatchQueue.main.asyncAfter(deadline: .now() + longPressDelay, execute: workItem)
-        self.workItem = workItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + GestureToolbarButton.Constants.minLongPressDuration, execute: workItem!)
     }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    @objc private func touchUp() {
         tint(alpha: 1)
-
         workItem?.cancel()
         guard workItem != nil else { return }
         delegate?.showTabSwitcher(self)
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        let inside = point(inside: touch.location(in: self), with: event)
-        tint(alpha: inside ? Constants.tintAlpha : 1)
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        tint(alpha: 1, animated: false)
+    @objc private func touchLongPress() {
+        tint(alpha: 1)
+        delegate?.launchNewTab(self)
     }
     
     func incrementAnimated() {
@@ -184,7 +155,6 @@ class TabSwitcherButton: UIView {
     }
     
     private func tint(alpha: CGFloat, animated: Bool = true) {
-    
         let setAlpha = {
             self.anim.alpha = alpha
             self.label.alpha = alpha
@@ -196,39 +166,22 @@ class TabSwitcherButton: UIView {
             setAlpha()
         }
     }
-}
-
-extension TabSwitcherButton {
     
     private func decorate() {
         let theme = ThemeManager.shared.currentTheme
-        
         tintColor = theme.barTintColor
         label.textColor = theme.barTintColor
-
         updateAnimationColor()
     }
-
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
         if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
             updateAnimationColor()
         }
     }
 
     private func updateAnimationColor() {
-        switch traitCollection.userInterfaceStyle {
-        case .dark:
-            anim.animation = LottieAnimation.named("new_tab")
-        default:
-            anim.animation = LottieAnimation.named("new_tab_dark")
-        }
+        anim.animation = LottieAnimation.named(traitCollection.userInterfaceStyle == .dark ? "new_tab" : "new_tab_dark")
     }
-}
-
-extension TabSwitcherButton: UIPointerInteractionDelegate {
-    
-    func pointerInteraction(_ interaction: UIPointerInteraction, styleFor region: UIPointerRegion) -> UIPointerStyle? {
-        return .init(effect: .highlight(.init(view: pointerView)))
-    }
-    
 }

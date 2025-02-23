@@ -136,30 +136,50 @@ extension MainViewFactory {
     }
 
     private func createToolbar() {
-
+        // Create a UIView to replace UIToolbar
         coordinator.toolbar = HitTestingToolbar()
-        coordinator.toolbar.isTranslucent = false
-
-        coordinator.toolbarBackButton = UIBarButtonItem(title: UserText.keyCommandBrowserBack, image: UIImage(named: "BrowsePrevious"))
-        coordinator.toolbarForwardButton = UIBarButtonItem(title: UserText.keyCommandBrowserForward, image: UIImage(named: "BrowseNext"))
-        coordinator.toolbarAddTabButton = UIBarButtonItem(title: UserText.actionForgetAll, image: UIImage(named: "AddTab"))
-        coordinator.toolbarTabSwitcherButton = UIBarButtonItem(title: UserText.tabSwitcherAccessibilityLabel, image: UIImage(named: "Add-24"))
-        coordinator.lastToolbarButton = UIBarButtonItem(title: UserText.actionOpenBookmarks, image: UIImage(named: "Book-24"))
-        coordinator.toolbarPrayerButton =  UIBarButtonItem(title: UserText.actionForgetAll, image: UIImage(named: "KahfPrayer"))
-        coordinator.toolbarBookmarkButton =  UIBarButtonItem(title: UserText.actionForgetAll, image: UIImage(named: "Bookmark-24"))
+        coordinator.toolbar.backgroundColor = .systemBackground
+        coordinator.toolbar.translatesAutoresizingMaskIntoConstraints = false
         superview.addSubview(coordinator.toolbar)
 
-        coordinator.toolbar.setItems([
-            coordinator.toolbarBackButton!,
-            .flexibleSpace(),
-            coordinator.toolbarForwardButton!,
-            .flexibleSpace(),
-            coordinator.toolbarAddTabButton!,
-            .flexibleSpace(),
-            coordinator.toolbarTabSwitcherButton!,
-            .flexibleSpace(),
-            coordinator.lastToolbarButton!,
-        ], animated: true)
+        // Create buttons instead of UIBarButtonItem
+        coordinator.toolbarBackButton = createButton(imageName: "BrowsePrevious")
+        coordinator.toolbarForwardButton = createButton(imageName: "BrowseNext")
+        coordinator.toolbarAddTabButton = createButton(imageName: "AddTab")
+        coordinator.toolbarPrayerButton = createButton(imageName: "KahfPrayer")
+        coordinator.toolbarBookmarkButton = createButton(imageName: "Bookmark-24")
+
+        coordinator.stackView.addArrangedSubview(coordinator.toolbarBookmarkButton!)
+        coordinator.stackView.addArrangedSubview(coordinator.toolbarPrayerButton!)
+        coordinator.stackView.addArrangedSubview(coordinator.toolbarBackButton!)
+        coordinator.stackView.addArrangedSubview(coordinator.toolbarForwardButton!)
+        coordinator.stackView.addArrangedSubview(coordinator.toolbarAddTabButton!)
+        
+        // Add stack view to toolbar
+        coordinator.toolbar.addSubview(coordinator.stackView)
+
+        // Constraints for toolbar
+        NSLayoutConstraint.activate([
+            coordinator.toolbar.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            coordinator.toolbar.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
+            coordinator.toolbar.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor),
+            coordinator.toolbar.heightAnchor.constraint(equalToConstant: 50),
+
+            // StackView constraints inside the toolbar
+            coordinator.stackView.leadingAnchor.constraint(equalTo: coordinator.toolbar.leadingAnchor, constant: 16),
+            coordinator.stackView.trailingAnchor.constraint(equalTo: coordinator.toolbar.trailingAnchor, constant: -16),
+            coordinator.stackView.centerYAnchor.constraint(equalTo: coordinator.toolbar.centerYAnchor)
+        ])
+    }
+    
+    private func createButton(imageName: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: imageName), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        return button
     }
 
     final class LogoBackgroundView: UIView { }

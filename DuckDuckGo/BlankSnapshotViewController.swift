@@ -70,12 +70,11 @@ class BlankSnapshotViewController: UIViewController {
             viewCoordinator.constraints.navigationBarContainerTop.constant = 40
             configureTabBar()
         } else {
-            viewCoordinator.toolbarTabSwitcherButton.customView = tabSwitcherButton
+            viewCoordinator.toolbarTabSwitcherButton = TabSwitcherButton()
             tabSwitcherButton.delegate = self
             
-            viewCoordinator.lastToolbarButton.customView = menuButton
+            viewCoordinator.lastToolbarButton = MenuButton()
             menuButton.setState(.menuImage, animated: false)
-            viewCoordinator.lastToolbarButton.customView = menuButton
         }
 
         decorate()
@@ -88,9 +87,8 @@ class BlankSnapshotViewController: UIViewController {
     }
 
     private func configureToolbarButtons() {
-        viewCoordinator.toolbarAddTabButton.action = #selector(buttonPressed(sender:))
-        viewCoordinator.toolbarAddTabButton.action = #selector(buttonPressed(sender:))
-        viewCoordinator.lastToolbarButton.action = #selector(buttonPressed(sender:))
+        viewCoordinator.toolbarAddTabButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
+//        viewCoordinator.lastToolbarButton.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
     }
 
     private func configureTabBar() {

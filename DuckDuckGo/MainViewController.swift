@@ -265,11 +265,11 @@ class MainViewController: UIViewController {
         viewCoordinator = MainViewFactory.createViewHierarchy(self.view)
         viewCoordinator.moveAddressBarToPosition(appSettings.currentAddressBarPosition)
 
-        viewCoordinator.toolbarBackButton.action = #selector(onBackPressed)
-        viewCoordinator.toolbarForwardButton.action = #selector(onForwardPressed)
-        viewCoordinator.toolbarAddTabButton.action = #selector(onAddNewTabPressed)
-        viewCoordinator.toolbarPrayerButton.action = #selector(onPrayerPressed)
-        viewCoordinator.toolbarBookmarkButton.action = #selector(onBookmarkPressed)
+        viewCoordinator.toolbarBackButton.addTarget(self, action: #selector(onBackPressed), for: .touchUpInside)
+        viewCoordinator.toolbarForwardButton.addTarget(self, action: #selector(onForwardPressed), for: .touchUpInside)
+        viewCoordinator.toolbarAddTabButton.addTarget(self, action: #selector(onAddNewTabPressed), for: .touchUpInside)
+        viewCoordinator.toolbarPrayerButton.addTarget(self, action: #selector(onPrayerPressed), for: .touchUpInside)
+        viewCoordinator.toolbarBookmarkButton.addTarget(self, action: #selector(onBookmarkPressed), for: .touchUpInside)
 
         installSwipeTabs()
             
@@ -659,17 +659,18 @@ class MainViewController: UIViewController {
     private func initTabButton() {
         tabSwitcherButton = TabSwitcherButton()
         tabSwitcherButton.delegate = self
-        viewCoordinator.toolbarTabSwitcherButton.customView = tabSwitcherButton
+        viewCoordinator.toolbarTabSwitcherButton = tabSwitcherButton
         viewCoordinator.toolbarTabSwitcherButton.isAccessibilityElement = true
         viewCoordinator.toolbarTabSwitcherButton.accessibilityTraits = .button
+        viewCoordinator.stackView.addArrangedSubview(viewCoordinator.toolbarTabSwitcherButton)
     }
     
     private func initMenuButton() {
-        viewCoordinator.lastToolbarButton.customView = menuButton
+        viewCoordinator.lastToolbarButton = menuButton
         viewCoordinator.lastToolbarButton.isAccessibilityElement = true
         viewCoordinator.lastToolbarButton.accessibilityTraits = .button
-        
         menuButton.delegate = self
+        viewCoordinator.stackView.addArrangedSubview(viewCoordinator.lastToolbarButton)
     }
     
     private func initBookmarksButton() {
@@ -1132,32 +1133,23 @@ class MainViewController: UIViewController {
 
     fileprivate func refreshBackForwardButtons() {
         guard let tab = currentTab, tab.link != nil else {
-            viewCoordinator.toolbar.setItems([
-                viewCoordinator.toolbarBookmarkButton!,
-                .flexibleSpace(),
-                viewCoordinator.toolbarPrayerButton!,
-                .flexibleSpace(),
-                viewCoordinator.toolbarAddTabButton!,
-                .flexibleSpace(),
-                viewCoordinator.toolbarTabSwitcherButton!,
-                .flexibleSpace(),
-                viewCoordinator.lastToolbarButton!,
-            ], animated: true)
+            // No active tab, hide back/forward buttons and show other buttons
+            viewCoordinator.toolbarBackButton?.isHidden = true
+            viewCoordinator.toolbarForwardButton?.isHidden = true
+            viewCoordinator.toolbarBookmarkButton?.isHidden = false
+            viewCoordinator.toolbarPrayerButton?.isHidden = false
             return
         }
-        viewCoordinator.toolbar.setItems([
-            viewCoordinator.toolbarBackButton!,
-            .flexibleSpace(),
-            viewCoordinator.toolbarForwardButton!,
-            .flexibleSpace(),
-            viewCoordinator.toolbarAddTabButton!,
-            .flexibleSpace(),
-            viewCoordinator.toolbarTabSwitcherButton!,
-            .flexibleSpace(),
-            viewCoordinator.lastToolbarButton!,
-        ], animated: true)
-        viewCoordinator.toolbarBackButton.isEnabled = currentTab?.canGoBack ?? false
-        viewCoordinator.toolbarForwardButton.isEnabled = currentTab?.canGoForward ?? false
+
+        // Active tab with a link, show back/forward buttons, hide others
+        viewCoordinator.toolbarBackButton?.isHidden = false
+        viewCoordinator.toolbarForwardButton?.isHidden = false
+        viewCoordinator.toolbarBookmarkButton?.isHidden = true
+        viewCoordinator.toolbarPrayerButton?.isHidden = true
+
+        // Enable or disable back/forward buttons based on tab state
+        viewCoordinator.toolbarBackButton?.isEnabled = currentTab?.canGoBack ?? false
+        viewCoordinator.toolbarForwardButton?.isEnabled = currentTab?.canGoForward ?? false
     }
   
     var orientationPixelWorker: DispatchWorkItem?

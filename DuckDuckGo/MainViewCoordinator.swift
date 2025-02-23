@@ -24,7 +24,7 @@ class MainViewCoordinator {
     let superview: UIView
 
     var contentContainer: UIView!
-    var lastToolbarButton: UIBarButtonItem!
+    var lastToolbarButton: MenuButton!
     var logo: UIImageView!
     var logoContainer: UIView!
     var topSlideContainer: UIView!
@@ -38,14 +38,25 @@ class MainViewCoordinator {
     var suggestionTrayContainer: UIView!
     var tabBarContainer: UIView!
     var toolbar: UIToolbar!
-    var toolbarBackButton: UIBarButtonItem!
-    var toolbarAddTabButton: UIBarButtonItem!
-    var toolbarForwardButton: UIBarButtonItem!
-    var toolbarTabSwitcherButton: UIBarButtonItem!
-    var toolbarPrayerButton: UIBarButtonItem!
-    var toolbarBookmarkButton: UIBarButtonItem!
+    var toolbarBackButton: UIButton!
+    var toolbarAddTabButton: UIButton!
+    var toolbarForwardButton: UIButton!
+    var toolbarTabSwitcherButton: TabSwitcherButton!
+    var toolbarPrayerButton: UIButton!
+    var toolbarBookmarkButton: UIButton!
 
     let constraints = Constraints()
+    
+    lazy var stackView: UIStackView = {
+        let newView = UIStackView()
+        newView.axis = .horizontal
+        newView.distribution = .equalSpacing
+        newView.alignment = .center
+        newView.spacing = 20
+        newView.translatesAutoresizingMaskIntoConstraints = false
+        return newView
+    }()
+
 
     // The default after creating the hiearchy is top
     var addressBarPosition: AddressBarPosition = .top
