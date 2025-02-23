@@ -569,7 +569,7 @@ final class AutofillLoginSettingsListViewController: UIViewController {
             noAuthAvailableView.isHidden = true
             emptySearchView.isHidden = true
         case .empty:
-            tableView.tableFooterView = emptyView
+            tableView.tableFooterView = nil
             tableView.isHidden = false
             setEditing(false, animated: false)
             lockedView.isHidden = true

@@ -34,12 +34,12 @@ struct SettingsPrivacyProtectionsView: View {
                              webLinkIndicator: true,
                              isButton: true)
 
-            // Private Search
-            NavigationLink(destination: PrivateSearchView().environmentObject(viewModel)) {
-                SettingsCellView(label: UserText.privateSearch,
-                                 image: Image("SettingsSearch"),
-                                 statusIndicator: StatusIndicatorView(status: .on))
-            }
+//            // Private Search
+//            NavigationLink(destination: PrivateSearchView().environmentObject(viewModel)) {
+//                SettingsCellView(label: UserText.privateSearch,
+//                                 image: Image("SettingsSearch"),
+//                                 statusIndicator: StatusIndicatorView(status: .on))
+//            }
 
             // Web Tracking Protection
             NavigationLink(destination: WebTrackingProtectionView().environmentObject(viewModel)) {
@@ -55,12 +55,12 @@ struct SettingsPrivacyProtectionsView: View {
                                  statusIndicator: StatusIndicatorView(status: viewModel.cookiePopUpProtectionStatus))
             }
 
-            // Email Protection
-            NavigationLink(destination: EmailProtectionView().environmentObject(viewModel)) {
-                SettingsCellView(label: UserText.emailProtection,
-                                 image: Image("SettingsEmailProtection"),
-                                 statusIndicator: StatusIndicatorView(status: viewModel.emailProtectionStatus))
-            }
+//            // Email Protection
+//            NavigationLink(destination: EmailProtectionView().environmentObject(viewModel)) {
+//                SettingsCellView(label: UserText.emailProtection,
+//                                 image: Image("SettingsEmailProtection"),
+//                                 statusIndicator: StatusIndicatorView(status: viewModel.emailProtectionStatus))
+//            }
         }
 
     }
