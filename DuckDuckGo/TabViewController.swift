@@ -1821,24 +1821,26 @@ extension TabViewController: WKNavigationDelegate {
                         // Duck Player Search Experiment
                         DuckPlayerLaunchExperiment(duckPlayerMode: duckPlayer?.settings.mode).fireSearchPixels()
                         
-                        var components = URLComponents()
-                        components.scheme = "https"
-                        components.host = "google.com"
-                        components.path = "/search"
-            
-                        // Create a new search query with safe search enforced
-                        components.queryItems = [
-                            URLQueryItem(name: "q", value: url.searchQuery ?? ""),  // You can modify this to pass an actual search query
-                            URLQueryItem(name: "safe", value: "strict")
-                        ]
-            
-                        if let safeSearchURL = components.url {
-                            let safeRequest = URLRequest(url: safeSearchURL)
-                            load(urlRequest: .userInitiated(safeSearchURL))
-                            
-                            self.delegate?.closeFindInPage(tab: self)
-                            decisionHandler(decision)
-                            return
+                        if AppUserDefaults().safegazeOn {
+                            var components = URLComponents()
+                            components.scheme = "https"
+                            components.host = "google.com"
+                            components.path = "/search"
+                
+                            // Create a new search query with safe search enforced
+                            components.queryItems = [
+                                URLQueryItem(name: "q", value: url.searchQuery ?? ""),  // You can modify this to pass an actual search query
+                                URLQueryItem(name: "safe", value: "strict")
+                            ]
+                
+                            if let safeSearchURL = components.url {
+                                let safeRequest = URLRequest(url: safeSearchURL)
+                                load(urlRequest: .userInitiated(safeSearchURL))
+                                
+                                self.delegate?.closeFindInPage(tab: self)
+                                decisionHandler(decision)
+                                return
+                            }
                         }
                     }
 
