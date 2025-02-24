@@ -215,8 +215,8 @@ final public class BookmarksImporter {
     }
 
     enum Constants {
-        static let FavoritesFolder = "DuckDuckGo Favorites"
-        static let BookmarksFolder = "DuckDuckGo Bookmarks"
+        static let FavoritesFolder = "Kahf Browser Favorites"
+        static let BookmarksFolder = "Kahf Browser Bookmarks"
         static let bookmarkURLString = "https://duckduckgo.com"
         static let bookmarkURL = URL(string: "https://duckduckgo.com")!
         static let favoriteAttribute = "duckduckgo:favorite"

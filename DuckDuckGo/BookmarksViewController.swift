@@ -35,7 +35,7 @@ class BookmarksViewController: UIViewController, UITableViewDelegate {
 
     private enum Constants {
         static var saveToFiles = "com.apple.DocumentManagerUICore.SaveToFiles"
-        static var bookmarksFileName = "DuckDuckGo Bookmarks.html"
+        static var bookmarksFileName = "Kahf Browser Bookmarks.html"
         static var importBookmarkImage = "Import-24"
         static var exportBookmarkImage = "Export-24"
     }
