@@ -150,7 +150,11 @@ extension FavoritesOverlay: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return renderer.collectionView(collectionView, cellForItemAt: indexPath)
+        guard let favoriteHomeCell = renderer.collectionView(collectionView, cellForItemAt: indexPath) as? FavoriteHomeCell else {
+           return UICollectionViewCell()
+        }
+        favoriteHomeCell.titleLabel.textColor = .label
+        return favoriteHomeCell
     }
 }
 
