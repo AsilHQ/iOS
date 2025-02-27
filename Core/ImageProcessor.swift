@@ -253,7 +253,6 @@ class ImageProcessor {
                 let landmark = landmarks[index]
 
                 let visibility = (landmark.visibility as? Float32) ?? 0.0
-                guard visibility > 0.05 else { continue } // Skip low-confidence points
 
                 // Convert normalized coordinates to absolute pixel values
                 let absoluteX = CGFloat(landmark.x) * imageSize.width
