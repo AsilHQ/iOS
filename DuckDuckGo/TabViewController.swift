@@ -1791,7 +1791,7 @@ extension TabViewController: WKNavigationDelegate {
                 debugPrint("safe host is:\(host)")
                 dnsResolver.resolveDNS(for: host) { resolvedIP in
                     debugPrint("resolvedIP:\(resolvedIP ?? "nil")")
-                    if resolvedIP == nil {
+                    if resolvedIP == "Blocked_Domain" {
                         DispatchQueue.main.async {
                             if let blockURL = URL(string: "http://blocked.kahfguard.com?url=\(url.absoluteString)") {
                                 var request = URLRequest(url: blockURL)

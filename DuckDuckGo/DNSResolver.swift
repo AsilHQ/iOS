@@ -38,19 +38,22 @@ class DNSResolver {
         
         connection.stateUpdateHandler = { state in
             if case .ready = state {
-                print("DNS connection is ready.")
-                print("Host to resolve:\(host)")
+                debugPrint("DNS connection is ready.")
+                debugPrint("Host to resolve:\(host)")
                 
                 let queryData = self.buildDNSQuery(for: host)
                 connection.send(content: queryData, completion: .contentProcessed { error in
-                    if let error = error {
+                    if error != nil {
                         completion(nil)
                         connection.cancel()
                         return
                     }
                     
                     connection.receiveMessage { data, contentContext, isComplete, error in
-                        if let error = error {
+                        debugPrint("contentContext: \(String(describing: contentContext))")
+                        debugPrint("isComplete: \(isComplete)")
+                        
+                        if error != nil {
                             completion(nil)
                             connection.cancel()
                             return
@@ -65,17 +68,18 @@ class DNSResolver {
                         let resolvedIP = self.parseDNSResponse(data: data)
                         if let ip = resolvedIP {
                             // We got an IPv4 or IPv6 address
-                            print("Resolved IP: \(ip)")
+                            debugPrint("Resolved IP: \(ip)")
+                            completion(ip)
                         } else {
                             // Return nil means blocked, or no valid answer
-                            print("Domain blocked or no valid IP found.")
+                            debugPrint("Domain blocked or no valid IP found.")
+                            completion("Blocked_Domain")
                         }
-                        completion(resolvedIP)
                         connection.cancel()
                     }
                 })
             } else if case .failed(let error) = state {
-                print("DNS connection failed: \(error)")
+                debugPrint("DNS connection failed: \(error)")
                 completion(nil)
                 connection.cancel()
             }
@@ -123,7 +127,7 @@ class DNSResolver {
         let rcode = flags & 0x000F  // lower 4 bits = RCODE
         if rcode != 0 {
             // Common codes: 3 = NXDOMAIN, 5 = REFUSED, etc.
-            print("DNS response indicated error code (RCODE = \(rcode)).")
+            debugPrint("DNS response indicated error code (RCODE = \(rcode)).")
             return nil
         }
         
@@ -133,7 +137,7 @@ class DNSResolver {
         
         // If the server returns 0 answers, treat it as blocked/unresolved
         if answerCount == 0 {
-            print("DNS response has 0 answer records.")
+            debugPrint("DNS response has 0 answer records.")
             return nil
         }
         
@@ -165,7 +169,7 @@ class DNSResolver {
             //  - RDLength bytes for RDATA
             
             guard offset + 10 <= data.count else {
-                print("Not enough data for answer record header.")
+                debugPrint("Not enough data for answer record header.")
                 return nil
             }
             
@@ -188,7 +192,7 @@ class DNSResolver {
             
             // Ensure we have enough bytes for RDATA
             guard offset + rdLength <= data.count else {
-                print("RDATA length out of bounds.")
+                debugPrint("RDATA length out of bounds.")
                 return nil
             }
             
@@ -201,7 +205,7 @@ class DNSResolver {
                     
                     // 6) Check if the server returns 0.0.0.0 or 127.x.x.x for blocked
                     if ipString == "0.0.0.0" || ipString.hasPrefix("127.") {
-                        print("DNS indicates a block IP (\(ipString))")
+                        debugPrint("DNS indicates a block IP (\(ipString))")
                         return nil
                     }
                     // Return the first valid IPv4 address we find
