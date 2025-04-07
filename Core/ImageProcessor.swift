@@ -22,27 +22,24 @@ import MediaPipeTasksVision
 
 class ImageProcessor {
     
+    static let shared = ImageProcessor()
     let nsfwDetector = NsfwDetector()
     let genderDetector = GenderDetector()
-    var movenet: PoseEstimator?
-    let queue = DispatchQueue(label: "serial_queue")
-    var totalFacesCount: Int = 0
-    var totalPoseCount: Int = 0
-    
+    private var movenet: PoseEstimator?
+    private let queue = DispatchQueue(label: "serial_queue")
+    private var totalFacesCount: Int = 0
+    private var totalPoseCount: Int = 0
     private var faceDetector: FaceDetector?
     private var poseLandmarker: PoseLandmarker?
-    
-    init() {
+
+    private init() {
         queue.async {
             do {
                 self.movenet = try MoveNet(threadCount: 4, delegate: .gpu, modelType: .movenetMultipose)
             } catch {
-                // Print the error directly
                 debugPrint("[SafegazeScript] Cannot initialize movenet: \(error)")
             }
         }
-        
-       
         configureFaceDetection()
         configurePoseLandmarker()
     }

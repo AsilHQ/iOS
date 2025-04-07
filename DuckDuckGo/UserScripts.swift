@@ -68,7 +68,7 @@ final class UserScripts: UserScriptsProvider {
                                                                 properties: sourceProvider.contentScopeProperties,
                                                                 isIsolated: true)
         autoconsentUserScript = AutoconsentUserScript(config: sourceProvider.privacyConfigurationManager.privacyConfig)
-        safegazeScript = SafegazeScript()
+        safegazeScript = SafegazeScript.shared
 
         if AppUserDefaults().decentInternetOn {
             safegazeScript.increaseSafegazeBlurredImageCount = {

@@ -50,9 +50,23 @@ public class TextSizeUserScript: NSObject, UserScript {
 }
 
 public extension WKWebView {
-
     func adjustTextSize(_ percentage: Int) {
-        let jsString = TextSizeUserScript.makeSource(for: percentage)
-        evaluateJavaScript(jsString, completionHandler: nil)
+//        let jsString = TextSizeUserScript.makeSource(for: percentage)
+//        evaluateJavaScript(jsString, completionHandler: nil)
+        // this procedure is used in latest duckduckgo codebase for efficiency
+        let viewScale = CGFloat(percentage) / 100
+        applyViewScale(viewScale)
     }
+}
+
+extension WKWebView {
+    func applyViewScale(_ scale: CGFloat) {
+        let key = "viewScale"
+        guard responds(to: NSSelectorFromString("_\(key)")) else {
+            assertionFailure("viewScale API has changed")
+            return
+        }
+        setValue(scale, forKey: key)
+    }
+
 }
