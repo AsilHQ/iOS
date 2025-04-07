@@ -68,6 +68,15 @@ class OmniBar: UIView {
     // Set up a view to add a custom icon to the Omnibar
     private var customIconView: UIImageView = UIImageView(frame: CGRect(x: 4, y: 8, width: 26, height: 26))
 
+    private lazy var keyboardToolbar: UIToolbar = {
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+        toolbar.items = [flexSpace, doneButton]
+        toolbar.sizeToFit()
+        return toolbar
+    }()
+
     static func loadFromXib() -> OmniBar {
         return OmniBar.load(nibName: "OmniBar")
     }
@@ -92,7 +101,7 @@ class OmniBar: UIView {
         configureSeparator()
         configureEditingMenu()
         refreshState(state)
-        privacyInfoContainer.isHidden = true 
+        privacyInfoContainer.isHidden = true
         decorate()
     }
 
@@ -127,6 +136,8 @@ class OmniBar: UIView {
         textField.delegate = self
         
         textField.textDragInteraction?.isEnabled = false
+        
+        textField.inputAccessoryView = keyboardToolbar
         
         textField.onCopyAction = { field in
             guard let range = field.selectedTextRange else { return }
@@ -441,6 +452,10 @@ class OmniBar: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         NotificationCenter.default.post(name: OmniBar.didLayoutNotification, object: self)
+    }
+
+    @objc private func doneButtonTapped() {
+        textField.resignFirstResponder()
     }
 
 }
