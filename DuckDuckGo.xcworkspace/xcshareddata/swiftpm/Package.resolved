@@ -82,6 +82,24 @@
       }
     },
     {
+      "identity" : "hotswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/HotSwiftUI",
+      "state" : {
+        "revision" : "0539ebfa37114156fc726fc88902981db2ecbec0",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "injectionnext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/InjectionNext",
+      "state" : {
+        "revision" : "af71a2d93dcc7cfb4394f0f960106ab46fae25b0",
+        "version" : "1.2.7"
+      }
+    },
+    {
       "identity" : "ios-js-support",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/duckduckgo/ios-js-support",

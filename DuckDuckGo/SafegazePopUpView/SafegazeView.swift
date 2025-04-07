@@ -85,6 +85,8 @@ struct SafegazeView: View {
     var safegazeSettingsChanged: (() -> Void)?
     var openShareSheet: (() -> Void)?
     
+    @ObserveInjection var redraw
+    
     var body: some View {
         VStack(spacing: 10) {
             headerSection
@@ -114,6 +116,7 @@ struct SafegazeView: View {
             safegazeSettingsChanged?()
             NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
         })
+        .enableInjection()
     }
 
     var horizontalDivider: some View {
@@ -193,7 +196,7 @@ struct SafegazeView: View {
                                 Spacer()
                             }
                             Spacer()
-                            imageViewColumn(image: "KahfFullImage")
+                            imageViewColumn(image: "BlurPixelationImage")
                         }.frame(height: 80)
                     }
                 }
@@ -260,7 +263,7 @@ struct SafegazeView: View {
         Image(image)
             .resizable()
             .frame(width: 80, height: 80)
-            .cornerRadius(6)
+            .cornerRadius(8)
             .foregroundColor(.black)
     }
     

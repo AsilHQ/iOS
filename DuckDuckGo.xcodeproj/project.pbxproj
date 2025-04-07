@@ -221,6 +221,8 @@
 		37FCAABC2992F592000E420A /* MultilineScrollableTextFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCAABB2992F592000E420A /* MultilineScrollableTextFix.swift */; };
 		37FCAAC029930E26000E420A /* FailedAssertionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCAABF29930E26000E420A /* FailedAssertionView.swift */; };
 		37FD780F2A29E28B00B36DB1 /* SyncErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */; };
+		3CAA0DF62DA3D73F00802A96 /* InjectionNext in Frameworks */ = {isa = PBXBuildFile; productRef = 3CAA0DF52DA3D73F00802A96 /* InjectionNext */; };
+		3CAA0DF92DA3D76000802A96 /* HotSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3CAA0DF82DA3D76000802A96 /* HotSwiftUI */; };
 		4B0295192537BC6700E00CEF /* ConfigurationDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */; };
 		4B0F3F502B9BFF2100392892 /* NetworkProtectionFAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */; };
 		4B274F602AFEAECC003F0745 /* NetworkProtectionWidgetRefreshModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B274F5F2AFEAECC003F0745 /* NetworkProtectionWidgetRefreshModel.swift */; };
@@ -3218,9 +3220,11 @@
 				31E69A63280F4CB600478327 /* DuckUI in Frameworks */,
 				CB941A6E2B96AB08000F9E7A /* PrivacyDashboard in Frameworks */,
 				4E15FC252C997D32009C638A /* Adhan in Frameworks */,
+				3CAA0DF62DA3D73F00802A96 /* InjectionNext in Frameworks */,
 				85875B6129912A9900115F05 /* SyncUI in Frameworks */,
 				F4D7F634298C00C3006C3AE9 /* FindInPageIOSJSSupport in Frameworks */,
 				4E2880C12C8C44BB00B00CD2 /* KahfDesignResourcesKit in Frameworks */,
+				3CAA0DF92DA3D76000802A96 /* HotSwiftUI in Frameworks */,
 				9F96F73B2C9144D5009E45D5 /* Onboarding in Frameworks */,
 				85D598872927F84C00FA3B1B /* Crashes in Frameworks */,
 				D664C7DD2B28A02800CBFA76 /* StoreKit.framework in Frameworks */,
@@ -6871,6 +6875,7 @@
 				F10307651E7D5B2C0059FEC7 /* Copy Frameworks */,
 				83E282AC20BC1840005FBE88 /* Embed App Extensions */,
 				EE9286812A812BD2002B7818 /* Embed PacketTunnelProvider */,
+				3C22E76B2DA3D8A6009921C3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -6899,6 +6904,8 @@
 				4E15FC242C997D32009C638A /* Adhan */,
 				4E15FC272C997DA6009C638A /* PanModal */,
 				9F96F73A2C9144D5009E45D5 /* Onboarding */,
+				3CAA0DF52DA3D73F00802A96 /* InjectionNext */,
+				3CAA0DF82DA3D76000802A96 /* HotSwiftUI */,
 			);
 			productName = DuckDuckGo;
 			productReference = 84E341921E2F7EFB00BDBA6F /* KahfBrowser.app */;
@@ -7237,6 +7244,8 @@
 				4E15FC232C997D32009C638A /* XCRemoteSwiftPackageReference "adhan-swift" */,
 				4E15FC262C997DA6009C638A /* XCRemoteSwiftPackageReference "PanModal" */,
 				4BC8948A2C7902E6009AA141 /* XCRemoteSwiftPackageReference "wireguard-apple" */,
+				3CAA0DF42DA3D73F00802A96 /* XCRemoteSwiftPackageReference "InjectionNext" */,
+				3CAA0DF72DA3D76000802A96 /* XCRemoteSwiftPackageReference "HotSwiftUI" */,
 			);
 			productRefGroup = 84E341931E2F7EFB00BDBA6F /* Products */;
 			projectDirPath = "";
@@ -7605,6 +7614,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Core/Pods-Core-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		3C22E76B2DA3D8A6009921C3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nRESOURCES=\"/Applications/InjectionNext.app/Contents/Resources\"\nif [ -f \"$RESOURCES/copy_bundle.sh\" ]; then\n    \"$RESOURCES/copy_bundle.sh\"\nfi\n";
 		};
 		98B0CE69251C937D003FB601 /* Update Localizable.strings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -9979,6 +10005,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"-ld_classic",
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -11447,6 +11478,22 @@
 				version = 2.0.0;
 			};
 		};
+		3CAA0DF42DA3D73F00802A96 /* XCRemoteSwiftPackageReference "InjectionNext" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/InjectionNext";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.7;
+			};
+		};
+		3CAA0DF72DA3D76000802A96 /* XCRemoteSwiftPackageReference "HotSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/HotSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		4BC8948A2C7902E6009AA141 /* XCRemoteSwiftPackageReference "wireguard-apple" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/duckduckgo/wireguard-apple";
@@ -11620,6 +11667,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 98A16C2928A11BDE00A6C003 /* XCRemoteSwiftPackageReference "BrowserServicesKit" */;
 			productName = SyncDataProviders;
+		};
+		3CAA0DF52DA3D73F00802A96 /* InjectionNext */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CAA0DF42DA3D73F00802A96 /* XCRemoteSwiftPackageReference "InjectionNext" */;
+			productName = InjectionNext;
+		};
+		3CAA0DF82DA3D76000802A96 /* HotSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CAA0DF72DA3D76000802A96 /* XCRemoteSwiftPackageReference "HotSwiftUI" */;
+			productName = HotSwiftUI;
 		};
 		4B45D85B2BE0B115006061B5 /* Subscription */ = {
 			isa = XCSwiftPackageProductDependency;

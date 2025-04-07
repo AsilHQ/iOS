@@ -38,6 +38,7 @@ import Subscription
 import NetworkProtection
 import WebKit
 import os.log
+@_exported import HotSwiftUI
 
 @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
     

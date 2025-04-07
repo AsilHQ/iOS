@@ -70,10 +70,10 @@ struct KahfBrowserOnboardingView: View {
     @State var selectedApps: [BestApps] = []
     
     var addFavorite: ((String, URL) -> Void)?
-    
+    @ObserveInjection var redraw
     var body: some View {
         switch stage {
-        case 1: stage1View
+        case 1: stage1View.enableInjection()
         case 2: stage2View
         case 3: stage3View
         case 4: stage4View
