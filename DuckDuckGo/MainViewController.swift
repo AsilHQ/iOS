@@ -1914,7 +1914,7 @@ extension MainViewController: OmniBarDelegate {
 
         let menuEntries: [BrowsingMenuEntry]
         let headerEntries: [BrowsingMenuEntry]
-        if isNewTabPageVisible {
+        if isNewTabPageVisible || homeViewController != nil {
             menuEntries = tab.buildShortcutsMenu()
             headerEntries = []
         } else {
