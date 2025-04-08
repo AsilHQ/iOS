@@ -2067,12 +2067,13 @@ extension MainViewController: OmniBarDelegate {
     }
     
     func onSafegazePressed() {
-        if let tab = self.currentTab?.tabModel, let webView = self.currentTab?.webView {
-            let shields = SafegazeViewController(associatedTab: tab, webView: webView)
-            let container = PopoverNavigationController(rootViewController: shields)
-            let popover = PopoverController(contentController: container, contentSizeBehavior: .preferredContentSize)
-            popover.present(from: omniBar.safegazeButton.imageView!, on: self)
+        guard let tab = currentTab ?? tabManager.current(createIfNeeded: true) else {
+            return
         }
+        let shields = SafegazeViewController(associatedTab: tab.tabModel, webView: tab.webView)
+        let container = PopoverNavigationController(rootViewController: shields)
+        let popover = PopoverController(contentController: container, contentSizeBehavior: .preferredContentSize)
+        popover.present(from: omniBar.safegazeButton.imageView!, on: self)
     }
 
     func onShareLongPressed() {
