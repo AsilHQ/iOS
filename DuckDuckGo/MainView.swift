@@ -138,7 +138,7 @@ extension MainViewFactory {
     private func createToolbar() {
         // Create a UIView to replace UIToolbar
         coordinator.toolbar = HitTestingToolbar()
-        coordinator.toolbar.backgroundColor = .systemBackground
+        coordinator.toolbar.isTranslucent = false
         coordinator.toolbar.translatesAutoresizingMaskIntoConstraints = false
         superview.addSubview(coordinator.toolbar)
 
@@ -160,11 +160,6 @@ extension MainViewFactory {
 
         // Constraints for toolbar
         NSLayoutConstraint.activate([
-            coordinator.toolbar.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            coordinator.toolbar.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
-            coordinator.toolbar.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor),
-            coordinator.toolbar.heightAnchor.constraint(equalToConstant: 50),
-
             // StackView constraints inside the toolbar
             coordinator.stackView.leadingAnchor.constraint(equalTo: coordinator.toolbar.leadingAnchor, constant: 16),
             coordinator.stackView.trailingAnchor.constraint(equalTo: coordinator.toolbar.trailingAnchor, constant: -16),
