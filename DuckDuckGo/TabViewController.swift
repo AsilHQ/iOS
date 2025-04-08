@@ -65,6 +65,8 @@ class TabViewController: UIViewController {
 
     var isLinkPreview = false
     
+    private var processedSafegazeURLs: Set<String> = []
+    
     var openedByPage = false
     weak var openingTab: TabViewController? {
         didSet {
@@ -1289,6 +1291,7 @@ extension TabViewController: WKNavigationDelegate {
     private func onWebpageDidStartLoading(httpsForced: Bool) {
         Logger.general.debug("webpageLoading started")
 
+        processedSafegazeURLs.removeAll()
         // Only fire when on the same page that the without trackers Dax Dialog was shown
         self.fireWoFollowUp = false
 
@@ -1667,7 +1670,7 @@ extension TabViewController: WKNavigationDelegate {
                  decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
-        Task {
+//        Task {
             guard let url = navigationAction.request.url, let host = url.host else {
                 decisionHandler(.cancel)
                 return
@@ -1798,7 +1801,10 @@ extension TabViewController: WKNavigationDelegate {
                                 request.attribution = .user
                                 if self.lastError == nil {
                                     DispatchQueue.main.async {
-                                        AppUserDefaults().safegazeHarmfulSites += 1
+                                        if !self.processedSafegazeURLs.contains(host.cleanHost) {
+                                            AppUserDefaults().safegazeHarmfulSites += 1
+                                            self.processedSafegazeURLs.insert(host.cleanHost)
+                                        }
                                     }
                                     self.load(urlRequest: request)
                                 }
@@ -1848,7 +1854,7 @@ extension TabViewController: WKNavigationDelegate {
                 }
                 decisionHandler(decision)
             }
-        }
+//        }
     }
 
     private func shouldWaitUntilContentBlockingIsLoaded(_ completion: @Sendable @escaping @MainActor () -> Void) -> Bool {

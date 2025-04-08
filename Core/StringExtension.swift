@@ -73,4 +73,9 @@ extension String {
     public var toTrimmedURL: URL? {
         return URL(trimmedAddressBarString: self)
     }
+    
+    public var cleanHost: String {
+        guard hasPrefix("www.") else { return self }
+        return String(dropFirst(4))
+    }
 }
