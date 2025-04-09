@@ -56,7 +56,7 @@ public class SafegazeScript: NSObject, UserScript {
     private let safegazeMinFaceSize = 15
     private let safegazeMinImgSize: CGFloat = 45
     private let safegazeMaxImgSize: CGFloat = 800
-    private lazy var visionTools = ImageProcessor.shared // Using ImageProcessor singleton
+    private let visionTools = ImageProcessor.shared
     
     public var increaseSafegazeBlurredImageCount: (() -> Void)?
     
@@ -179,7 +179,7 @@ let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_releas
                     processedImage = processedImage.resize(to: newSize) ?? processedImage
                 }
                 
-                if let nsfwPrediction = ImageProcessor.shared.nsfwDetector.isNsfw(image: processedImage) {
+                if let nsfwPrediction = self.visionTools.nsfwDetector.isNsfw(image: processedImage) {
                     if !nsfwPrediction.isSafe() {
                         debugPrint("[SafegazeScript] downloadAndProcessImage found a nsfw image -> \(imageURL.absoluteString)")
                         DispatchQueue.main.async {
@@ -193,7 +193,7 @@ let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_releas
                     print("[SafegazeScript] downloadAndProcessImage nsfwPrediction is nil")
                 }
 
-                ImageProcessor.shared.processImage(image: image, imageData: imageData, imageUrl: imageURL.absoluteString) { _, persons in
+                self.visionTools.processImage(image: image, imageData: imageData, imageUrl: imageURL.absoluteString) { _, persons in
                     for person in persons where person.isFemale {
                         self.increaseSafegazeBlurredImageCount?()
                         break

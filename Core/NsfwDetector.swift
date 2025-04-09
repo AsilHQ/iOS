@@ -30,44 +30,91 @@ class NsfwDetector: TensorflowDetector {
     private let inputImageSize = CGSize(width: 224, height: 224)
     
     override init() {
-        do {
-            interpreter = try Interpreter(modelPath: Bundle.main.path(forResource: "nsfw", ofType: "tflite") ?? "")
-            try interpreter?.allocateTensors()
-            print("[NsfwDetector] model has been loaded")
-        } catch {
-            print("[NsfwDetector] Failed to create interpreter with error: \(error.localizedDescription)")
-        }
         super.init()
     }
 
-    func isNsfw(image: UIImage) -> NsfwPrediction? {
-        guard let thumbnailPixelBuffer = CVPixelBuffer.buffer(from: image)?.centerThumbnail(ofSize: inputImageSize) else {
-            print("[NsfwDetector] nsfw error on thumbnailPixelBuffer")
-            return nil
-        }
-        
+    private func createInterpreter() -> Interpreter? {
         do {
-            let inputTensor = try interpreter?.input(at: 0)
-
-            guard let rgbData = rgbDataFromBuffer(
-                thumbnailPixelBuffer,
-                byteCount: batchSize * inputWidth * inputHeight * inputChannels,
-                isModelQuantized: inputTensor?.dataType == .float16
-            ) else {
-                print("[NsfwDetector] nsfw Failed to convert the image buffer to RGB data.")
-                return nil
-            }
-
-            try interpreter?.copy(rgbData, toInputAt: 0)
-
-            try interpreter?.invoke()
-            
-            let outputTensor = try interpreter?.output(at: 0)
-            let prediction = NsfwPrediction(predictions: outputTensor?.data.toArray(type: Float32.self) ?? [])
-            return prediction
+            let interpreter = try Interpreter(modelPath: Bundle.main.path(forResource: "nsfw", ofType: "tflite") ?? "")
+            try interpreter.allocateTensors()
+            return interpreter
         } catch {
-            print("[NsfwDetector] nsfw Failed to invoke interpreter with error: \(error.localizedDescription)")
+            print("[NsfwDetector] Failed to create interpreter with error: \(error.localizedDescription)")
             return nil
         }
+    }
+
+    func isNsfw(image: UIImage) -> NsfwPrediction? {
+        var result: NsfwPrediction?
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { 
+                semaphore.signal()
+                return 
+            }
+            autoreleasepool {
+                // Create pixel buffer and ensure it's cleaned up
+                guard let pixelBuffer = CVPixelBuffer.buffer(from: image) else {
+                    print("[NsfwDetector] nsfw error creating pixel buffer")
+                    semaphore.signal()
+                    return
+                }
+                
+                // Create thumbnail and ensure it's cleaned up
+                guard let thumbnailPixelBuffer = pixelBuffer.centerThumbnail(ofSize: self.inputImageSize) else {
+                    print("[NsfwDetector] nsfw error on thumbnailPixelBuffer")
+                    semaphore.signal()
+                    return
+                }
+                
+                // Create a new interpreter for this prediction
+                guard let interpreter = self.createInterpreter() else {
+                    semaphore.signal()
+                    return
+                }
+                
+                do {
+                    let inputTensor = try interpreter.input(at: 0)
+                    
+                    // Create a temporary buffer for RGB data
+                    let rgbData = self.rgbDataFromBuffer(
+                        thumbnailPixelBuffer,
+                        byteCount: self.batchSize * self.inputWidth * self.inputHeight * self.inputChannels,
+                        isModelQuantized: inputTensor.dataType == .float16
+                    )
+                    
+                    guard let rgbData = rgbData else {
+                        print("[NsfwDetector] nsfw Failed to convert the image buffer to RGB data.")
+                        semaphore.signal()
+                        return
+                    }
+                    
+                    // Copy data and run inference
+                    try interpreter.copy(rgbData, toInputAt: 0)
+                    try interpreter.invoke()
+                    
+                    // Get output tensor and create prediction
+                    let outputTensor = try interpreter.output(at: 0)
+                    let predictions = outputTensor.data.toArray(type: Float32.self)
+                    result = NsfwPrediction(predictions: predictions)
+                    
+                    // Force cleanup of temporary objects
+                    _ = predictions
+                    _ = rgbData
+                    _ = outputTensor
+                    _ = inputTensor
+                } catch {
+                    print("[NsfwDetector] nsfw Failed to invoke interpreter with error: \(error.localizedDescription)")
+                }
+                
+                // Force cleanup of pixel buffers
+                _ = thumbnailPixelBuffer
+                _ = pixelBuffer
+                semaphore.signal()
+            }
+        }
+        semaphore.wait()
+        return result
     }
 }

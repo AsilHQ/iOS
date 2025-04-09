@@ -26,7 +26,7 @@ struct AutofillSettingStatus {
 
     static var isAutofillEnabledInSettings: Bool {
         let context = LAContext()
-        var error: NSError?
+        weak var error: NSError?
         let canAuthenticate = context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)
         return appSettings.autofillCredentialsEnabled && canAuthenticate
     }
