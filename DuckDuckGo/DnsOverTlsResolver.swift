@@ -24,11 +24,7 @@ import Foundation
 class DnsOverTlsResolver {
     private var dnsServer: String = "high.kahfguard.com"
     private let dnsPort: UInt16 = 853
-    private let queue = DispatchQueue(label: "com.dns.over.tls.queue")
-    
-    init(dnsServer: String) {
-        self.dnsServer = dnsServer
-    }
+//    private let queue = DispatchQueue(label: "com.dns.over.tls.queue")
     
     func resolve(hostName: String, completion: @escaping ([String]?, Error?) -> Void) {
         if AppUserDefaults().safegazeModeValue == "HIGH" {
@@ -49,7 +45,7 @@ class DnsOverTlsResolver {
         sec_protocol_options_set_verify_block(tlsOptions.securityProtocolOptions, { metadata, trust, completionHandler in
             // Always validate in production - this is just for testing
             completionHandler(true)
-        }, queue)
+        }, .global())
         
         let parameters = NWParameters(tls: tlsOptions, tcp: NWProtocolTCP.Options())
         let connection = NWConnection(
@@ -100,15 +96,15 @@ class DnsOverTlsResolver {
         }
 
         print("Starting connection to DNS server \(dnsServer)...")
-        connection.start(queue: queue)
+        connection.start(queue: .global())
 
-        queue.asyncAfter(deadline: .now() + 10) {
-            if connection.state != .ready {
-                print("DNS resolution timed out")
-                connection.cancel()
-                completion(nil, NSError(domain: "DNS", code: -4, userInfo: [NSLocalizedDescriptionKey: "Connection timeout"]))
-            }
-        }
+//        queue.asyncAfter(deadline: .now() + 10) {
+//            if connection.state != .ready {
+//                print("DNS resolution timed out")
+//                connection.cancel()
+//                completion(nil, NSError(domain: "DNS", code: -4, userInfo: [NSLocalizedDescriptionKey: "Connection timeout"]))
+//            }
+//        }
     }
     
     private class ResponseDataContainer {
