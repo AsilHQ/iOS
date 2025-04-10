@@ -1790,30 +1790,56 @@ extension TabViewController: WKNavigationDelegate {
             }
 
             
-            if AppUserDefaults().safegazeOn {
-                debugPrint("safe host is:\(host)")
-                dnsResolver.resolveDNS(for: host) { resolvedIP in
-                    debugPrint("resolvedIP:\(resolvedIP ?? "nil")")
-                    if resolvedIP == "Blocked_Domain" {
-                        DispatchQueue.main.async {
-                            if let blockURL = URL(string: "http://blocked.kahfguard.com?url=\(url.absoluteString)") {
-                                var request = URLRequest(url: blockURL)
-                                request.attribution = .user
-                                if self.lastError == nil {
-                                    DispatchQueue.main.async {
-                                        if !self.processedSafegazeURLs.contains(host.cleanHost) {
-                                            AppUserDefaults().safegazeHarmfulSites += 1
-                                            self.processedSafegazeURLs.insert(host.cleanHost)
+//            if AppUserDefaults().safegazeOn && host != "blocked.kahfguard.com" {
+//                debugPrint("safe host is:\(host)")
+//                dnsResolver.resolveDNS(for: host) { resolvedIP in
+//                    debugPrint("resolvedIP:\(resolvedIP ?? "nil")")
+//                    if resolvedIP == "Blocked_Domain" {
+//                        DispatchQueue.main.async {
+//                            if let blockURL = URL(string: "http://blocked.kahfguard.com?url=\(url.absoluteString)") {
+//                                var request = URLRequest(url: blockURL)
+//                                request.attribution = .user
+//                                if self.lastError == nil {
+//                                    DispatchQueue.main.async {
+//                                        if !self.processedSafegazeURLs.contains(host.cleanHost) {
+//                                            AppUserDefaults().safegazeHarmfulSites += 1
+//                                            self.processedSafegazeURLs.insert(host.cleanHost)
+//                                        }
+//                                    }
+//                                    self.load(urlRequest: request)
+//                                }
+//                            }
+//                        }
+//                        return
+//                    }
+//                }
+                if AppUserDefaults().safegazeOn && host != "blocked.kahfguard.com" {
+                    let resolver = DnsOverTlsResolver(dnsServer: "high.kahfguard.com")
+                    resolver.resolve(hostName: host) { ipAddresses, error in
+                        if let error = error {
+                            debugPrint("DNS resolution failed: \(error)")
+                        } else if let ipAddresses = ipAddresses {
+                            debugPrint("Resolved IP addresses: \(ipAddresses)")
+                        } else {
+                            debugPrint("No IP addresses found")
+                            DispatchQueue.main.async {
+                                if let blockURL = URL(string: "http://blocked.kahfguard.com?url=\(url.absoluteString)") {
+                                    var request = URLRequest(url: blockURL)
+                                    request.attribution = .user
+                                    if self.lastError == nil {
+                                        DispatchQueue.main.async {
+                                            if !self.processedSafegazeURLs.contains(host.cleanHost) {
+                                                AppUserDefaults().safegazeHarmfulSites += 1
+                                                self.processedSafegazeURLs.insert(host.cleanHost)
+                                            }
                                         }
+                                        self.load(urlRequest: request)
                                     }
-                                    self.load(urlRequest: request)
                                 }
                             }
                         }
-                        return
                     }
                 }
-            }
             
             decidePolicyFor(navigationAction: navigationAction) { [weak self] decision in
                 if let self = self,
