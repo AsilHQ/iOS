@@ -351,7 +351,8 @@ struct KahfBrowserOnboardingView: View {
             let calculatedFontSize = min(maxFontSize, availableWidth / 10) // Adjust factor as needed
 
             VStack {
-                Text("Clean, Safe and Decent")
+                Spacer()
+                Text("Private, Safe and Decent")
                     .font(FontHelper.poppins(size: calculatedFontSize, weight: .bold))
                     .foregroundColor(textColor)
                     .multilineTextAlignment(.center)
@@ -371,11 +372,17 @@ struct KahfBrowserOnboardingView: View {
                     .multilineTextAlignment(.center)
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
+                
+                Text("Built on top of privacy aware DuckDuckgo browser")
+                    .font(FontHelper.poppins(size: 14, weight: .medium))
+                    .foregroundColor(textColor)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 8)
+                Spacer()
             }
-            .frame(width: availableWidth) // Ensures text doesn't overflow
-            .padding(.horizontal, 16) // Add some padding for better spacing
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 16)
         }
-        .frame(height: 120)
     }
     
     func gradientOverlay(selected: Bool) -> some View {
