@@ -219,7 +219,7 @@ extension MainViewFactory {
         let progress = coordinator.progress!
         let navigationBarContainer = coordinator.navigationBarContainer!
 
-        coordinator.constraints.progressBarTop = progress.constrainView(navigationBarContainer, by: .top, to: .top)
+        coordinator.constraints.progressBarTop = progress.constrainView(navigationBarContainer, by: .top, to: .bottom)
         coordinator.constraints.progressBarBottom = progress.constrainView(navigationBarContainer, by: .bottom, to: .top)
 
         NSLayoutConstraint.activate([
