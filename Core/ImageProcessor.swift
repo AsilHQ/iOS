@@ -25,7 +25,7 @@ class ImageProcessor {
     static let shared = ImageProcessor()
     let nsfwDetector = NsfwDetector()
     let genderDetector = GenderDetector()
-    private var movenet: PoseEstimator?
+//    private var movenet: PoseEstimator?
     private let queue = DispatchQueue(label: "serial_queue")
     private var totalFacesCount: Int = 0
     private var totalPoseCount: Int = 0
@@ -33,13 +33,13 @@ class ImageProcessor {
     private var poseLandmarker: PoseLandmarker?
 
     private init() {
-        queue.async {
-            do {
-                self.movenet = try MoveNet(threadCount: 4, delegate: .gpu, modelType: .movenetMultipose)
-            } catch {
-                debugPrint("[SafegazeScript] Cannot initialize movenet: \(error)")
-            }
-        }
+//        queue.async {
+//            do {
+//                self.movenet = try MoveNet(threadCount: 4, delegate: .gpu, modelType: .movenetMultipose)
+//            } catch {
+//                debugPrint("[SafegazeScript] Cannot initialize movenet: \(error)")
+//            }
+//        }
         configureFaceDetection()
         configurePoseLandmarker()
     }
@@ -113,15 +113,15 @@ class ImageProcessor {
                             dispatchGroup.leave()
                         }
                         
-                        if prediction.faceCount > 0 {
+//                        if prediction.faceCount > 0 {
                             person.isFemale = !prediction.isMale
                             person.genderScore = prediction.genderScore
                             person.faceBox = person.faceBoxPixel
                             debugPrint("[SafegazeScript] processImage Gender prediction completed for person \(i) in \(imageUrl). GenderScore: \(prediction.genderScore) isFemale: \(person.isFemale)")
                             personList[i] = person
-                        } else {
-                            debugPrint("[SafegazeScript] processImage No faces detected in gender prediction for person \(i) in \(imageUrl)")
-                        }
+//                        } else {
+//                            debugPrint("[SafegazeScript] processImage No faces detected in gender prediction for person \(i) in \(imageUrl)")
+//                        }
                     }
                 } else {
                     debugPrint("[SafegazeScript] processImage No faceBox for person \(i) in \(imageUrl)")

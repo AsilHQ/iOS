@@ -45,7 +45,7 @@ public class SafegazeScript: NSObject, UserScript {
         
         return sendMessage + script
     }()
-
+    
     public var messageNames: [String] = ["safegazeMessage"]
     public let injectionTime: WKUserScriptInjectionTime = .atDocumentEnd
     public let forMainFrameOnly = true
@@ -60,26 +60,29 @@ public class SafegazeScript: NSObject, UserScript {
     
     public var increaseSafegazeBlurredImageCount: (() -> Void)?
     
+    private let imageProcessingSemaphore = DispatchSemaphore(value: 1)
+    private let imageProcessingQueue = DispatchQueue(label: "com.kahf.imageProcessing", qos: .userInitiated)
+    
     // Private initializer
     private override init() {
         super.init()
     }
-
+    
     // Make helper methods static since they don't need instance access
     static func loadUserScriptFileManager(named: String) -> String? {
-      let fileManager = FileManager.default
-      let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-      let localFileURL = documentsURL.appendingPathComponent(named).appendingPathExtension("js").path
-      
-      do {
-          // Attempt to load the file contents
-          let source = try String(contentsOfFile: localFileURL, encoding: .utf8)
-          return source
-      } catch {
-          // Log error and handle failure
-          assertionFailure("Failed to Load Script: \(named).js - \(error.localizedDescription)")
-          return nil
-      }
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let localFileURL = documentsURL.appendingPathComponent(named).appendingPathExtension("js").path
+        
+        do {
+            // Attempt to load the file contents
+            let source = try String(contentsOfFile: localFileURL, encoding: .utf8)
+            return source
+        } catch {
+            // Log error and handle failure
+            assertionFailure("Failed to Load Script: \(named).js - \(error.localizedDescription)")
+            return nil
+        }
     }
     
     static func loadJavaScript(named fileName: String) -> String? {
@@ -99,9 +102,9 @@ public class SafegazeScript: NSObject, UserScript {
     
     public static func downloadAndSaveJavaScriptFile() {
 #if DEBUG
-let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_dev/node_modules/%40duckduckgo/privacy-dashboard/build/app/safe_gaze_v2.js"
+        let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_dev/node_modules/%40duckduckgo/privacy-dashboard/build/app/safe_gaze_v2.js"
 #else
-let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_release/node_modules/%40duckduckgo/privacy-dashboard/build/app/safe_gaze_v2.js"
+        let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_release/node_modules/%40duckduckgo/privacy-dashboard/build/app/safe_gaze_v2.js"
 #endif
         
         let remoteHostFileURL = URL(string: urlString)!
@@ -137,6 +140,7 @@ let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_releas
     @available(iOS 15.0, *)
     func downloadAndProcessImage(from imageURL: URL, completion: @escaping (Bool, String, CGSize, [Person]) -> Void) {
         // Perform network and image processing in a background queue
+        debugPrint("downloadAndProcessImage url \(imageURL.absoluteString) start at \(Date())")
         DispatchQueue.global(qos: .userInitiated).async {
             self.asyncDownloadImage(from: imageURL) { imageData in
                 guard let imageData = imageData else {
@@ -158,7 +162,7 @@ let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_releas
                 var processedImage = image
                 let imageSize = CGSize(width: image.size.width, height: image.size.height)
                 let base64 = imageData.base64EncodedString()
-
+                
                 if image.size.width < self.safegazeMinImgSize || image.size.height < self.safegazeMinImgSize {
                     DispatchQueue.main.async {
                         print("[SafegazeScript] downloadAndProcessImage smaller")
@@ -166,18 +170,18 @@ let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_releas
                     }
                     return
                 }
-
-                if image.size.width > self.safegazeMaxImgSize || image.size.height > self.safegazeMaxImgSize {
-                    let maxSize = self.safegazeMaxImgSize
-                    let aspectRatio = image.size.width / image.size.height
-                    let newSize: CGSize
-                    if aspectRatio > 1 {
-                        newSize = CGSize(width: maxSize, height: maxSize / aspectRatio)
-                    } else {
-                        newSize = CGSize(width: maxSize * aspectRatio, height: maxSize)
-                    }
-                    processedImage = processedImage.resize(to: newSize) ?? processedImage
-                }
+                
+                //                if image.size.width > self.safegazeMaxImgSize || image.size.height > self.safegazeMaxImgSize {
+                //                    let maxSize = self.safegazeMaxImgSize
+                //                    let aspectRatio = image.size.width / image.size.height
+                //                    let newSize: CGSize
+                //                    if aspectRatio > 1 {
+                //                        newSize = CGSize(width: maxSize, height: maxSize / aspectRatio)
+                //                    } else {
+                //                        newSize = CGSize(width: maxSize * aspectRatio, height: maxSize)
+                //                    }
+                //                    processedImage = processedImage.resizedCG(to: newSize) ?? processedImage
+                //                }
                 
                 if let nsfwPrediction = self.visionTools.nsfwDetector.isNsfw(image: processedImage) {
                     if !nsfwPrediction.isSafe() {
@@ -192,7 +196,7 @@ let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_releas
                 } else {
                     print("[SafegazeScript] downloadAndProcessImage nsfwPrediction is nil")
                 }
-
+                
                 self.visionTools.processImage(image: image, imageData: imageData, imageUrl: imageURL.absoluteString) { _, persons in
                     for person in persons where person.isFemale {
                         self.increaseSafegazeBlurredImageCount?()
@@ -216,78 +220,90 @@ let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_releas
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if let messageString = message.body as? String {
-            if messageString.contains("coreML") {
-                let messageArray = messageString.components(separatedBy: "/-/")
-                if messageArray.count > 2 {
-                    if let url = URL(string: messageArray[1]) {
-                        print("coreML has came to me \(url)")
-                        
-                        let uid = messageArray[2]
-                        
-                        let jsString = """
+        guard let messageString = message.body as? String, messageString.contains("coreML") else { return }
+        let messageArray = messageString.components(separatedBy: "/-/")
+        if messageArray.count > 2 {
+            if let url = URL(string: messageArray[1]) {
+                print("coreML has came to me \(url)")
+                
+                let uid = messageArray[2]
+                
+                let jsString = """
                         (function() {
                             safegazeOnDeviceModelHandler("\(uid)");
                         })();
                         """
-
-                        if let webview = message.webView {
-                            webview.evaluateJavaScript(jsString, in: message.frameInfo, in: .page) { (result) in
-                                switch result {
-                                case .failure(let error):
-                                    debugPrint("[SafegazeScript] Safegaze evaluateJavaScript failure \(error)")
-                                case .success:
-                                    debugPrint("[SafegazeScript] Safegaze evaluateJavaScript success")
-                                }
+                
+                if let webview = message.webView {
+                    DispatchQueue.main.async {
+                        webview.evaluateJavaScript(jsString, in: message.frameInfo, in: .page) { (result) in
+                            switch result {
+                            case .failure(let error):
+                                debugPrint("[SafegazeScript] Safegaze evaluateJavaScript failure \(error)")
+                            case .success:
+                                debugPrint("[SafegazeScript] Safegaze evaluateJavaScript success")
                             }
                         }
-                        
-                        downloadAndProcessImage(from: url) { isNSFW, base64, size, persons in
-                            let uid = messageArray[2]
+                    }
+                }
+                
+                debugPrint("[SafegazeScript] Queueing image processing for \(url.absoluteString)")
+                imageProcessingQueue.async {
+                    debugPrint("[SafegazeScript] Waiting for semaphore for \(url.absoluteString)")
+                    self.imageProcessingSemaphore.wait()
                     
+                    autoreleasepool {
+                        self.downloadAndProcessImage(from: url) { isNSFW, base64, size, persons in
+                            debugPrint("[SafegazeScript] downloadAndProcessImage finished for \(url.absoluteString)")
+                            let uid = messageArray[2]
+                            
                             var escapedDetectionResultStrReal = ""
                             
                             var escapedBase64 = base64.replacingOccurrences(of: "\\", with: "\\\\")
-                                                      .replacingOccurrences(of: "\"", with: "\\\"")
-
+                                .replacingOccurrences(of: "\"", with: "\\\"")
+                            
                             if base64.isEmpty {
                                 escapedDetectionResultStrReal = "null"
                                 escapedBase64 = "null"
                             } else if !persons.isEmpty {
                                 let detectionResult = DetectionResult(imageWidth: size.width, imageHeight: size.height, persons: persons).manualEncode() ?? ""
                                 escapedDetectionResultStrReal = detectionResult.replacingOccurrences(of: "\\", with: "\\\\")
-                                                                                  .replacingOccurrences(of: "\"", with: "\\\"")
+                                    .replacingOccurrences(of: "\"", with: "\\\"")
                             } else {
                                 escapedDetectionResultStrReal = "{\"isNSFW\":\(isNSFW)}".replacingOccurrences(of: "\\", with: "\\\\").replacingOccurrences(of: "\"", with: "\\\"")
                             }
                             
-                            
                             print("[SafegazeScript] escapedDetectionResultStrReal \(url.absoluteString) \(escapedDetectionResultStrReal)")
                             
                             let jsString = """
-                            (function() {
-                                safegazeOnDeviceModelHandler("\(uid)", "\(escapedDetectionResultStrReal)", "\(escapedBase64)");
-                            })();
-                            """
-
+                                    (function() {
+                                        safegazeOnDeviceModelHandler("\(uid)", "\(escapedDetectionResultStrReal)", "\(escapedBase64)");
+                                    })();
+                                    """
+                            
                             if let webview = message.webView {
-                                webview.evaluateJavaScript(jsString, in: message.frameInfo, in: .page) { (result) in
-                                    switch result {
-                                    case .failure(let error):
-                                        debugPrint("[SafegazeScript] Safegaze evaluateJavaScript failure \(error)")
-                                    case .success(_):
-                                        return
+                                DispatchQueue.main.async {
+                                    webview.evaluateJavaScript(jsString, in: message.frameInfo, in: .page) { (result) in
+                                        switch result {
+                                        case .failure(let error):
+                                            debugPrint("[SafegazeScript] Safegaze evaluateJavaScript failure \(error)")
+                                        case .success:
+                                            debugPrint("[SafegazeScript] Safegaze evaluateJavaScript success")
+                                        }
+                                        self.imageProcessingSemaphore.signal()
+                                        debugPrint("[SafegazeScript] Released semaphore for \(url.absoluteString)")
                                     }
                                 }
+                            } else {
+                                self.imageProcessingSemaphore.signal()
+                                debugPrint("[SafegazeScript] Released semaphore for \(url.absoluteString)")
                             }
                         }
                     }
-                } else {
-                    print("coreML detection \(messageString)")
                 }
-            } else {
-                debugPrint("[SafegazeScript] Safegaze logger: " + messageString)
             }
+        } else {
+            print("coreML detection \(messageString)")
         }
     }
 }
@@ -302,14 +318,14 @@ struct DetectionResult {
 extension DetectionResult {
     func manualEncode() -> String? {
         var jsonObject: [String: Any] = [:]
-
+        
         jsonObject["imageWidth"] = imageWidth
         jsonObject["imageHeight"] = imageHeight
-
+        
         // Encode the persons array
         let encodedPersons = persons.map { person -> [String: Any] in
             var personObject: [String: Any] = [:]
-
+            
             // Encode keypoints
             let encodedKeypoints = person.keyPoints.map { keyPoint -> [String: Any] in
                 return [
@@ -320,10 +336,10 @@ extension DetectionResult {
                 ]
             }
             personObject["keypoints"] = encodedKeypoints
-
+            
             // Encode poseScore
             personObject["poseScore"] = person.score
-
+            
             // Encode faceBox
             if let faceBox = person.faceBox {
                 let faceBoxWidth = faceBox.right - faceBox.left
@@ -337,15 +353,15 @@ extension DetectionResult {
                     "height": faceBoxHeight
                 ]
             }
-
+            
             // Encode isFemale and genderScore
             personObject["isFemale"] = person.isFemale
             personObject["genderScore"] = person.genderScore
-
+            
             return personObject
         }
         jsonObject["persons"] = encodedPersons
-
+        
         // Serialize to JSON
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: [])

@@ -191,6 +191,7 @@ class TabViewController: UIViewController {
     private let daxDialogsDebouncer = Debouncer(mode: .common)
     private let dnsResolver: DNSResolver = DNSResolver()
     private let dnsOverTLSResolver: DnsOverTlsResolver = DnsOverTlsResolver()
+    private let dnsOverTLSemaphore = DispatchSemaphore(value: 1)
     
     public var url: URL? {
         willSet {
@@ -1676,6 +1677,8 @@ extension TabViewController: WKNavigationDelegate {
                 decisionHandler(.cancel)
                 return
             }
+        
+        debugPrint("inside decidePolicyFor url: \(url)")
             
             if #available(iOS 17.4, *),
                 navigationAction.request.url?.scheme == "marketplace-kit",
@@ -1815,8 +1818,11 @@ extension TabViewController: WKNavigationDelegate {
 //                    }
 //                }
                 if AppUserDefaults().safegazeOn && host != "blocked.kahfguard.com" {
+                    dnsOverTLSemaphore.wait()
                     debugPrint("DNS resolution hostName: \(host)")
-                    dnsOverTLSResolver.resolve(hostName: host) { ipAddresses, error in
+                    dnsOverTLSResolver.resolve(hostName: host) { [weak self] ipAddresses, error in
+                        guard let self = self else { return }
+                        dnsOverTLSemaphore.signal()
                         if let error = error {
                             debugPrint("DNS resolution failed: \(error)")
                         } else if let ipAddresses = ipAddresses {
@@ -1824,7 +1830,7 @@ extension TabViewController: WKNavigationDelegate {
                         } else {
                             debugPrint("No IP addresses found")
                             DispatchQueue.main.async {
-                                if let blockURL = URL(string: "https://blocked.kahfguard.com") {
+                                if let blockURL = URL(string: "https://blocked.kahfguard.com?url=\(url.absoluteString)") {
                                     var request = URLRequest(url: blockURL)
                                     request.attribution = .user
                                     if self.lastError == nil {

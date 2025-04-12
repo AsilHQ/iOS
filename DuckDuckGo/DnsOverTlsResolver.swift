@@ -25,6 +25,7 @@ class DnsOverTlsResolver {
     private var dnsServer: String = "high.kahfguard.com"
     private let dnsPort: UInt16 = 853
 //    private let queue = DispatchQueue(label: "com.dns.over.tls.queue")
+    var responseDataContainer = ResponseDataContainer()
     
     func resolve(hostName: String, completion: @escaping ([String]?, Error?) -> Void) {
         if AppUserDefaults().safegazeModeValue == "HIGH" {
@@ -53,9 +54,10 @@ class DnsOverTlsResolver {
             port: NWEndpoint.Port(integerLiteral: dnsPort),
             using: parameters
         )
-        let responseDataContainer = ResponseDataContainer()
+        responseDataContainer = ResponseDataContainer()
 
-        connection.stateUpdateHandler = { state in
+        connection.stateUpdateHandler = { [weak self] state in
+            guard let self = self else { return }
             switch state {
             case .ready:
                 print("Connection to DNS server established")
@@ -68,7 +70,7 @@ class DnsOverTlsResolver {
                     }
                 })
                 
-                self.receiveResponse(connection: connection, responseDataContainer: responseDataContainer) { data, error in
+                self.receiveResponse(connection: connection) { data, error in
                     if let error = error {
                         completion(nil, error)
                     } else if let data = data {
@@ -107,12 +109,13 @@ class DnsOverTlsResolver {
 //        }
     }
     
-    private class ResponseDataContainer {
+    class ResponseDataContainer {
         var data = Data()
     }
     
-    private func receiveResponse(connection: NWConnection, responseDataContainer: ResponseDataContainer, completion: @escaping (Data?, Error?) -> Void) {
-        connection.receive(minimumIncompleteLength: 2, maximumLength: 4096) { content, contentContext, isComplete, error in
+    private func receiveResponse(connection: NWConnection, completion: @escaping (Data?, Error?) -> Void) {
+        connection.receive(minimumIncompleteLength: 2, maximumLength: 4096) { [weak self] content, _, isComplete, error in
+            guard let self else { return }
             if let error = error {
                 print("Error receiving DNS response: \(error)")
                 completion(nil, error)
@@ -158,7 +161,7 @@ class DnsOverTlsResolver {
             }
             
             // Continue receiving more data
-            self.receiveResponse(connection: connection, responseDataContainer: responseDataContainer, completion: completion)
+            self.receiveResponse(connection: connection, completion: completion)
         }
     }
     
