@@ -71,6 +71,9 @@ final class UserScripts: UserScriptsProvider {
         safegazeScript = SafegazeScript.shared
 
         if AppUserDefaults().decentInternetOn {
+            Task {
+                await ImageProcessingQueue.shared.configure(blurImageMode: AppUserDefaults().shouldPixelateBlurMode ? .pixelation : .solidColor)
+            }
             safegazeScript.increaseSafegazeBlurredImageCount = {
                 DispatchQueue.main.async {
                     self.userDefaults.safegazeBlurredImageCount += 1
@@ -78,6 +81,7 @@ final class UserScripts: UserScriptsProvider {
             }
             userScripts.append(safegazeScript)
         }
+        
         
         // Special pages - Such as Duck Player
         specialPages = SpecialPagesUserScript()

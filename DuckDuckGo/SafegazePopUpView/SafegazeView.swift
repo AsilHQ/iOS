@@ -19,6 +19,7 @@
 
 import Foundation
 import SwiftUI
+import SafeGaze_iOS
 
 enum SafeInternet: String {
     case high = "HIGH"
@@ -72,6 +73,7 @@ struct SafegazeView: View {
     @AppStorage("com.duckduckgo.ios.blockedTrackersCount") private var blockedTrackersCount: Int = AppUserDefaults().blockedTrackersCount
     @AppStorage("com.duckduckgo.ios.safegazeBlurredImageCount") private var safegazeBlurredImageCount: Int = AppUserDefaults().safegazeBlurredImageCount
     @AppStorage("com.duckduckgo.ios.safegazeModeValue") private var safegazeModeValue: String = AppUserDefaults().safegazeModeValue
+    @AppStorage("com.duckduckgo.ios.shouldPixelateBlurMode") private var shouldPixelateBlurMode: Bool = AppUserDefaults().shouldPixelateBlurMode
     
     @State private var selection: Int = 0
     @State private var isShareSheetPresented: Bool = false
@@ -113,6 +115,10 @@ struct SafegazeView: View {
         })
         .onChange(of: safeInternet, perform: { value in
             safegazeModeValue = value.rawValue
+            safegazeSettingsChanged?()
+            NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
+        })
+        .onChange(of: shouldPixelateBlurMode, perform: { _ in
             safegazeSettingsChanged?()
             NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
         })
@@ -170,37 +176,74 @@ struct SafegazeView: View {
     }
     
     var decentInternetSection: some View {
-            VStack(spacing: 0) {
-                HStack {
-                    VStack(spacing: 10) {
-                        HStack {
-                            sectionTitle("Decent Internet")
-                            Spacer()
-                            HStack(spacing: 5) {
-                                Text("On/Off")
-                                    .foregroundColor(gray130)
-                                    .font(FontHelper.lato(size: 10))
-                                
-                                
-                                Toggle(isOn: $isDecentInternetOn) {}
-                                    .controlSize(.mini)
-                                    .scaleEffect(0.5)
-                                    .labelsHidden()
-                                    .foregroundColor(Color(red: 57 / 255, green: 182 / 255, blue: 53 / 255, opacity: 1))
-                            }
-                        }.frame(height: 20)
-                        
-                        HStack {
-                            VStack {
-                                sectionSubtitle("Blur indecent photos. Avoid major sins.").frame(width: 150)
-                                Spacer()
-                            }
-                            Spacer()
-                            imageViewColumn(image: "BlurPixelationImage")
-                        }.frame(height: 80)
+        VStack(spacing: 10) {
+            HStack {
+                sectionTitle("Decent Internet")
+                Spacer()
+                HStack(spacing: 5) {
+                    Text("On/Off")
+                        .foregroundColor(gray130)
+                        .font(FontHelper.lato(size: 13))
+                    
+                    Toggle(isOn: $isDecentInternetOn) {}
+                        .controlSize(.mini)
+                        .scaleEffect(0.7)
+                        .labelsHidden()
+                        .foregroundColor(Color(red: 57 / 255, green: 182 / 255, blue: 53 / 255, opacity: 1))
+                }
+            }
+            
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text("Hide inappropriate images. Avoid major sins.")
+                        .font(FontHelper.lato(size: 13, weight: .regular))
+                        .foregroundColor(Color(designSystemColor: .textPrimary))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("Blurring is not 100% accurate.")
+                        .font(FontHelper.lato(size: 13, weight: .regular))
+                        .foregroundColor(Color(red: 254 / 255, green: 16 / 255, blue: 42 / 255, opacity: 1))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Spacer()
+                }
+                .frame(height: 80)
+                Spacer()
+                ZStack(alignment: .bottom) {
+                    imageViewColumn(image: "BlurPixelationImage")
+                        .onTapGesture {
+                            shouldPixelateBlurMode = true
+                            AppUserDefaults().shouldPixelateBlurMode = true
+                        }
+                    if shouldPixelateBlurMode == true {
+                        Image(systemName: "checkmark.circle")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.waitlistGreen)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .offset(y: 12)
                     }
                 }
-            }.frame(height: 100)
+                
+                ZStack(alignment: .bottom) {
+                    imageViewColumn(image: "BlurSolidColorImage")
+                        .onTapGesture {
+                            shouldPixelateBlurMode = false
+                            AppUserDefaults().shouldPixelateBlurMode = false
+                        }
+                    if shouldPixelateBlurMode == false {
+                        Image(systemName: "checkmark.circle")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.waitlistGreen)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .offset(y: 12)
+                    }
+                }
+                
+            }
+            .padding(.bottom, 12)
+        }
     }
     
     

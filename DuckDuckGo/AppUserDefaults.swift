@@ -21,6 +21,7 @@ import Foundation
 import Bookmarks
 import Core
 import WidgetKit
+import SafeGaze_iOS
 
 public class AppUserDefaults: AppSettings {
     
@@ -442,6 +443,9 @@ public class AppUserDefaults: AppSettings {
     
     @UserDefaultsWrapper(key: .debugOnboardingHighlightsEnabledKey, defaultValue: false)
     var onboardingHighlightsEnabled: Bool
+    
+    @UserDefaultsWrapper(key: .imageBlurMode, defaultValue: true)
+    var shouldPixelateBlurMode: Bool
 }
 
 extension AppUserDefaults: AppConfigurationFetchStatistics {

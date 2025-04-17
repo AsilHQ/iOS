@@ -190,8 +190,18 @@ extension UIImage {
 
 public actor ImageProcessingQueue {
     static let shared = ImageProcessingQueue()
-    var index = 0
     private let visionTools = ImageProcessor.shared
+    
+    private init() {}
+    
+    func configure(blurImageMode: ImageProcessingMode) async {
+        Task {
+            await visionTools.changeBlurMode(mode: blurImageMode)
+        }
+        Task {
+            await visionTools.configure()
+        }
+    }
     
     func enqueueProcessing(url: URL, id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
         let base64 = await downloadAndProcessImage(from: url)
@@ -218,11 +228,6 @@ public actor ImageProcessingQueue {
     
     func downloadAndProcessImage(from imageURL: URL) async -> String? {
         debugPrint("downloadAndProcessImage url \(imageURL.absoluteString) start at \(Date())")
-
-        if index < 1 {
-            await visionTools.configure()
-            index += 1
-        }
 
         guard let imageData = await asyncDownloadImage(from: imageURL),
               let image = UIImage(data: imageData) else {
