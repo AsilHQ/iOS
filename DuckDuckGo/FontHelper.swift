@@ -10,11 +10,6 @@ struct FontHelper {
     
     // MARK: - SwiftUI Font Methods
     
-    static func quicksand(size: CGFloat, weight: Font.Weight = .regular) -> Font {
-        let weightString = weight.fontWeightString()
-        return Font.custom("Quicksand-\(weightString)", size: size)
-    }
-    
     static func lato(size: CGFloat, weight: Font.Weight = .regular) -> Font {
         let weightString = weight.fontWeightString()
         return Font.custom("Lato-\(weightString)", size: size)
@@ -31,11 +26,6 @@ struct FontHelper {
     }
     
     // MARK: - UIKit UIFont Methods
-    
-    static func quicksandUIFont(size: CGFloat, weight: UIFont.Weight = .regular) -> UIFont {
-        let weightString = weight.uiFontWeightString()
-        return UIFont(name: "Quicksand-\(weightString)", size: size) ?? UIFont.systemFont(ofSize: size, weight: weight)
-    }
 
     static func latoUIFont(size: CGFloat, weight: UIFont.Weight = .regular) -> UIFont {
         let weightString = weight.uiFontWeightString()
