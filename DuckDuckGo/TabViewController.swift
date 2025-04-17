@@ -534,6 +534,11 @@ class TabViewController: UIViewController {
 
         webView.navigationDelegate = self
         webView.uiDelegate = self
+        if #available(iOS 16.4, *) {
+            webView.isInspectable = true
+        } else {
+            // Fallback on earlier versions
+        }
 
         webViewContainer.addSubview(webView)
         webView.translatesAutoresizingMaskIntoConstraints = false
