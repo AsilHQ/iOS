@@ -228,24 +228,24 @@ public class SafegazeScript: NSObject, UserScript {
                 
                 let uid = messageArray[2]
                 
-                let jsString = """
-                        (function() {
-                            safegazeOnDeviceModelHandler("\(uid)");
-                        })();
-                        """
-                
-                if let webview = message.webView {
-                    DispatchQueue.main.async {
-                        webview.evaluateJavaScript(jsString, in: message.frameInfo, in: .page) { (result) in
-                            switch result {
-                            case .failure(let error):
-                                debugPrint("[SafegazeScript] Safegaze evaluateJavaScript failure \(error)")
-                            case .success:
-                                debugPrint("[SafegazeScript] Safegaze evaluateJavaScript success")
-                            }
-                        }
-                    }
-                }
+//                let jsString = """
+//                        (function() {
+//                            safegazeOnDeviceModelHandler("\(uid)");
+//                        })();
+//                        """
+//                
+//                if let webview = message.webView {
+//                    DispatchQueue.main.async {
+//                        webview.evaluateJavaScript(jsString, in: message.frameInfo, in: .page) { (result) in
+//                            switch result {
+//                            case .failure(let error):
+//                                debugPrint("[SafegazeScript] Safegaze evaluateJavaScript failure \(error)")
+//                            case .success:
+//                                debugPrint("[SafegazeScript] Safegaze evaluateJavaScript success")
+//                            }
+//                        }
+//                    }
+//                }
                 
                 debugPrint("[SafegazeScript] Queueing image processing for \(url.absoluteString)")
                 imageProcessingQueue.async {

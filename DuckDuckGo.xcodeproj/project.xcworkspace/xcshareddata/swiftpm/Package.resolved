@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "adhan-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/batoulapps/adhan-swift",
+      "state" : {
+        "revision" : "6dc8309951fdaa0cd124c52b9a8de7e0da1ff2ce",
+        "version" : "1.4.0"
+      }
+    },
+    {
       "identity" : "apple-toolbox",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/duckduckgo/apple-toolbox.git",
@@ -46,15 +55,6 @@
       }
     },
     {
-      "identity" : "designresourceskit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/duckduckgo/DesignResourcesKit",
-      "state" : {
-        "revision" : "ad133f76501edcb2bfa841e33aebc0da5f92bb5c",
-        "version" : "3.3.0"
-      }
-    },
-    {
       "identity" : "duckduckgo-autofill",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/duckduckgo/duckduckgo-autofill.git",
@@ -82,12 +82,39 @@
       }
     },
     {
+      "identity" : "hotswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/HotSwiftUI",
+      "state" : {
+        "revision" : "0539ebfa37114156fc726fc88902981db2ecbec0",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "injectionnext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/InjectionNext",
+      "state" : {
+        "revision" : "76592154ce031111de1d907bfd8a463531d0c2da",
+        "version" : "1.3.0"
+      }
+    },
+    {
       "identity" : "ios-js-support",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/duckduckgo/ios-js-support",
       "state" : {
         "revision" : "6a6789ac8104a587316c58af75539753853b50d9",
         "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "kahfdesignresourceskit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AsilHQ/KahfDesignResourcesKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "292644ca018081b4d44ba8e4160f17475d1aa3ab"
       }
     },
     {
@@ -115,6 +142,15 @@
       "state" : {
         "revision" : "12f19662426d0434d6c330c6974d53e2eb10ecd9",
         "version" : "9.1.0"
+      }
+    },
+    {
+      "identity" : "panmodal",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/slackhq/PanModal",
+      "state" : {
+        "revision" : "b012aecb6b67a8e46369227f893c12544846613f",
+        "version" : "1.2.7"
       }
     },
     {
