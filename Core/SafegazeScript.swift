@@ -37,7 +37,7 @@ public class SafegazeScript: NSObject, UserScript {
         //        guard var script = SafegazeScript.loadJavaScript(named: "Safegaze") else {
         //            return sendMessage
         //        }
-        guard var script = SafegazeScript.loadJavaScript(named: "test") else {
+        guard var script = SafegazeScript.loadJavaScript(named: "porda") else {
             debugPrint("video_filter not found")
             return sendMessage
         }
@@ -163,8 +163,30 @@ public class SafegazeScript: NSObject, UserScript {
             let imageData = try JSONDecoder().decode(ImageData.self, from: innerData)
             print("📥 Received image: src: \(imageData.src), id: \(imageData.id), width: \(imageData.width), height: \(imageData.height)")
             
+            if imageData.src.hasPrefix("data:image/") {
+                if let image = UIImage(base64: imageData.src) {
+                    print("------ uiiimage found from base64")
+                    Task {
+                        await ImageProcessingQueue.shared.enqueueProcessing(
+                            image: image,
+                            id: imageData.id,
+                            webView: message.webView!,
+                            frameInfo: message.frameInfo
+                        )
+                    }
+                    return
+                } else {
+                    Task {
+                        await sendNullImage(id: imageData.id, webView: message.webView!, frameInfo: message.frameInfo)
+                    }
+                }
+            }
+            
             guard let url = URL(string: imageData.src) else {
                 print("❌ Failed to convert image URL string to URL \(imageData.src)")
+                Task {
+                    await sendNullImage(id: imageData.id, webView: message.webView!, frameInfo: message.frameInfo)
+                }
                 return
             }
             
@@ -178,6 +200,25 @@ public class SafegazeScript: NSObject, UserScript {
             }
         } catch {
             print("❌ Failed to decode inner JSON:", error)
+        }
+    }
+    
+    func sendNullImage(id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
+        let jsString = """
+        (function() {
+            receiveMessageFromKotlin("detectionResult", "{\\\"result\\\": \\\"\("null")\\\", \\\"id\\\": \\\"\(id)\\\"}");
+        })();
+        """
+        
+        await MainActor.run {
+            webView.evaluateJavaScript(jsString, in: frameInfo, in: .page) { result in
+                switch result {
+                case .failure(let error):
+                    debugPrint("[SafegazeScript] evaluateJavaScript failed: \(error)")
+                case .success:
+                    break
+                }
+            }
         }
     }
 }
@@ -226,6 +267,30 @@ public actor ImageProcessingQueue {
         }
     }
     
+    func enqueueProcessing(image: UIImage, id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
+        let base64 = await processImage(from: image)
+        print("------ uiiimage found from base64 and result is: \(String(describing: base64))")
+        let base64Prefix = base64 != nil ? "data:image/png;base64," : "null"
+        let jsResult = base64 != nil ? "\(base64Prefix)\(base64!)" : base64Prefix
+
+        let jsString = """
+        (function() {
+            receiveMessageFromKotlin("detectionResult", "{\\\"result\\\": \\\"\(jsResult)\\\", \\\"id\\\": \\\"\(id)\\\"}");
+        })();
+        """
+        
+        await MainActor.run {
+            webView.evaluateJavaScript(jsString, in: frameInfo, in: .page) { result in
+                switch result {
+                case .failure(let error):
+                    debugPrint("[SafegazeScript] evaluateJavaScript failed: \(error)")
+                case .success:
+                    break
+                }
+            }
+        }
+    }
+    
     func downloadAndProcessImage(from imageURL: URL) async -> String? {
         debugPrint("downloadAndProcessImage url \(imageURL.absoluteString) start at \(Date())")
 
@@ -233,6 +298,22 @@ public actor ImageProcessingQueue {
               let image = UIImage(data: imageData) else {
             return nil
         }
+
+        let startDate = Int(Date().timeIntervalSince1970 * 1000)
+        if let processedImage = await visionTools.processImage(image: image),
+           let base64String = processedImage.base64 {
+            let endDate = Int(Date().timeIntervalSince1970 * 1000)
+            print("execution time, \(endDate - startDate)ms")
+            debugPrint("got output image")
+            return base64String
+        } else {
+            debugPrint("got no output image")
+            return nil
+        }
+    }
+    
+    func processImage(from image: UIImage) async -> String? {
+//        debugPrint("downloadAndProcessImage url \(imageURL.absoluteString) start at \(Date())")
 
         let startDate = Int(Date().timeIntervalSince1970 * 1000)
         if let processedImage = await visionTools.processImage(image: image),
@@ -255,5 +336,18 @@ public actor ImageProcessingQueue {
             debugPrint("[SafegazeScript] Error downloading image: \(error.localizedDescription)")
             return nil
         }
+    }
+}
+
+extension UIImage {
+    convenience init?(base64: String) {
+        var cleanBase64 = base64
+        if let range = cleanBase64.range(of: "base64,") {
+            cleanBase64 = String(cleanBase64[range.upperBound...])
+        }
+        guard let imageData = Data(base64Encoded: cleanBase64, options: .ignoreUnknownCharacters) else {
+            return nil
+        }
+        self.init(data: imageData)
     }
 }
