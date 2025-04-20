@@ -96,10 +96,12 @@ class OmniBar: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureMenuButton()
         configureTextField()
         registerNotifications()
         configureSeparator()
         configureEditingMenu()
+        enableInteractionsWithPointer()
         refreshState(state)
         privacyInfoContainer.isHidden = true
         decorate()
@@ -127,6 +129,27 @@ class OmniBar: UIView {
                                                selector: #selector(reloadSpeechRecognizerAvailability),
                                                name: .speechRecognizerDidChangeAvailability,
                                                object: nil)
+    }
+    
+    private func enableInteractionsWithPointer() {
+//        backButton.isPointerInteractionEnabled = true
+//        forwardButton.isPointerInteractionEnabled = true
+//        settingsButton.isPointerInteractionEnabled = true
+//        cancelButton.isPointerInteractionEnabled = true
+//        bookmarksButton.isPointerInteractionEnabled = true
+//        accessoryButton.isPointerInteractionEnabled = true
+        menuButton.isPointerInteractionEnabled = true
+
+//        refreshButton.isPointerInteractionEnabled = true
+//        refreshButton.pointerStyleProvider = { button, _, _ -> UIPointerStyle? in
+//            return .init(effect: .lift(.init(view: button)))
+//        }
+    }
+    
+    private func configureMenuButton() {
+        menuButton.addSubview(menuButtonContent)
+        menuButton.isAccessibilityElement = true
+        menuButton.accessibilityTraits = .button
     }
         
     private func configureTextField() {
@@ -325,6 +348,7 @@ class OmniBar: UIView {
         setVisibility(privacyInfoContainer, hidden: !state.showPrivacyIcon)
         setVisibility(searchLoupe, hidden: !state.showSearchLoupe)
         setVisibility(clearButton, hidden: !state.showClear)
+        setVisibility(menuButton, hidden: false) // not using !state.showMenu in order to match mobile behaviour
         setVisibility(safegazeButton, hidden: !state.showRefresh)
         setVisibility(favoriteButton, hidden: !state.showShareButton)
         setVisibility(shareButton, hidden: !state.showShareButton)
