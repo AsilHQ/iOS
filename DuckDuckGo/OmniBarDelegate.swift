@@ -76,7 +76,6 @@ protocol OmniBarDelegate: AnyObject {
     
     func onSafegazePressed()
     
-    func onPrayerPressed()
 }
 
 extension OmniBarDelegate {
@@ -94,10 +93,6 @@ extension OmniBarDelegate {
     }
     
     func onMenuPressed() {
-        
-    }
-    
-    func onPrayerPressed() {
         
     }
 

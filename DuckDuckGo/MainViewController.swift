@@ -1150,6 +1150,9 @@ class MainViewController: UIViewController {
         // Enable or disable back/forward buttons based on tab state
         viewCoordinator.toolbarBackButton?.isEnabled = currentTab?.canGoBack ?? false
         viewCoordinator.toolbarForwardButton?.isEnabled = currentTab?.canGoForward ?? false
+        
+        viewCoordinator.omniBar.backButton.isEnabled = viewCoordinator.toolbarBackButton.isEnabled
+        viewCoordinator.omniBar.forwardButton.isEnabled = viewCoordinator.toolbarForwardButton.isEnabled
     }
   
     var orientationPixelWorker: DispatchWorkItem?
