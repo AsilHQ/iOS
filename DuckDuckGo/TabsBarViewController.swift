@@ -48,7 +48,8 @@ class TabsBarViewController: UIViewController {
     @IBOutlet weak var addTabButton: UIButton!
     @IBOutlet weak var tabSwitcherContainer: UIView!
     @IBOutlet weak var buttonsBackground: UIView!
-
+    @IBOutlet weak var prayerButton: UIButton!
+    
     weak var delegate: TabsBarDelegate?
     private weak var tabsModel: TabsModel?
 
@@ -92,6 +93,11 @@ class TabsBarViewController: UIViewController {
         super.viewWillAppear(animated)
         tabSwitcherButton.layoutSubviews()
         reloadData()
+    }
+    
+    @IBAction func onPrayerPressed() {
+        let prayerVC = PrayerVC()
+        self.present(prayerVC, animated: true)
     }
 
     @IBAction func onFireButtonPressed() {

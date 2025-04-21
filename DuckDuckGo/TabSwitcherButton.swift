@@ -36,8 +36,8 @@ class TabSwitcherButton: UIButton {
         static let buttonTouchDuration = 0.2
         static let tintAlpha: CGFloat = 0.5
 
-        static let pointerViewWidth: CGFloat = 24
-        static let pointerViewHeight: CGFloat = 24
+        static let pointerViewWidth: CGFloat = 30
+        static let pointerViewHeight: CGFloat = 44
     }
     
     weak var delegate: TabSwitcherButtonDelegate?

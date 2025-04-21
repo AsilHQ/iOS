@@ -75,6 +75,7 @@ protocol OmniBarDelegate: AnyObject {
     func checkIfAlreadyFavorited() -> Bool
     
     func onSafegazePressed()
+    
 }
 
 extension OmniBarDelegate {

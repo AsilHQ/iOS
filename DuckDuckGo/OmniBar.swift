@@ -49,6 +49,8 @@ class OmniBar: UIView {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var forwardButton: UIButton!
     
     private(set) var menuButtonContent = MenuButton()
 
@@ -96,10 +98,12 @@ class OmniBar: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureMenuButton()
         configureTextField()
         registerNotifications()
         configureSeparator()
         configureEditingMenu()
+        enableInteractionsWithPointer()
         refreshState(state)
         privacyInfoContainer.isHidden = true
         decorate()
@@ -127,6 +131,27 @@ class OmniBar: UIView {
                                                selector: #selector(reloadSpeechRecognizerAvailability),
                                                name: .speechRecognizerDidChangeAvailability,
                                                object: nil)
+    }
+    
+    private func enableInteractionsWithPointer() {
+        backButton.isPointerInteractionEnabled = true
+        forwardButton.isPointerInteractionEnabled = true
+//        settingsButton.isPointerInteractionEnabled = true
+//        cancelButton.isPointerInteractionEnabled = true
+//        bookmarksButton.isPointerInteractionEnabled = true
+//        accessoryButton.isPointerInteractionEnabled = true
+        menuButton.isPointerInteractionEnabled = true
+
+//        refreshButton.isPointerInteractionEnabled = true
+//        refreshButton.pointerStyleProvider = { button, _, _ -> UIPointerStyle? in
+//            return .init(effect: .lift(.init(view: button)))
+//        }
+    }
+    
+    private func configureMenuButton() {
+        menuButton.addSubview(menuButtonContent)
+        menuButton.isAccessibilityElement = true
+        menuButton.accessibilityTraits = .button
     }
         
     private func configureTextField() {
@@ -325,6 +350,9 @@ class OmniBar: UIView {
         setVisibility(privacyInfoContainer, hidden: !state.showPrivacyIcon)
         setVisibility(searchLoupe, hidden: !state.showSearchLoupe)
         setVisibility(clearButton, hidden: !state.showClear)
+        setVisibility(backButton, hidden: !state.showBackButton)
+        setVisibility(forwardButton, hidden: !state.showForwardButton)
+        setVisibility(menuButton, hidden: false) // not using !state.showMenu in order to match mobile behaviour
         setVisibility(safegazeButton, hidden: !state.showRefresh)
         setVisibility(favoriteButton, hidden: !state.showShareButton)
         setVisibility(shareButton, hidden: !state.showShareButton)
@@ -413,6 +441,14 @@ class OmniBar: UIView {
 
     @IBAction func onMenuButtonPressed(_ sender: UIButton) {
         omniDelegate?.onMenuPressed()
+    }
+    
+    @IBAction func onBackPressed(_ sender: Any) {
+        omniDelegate?.onBackPressed()
+    }
+    
+    @IBAction func onForwardPressed(_ sender: Any) {
+        omniDelegate?.onForwardPressed()
     }
 
     @IBAction func onTrackersViewPressed(_ sender: Any) {
