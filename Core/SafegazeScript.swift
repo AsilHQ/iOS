@@ -168,6 +168,7 @@ public class SafegazeScript: NSObject, UserScript {
                     print("------ uiiimage found from base64")
                     Task {
                         await ImageProcessingQueue.shared.enqueueProcessing(
+                            src: imageData.src,
                             image: image,
                             id: imageData.id,
                             webView: message.webView!,
@@ -245,16 +246,44 @@ public actor ImageProcessingQueue {
     }
     
     func enqueueProcessing(url: URL, id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
+        let src = url.absoluteString
+
+        // Check disk cache first
+        if let cachedBase64 = ImageDiskCache.shared.get(for: src) {
+            let jsResult = cachedBase64
+            let jsString = """
+            (function() {
+                receiveMessageFromKotlin(\"detectionResult\", \"{\\\"result\\\": \\\"\(jsResult)\\\", \\\"id\\\": \\\"\(id)\\\"}\");
+            })();
+            """
+            await MainActor.run {
+                webView.evaluateJavaScript(jsString, in: frameInfo, in: .page) { result in
+                    switch result {
+                    case .failure(let error):
+                        debugPrint("[SafegazeScript] evaluateJavaScript failed: \(error)")
+                    case .success:
+                        break
+                    }
+                }
+            }
+            return
+        }
+
+        // Not cached, process as before
         let base64 = await downloadAndProcessImage(from: url)
         let base64Prefix = base64 != nil ? "data:image/png;base64," : "null"
         let jsResult = base64 != nil ? "\(base64Prefix)\(base64!)" : base64Prefix
 
+        // Cache result if available
+        if let base64 = base64 {
+            ImageDiskCache.shared.set(src: src, base64: "\(base64Prefix)\(base64)")
+        }
+
         let jsString = """
         (function() {
-            receiveMessageFromKotlin("detectionResult", "{\\\"result\\\": \\\"\(jsResult)\\\", \\\"id\\\": \\\"\(id)\\\"}");
+            receiveMessageFromKotlin(\"detectionResult\", \"{\\\"result\\\": \\\"\(jsResult)\\\", \\\"id\\\": \\\"\(id)\\\"}\");
         })();
         """
-        
         await MainActor.run {
             webView.evaluateJavaScript(jsString, in: frameInfo, in: .page) { result in
                 switch result {
@@ -267,18 +296,44 @@ public actor ImageProcessingQueue {
         }
     }
     
-    func enqueueProcessing(image: UIImage, id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
+    func enqueueProcessing(src: String, image: UIImage, id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
+        // For base64 images, use id as the cache key (or pass src if possible)
+        let cacheKey = src
+
+        if let cachedBase64 = ImageDiskCache.shared.get(for: cacheKey) {
+            let jsResult = cachedBase64
+            let jsString = """
+            (function() {
+                receiveMessageFromKotlin(\"detectionResult\", \"{\\\"result\\\": \\\"\(jsResult)\\\", \\\"id\\\": \\\"\(id)\\\"}\");
+            })();
+            """
+            await MainActor.run {
+                webView.evaluateJavaScript(jsString, in: frameInfo, in: .page) { result in
+                    switch result {
+                    case .failure(let error):
+                        debugPrint("[SafegazeScript] evaluateJavaScript failed: \(error)")
+                    case .success:
+                        break
+                    }
+                }
+            }
+            return
+        }
+
         let base64 = await processImage(from: image)
-        print("------ uiiimage found from base64 and result is: \(String(describing: base64))")
         let base64Prefix = base64 != nil ? "data:image/png;base64," : "null"
         let jsResult = base64 != nil ? "\(base64Prefix)\(base64!)" : base64Prefix
 
+        // Cache result if available
+        if let base64 = base64 {
+            ImageDiskCache.shared.set(src: cacheKey, base64: "\(base64Prefix)\(base64)")
+        }
+
         let jsString = """
         (function() {
-            receiveMessageFromKotlin("detectionResult", "{\\\"result\\\": \\\"\(jsResult)\\\", \\\"id\\\": \\\"\(id)\\\"}");
+            receiveMessageFromKotlin(\"detectionResult\", \"{\\\"result\\\": \\\"\(jsResult)\\\", \\\"id\\\": \\\"\(id)\\\"}\");
         })();
         """
-        
         await MainActor.run {
             webView.evaluateJavaScript(jsString, in: frameInfo, in: .page) { result in
                 switch result {

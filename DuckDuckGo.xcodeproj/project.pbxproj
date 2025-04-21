@@ -223,6 +223,8 @@
 		37FD780F2A29E28B00B36DB1 /* SyncErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */; };
 		3C02B29C2DB51D2300AE9643 /* porda.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C02B29B2DB51D2300AE9643 /* porda.js */; };
 		3C02B29D2DB51D2300AE9643 /* porda.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C02B29B2DB51D2300AE9643 /* porda.js */; };
+		3C02B29F2DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
+		3C02B2A02DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
 		3C4C8D1A2DAE1DCD007BFDF3 /* video_filter.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C4C8D192DAE1DC6007BFDF3 /* video_filter.js */; };
 		3C4C8D1B2DAE1DCD007BFDF3 /* video_filter.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C4C8D192DAE1DC6007BFDF3 /* video_filter.js */; };
 		3C4C8D1D2DAE49B2007BFDF3 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C4C8D1C2DAE49AC007BFDF3 /* test.js */; };
@@ -1572,6 +1574,7 @@
 		37FCAACB2993149A000E420A /* Waitlist */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Waitlist; sourceTree = "<group>"; };
 		37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncErrorHandler.swift; sourceTree = "<group>"; };
 		3C02B29B2DB51D2300AE9643 /* porda.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = porda.js; sourceTree = "<group>"; };
+		3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDiskCache.swift; sourceTree = "<group>"; };
 		3C4C8D192DAE1DC6007BFDF3 /* video_filter.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = video_filter.js; sourceTree = "<group>"; };
 		3C4C8D1C2DAE49AC007BFDF3 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverTlsResolver.swift; sourceTree = "<group>"; };
@@ -4019,6 +4022,7 @@
 				3C4C8D1C2DAE49AC007BFDF3 /* test.js */,
 				3C4C8D192DAE1DC6007BFDF3 /* video_filter.js */,
 				8475A9AD2D54ABBE0090F414 /* Safegaze.js */,
+				3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */,
 				4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */,
 			);
 			name = Safegaze;
@@ -7811,6 +7815,7 @@
 				8548D95E25262B1B005AAE49 /* ViewHighlighter.swift in Sources */,
 				F4D7221026F29A70007D6193 /* BookmarkDetailsCell.swift in Sources */,
 				F1617C131E572E0300DEDCAF /* TabSwitcherViewController.swift in Sources */,
+				3C02B29F2DB54A2100AE9643 /* ImageDiskCache.swift in Sources */,
 				83BE9BC3215D69C1009844D9 /* AppConfigurationFetch.swift in Sources */,
 				4E15FC142C9979E7009C638A /* NotificationSchedulerDelegate.swift in Sources */,
 				37CF91622BB474AA00BADCAE /* CrashCollectionOnboardingView.swift in Sources */,
@@ -8604,6 +8609,7 @@
 				1E05D1D629C46EBB00BF9A1F /* DailyPixel.swift in Sources */,
 				1CB7B82123CEA1F800AA24EA /* DateExtension.swift in Sources */,
 				379E877429E97C8D001C8BB0 /* BookmarksCleanupErrorHandling.swift in Sources */,
+				3C02B2A02DB54A2100AE9643 /* ImageDiskCache.swift in Sources */,
 				988F3DCF237D5C0F00AEE34C /* SchemeHandler.swift in Sources */,
 				9875E00722316B8400B1373F /* Instruments.swift in Sources */,
 				85E065BA2C73A4DF00D73E2A /* UsageSegmentation.swift in Sources */,

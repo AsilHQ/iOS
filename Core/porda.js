@@ -670,7 +670,7 @@ const intervalChecking = async () => {
     });
 };
 setTimeout(() => {
-    queryIntervalId = setInterval(intervalChecking, 2500);
+    queryIntervalId = setInterval(intervalChecking, 100);
     let firstLoad = true;
     document.addEventListener("visibilitychange", function () {
         if (document.visibilityState === "visible" && !firstLoad) {
@@ -680,7 +680,7 @@ setTimeout(() => {
             firstLoad = false;
         }
     });
-}, 2e3);
+}, 100);
 console.log(
     "PordaAi is running, Code and Ai Model are under copyright, Unauthorized use, reproduction, or distribution of any part of this project is strictly prohibited - pordaai.com "
 );
