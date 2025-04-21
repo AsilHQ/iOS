@@ -28,18 +28,9 @@ public class SafegazeScript: NSObject, UserScript {
     public static let shared = SafegazeScript()
     
     public var source: String = {
-        let sendMessage = """
-                            function sendMessageToIOS(messageType, data) {
-                                webkit.messageHandlers.safegazeMessage.postMessage(messageType);
-                            }
-                            sendMessageToIOS("Script injection completed", "dummy data");
-                          """
-        //        guard var script = SafegazeScript.loadJavaScript(named: "Safegaze") else {
-        //            return sendMessage
-        //        }
         guard var script = SafegazeScript.loadJavaScript(named: "porda") else {
             debugPrint("video_filter not found")
-            return sendMessage
+            return ""
         }
         
         return script
@@ -59,23 +50,6 @@ public class SafegazeScript: NSObject, UserScript {
     private override init() {
         super.init()
     }
-    
-    // Make helper methods static since they don't need instance access
-    //    static func loadUserScriptFileManager(named: String) -> String? {
-    //        let fileManager = FileManager.default
-    //        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-    //        let localFileURL = documentsURL.appendingPathComponent(named).appendingPathExtension("js").path
-    //
-    //        do {
-    //            // Attempt to load the file contents
-    //            let source = try String(contentsOfFile: localFileURL, encoding: .utf8)
-    //            return source
-    //        } catch {
-    //            // Log error and handle failure
-    //            assertionFailure("Failed to Load Script: \(named).js - \(error.localizedDescription)")
-    //            return nil
-    //        }
-    //    }
     
     static func loadJavaScript(named fileName: String) -> String? {
         guard let path = Bundle.main.path(forResource: fileName, ofType: "js") else {
