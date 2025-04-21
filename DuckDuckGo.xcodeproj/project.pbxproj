@@ -225,10 +225,6 @@
 		3C02B29D2DB51D2300AE9643 /* porda.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C02B29B2DB51D2300AE9643 /* porda.js */; };
 		3C02B29F2DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
 		3C02B2A02DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
-		3C4C8D1A2DAE1DCD007BFDF3 /* video_filter.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C4C8D192DAE1DC6007BFDF3 /* video_filter.js */; };
-		3C4C8D1B2DAE1DCD007BFDF3 /* video_filter.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C4C8D192DAE1DC6007BFDF3 /* video_filter.js */; };
-		3C4C8D1D2DAE49B2007BFDF3 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C4C8D1C2DAE49AC007BFDF3 /* test.js */; };
-		3C4C8D1E2DAE49B2007BFDF3 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C4C8D1C2DAE49AC007BFDF3 /* test.js */; };
 		3C4C8D292DB004FF007BFDF3 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4C8D282DB004FF007BFDF3 /* SafeGaze-iOS */; };
 		3C4C8D2B2DB00714007BFDF3 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4C8D2A2DB00714007BFDF3 /* SafeGaze-iOS */; };
 		3CAA0DF62DA3D73F00802A96 /* InjectionNext in Frameworks */ = {isa = PBXBuildFile; productRef = 3CAA0DF52DA3D73F00802A96 /* InjectionNext */; };
@@ -434,9 +430,7 @@
 		83E2D2B3253CC16B005605F5 /* httpsMobileV2FalsePositives.json in Resources */ = {isa = PBXBuildFile; fileRef = 83E2D2B0253CC16B005605F5 /* httpsMobileV2FalsePositives.json */; };
 		83E2D2B4253CC16B005605F5 /* httpsMobileV2BloomSpec.json in Resources */ = {isa = PBXBuildFile; fileRef = 83E2D2B1253CC16B005605F5 /* httpsMobileV2BloomSpec.json */; };
 		83EDCC411F86B89C005CDFCD /* StatisticsLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EDCC3F1F86B895005CDFCD /* StatisticsLoaderTests.swift */; };
-		840283F22D54B25F00BCC820 /* Safegaze.js in Resources */ = {isa = PBXBuildFile; fileRef = 8475A9AD2D54ABBE0090F414 /* Safegaze.js */; };
 		840283F32D54B26700BCC820 /* SafegazeScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */; };
-		8475A9AE2D54ABC30090F414 /* Safegaze.js in Resources */ = {isa = PBXBuildFile; fileRef = 8475A9AD2D54ABBE0090F414 /* Safegaze.js */; };
 		84E341961E2F7EFB00BDBA6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E341951E2F7EFB00BDBA6F /* AppDelegate.swift */; };
 		84E341A01E2F7EFB00BDBA6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E3419E1E2F7EFB00BDBA6F /* LaunchScreen.storyboard */; };
 		85010502292FB1000033978F /* FireproofFaviconUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85010501292FB1000033978F /* FireproofFaviconUpdater.swift */; };
@@ -1575,8 +1569,6 @@
 		37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncErrorHandler.swift; sourceTree = "<group>"; };
 		3C02B29B2DB51D2300AE9643 /* porda.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = porda.js; sourceTree = "<group>"; };
 		3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDiskCache.swift; sourceTree = "<group>"; };
-		3C4C8D192DAE1DC6007BFDF3 /* video_filter.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = video_filter.js; sourceTree = "<group>"; };
-		3C4C8D1C2DAE49AC007BFDF3 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverTlsResolver.swift; sourceTree = "<group>"; };
 		4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDebugViewController.swift; sourceTree = "<group>"; };
 		4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtectionFAQView.swift; sourceTree = "<group>"; };
@@ -1773,7 +1765,6 @@
 		83ED3B8C1FA8E61D00B47556 /* ManualTestsScript.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ManualTestsScript.md; sourceTree = "<group>"; };
 		83ED3B8D1FA8E63700B47556 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		83EDCC3F1F86B895005CDFCD /* StatisticsLoaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsLoaderTests.swift; sourceTree = "<group>"; };
-		8475A9AD2D54ABBE0090F414 /* Safegaze.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Safegaze.js; sourceTree = "<group>"; };
 		84E341921E2F7EFB00BDBA6F /* KahfBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KahfBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E341951E2F7EFB00BDBA6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E3419F1E2F7EFB00BDBA6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -4019,9 +4010,6 @@
 			isa = PBXGroup;
 			children = (
 				3C02B29B2DB51D2300AE9643 /* porda.js */,
-				3C4C8D1C2DAE49AC007BFDF3 /* test.js */,
-				3C4C8D192DAE1DC6007BFDF3 /* video_filter.js */,
-				8475A9AD2D54ABBE0090F414 /* Safegaze.js */,
 				3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */,
 				4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */,
 			);
@@ -7178,12 +7166,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C4C8D1D2DAE49B2007BFDF3 /* test.js in Resources */,
 				AA4D6A8D23DE49A5007E8790 /* AppIconBlack40x40@3x.png in Resources */,
 				F47E53DB250A9A1C0037C686 /* Onboarding.xcassets in Resources */,
 				AA4D6ACC23DE4D27007E8790 /* AppIconPurple60x60@2x.png in Resources */,
 				1E242960293F585300584836 /* cookie-icon-animated-40-light.json in Resources */,
-				840283F22D54B25F00BCC820 /* Safegaze.js in Resources */,
 				AA4D6AA223DE4CC4007E8790 /* AppIconBlue76x76@2x.png in Resources */,
 				AA4D6AB823DE4D15007E8790 /* AppIconYellow29x29@2x.png in Resources */,
 				984147C024F026A300362052 /* Tab.storyboard in Resources */,
@@ -7267,7 +7253,6 @@
 				F1F533841F26ABAC00D80D4F /* Localizable.strings in Resources */,
 				1EEF12472850A923003DDE57 /* shield-dot.json in Resources */,
 				AA4D6AFB23DF0CF6007E8790 /* AppIconRed29x29@2x.png in Resources */,
-				3C4C8D1B2DAE1DCD007BFDF3 /* video_filter.js in Resources */,
 				F1ED309D1EDC2EA400651986 /* TabSwitcher.storyboard in Resources */,
 				8524AAAC2A3888FE00EEC6D2 /* Waitlist.xcassets in Resources */,
 				982686B92600C0960011A8D6 /* ActionMessageView.xib in Resources */,
@@ -7383,7 +7368,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8475A9AE2D54ABC30090F414 /* Safegaze.js in Resources */,
 				1EEFD2D52758E31600B1393B /* textsize.js in Resources */,
 				83E2D2B4253CC16B005605F5 /* httpsMobileV2BloomSpec.json in Resources */,
 				98B001B0251EABB40090EC07 /* InfoPlist.strings in Resources */,
@@ -7395,8 +7379,6 @@
 				4B60AC97252EC07B00E8D219 /* fullscreenvideo.js in Resources */,
 				83E2D2B2253CC16B005605F5 /* httpsMobileV2Bloom.bin in Resources */,
 				85047B8A1F69692C002A95D8 /* contentblocker.js in Resources */,
-				3C4C8D1A2DAE1DCD007BFDF3 /* video_filter.js in Resources */,
-				3C4C8D1E2DAE49B2007BFDF3 /* test.js in Resources */,
 				02CA904924F6BFE700D41DDF /* navigatorsharepatch.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
