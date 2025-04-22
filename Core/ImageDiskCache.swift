@@ -1,4 +1,3 @@
-
 import Foundation
 
 final class ImageDiskCache: Codable {
@@ -26,6 +25,12 @@ final class ImageDiskCache: Codable {
         }
         cache[src] = base64
         enforceLimit()
+        saveToDisk()
+    }
+
+    func clear() {
+        cache.removeAll()
+        order.removeAll()
         saveToDisk()
     }
 

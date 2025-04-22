@@ -211,6 +211,7 @@ struct SafegazeView: View {
                     imageViewColumn(image: "BlurPixelationImage")
                         .onTapGesture {
                             shouldPixelateBlurMode = true
+                            ImageDiskCache.shared.clear()
                             AppUserDefaults().shouldPixelateBlurMode = true
                         }
                     if shouldPixelateBlurMode == true {
@@ -228,6 +229,7 @@ struct SafegazeView: View {
                     imageViewColumn(image: "BlurSolidColorImage")
                         .onTapGesture {
                             shouldPixelateBlurMode = false
+                            ImageDiskCache.shared.clear()
                             AppUserDefaults().shouldPixelateBlurMode = false
                         }
                     if shouldPixelateBlurMode == false {
