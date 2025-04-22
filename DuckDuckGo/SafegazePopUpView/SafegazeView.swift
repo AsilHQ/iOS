@@ -264,19 +264,26 @@ struct SafegazeView: View {
     }
     
     var footerSection: some View {
-        HStack {
-            footerButton(icon: "KahfShare", title: "Share") {
-                openShareSheet?()
+        VStack(spacing: 10) {
+            HStack {
+                footerButton(icon: "KahfShare", title: "Share") {
+                    openShareSheet?()
+                }
+                Spacer()
+                footerButton(icon: "KahfSupport", title: "Support") {
+                    guard let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSeaW7PjI-K3yqZZ4gpuXbbx5qOFxAwILLy5uy7PTerXfdzFqw/viewform") else { return }
+                    UIApplication.shared.open(url)
+                }
             }
-            Spacer()
-            footerButton(icon: "KahfSupport", title: "Support") {
-                guard let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSeaW7PjI-K3yqZZ4gpuXbbx5qOFxAwILLy5uy7PTerXfdzFqw/viewform") else { return }
-                UIApplication.shared.open(url)
+            .padding(.horizontal, 70)
+            .padding(.top, 5)
+            if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                Text("Version \(appVersion)")
+                    .font(.system(size: 12))
             }
         }
-        .padding(.horizontal, 70)
-        .padding(.top, 5)
-        .padding(.bottom, 10)
+        .padding(.bottom, 8)
+
     }
 
     // MARK: - Reusable Components
