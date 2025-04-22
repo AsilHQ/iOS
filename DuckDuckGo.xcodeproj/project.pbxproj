@@ -225,6 +225,7 @@
 		3C02B29D2DB51D2300AE9643 /* porda.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C02B29B2DB51D2300AE9643 /* porda.js */; };
 		3C02B29F2DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
 		3C02B2A02DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
+		3C3A2CD32DB7821700CE7268 /* NSFWDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 3C3A2CD22DB7821700CE7268 /* NSFWDetector */; };
 		3C4C8D292DB004FF007BFDF3 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4C8D282DB004FF007BFDF3 /* SafeGaze-iOS */; };
 		3C4C8D2B2DB00714007BFDF3 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4C8D2A2DB00714007BFDF3 /* SafeGaze-iOS */; };
 		3CAA0DF62DA3D73F00802A96 /* InjectionNext in Frameworks */ = {isa = PBXBuildFile; productRef = 3CAA0DF52DA3D73F00802A96 /* InjectionNext */; };
@@ -3263,6 +3264,7 @@
 				37DF000C29F9CA80002B7D3E /* SyncDataProviders in Frameworks */,
 				1E6098A1290011E600A508F9 /* UserScript in Frameworks */,
 				D61CDA162B7CF77300A0FBB9 /* Subscription in Frameworks */,
+				3C3A2CD32DB7821700CE7268 /* NSFWDetector in Frameworks */,
 				858D009D2B9799FC004E5B4C /* History in Frameworks */,
 				C14882ED27F211A000D59F0C /* SwiftSoup in Frameworks */,
 				3C4C8D2B2DB00714007BFDF3 /* SafeGaze-iOS in Frameworks */,
@@ -6978,6 +6980,7 @@
 				D6BC8ACA2C5AA3860025375B /* DuckPlayer */,
 				CB6D8E972C80A9B100D0E772 /* SpecialErrorPages */,
 				3C4C8D2A2DB00714007BFDF3 /* SafeGaze-iOS */,
+				3C3A2CD22DB7821700CE7268 /* NSFWDetector */,
 			);
 			productName = Core;
 			productReference = F143C2E41E4A4CD400CFDE3A /* Core.framework */;
@@ -7113,6 +7116,7 @@
 				3CAA0DF42DA3D73F00802A96 /* XCRemoteSwiftPackageReference "InjectionNext" */,
 				3CAA0DF72DA3D76000802A96 /* XCRemoteSwiftPackageReference "HotSwiftUI" */,
 				3C4C8D272DB004FF007BFDF3 /* XCRemoteSwiftPackageReference "SafeGaze-iOS" */,
+				3C3A2CD12DB7821700CE7268 /* XCRemoteSwiftPackageReference "NSFWDetector" */,
 			);
 			productRefGroup = 84E341931E2F7EFB00BDBA6F /* Products */;
 			projectDirPath = "";
@@ -11257,6 +11261,14 @@
 				version = 2.0.0;
 			};
 		};
+		3C3A2CD12DB7821700CE7268 /* XCRemoteSwiftPackageReference "NSFWDetector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kahf-Browser/NSFWDetector";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		3C4C8D272DB004FF007BFDF3 /* XCRemoteSwiftPackageReference "SafeGaze-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kahf-Browser/SafeGaze-iOS";
@@ -11454,6 +11466,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 98A16C2928A11BDE00A6C003 /* XCRemoteSwiftPackageReference "BrowserServicesKit" */;
 			productName = SyncDataProviders;
+		};
+		3C3A2CD22DB7821700CE7268 /* NSFWDetector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C3A2CD12DB7821700CE7268 /* XCRemoteSwiftPackageReference "NSFWDetector" */;
+			productName = NSFWDetector;
 		};
 		3C4C8D282DB004FF007BFDF3 /* SafeGaze-iOS */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -21,6 +21,7 @@ import WebKit
 import UserScript
 import Vision
 import SafeGaze_iOS
+import NSFWDetector
 
 public class SafegazeScript: NSObject, UserScript {
     
@@ -207,6 +208,7 @@ extension UIImage {
 public actor ImageProcessingQueue {
     static let shared = ImageProcessingQueue()
     private let visionTools = ImageProcessor.shared
+    private let nsfwDetector = NSFWDetector.shared
     
     private init() {}
     
@@ -244,7 +246,11 @@ public actor ImageProcessingQueue {
         }
 
         // Not cached, process as before
-        let base64 = await downloadAndProcessImage(from: url)
+        let (isNSFW, base64) = await downloadAndProcessImage(from: url)
+        if isNSFW {
+            debugPrint("NSFW image detected: \(src)")
+            return
+        }
         let base64Prefix = base64 != nil ? "data:image/png;base64," : "null"
         let jsResult = base64 != nil ? "\(base64Prefix)\(base64!)" : base64Prefix
 
@@ -293,6 +299,12 @@ public actor ImageProcessingQueue {
             }
             return
         }
+        
+        let isNSFWImage = await isNSFWImage(image: image)
+        if isNSFWImage {
+            debugPrint("NSFW image detected: \(src)")
+            return
+        }
 
         let base64 = await processImage(from: image)
         let base64Prefix = base64 != nil ? "data:image/png;base64," : "null"
@@ -320,30 +332,35 @@ public actor ImageProcessingQueue {
         }
     }
     
-    func downloadAndProcessImage(from imageURL: URL) async -> String? {
-        debugPrint("downloadAndProcessImage url \(imageURL.absoluteString) start at \(Date())")
-
+    func downloadAndProcessImage(from imageURL: URL) async -> (Bool, String?) {
         guard let imageData = await asyncDownloadImage(from: imageURL),
               let image = UIImage(data: imageData) else {
-            return nil
+            return (false, nil)
         }
-
-        let startDate = Int(Date().timeIntervalSince1970 * 1000)
-        if let processedImage = await visionTools.processImage(image: image),
-           let base64String = processedImage.base64 {
-            let endDate = Int(Date().timeIntervalSince1970 * 1000)
-            print("execution time, \(endDate - startDate)ms")
-            debugPrint("got output image")
-            return base64String
-        } else {
-            debugPrint("got no output image")
-            return nil
+        let isNSFWImage = await isNSFWImage(image: image)
+        if isNSFWImage {
+            return (true, nil)
+        }
+        return (false, await processImage(from: image))
+    }
+    
+    func isNSFWImage(image: UIImage) async -> Bool {
+        let result = await nsfwDetector.check(image: image)
+        switch result {
+        case .error(let error):
+            debugPrint("nsfw check failed error \(error.localizedDescription)")
+            return false
+        case .success(let nsfwConfidence):
+            debugPrint("nsfw check success confidence: \(nsfwConfidence)")
+            if nsfwConfidence > 0.5 {
+                return true
+            } else {
+                return false
+            }
         }
     }
     
     func processImage(from image: UIImage) async -> String? {
-//        debugPrint("downloadAndProcessImage url \(imageURL.absoluteString) start at \(Date())")
-
         let startDate = Int(Date().timeIntervalSince1970 * 1000)
         if let processedImage = await visionTools.processImage(image: image),
            let base64String = processedImage.base64 {

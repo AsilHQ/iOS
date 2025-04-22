@@ -136,6 +136,15 @@
       }
     },
     {
+      "identity" : "nsfwdetector",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Kahf-Browser/NSFWDetector",
+      "state" : {
+        "branch" : "master",
+        "revision" : "ef1039a7e3613bf3b06997fa5b5f4dd8d68a7e6d"
+      }
+    },
+    {
       "identity" : "ohhttpstubs",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AliSoftware/OHHTTPStubs.git",
