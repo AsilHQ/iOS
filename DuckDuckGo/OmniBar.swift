@@ -352,7 +352,7 @@ class OmniBar: UIView {
         setVisibility(clearButton, hidden: !state.showClear)
         setVisibility(backButton, hidden: !state.showBackButton)
         setVisibility(forwardButton, hidden: !state.showForwardButton)
-        setVisibility(menuButton, hidden: false) // not using !state.showMenu in order to match mobile behaviour
+        setVisibility(menuButton, hidden: !state.showMenu) // not using !state.showMenu in order to match mobile behaviour
         setVisibility(safegazeButton, hidden: !state.showRefresh)
         setVisibility(favoriteButton, hidden: !state.showShareButton)
         setVisibility(shareButton, hidden: !state.showShareButton)

@@ -67,7 +67,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N6K-Lj-Fn6">
-                            <rect key="frame" x="6" y="0.0" width="216" height="40"/>
+                            <rect key="frame" x="6" y="0.0" width="224" height="40"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" image="Find-Search-20" translatesAutoresizingMaskIntoConstraints="NO" id="u6L-hZ-ptn">
                                     <rect key="frame" x="0.0" y="10" width="30" height="20"/>
@@ -76,10 +76,10 @@
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sek-4Y-GoT" customClass="SearchFieldContainerView" customModule="KahfBrowser" customModuleProvider="target">
-                                    <rect key="frame" x="30" y="0.0" width="66" height="40"/>
+                                    <rect key="frame" x="30" y="0.0" width="74" height="40"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEJ-P3-HpO" customClass="OmniBarNotificationContainerView" customModule="KahfBrowser" customModuleProvider="target">
-                                            <rect key="frame" x="-4" y="0.0" width="70" height="40"/>
+                                            <rect key="frame" x="-4" y="0.0" width="78" height="40"/>
                                         </view>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGG-5L-D8Q" customClass="PrivacyInfoContainerView" customModule="KahfBrowser" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
@@ -168,7 +168,7 @@
                                             </connections>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fqM-N4-jNd" customClass="TextFieldWithInsets" customModule="KahfBrowser" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="0.0" width="36" height="40"/>
+                                            <rect key="frame" x="30" y="0.0" width="44" height="40"/>
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <accessibility key="accessibilityConfiguration" identifier="searchEntry">
                                                 <accessibilityTraits key="traits" searchField="YES"/>
@@ -211,7 +211,7 @@
                                     </connections>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wim-eg-cIk" userLabel="Favorite Button">
-                                    <rect key="frame" x="96" y="5" width="30" height="30"/>
+                                    <rect key="frame" x="104" y="5" width="30" height="30"/>
                                     <accessibility key="accessibilityConfiguration" label="Voice Search"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="7ES-w2-CN1"/>
@@ -223,7 +223,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qea-QY-LVl">
-                                    <rect key="frame" x="126" y="11" width="30" height="18"/>
+                                    <rect key="frame" x="134" y="11" width="30" height="18"/>
                                     <accessibility key="accessibilityConfiguration" label="Safegaze Page"/>
                                     <constraints>
                                         <constraint firstAttribute="width" priority="900" constant="30" id="PHR-dd-ThY"/>
@@ -234,7 +234,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ita-iD-8ad" userLabel="Share Button">
-                                    <rect key="frame" x="156" y="5" width="30" height="30"/>
+                                    <rect key="frame" x="164" y="5" width="30" height="30"/>
                                     <accessibility key="accessibilityConfiguration" label="Share Search"/>
                                     <constraints>
                                         <constraint firstAttribute="width" priority="900" constant="30" id="80Y-p8-kj7"/>
@@ -246,7 +246,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dt8-We-5tV">
-                                    <rect key="frame" x="186" y="0.0" width="30" height="40"/>
+                                    <rect key="frame" x="194" y="0.0" width="30" height="40"/>
                                     <accessibility key="accessibilityConfiguration" label="Clear Text"/>
                                     <constraints>
                                         <constraint firstAttribute="width" priority="900" constant="30" id="Ym5-FI-uOP"/>
@@ -257,7 +257,7 @@
                                     </connections>
                                 </button>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJo-2d-gri">
-                                    <rect key="frame" x="216" y="8" width="30" height="24"/>
+                                    <rect key="frame" x="224" y="8" width="30" height="24"/>
                                     <accessibility key="accessibilityConfiguration" label="Browsing Menu"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="IGS-Z3-Dvj"/>
@@ -288,7 +288,7 @@
                         <constraint firstAttribute="width" relation="lessThanOrEqual" priority="990" constant="664" id="4zd-mz-9WZ"/>
                         <constraint firstAttribute="bottom" secondItem="Atk-JN-lv8" secondAttribute="bottom" id="9Vy-sw-am3"/>
                         <constraint firstItem="N6K-Lj-Fn6" firstAttribute="top" secondItem="5D5-iT-bUk" secondAttribute="top" id="HJ5-s0-Q5X"/>
-                        <constraint firstAttribute="trailing" secondItem="N6K-Lj-Fn6" secondAttribute="trailing" constant="16" id="glC-XI-Ji8"/>
+                        <constraint firstAttribute="trailing" secondItem="N6K-Lj-Fn6" secondAttribute="trailing" constant="8" id="glC-XI-Ji8"/>
                         <constraint firstItem="N6K-Lj-Fn6" firstAttribute="leading" secondItem="5D5-iT-bUk" secondAttribute="leading" constant="6" id="h6T-pO-Lc3"/>
                         <constraint firstItem="Atk-JN-lv8" firstAttribute="leading" secondItem="5D5-iT-bUk" secondAttribute="leading" id="ti9-03-89M"/>
                         <constraint firstItem="Atk-JN-lv8" firstAttribute="top" secondItem="5D5-iT-bUk" secondAttribute="top" id="yG5-th-424"/>

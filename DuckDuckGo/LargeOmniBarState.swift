@@ -35,7 +35,7 @@ struct LargeOmniBarState {
         let showBackground = false
         let showClear = false
         let showRefresh = false
-        let showMenu = false
+        let showMenu = true
         let showSettings = true
         let showCancel: Bool = false
         let showVoiceSearch = AppDependencyProvider.shared.voiceSearchHelper.isVoiceSearchEnabled
@@ -64,7 +64,7 @@ struct LargeOmniBarState {
         let showBackground = false
         let showClear = true
         let showRefresh = false
-        let showMenu = false
+        let showMenu = true
         let showSettings = true
         let showCancel: Bool = false
         let showVoiceSearch = AppDependencyProvider.shared.voiceSearchHelper.isVoiceSearchEnabled
@@ -93,7 +93,7 @@ struct LargeOmniBarState {
         let showBackground = true
         let showClear = false
         let showRefresh = true
-        let showMenu = false
+        let showMenu = true
         let showSettings = true
         let showCancel: Bool = false
         let showVoiceSearch = AppDependencyProvider.shared.voiceSearchHelper.isVoiceSearchEnabled
