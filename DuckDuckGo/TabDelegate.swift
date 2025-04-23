@@ -34,6 +34,8 @@ protocol TabDelegate: AnyObject {
              inheritingAttribution: AdClickAttributionLogic.State?) -> WKWebView?
 
     func tabDidRequestClose(_ tab: TabViewController)
+    
+    func tabDidRequestGoToHome(_ tab: TabViewController)
 
     func tab(_ tab: TabViewController,
              didRequestNewTabForUrl url: URL,

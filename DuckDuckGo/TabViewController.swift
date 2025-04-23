@@ -877,6 +877,8 @@ class TabViewController: UIViewController {
         if openingTab != nil {
             delegate?.tabDidRequestClose(self)
         }
+//        tabModel.link = nil
+//        delegate?.tabDidRequestGoToHome(self)
         
     }
     

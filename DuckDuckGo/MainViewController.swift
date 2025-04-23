@@ -2346,6 +2346,10 @@ extension MainViewController: TabDelegate {
     func tabDidRequestClose(_ tab: TabViewController) {
         closeTab(tab.tabModel)
     }
+    
+    func tabDidRequestGoToHome(_ tab: TabViewController) {
+        attachHomeScreen()
+    }
 
     func tabLoadingStateDidChange(tab: TabViewController) {
         if currentTab == tab {

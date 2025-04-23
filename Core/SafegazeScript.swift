@@ -29,7 +29,7 @@ public class SafegazeScript: NSObject, UserScript {
     public static let shared = SafegazeScript()
     
     public var source: String = {
-        guard var script = SafegazeScript.loadJavaScript(named: "porda") else {
+        guard var script = SafegazeScript.loadJavaScript(named: "porda_v1") else {
             debugPrint("video_filter not found")
             return ""
         }
@@ -115,8 +115,6 @@ public class SafegazeScript: NSObject, UserScript {
     struct ImageData: Codable {
         let src: String
         let id: String
-        let width: Int
-        let height: Int
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -134,9 +132,11 @@ public class SafegazeScript: NSObject, UserScript {
             return
         }
         
+        print("inner JSON string to Data: --------", dataString)
+        
         do {
             let imageData = try JSONDecoder().decode(ImageData.self, from: innerData)
-            print("📥 Received image: src: \(imageData.src), id: \(imageData.id), width: \(imageData.width), height: \(imageData.height)")
+            print("📥 Received image: src: \(imageData.src), id: \(imageData.id)")
             
             if imageData.src.hasPrefix("data:image/") {
                 if let image = UIImage(base64: imageData.src) {
@@ -212,6 +212,25 @@ public actor ImageProcessingQueue {
     
     private init() {}
     
+    func sendNSFWImage(id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
+        let jsString = """
+        (function() {
+            receiveMessageFromKotlin("detectionResult", "{\\\"result\\\": \\\"\("nsfw")\\\", \\\"id\\\": \\\"\(id)\\\"}");
+        })();
+        """
+        
+        await MainActor.run {
+            webView.evaluateJavaScript(jsString, in: frameInfo, in: .page) { result in
+                switch result {
+                case .failure(let error):
+                    debugPrint("[SafegazeScript] evaluateJavaScript failed: \(error)")
+                case .success:
+                    break
+                }
+            }
+        }
+    }
+    
     func configure(blurImageMode: ImageProcessingMode) async {
         Task {
             await visionTools.changeBlurMode(mode: blurImageMode)
@@ -249,6 +268,7 @@ public actor ImageProcessingQueue {
         let (isNSFW, base64) = await downloadAndProcessImage(from: url)
         if isNSFW {
             debugPrint("NSFW image detected: \(src)")
+            await sendNSFWImage(id: id, webView: webView, frameInfo: frameInfo)
             return
         }
         let base64Prefix = base64 != nil ? "data:image/png;base64," : "null"
@@ -303,6 +323,7 @@ public actor ImageProcessingQueue {
         let isNSFWImage = await isNSFWImage(image: image)
         if isNSFWImage {
             debugPrint("NSFW image detected: \(src)")
+            await sendNSFWImage(id: id, webView: webView, frameInfo: frameInfo)
             return
         }
 

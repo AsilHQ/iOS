@@ -226,6 +226,8 @@
 		3C02B29F2DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
 		3C02B2A02DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
 		3C3A2CD32DB7821700CE7268 /* NSFWDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 3C3A2CD22DB7821700CE7268 /* NSFWDetector */; };
+		3C3A2CDB2DB8CDB500CE7268 /* porda_v1.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */; };
+		3C3A2CDC2DB8CDB500CE7268 /* porda_v1.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */; };
 		3C4C8D292DB004FF007BFDF3 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4C8D282DB004FF007BFDF3 /* SafeGaze-iOS */; };
 		3C4C8D2B2DB00714007BFDF3 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4C8D2A2DB00714007BFDF3 /* SafeGaze-iOS */; };
 		3CAA0DF62DA3D73F00802A96 /* InjectionNext in Frameworks */ = {isa = PBXBuildFile; productRef = 3CAA0DF52DA3D73F00802A96 /* InjectionNext */; };
@@ -1570,6 +1572,7 @@
 		37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncErrorHandler.swift; sourceTree = "<group>"; };
 		3C02B29B2DB51D2300AE9643 /* porda.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = porda.js; sourceTree = "<group>"; };
 		3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDiskCache.swift; sourceTree = "<group>"; };
+		3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = porda_v1.js; sourceTree = "<group>"; };
 		3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverTlsResolver.swift; sourceTree = "<group>"; };
 		4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDebugViewController.swift; sourceTree = "<group>"; };
 		4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtectionFAQView.swift; sourceTree = "<group>"; };
@@ -4011,6 +4014,7 @@
 		4EFA92D92C5A72B40002DC0E /* Safegaze */ = {
 			isa = PBXGroup;
 			children = (
+				3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */,
 				3C02B29B2DB51D2300AE9643 /* porda.js */,
 				3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */,
 				4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */,
@@ -7183,6 +7187,7 @@
 				AA4D6A9123DE49A5007E8790 /* AppIconBlack60x60@3x.png in Resources */,
 				4E1E3F222C75E0FB00C19FDD /* Poppins-Bold.ttf in Resources */,
 				AA4D6A8E23DE49A5007E8790 /* AppIconBlack60x60@2x.png in Resources */,
+				3C3A2CDB2DB8CDB500CE7268 /* porda_v1.js in Resources */,
 				AA4D6AC023DE4D15007E8790 /* AppIconYellow76x76@2x.png in Resources */,
 				AA4D6AA423DE4CC4007E8790 /* AppIconBlue29x29@2x.png in Resources */,
 				AA4D6AE323DE4D33007E8790 /* AppIconGreen60x60@2x.png in Resources */,
@@ -7384,6 +7389,7 @@
 				83E2D2B2253CC16B005605F5 /* httpsMobileV2Bloom.bin in Resources */,
 				85047B8A1F69692C002A95D8 /* contentblocker.js in Resources */,
 				02CA904924F6BFE700D41DDF /* navigatorsharepatch.js in Resources */,
+				3C3A2CDC2DB8CDB500CE7268 /* porda_v1.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
