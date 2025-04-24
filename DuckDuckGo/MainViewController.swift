@@ -36,6 +36,7 @@ import SwiftUI
 import NetworkProtection
 import Onboarding
 import os.log
+import LocalAuthentication
 
 class MainViewController: UIViewController {
     
@@ -2070,13 +2071,31 @@ extension MainViewController: OmniBarDelegate {
     }
     
     func onSafegazePressed() {
-        guard let tab = currentTab ?? tabManager.current(createIfNeeded: true) else {
-            return
+        if AppUserDefaults().safegazeLockOn {
+            let context = LAContext()
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Authenticate to view the SafeGaze Menu") { [weak self] success, _ in
+                    if success {
+                        self?.openSafeGazePopup()
+                    }
+                }
+            }
+        } else {
+            openSafeGazePopup()
         }
-        let shields = SafegazeViewController(associatedTab: tab.tabModel, webView: tab.webView)
-        let container = PopoverNavigationController(rootViewController: shields)
-        let popover = PopoverController(contentController: container, contentSizeBehavior: .preferredContentSize)
-        popover.present(from: omniBar.safegazeButton.imageView!, on: self)
+    }
+    
+    func openSafeGazePopup() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            guard let tab = currentTab ?? tabManager.current(createIfNeeded: true) else {
+                return
+            }
+            let shields = SafegazeViewController(associatedTab: tab.tabModel, webView: tab.webView)
+            let container = PopoverNavigationController(rootViewController: shields)
+            let popover = PopoverController(contentController: container, contentSizeBehavior: .preferredContentSize)
+            popover.present(from: omniBar.safegazeButton.imageView!, on: self)
+        }
     }
 
     func onShareLongPressed() {

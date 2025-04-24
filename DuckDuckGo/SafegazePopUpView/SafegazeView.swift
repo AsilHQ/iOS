@@ -20,6 +20,7 @@
 import Foundation
 import SwiftUI
 import SafeGaze_iOS
+import LocalAuthentication
 
 enum SafeInternet: String {
     case high = "HIGH"
@@ -70,6 +71,7 @@ struct SafegazeView: View {
     @State var decentInternet: DecentInternet = .fullImage
     @AppStorage("com.duckduckgo.ios.safegazeOn") private var safegazeOn: Bool = AppUserDefaults().safegazeOn
     @AppStorage("com.duckduckgo.ios.decentInternetOn") private var isDecentInternetOn: Bool = AppUserDefaults().decentInternetOn
+    @AppStorage("com.duckduckgo.ios.safegazeLockOn") private var safegazeLockOn: Bool = AppUserDefaults().safegazeLockOn
     @AppStorage("com.duckduckgo.ios.blockedTrackersCount") private var blockedTrackersCount: Int = AppUserDefaults().blockedTrackersCount
     @AppStorage("com.duckduckgo.ios.safegazeBlurredImageCount") private var safegazeBlurredImageCount: Int = AppUserDefaults().safegazeBlurredImageCount
     @AppStorage("com.duckduckgo.ios.safegazeModeValue") private var safegazeModeValue: String = AppUserDefaults().safegazeModeValue
@@ -101,6 +103,10 @@ struct SafegazeView: View {
             horizontalDivider
             harmAvoidedSection
             horizontalDivider
+            if LAContext().canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
+                enableAuthentication
+                horizontalDivider
+            }
             footerSection
         }
         .padding(.top)
@@ -172,6 +178,26 @@ struct SafegazeView: View {
                 
                 infoTextBox(text: safeInternet.text, backgroundColor: safeInternet.color.opacity(0.1))
             }
+        }
+    }
+    
+    var enableAuthentication: some View {
+        VStack(spacing: 10) {
+            HStack {
+                sectionTitle("Safegaze Lock")
+                Spacer()
+                Toggle(isOn: $safegazeLockOn) {}
+                    .controlSize(.mini)
+                    .scaleEffect(0.7)
+                    .labelsHidden()
+                    .foregroundColor(Color(red: 57 / 255, green: 182 / 255, blue: 53 / 255, opacity: 1))
+            }
+            
+            Text("If Touch ID, Face ID, or a system passcode is enabled, you'll be asked to unlock the app when opening safegaze settings.")
+                .font(.system(size: 13))
+                .multilineTextAlignment(.leading)
+                .foregroundColor(Color(designSystemColor: .textPrimary))
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
     

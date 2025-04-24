@@ -429,6 +429,9 @@ public class AppUserDefaults: AppSettings {
     @UserDefaultsWrapper(key: .decentInternetOn, defaultValue: false)
     var decentInternetOn: Bool
     
+    @UserDefaultsWrapper(key: .safegazeLockOn, defaultValue: false)
+    var safegazeLockOn: Bool
+    
     @UserDefaultsWrapper(key: .blockedTrackersCount, defaultValue: 0)
     var blockedTrackersCount: Int
     

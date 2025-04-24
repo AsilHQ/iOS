@@ -170,6 +170,7 @@ public struct UserDefaultsWrapper<T> {
         // MARK: Safegaze
         case safegazeOn = "com.duckduckgo.ios.safegazeOn"
         case decentInternetOn = "com.duckduckgo.ios.decentInternetOn"
+        case safegazeLockOn = "com.duckduckgo.ios.safegazeLockOn"
         case blockedTrackersCount = "com.duckduckgo.ios.blockedTrackersCount"
         case safegazeBlurredImageCount = "com.duckduckgo.ios.safegazeBlurredImageCount"
         case safegazeHarmfulSites = "com.duckduckgo.ios.safegazeHarmfulSites"
