@@ -30,7 +30,7 @@ public class SafegazeScript: NSObject, UserScript {
     
     public var source: String = {
         guard var script = SafegazeScript.loadJavaScript(named: "porda_v1") else {
-            debugPrint("video_filter not found")
+            debugPrint("porda not found")
             return ""
         }
         
@@ -42,14 +42,66 @@ public class SafegazeScript: NSObject, UserScript {
     public let forMainFrameOnly = true
     public let requiresRunInPageContentWorld = true
     
-    public var increaseSafegazeBlurredImageCount: (() -> Void)?
+    public var increaseSafegazeBlurredImageCount: () -> Void = {}
+    private var taskContinuation: AsyncStream<() async -> Void>.Continuation?
+    private var taskStream: AsyncStream<() async -> Void>?
     
-    private let imageProcessingSemaphore = DispatchSemaphore(value: 1)
-    private let imageProcessingQueue = DispatchQueue(label: "com.kahf.imageProcessing", qos: .userInitiated)
-    
-    // Private initializer
     private override init() {
         super.init()
+        setupTaskStream()
+        ImageProcessingQueue.shared.increaseSafegazeBlurredImageCount = { [weak self] in
+            self?.increaseSafegazeBlurredImageCount()
+        }
+    }
+    
+    deinit {
+        taskContinuation?.finish()
+    }
+    
+    func setupTaskStream() {
+        let (stream, continuation) = AsyncStream<() async -> Void>.makeStream()
+        self.taskStream = stream
+        self.taskContinuation = continuation
+
+        Task {
+            await processDynamicTasksWithLimitedConcurrency(
+                incomingTaskStream: stream,
+                maxConcurrentTasks: 1
+            )
+        }
+    }
+    
+    func processDynamicTasksWithLimitedConcurrency<T>(
+        incomingTaskStream: AsyncStream<() async -> T>,
+        maxConcurrentTasks: Int = 1
+    ) async -> [T] {
+        var results: [T] = []
+        
+        await withTaskGroup(of: T.self) { group in
+            var activeTasks = 0
+            
+            for await task in incomingTaskStream {
+                while activeTasks >= maxConcurrentTasks {
+                    _ = await group.next()
+                    activeTasks -= 1
+                }
+                
+                group.addTask {
+                    await task()
+                }
+                activeTasks += 1
+            }
+            
+            // Wait for remaining active tasks to finish
+            while activeTasks > 0 {
+                if let result = await group.next() {
+                    results.append(result)
+                    activeTasks -= 1
+                }
+            }
+        }
+        
+        return results
     }
     
     static func loadJavaScript(named fileName: String) -> String? {
@@ -102,19 +154,19 @@ public class SafegazeScript: NSObject, UserScript {
         task.resume()
     }
     
-    private func asyncDownloadImage(from imageURL: URL) async -> Data? {
-        do {
-            let (data, _) = try await URLSession.shared.data(from: imageURL)
-            return data
-        } catch {
-            debugPrint("[SafegazeScript] Error downloading image: \(error.localizedDescription)")
-            return nil
-        }
-    }
-    
     struct ImageData: Codable {
         let src: String
         let id: String
+        let baseImg: String
+        let width: CGFloat?
+        let height: CGFloat?
+        
+        var size: CGSize? {
+            if width == nil || height == nil {
+                return nil
+            }
+            return CGSize(width: width!, height: height!)
+        }
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
@@ -132,19 +184,39 @@ public class SafegazeScript: NSObject, UserScript {
             return
         }
         
-        print("inner JSON string to Data: --------", dataString)
+//        print("inner JSON string to Data: --------", dataString)
         
         do {
             let imageData = try JSONDecoder().decode(ImageData.self, from: innerData)
-            print("📥 Received image: src: \(imageData.src), id: \(imageData.id)")
+            print("📥 Received image: src: \(imageData.src), id: \(imageData.id), baseImg: \(imageData.baseImg.prefix(30))")
             
             if imageData.src.hasPrefix("data:image/") {
                 if let image = UIImage(base64: imageData.src) {
                     print("------ uiiimage found from base64")
-                    Task {
+                    taskContinuation?.yield {
                         await ImageProcessingQueue.shared.enqueueProcessing(
                             src: imageData.src,
-                            image: image,
+                            image: (imageData.size != nil ? image.imageResized(to: imageData.size!) : image) ?? image,
+                            id: imageData.id,
+                            webView: message.webView!,
+                            frameInfo: message.frameInfo
+                        )
+                    }
+                    return
+                } else {
+                    Task {
+                        await sendNullImage(id: imageData.id, webView: message.webView!, frameInfo: message.frameInfo)
+                    }
+                }
+            }
+            
+            if imageData.baseImg.starts(with: "data:image/") {
+                if let image = UIImage(base64: imageData.baseImg) {
+                    print("------ uiiimage found from base64")
+                    taskContinuation?.yield {
+                        await ImageProcessingQueue.shared.enqueueProcessing(
+                            src: imageData.src,
+                            image: (imageData.size != nil ? image.imageResized(to: imageData.size!) : image) ?? image,
                             id: imageData.id,
                             webView: message.webView!,
                             frameInfo: message.frameInfo
@@ -166,10 +238,11 @@ public class SafegazeScript: NSObject, UserScript {
                 return
             }
             
-            Task {
+            taskContinuation?.yield {
                 await ImageProcessingQueue.shared.enqueueProcessing(
                     url: url,
                     id: imageData.id,
+                    targetSize: imageData.size,
                     webView: message.webView!,
                     frameInfo: message.frameInfo
                 )
@@ -209,6 +282,7 @@ public actor ImageProcessingQueue {
     static let shared = ImageProcessingQueue()
     private let visionTools = ImageProcessor.shared
     private let nsfwDetector = NSFWDetector.shared
+    @MainActor var increaseSafegazeBlurredImageCount: () -> Void = {}
     
     private init() {}
     
@@ -240,8 +314,9 @@ public actor ImageProcessingQueue {
         }
     }
     
-    func enqueueProcessing(url: URL, id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
+    func enqueueProcessing(url: URL, id: String, targetSize: CGSize?, webView: WKWebView, frameInfo: WKFrameInfo) async {
         let src = url.absoluteString
+        let startDate = Int(Date().timeIntervalSince1970 * 1000)
 
         // Check disk cache first
         if let cachedBase64 = ImageDiskCache.shared.get(for: src) {
@@ -265,7 +340,7 @@ public actor ImageProcessingQueue {
         }
 
         // Not cached, process as before
-        let (isNSFW, base64) = await downloadAndProcessImage(from: url)
+        let (isNSFW, base64) = await downloadAndProcessImage(from: url, targetSize: targetSize)
         if isNSFW {
             debugPrint("NSFW image detected: \(src)")
             await sendNSFWImage(id: id, webView: webView, frameInfo: frameInfo)
@@ -290,7 +365,8 @@ public actor ImageProcessingQueue {
                 case .failure(let error):
                     debugPrint("[SafegazeScript] evaluateJavaScript failed: \(error)")
                 case .success:
-                    break
+                    let endDate = Int(Date().timeIntervalSince1970 * 1000)
+                    print("execution time for src: \(src) is , \(endDate - startDate)ms")
                 }
             }
         }
@@ -299,6 +375,7 @@ public actor ImageProcessingQueue {
     func enqueueProcessing(src: String, image: UIImage, id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
         // For base64 images, use id as the cache key (or pass src if possible)
         let cacheKey = src
+        let startDate = Int(Date().timeIntervalSince1970 * 1000)
 
         if let cachedBase64 = ImageDiskCache.shared.get(for: cacheKey) {
             let jsResult = cachedBase64
@@ -347,14 +424,15 @@ public actor ImageProcessingQueue {
                 case .failure(let error):
                     debugPrint("[SafegazeScript] evaluateJavaScript failed: \(error)")
                 case .success:
-                    break
+                    let endDate = Int(Date().timeIntervalSince1970 * 1000)
+                    print("execution time end for src: \(src) is , \(endDate - startDate)ms")
                 }
             }
         }
     }
     
-    func downloadAndProcessImage(from imageURL: URL) async -> (Bool, String?) {
-        guard let imageData = await asyncDownloadImage(from: imageURL),
+    func downloadAndProcessImage(from imageURL: URL, targetSize: CGSize?) async -> (Bool, String?) {
+        guard let imageData = await asyncDownloadImage(from: imageURL, targetSize: targetSize),
               let image = UIImage(data: imageData) else {
             return (false, nil)
         }
@@ -373,7 +451,8 @@ public actor ImageProcessingQueue {
             return false
         case .success(let nsfwConfidence):
             debugPrint("nsfw check success confidence: \(nsfwConfidence)")
-            if nsfwConfidence > 0.3 {
+            if nsfwConfidence > 0.5 {
+                await increaseSafegazeBlurredImageCount()
                 return true
             } else {
                 return false
@@ -382,12 +461,10 @@ public actor ImageProcessingQueue {
     }
     
     func processImage(from image: UIImage) async -> String? {
-        let startDate = Int(Date().timeIntervalSince1970 * 1000)
         if let processedImage = await visionTools.processImage(image: image),
            let base64String = processedImage.base64 {
-            let endDate = Int(Date().timeIntervalSince1970 * 1000)
-            print("execution time, \(endDate - startDate)ms")
             debugPrint("got output image")
+            await increaseSafegazeBlurredImageCount()
             return base64String
         } else {
             debugPrint("got no output image")
@@ -395,10 +472,15 @@ public actor ImageProcessingQueue {
         }
     }
     
-    private func asyncDownloadImage(from imageURL: URL) async -> Data? {
+    private func asyncDownloadImage(from imageURL: URL, targetSize: CGSize?) async -> Data? {
         do {
             let (data, _) = try await URLSession.shared.data(from: imageURL)
-            return data
+            guard let targetSize  = targetSize else {
+                return data
+            }
+            guard let image = UIImage(data: data) else { return nil }
+            let resizedImage = image.imageResized(to: targetSize)
+            return resizedImage?.pngData()
         } catch {
             debugPrint("[SafegazeScript] Error downloading image: \(error.localizedDescription)")
             return nil
@@ -416,5 +498,12 @@ extension UIImage {
             return nil
         }
         self.init(data: imageData)
+    }
+    
+    func imageResized(to size: CGSize) -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image { _ in
+            self.draw(in: CGRect(origin: .zero, size: size))
+        }
     }
 }

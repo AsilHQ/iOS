@@ -221,8 +221,6 @@
 		37FCAABC2992F592000E420A /* MultilineScrollableTextFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCAABB2992F592000E420A /* MultilineScrollableTextFix.swift */; };
 		37FCAAC029930E26000E420A /* FailedAssertionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FCAABF29930E26000E420A /* FailedAssertionView.swift */; };
 		37FD780F2A29E28B00B36DB1 /* SyncErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */; };
-		3C02B29C2DB51D2300AE9643 /* porda.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C02B29B2DB51D2300AE9643 /* porda.js */; };
-		3C02B29D2DB51D2300AE9643 /* porda.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C02B29B2DB51D2300AE9643 /* porda.js */; };
 		3C02B29F2DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
 		3C02B2A02DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
 		3C3A2CD32DB7821700CE7268 /* NSFWDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 3C3A2CD22DB7821700CE7268 /* NSFWDetector */; };
@@ -1570,7 +1568,6 @@
 		37FCAABF29930E26000E420A /* FailedAssertionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailedAssertionView.swift; sourceTree = "<group>"; };
 		37FCAACB2993149A000E420A /* Waitlist */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Waitlist; sourceTree = "<group>"; };
 		37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncErrorHandler.swift; sourceTree = "<group>"; };
-		3C02B29B2DB51D2300AE9643 /* porda.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = porda.js; sourceTree = "<group>"; };
 		3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDiskCache.swift; sourceTree = "<group>"; };
 		3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = porda_v1.js; sourceTree = "<group>"; };
 		3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverTlsResolver.swift; sourceTree = "<group>"; };
@@ -4015,7 +4012,6 @@
 			isa = PBXGroup;
 			children = (
 				3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */,
-				3C02B29B2DB51D2300AE9643 /* porda.js */,
 				3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */,
 				4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */,
 			);
@@ -7250,7 +7246,6 @@
 				1DDF402B2BA05A65006850D9 /* Settings.xcassets in Resources */,
 				984147A824F0259000362052 /* Onboarding.storyboard in Resources */,
 				AA4D6AF723DF0312007E8790 /* AppIconRed60x60@2x.png in Resources */,
-				3C02B29D2DB51D2300AE9643 /* porda.js in Resources */,
 				AA4D6AE923DE4D33007E8790 /* AppIconGreen29x29@3x.png in Resources */,
 				984147AE24F0261A00362052 /* Feedback.storyboard in Resources */,
 				984147B724F0268D00362052 /* PrivacyDashboard.storyboard in Resources */,
@@ -7383,7 +7378,6 @@
 				02BA15B126A89ECA00472DD7 /* ios-config.json in Resources */,
 				4B52648B25F9613B00CB4C24 /* trackerData.json in Resources */,
 				850559C923C61B5D0055C0D5 /* login-form-detection.js in Resources */,
-				3C02B29C2DB51D2300AE9643 /* porda.js in Resources */,
 				83E2D2B3253CC16B005605F5 /* httpsMobileV2FalsePositives.json in Resources */,
 				4B60AC97252EC07B00E8D219 /* fullscreenvideo.js in Resources */,
 				83E2D2B2253CC16B005605F5 /* httpsMobileV2Bloom.bin in Resources */,

@@ -73,6 +73,11 @@ final class UserScripts: UserScriptsProvider {
         if AppUserDefaults().decentInternetOn {
             Task {
                 await ImageProcessingQueue.shared.configure(blurImageMode: AppUserDefaults().shouldPixelateBlurMode ? .pixelation : .solidColor)
+                ImageProcessingQueue.shared.increaseSafegazeBlurredImageCount = {
+                    DispatchQueue.main.async {
+                        self.userDefaults.safegazeBlurredImageCount += 1
+                    }
+                }
             }
             safegazeScript.increaseSafegazeBlurredImageCount = {
                 DispatchQueue.main.async {
