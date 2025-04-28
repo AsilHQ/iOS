@@ -278,7 +278,7 @@ struct SafegazeView: View {
             .padding(.bottom, 12)
             
             HStack {
-                sectionTitle("Blur Face Area")
+                sectionTitle("Cover Face")
                 Spacer()
                 HStack(spacing: 5) {
                     Toggle(isOn: $shouldBlurFace) {}
