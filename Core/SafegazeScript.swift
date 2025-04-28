@@ -305,9 +305,9 @@ public actor ImageProcessingQueue {
         }
     }
     
-    func configure(blurImageMode: ImageProcessingMode) async {
+    func configure(blurImageMode: ImageProcessingMode, shouldBlurFace: Bool) async {
         Task {
-            await visionTools.changeBlurMode(mode: blurImageMode)
+            await visionTools.changeBlurMode(mode: blurImageMode, shouldBlurFace: shouldBlurFace)
         }
         Task {
             await visionTools.configure()

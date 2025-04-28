@@ -176,6 +176,7 @@ public struct UserDefaultsWrapper<T> {
         case safegazeHarmfulSites = "com.duckduckgo.ios.safegazeHarmfulSites"
         case safegazeModeValue = "com.duckduckgo.ios.safegazeModeValue"
         case imageBlurMode = "com.duckduckgo.ios.shouldPixelateBlurMode"
+        case shouldBlurFace = "com.duckduckgo.ios.shouldBlurFace"
         
         // Debug keys
         case debugNewTabPageSectionsEnabledKey = "com.duckduckgo.ios.debug.newTabPageSectionsEnabled"

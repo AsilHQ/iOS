@@ -449,6 +449,9 @@ public class AppUserDefaults: AppSettings {
     
     @UserDefaultsWrapper(key: .imageBlurMode, defaultValue: false)
     var shouldPixelateBlurMode: Bool
+    
+    @UserDefaultsWrapper(key: .shouldBlurFace, defaultValue: false)
+    var shouldBlurFace: Bool
 }
 
 extension AppUserDefaults: AppConfigurationFetchStatistics {

@@ -76,6 +76,7 @@ struct SafegazeView: View {
     @AppStorage("com.duckduckgo.ios.safegazeBlurredImageCount") private var safegazeBlurredImageCount: Int = AppUserDefaults().safegazeBlurredImageCount
     @AppStorage("com.duckduckgo.ios.safegazeModeValue") private var safegazeModeValue: String = AppUserDefaults().safegazeModeValue
     @AppStorage("com.duckduckgo.ios.shouldPixelateBlurMode") private var shouldPixelateBlurMode: Bool = AppUserDefaults().shouldPixelateBlurMode
+    @AppStorage("com.duckduckgo.ios.shouldBlurFace") private var shouldBlurFace: Bool = AppUserDefaults().shouldBlurFace
     
     @State private var selection: Int = 0
     @State private var isShareSheetPresented: Bool = false
@@ -128,9 +129,14 @@ struct SafegazeView: View {
             safegazeSettingsChanged?()
             NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
         })
+        .onChange(of: shouldBlurFace, perform: { _ in
+            ImageDiskCache.shared.clear()
+            safegazeSettingsChanged?()
+            NotificationCenter.default.post(name: AppUserDefaults.Notifications.textSizeChange, object: self)
+        })
         .enableInjection()
     }
-
+    
     var horizontalDivider: some View {
         Rectangle()
             .frame(height: 1)
@@ -151,7 +157,7 @@ struct SafegazeView: View {
                 .resizable()
                 .frame(width: 137, height: 31)
                 .foregroundColor(Color(designSystemColor: .textPrimary))
-
+            
             Spacer()
             HStack(spacing: 5) {
                 Text("On/Off")
@@ -268,9 +274,21 @@ struct SafegazeView: View {
                             .offset(y: 12)
                     }
                 }
-                
             }
             .padding(.bottom, 12)
+            
+            HStack {
+                sectionTitle("Blur Face Area")
+                Spacer()
+                HStack(spacing: 5) {
+                    Toggle(isOn: $shouldBlurFace) {}
+                        .controlSize(.mini)
+                        .scaleEffect(0.7)
+                        .labelsHidden()
+                        .foregroundColor(Color(red: 57 / 255, green: 182 / 255, blue: 53 / 255, opacity: 1))
+                }
+            }
+     
         }
     }
     
@@ -311,9 +329,9 @@ struct SafegazeView: View {
             }
         }
         .padding(.bottom, 8)
-
+        
     }
-
+    
     // MARK: - Reusable Components
     
     func sectionView<Content: View>(title: String, @ViewBuilder content: () -> Content) -> some View {
@@ -336,7 +354,7 @@ struct SafegazeView: View {
             .foregroundColor(Color(designSystemColor: .textPrimary))
             .frame(maxWidth: .infinity, alignment: .leading)
     }
-
+    
     func imageViewColumn(image: String) -> some View {
         Image(image)
             .resizable()
@@ -355,7 +373,7 @@ struct SafegazeView: View {
                 .foregroundColor(gray130)
         }
     }
-
+    
     func footerButton(icon: String, title: String, action: @escaping () -> Void) -> some View {
         Button(action: {
             action()
@@ -371,7 +389,7 @@ struct SafegazeView: View {
         })
         .frame(width: 50)
     }
-
+    
     func infoTextBox(text: String, backgroundColor: Color) -> some View {
         Text(text)
             .multilineTextAlignment(.leading)
@@ -408,7 +426,7 @@ struct SafegazeView: View {
             }
         })
     }
-
+    
     func checkmarkCircle(color: Color) -> some View {
         Image(systemName: "checkmark.circle")
             .resizable()
@@ -427,12 +445,12 @@ struct SafegazeView: View {
 
 struct ShareSheet: UIViewControllerRepresentable {
     let activityItems: [Any]
-
+    
     func makeUIViewController(context: Context) -> UIActivityViewController {
         let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         return controller
     }
-
+    
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }
 

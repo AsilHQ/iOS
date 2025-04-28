@@ -11273,7 +11273,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kahf-Browser/SafeGaze-iOS";
 			requirement = {
-				branch = feature/actor;
+				branch = feature/faceBlur;
 				kind = branch;
 			};
 		};
