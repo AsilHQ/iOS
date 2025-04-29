@@ -43,15 +43,15 @@ class FaviconLoader: ObservableObject {
         guard let url = URL(string: urlString) else { return }
 
         // Fetch from network
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let self = self,
                   let data = data,
                   let uiImage = UIImage(data: data) else {
-                let fakeFavicon = FaviconsHelper.createFakeFavicon(forDomain: domain,
-                                                                   size: 30,
-                                                                   backgroundColor: UIColor.forDomain(domain),
-                                                                   bold: false)
                 DispatchQueue.main.async {
+                    let fakeFavicon = FaviconsHelper.createFakeFavicon(forDomain: domain,
+                                                                       size: 30,
+                                                                       backgroundColor: UIColor.forDomain(domain),
+                                                                       bold: false)
                     if let fakeFavicon = fakeFavicon {
                         Self.cache.setObject(fakeFavicon, forKey: domain as NSString)
                         self?.image = fakeFavicon
