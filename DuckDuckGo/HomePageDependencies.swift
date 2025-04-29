@@ -34,4 +34,5 @@ struct HomePageDependencies {
     let variantManager: VariantManager
     let newTabDialogFactory: any NewTabDaxDialogProvider
     let newTabDialogTypeProvider: NewTabDialogSpecProvider
+    let historyManager: HistoryManaging
 }

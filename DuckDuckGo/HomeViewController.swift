@@ -29,6 +29,7 @@ import SwiftUI
 import BrowserServicesKit
 import os.log
 import SnapKit
+import History
 
 class CreditButton: UIButton {
     var url: URL?
@@ -78,6 +79,7 @@ class HomeViewController: UIViewController, NewTabPage {
     private let homePageConfiguration: HomePageConfiguration
     private let tabModel: Tab
     private let favoritesViewModel: FavoritesListInteracting
+    private let historyManager: HistoryManaging
     private let appSettings: AppSettings
     private let syncService: DDGSyncing
     private let syncDataProviders: SyncDataProviders
@@ -86,6 +88,8 @@ class HomeViewController: UIViewController, NewTabPage {
     private let newTabDialogTypeProvider: NewTabDialogSpecProvider
     private var viewModelCancellable: AnyCancellable?
     private var favoritesDisplayModeCancellable: AnyCancellable?
+    private var historyCancellables = Set<AnyCancellable>()
+    private var recentHistoryHostingController: UIHostingController<HomeRecentHistoryView>?
 
     let privacyProDataReporter: PrivacyProDataReporting
 
@@ -151,7 +155,8 @@ class HomeViewController: UIViewController, NewTabPage {
                 privacyProDataReporter: homePageDependecies.privacyProDataReporter,
                 variantManager: homePageDependecies.variantManager,
                 newTabDialogFactory: homePageDependecies.newTabDialogFactory,
-                newTabDialogTypeProvider: homePageDependecies.newTabDialogTypeProvider
+                newTabDialogTypeProvider: homePageDependecies.newTabDialogTypeProvider,
+                historyManager: homePageDependecies.historyManager
             )
         })
         return controller
@@ -168,7 +173,8 @@ class HomeViewController: UIViewController, NewTabPage {
         privacyProDataReporter: PrivacyProDataReporting,
         variantManager: VariantManager,
         newTabDialogFactory: any NewTabDaxDialogProvider,
-        newTabDialogTypeProvider: NewTabDialogSpecProvider
+        newTabDialogTypeProvider: NewTabDialogSpecProvider,
+        historyManager: HistoryManaging
     ) {
         self.homePageConfiguration = homePageConfiguration
         self.tabModel = tabModel
@@ -180,7 +186,7 @@ class HomeViewController: UIViewController, NewTabPage {
         self.variantManager = variantManager
         self.newTabDialogFactory = newTabDialogFactory
         self.newTabDialogTypeProvider = newTabDialogTypeProvider
-
+        self.historyManager = historyManager
         super.init(coder: coder)
     }
 
@@ -203,6 +209,52 @@ class HomeViewController: UIViewController, NewTabPage {
                                                object: nil)
 
         registerForBookmarksChanges()
+        historyManager.historyCoordinator.historyDictionaryPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] dictionary in
+        
+                guard let self = self,
+                      let dictionary = dictionary else { return }
+                
+                let sortedHistory = Array(dictionary.values)
+                    .sorted(by: { $0.lastVisit > $1.lastVisit })
+                    .prefix(20)
+                
+                var seenHosts = Set<String>()
+                let filteredHistory = Array(sortedHistory).filter { history in
+                    guard let host = history.url.host else {
+                        return true
+                    }
+                    if host.starts(with: "blocked.kahfguard.com") {
+                        return false
+                    }
+                    if seenHosts.contains(host) {
+                        return false
+                    } else {
+                        seenHosts.insert(host)
+                        return true
+                    }
+                }
+                
+                var recentHistoryView = HomeRecentHistoryView(histories: filteredHistory)
+                recentHistoryView.didTap = { [weak self] history in
+                    guard let self = self else {
+                        return }
+                    delegate?.home(self, didRequestUrl: history.url)
+                }
+                
+                recentHistoryHostingController = UIHostingController(rootView: recentHistoryView)
+                recentHistoryHostingController?.view.backgroundColor = .clear
+                wallpaperImageView.isUserInteractionEnabled = true
+                wallpaperImageView.addSubview(recentHistoryHostingController!.view)
+                recentHistoryHostingController?.view.snp.makeConstraints { make in
+                          make.left.equalToSuperview().offset(16)
+                          make.right.equalToSuperview().offset(-16)
+                          make.top.equalTo(self.statsView.snp.bottom).offset(20)
+                          make.height.equalTo(110)
+                }
+            }
+            .store(in: &historyCancellables)
     }
     
     
@@ -351,7 +403,7 @@ class HomeViewController: UIViewController, NewTabPage {
     }
 
     func configureCollectionView() {
-        collectionView.isHidden = !(favoritesViewModel.favorites.count > 0)
+        collectionView.isHidden = true // !(favoritesViewModel.favorites.count > 0)
         collectionView.configure(withController: self, favoritesViewModel: favoritesViewModel)
     }
     

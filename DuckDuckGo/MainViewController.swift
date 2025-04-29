@@ -833,7 +833,8 @@ class MainViewController: UIViewController {
                                                             privacyProDataReporter: privacyProDataReporter,
                                                             variantManager: variantManager,
                                                             newTabDialogFactory: newTabDaxDialogFactory,
-                                                            newTabDialogTypeProvider: DaxDialogs.shared)
+                                                            newTabDialogTypeProvider: DaxDialogs.shared,
+                                                            historyManager: historyManager)
             let controller = HomeViewController.loadFromStoryboard(homePageDependecies: homePageDependencies)
 
             controller.delegate = self
