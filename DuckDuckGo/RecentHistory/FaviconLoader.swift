@@ -32,18 +32,15 @@ class FaviconLoader: ObservableObject {
     }
 
     private func loadFavicon(for domain: String) {
-        // Return from cache if available
         if let cachedImage = Self.cache.object(forKey: domain as NSString) {
             self.image = cachedImage
             return
         }
-
-        // Construct the favicon URL
-        let urlString = "https://\(domain)/favicon.ico"
+        
+        let urlString = "https://www.google.com/s2/favicons?domain=\(domain)&sz=128"
         guard let url = URL(string: urlString) else { return }
 
-        // Fetch from network
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
             guard let self = self,
                   let data = data,
                   let uiImage = UIImage(data: data) else {

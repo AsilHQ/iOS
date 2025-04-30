@@ -225,7 +225,7 @@ class HomeViewController: UIViewController, NewTabPage {
                     guard let host = history.url.host else {
                         return true
                     }
-                    if host.starts(with: "blocked.kahfguard.com") {
+                    if host.starts(with: "blocked.kahfguard.com") || host.isValidIpHost {
                         return false
                     }
                     if seenHosts.contains(host) {
@@ -242,6 +242,8 @@ class HomeViewController: UIViewController, NewTabPage {
                         return }
                     delegate?.home(self, didRequestUrl: history.url)
                 }
+                
+                recentHistoryHostingController?.view.removeFromSuperview()
                 
                 recentHistoryHostingController = UIHostingController(rootView: recentHistoryView)
                 recentHistoryHostingController?.view.backgroundColor = .clear
