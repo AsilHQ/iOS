@@ -170,6 +170,10 @@ public class SafegazeScript: NSObject, UserScript {
     }
     
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        if message.webView == nil {
+            debugPrint("❌ No webview found inside message")
+            return
+        }
         
         guard let body = message.body as? [String: Any],
               let dataString = body["data"] as? String,
@@ -198,14 +202,14 @@ public class SafegazeScript: NSObject, UserScript {
                             src: imageData.src,
                             image: (imageData.size != nil ? image.imageResized(to: imageData.size!) : image) ?? image,
                             id: imageData.id,
-                            webView: message.webView!,
+                            webView: message.webView,
                             frameInfo: message.frameInfo
                         )
                     }
                     return
                 } else {
                     Task {
-                        await sendNullImage(id: imageData.id, webView: message.webView!, frameInfo: message.frameInfo)
+                        await sendNullImage(id: imageData.id, webView: message.webView, frameInfo: message.frameInfo)
                     }
                 }
             }
@@ -218,14 +222,14 @@ public class SafegazeScript: NSObject, UserScript {
                             src: imageData.src,
                             image: (imageData.size != nil ? image.imageResized(to: imageData.size!) : image) ?? image,
                             id: imageData.id,
-                            webView: message.webView!,
+                            webView: message.webView,
                             frameInfo: message.frameInfo
                         )
                     }
                     return
                 } else {
                     Task {
-                        await sendNullImage(id: imageData.id, webView: message.webView!, frameInfo: message.frameInfo)
+                        await sendNullImage(id: imageData.id, webView: message.webView, frameInfo: message.frameInfo)
                     }
                 }
             }
@@ -233,7 +237,7 @@ public class SafegazeScript: NSObject, UserScript {
             guard let url = URL(string: imageData.src) else {
                 print("❌ Failed to convert image URL string to URL \(imageData.src)")
                 Task {
-                    await sendNullImage(id: imageData.id, webView: message.webView!, frameInfo: message.frameInfo)
+                    await sendNullImage(id: imageData.id, webView: message.webView, frameInfo: message.frameInfo)
                 }
                 return
             }
@@ -243,7 +247,7 @@ public class SafegazeScript: NSObject, UserScript {
                     url: url,
                     id: imageData.id,
                     targetSize: imageData.size,
-                    webView: message.webView!,
+                    webView: message.webView,
                     frameInfo: message.frameInfo
                 )
             }
@@ -252,7 +256,10 @@ public class SafegazeScript: NSObject, UserScript {
         }
     }
     
-    func sendNullImage(id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
+    func sendNullImage(id: String, webView: WKWebView?, frameInfo: WKFrameInfo) async {
+        guard let webView else {
+            return
+        }
         let jsString = """
         (function() {
             receiveMessageFromKotlin("detectionResult", "{\\\"result\\\": \\\"\("null")\\\", \\\"id\\\": \\\"\(id)\\\"}");
@@ -314,7 +321,10 @@ public actor ImageProcessingQueue {
         }
     }
     
-    func enqueueProcessing(url: URL, id: String, targetSize: CGSize?, webView: WKWebView, frameInfo: WKFrameInfo) async {
+    func enqueueProcessing(url: URL, id: String, targetSize: CGSize?, webView: WKWebView?, frameInfo: WKFrameInfo) async {
+        guard let webView = webView else {
+            return
+        }
         let src = url.absoluteString
         let startDate = Int(Date().timeIntervalSince1970 * 1000)
 
@@ -372,7 +382,10 @@ public actor ImageProcessingQueue {
         }
     }
     
-    func enqueueProcessing(src: String, image: UIImage, id: String, webView: WKWebView, frameInfo: WKFrameInfo) async {
+    func enqueueProcessing(src: String, image: UIImage, id: String, webView: WKWebView?, frameInfo: WKFrameInfo) async {
+        guard let webView = webView else {
+            return
+        }
         // For base64 images, use id as the cache key (or pass src if possible)
         let cacheKey = src
         let startDate = Int(Date().timeIntervalSince1970 * 1000)
