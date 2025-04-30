@@ -350,7 +350,7 @@ class TabSwitcherViewController: UIViewController {
     }
 
     func dismiss() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
 
     override func dismiss(animated: Bool, completion: (() -> Void)? = nil) {

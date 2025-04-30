@@ -200,7 +200,7 @@ extension MainViewController {
             return
         }
 
-        controller.transitioningDelegate = tabSwitcherTransition
+//        controller.transitioningDelegate = tabSwitcherTransition
         controller.delegate = self
         controller.tabsModel = tabManager.model
         controller.previewsSource = previewsSource
@@ -208,7 +208,7 @@ extension MainViewController {
 
         tabSwitcherController = controller
 
-        present(controller, animated: true)
+        present(controller, animated: false)
     }
 
     func segueToSettings() {
