@@ -236,6 +236,10 @@ class HomeViewController: UIViewController, NewTabPage {
                     }
                 }
                 
+                if filteredHistory.isEmpty {
+                    return
+                }
+                
                 var recentHistoryView = HomeRecentHistoryView(histories: filteredHistory)
                 recentHistoryView.didTap = { [weak self] history in
                     guard let self = self else {
