@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  DuckDuckGo
 //
-//  Copyright © 2017 DuckDuckGo. All rights reserved.
+//  Copyright 2017 DuckDuckGo. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -237,14 +237,34 @@ class HomeViewController: UIViewController, NewTabPage {
                 }
                 
                 if filteredHistory.isEmpty {
+                    self.recentHistoryHostingController?.view.removeFromSuperview()
                     return
                 }
                 
                 var recentHistoryView = HomeRecentHistoryView(histories: filteredHistory)
                 recentHistoryView.didTap = { [weak self] history in
                     guard let self = self else {
-                        return }
+                        return
+                    }
                     delegate?.home(self, didRequestUrl: history.url)
+                }
+                
+                recentHistoryView.onRemoveHistory = { [weak self] history in
+                    guard let self = self else {
+                        return
+                    }
+                    Task {
+                        await self.historyManager.deleteHistoryForURL(history.url)
+                    }
+                }
+                
+                recentHistoryView.onRemoveAllHistories = { [weak self] in
+                    guard let self = self else {
+                        return
+                    }
+                    Task {
+                        await self.historyManager.removeAllHistory()
+                    }
                 }
                 
                 recentHistoryHostingController?.view.removeFromSuperview()

@@ -2,7 +2,7 @@
 //  AppIconView.swift
 //  DuckDuckGo
 //
-//  Copyright © 2025 DuckDuckGo. All rights reserved.
+//  Copyright 2025 DuckDuckGo. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -22,6 +22,8 @@ import History
 
 struct RecentHistoryItemView: View {
     let history: HistoryEntry
+    var onRemove: () -> Void = {}
+    var onRemoveAll: () -> Void = {}
     @ObserveInjection var redraw
 
     var body: some View {
@@ -40,6 +42,14 @@ struct RecentHistoryItemView: View {
                 .foregroundColor(.white)
         }
         .frame(width: 60)
+        .contextMenu {
+            Button("Remove from Recent") {
+                onRemove()
+            }
+            Button("Remove All") {
+                onRemoveAll()
+            }
+        }
         .enableInjection()
     }
 }
@@ -47,13 +57,17 @@ struct RecentHistoryItemView: View {
 struct HomeRecentHistoryView: View {
     let histories: [HistoryEntry]
     var didTap: (HistoryEntry) -> Void = { _ in }
+    var onRemoveHistory: (HistoryEntry) -> Void = { _ in }
+    var onRemoveAllHistories: () -> Void = {}
     @ObserveInjection var redraw
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(alignment: .top, spacing: 16) {
                 ForEach(histories) { history in
-                    RecentHistoryItemView(history: history)
+                    RecentHistoryItemView(history: history,
+                                        onRemove: { onRemoveHistory(history) },
+                                        onRemoveAll: onRemoveAllHistories)
                         .onTapGesture {
                             print("tapped \(history.host)")
                             didTap(history)
