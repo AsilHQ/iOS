@@ -191,6 +191,7 @@ class TabViewController: UIViewController {
     private let daxDialogsDebouncer = Debouncer(mode: .common)
     private let dnsResolver: DNSResolver = DNSResolver()
     private let dnsOverTLSResolver: DnsOverTlsResolver = DnsOverTlsResolver()
+    private let dnsOverHttpsResolver: DnsOverHttpsResolver = DnsOverHttpsResolver()
     private let dnsOverTLSemaphore = DispatchSemaphore(value: 1)
     
     public var url: URL? {
@@ -1827,7 +1828,8 @@ extension TabViewController: WKNavigationDelegate {
                 if AppUserDefaults().safegazeOn && host != "blocked.kahfguard.com" {
                     dnsOverTLSemaphore.wait()
                     debugPrint("DNS resolution hostName: \(host)")
-                    dnsOverTLSResolver.resolve(hostName: host) { [weak self] ipAddresses, error in
+//                    dnsOverTLSResolver.resolve(hostName: host) { [weak self] ipAddresses, error in
+                    dnsOverHttpsResolver.resolve(hostName: host) { [weak self] ipAddresses, error in
                         guard let self = self else { return }
                         dnsOverTLSemaphore.signal()
                         if let error = error {

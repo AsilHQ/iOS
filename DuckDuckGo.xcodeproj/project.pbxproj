@@ -223,12 +223,13 @@
 		37FD780F2A29E28B00B36DB1 /* SyncErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */; };
 		3C02B29F2DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
 		3C02B2A02DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
-		3C3A2CD32DB7821700CE7268 /* NSFWDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 3C3A2CD22DB7821700CE7268 /* NSFWDetector */; };
 		3C3A2CDB2DB8CDB500CE7268 /* porda_v1.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */; };
 		3C3A2CDC2DB8CDB500CE7268 /* porda_v1.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */; };
 		3C4981A92DC0964C00C2C026 /* HomeRecentHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4981A82DC0964C00C2C026 /* HomeRecentHistoryView.swift */; };
 		3C4981AD2DC0C1A000C2C026 /* FaviconLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4981AC2DC0C1A000C2C026 /* FaviconLoader.swift */; };
 		3C4981AF2DC0C1B600C2C026 /* FaviconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4981AE2DC0C1B600C2C026 /* FaviconImage.swift */; };
+		3C4981B82DC27A7C00C2C026 /* DnsOverHttpsResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4981B72DC27A7C00C2C026 /* DnsOverHttpsResolver.swift */; };
+		3C4981BB2DC3A92B00C2C026 /* NSFWDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4981BA2DC3A92B00C2C026 /* NSFWDetector */; };
 		3C4C8D292DB004FF007BFDF3 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4C8D282DB004FF007BFDF3 /* SafeGaze-iOS */; };
 		3C4C8D2B2DB00714007BFDF3 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3C4C8D2A2DB00714007BFDF3 /* SafeGaze-iOS */; };
 		3CAA0DF62DA3D73F00802A96 /* InjectionNext in Frameworks */ = {isa = PBXBuildFile; productRef = 3CAA0DF52DA3D73F00802A96 /* InjectionNext */; };
@@ -315,7 +316,6 @@
 		4EEC64682C9C073200120DDE /* UIColor+SSK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC64672C9C073200120DDE /* UIColor+SSK.swift */; };
 		4EEC646C2C9C119100120DDE /* FontTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC646B2C9C119100120DDE /* FontTypography.swift */; };
 		4EF77AAA2D5FA0BB00F1317C /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF77AA92D5FA0B500F1317C /* StatsView.swift */; };
-		4EFA92DB2C5A72D60002DC0E /* SafegazeScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */; };
 		560E990F2BEE2CB800507CE0 /* SyncErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E990E2BEE2CB800507CE0 /* SyncErrorMessage.swift */; };
 		564DE4532C3ED1B700D23241 /* NewTabDaxDialogFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564DE4522C3ED1B700D23241 /* NewTabDaxDialogFactory.swift */; };
 		564DE4552C3EDEF200D23241 /* ContextualOnboardingNewTabDialogFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564DE4542C3EDEF200D23241 /* ContextualOnboardingNewTabDialogFactoryTests.swift */; };
@@ -1576,6 +1576,7 @@
 		3C4981A82DC0964C00C2C026 /* HomeRecentHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecentHistoryView.swift; sourceTree = "<group>"; };
 		3C4981AC2DC0C1A000C2C026 /* FaviconLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoader.swift; sourceTree = "<group>"; };
 		3C4981AE2DC0C1B600C2C026 /* FaviconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconImage.swift; sourceTree = "<group>"; };
+		3C4981B72DC27A7C00C2C026 /* DnsOverHttpsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverHttpsResolver.swift; sourceTree = "<group>"; };
 		3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverTlsResolver.swift; sourceTree = "<group>"; };
 		4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDebugViewController.swift; sourceTree = "<group>"; };
 		4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtectionFAQView.swift; sourceTree = "<group>"; };
@@ -3173,6 +3174,7 @@
 				9F96F73B2C9144D5009E45D5 /* Onboarding in Frameworks */,
 				85D598872927F84C00FA3B1B /* Crashes in Frameworks */,
 				D664C7DD2B28A02800CBFA76 /* StoreKit.framework in Frameworks */,
+				3C4981BB2DC3A92B00C2C026 /* NSFWDetector in Frameworks */,
 				3C4C8D292DB004FF007BFDF3 /* SafeGaze-iOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3270,7 +3272,6 @@
 				37DF000C29F9CA80002B7D3E /* SyncDataProviders in Frameworks */,
 				1E6098A1290011E600A508F9 /* UserScript in Frameworks */,
 				D61CDA162B7CF77300A0FBB9 /* Subscription in Frameworks */,
-				3C3A2CD32DB7821700CE7268 /* NSFWDetector in Frameworks */,
 				858D009D2B9799FC004E5B4C /* History in Frameworks */,
 				C14882ED27F211A000D59F0C /* SwiftSoup in Frameworks */,
 				3C4C8D2B2DB00714007BFDF3 /* SafeGaze-iOS in Frameworks */,
@@ -5802,6 +5803,7 @@
 		EECD94B22A28B8580085C66E /* NetworkProtection */ = {
 			isa = PBXGroup;
 			children = (
+				3C4981B72DC27A7C00C2C026 /* DnsOverHttpsResolver.swift */,
 				3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */,
 				4BD96E072C4DCCD1003BC32C /* LiveActivity */,
 				4B37E04E2B928C91009E81CA /* Resources */,
@@ -6792,6 +6794,7 @@
 				3CAA0DF52DA3D73F00802A96 /* InjectionNext */,
 				3CAA0DF82DA3D76000802A96 /* HotSwiftUI */,
 				3C4C8D282DB004FF007BFDF3 /* SafeGaze-iOS */,
+				3C4981BA2DC3A92B00C2C026 /* NSFWDetector */,
 			);
 			productName = DuckDuckGo;
 			productReference = 84E341921E2F7EFB00BDBA6F /* KahfBrowser.app */;
@@ -6997,7 +7000,6 @@
 				D6BC8ACA2C5AA3860025375B /* DuckPlayer */,
 				CB6D8E972C80A9B100D0E772 /* SpecialErrorPages */,
 				3C4C8D2A2DB00714007BFDF3 /* SafeGaze-iOS */,
-				3C3A2CD22DB7821700CE7268 /* NSFWDetector */,
 			);
 			productName = Core;
 			productReference = F143C2E41E4A4CD400CFDE3A /* Core.framework */;
@@ -7133,7 +7135,7 @@
 				3CAA0DF42DA3D73F00802A96 /* XCRemoteSwiftPackageReference "InjectionNext" */,
 				3CAA0DF72DA3D76000802A96 /* XCRemoteSwiftPackageReference "HotSwiftUI" */,
 				3C4C8D272DB004FF007BFDF3 /* XCRemoteSwiftPackageReference "SafeGaze-iOS" */,
-				3C3A2CD12DB7821700CE7268 /* XCRemoteSwiftPackageReference "NSFWDetector" */,
+				3C4981B92DC3A92B00C2C026 /* XCRemoteSwiftPackageReference "NSFWDetector" */,
 			);
 			productRefGroup = 84E341931E2F7EFB00BDBA6F /* Products */;
 			projectDirPath = "";
@@ -8158,6 +8160,7 @@
 				CB84C7BD29A3EF530088A5B8 /* AppConfigurationURLProvider.swift in Sources */,
 				AA3D854723D9E88E00788410 /* AppIconSettingsCell.swift in Sources */,
 				316931D927BD22A80095F5ED /* DownloadActionMessageViewHelper.swift in Sources */,
+				3C4981B82DC27A7C00C2C026 /* DnsOverHttpsResolver.swift in Sources */,
 				9F69331F2C5B1D0C00CD6A5D /* OnFirstAppearViewModifier.swift in Sources */,
 				BDF8D0022C1B87F4003E3B27 /* NetworkProtectionDNSSettingsViewModel.swift in Sources */,
 				4E15FC1E2C9979E7009C638A /* PrayerParameterPickerVC.swift in Sources */,
@@ -8611,7 +8614,6 @@
 				EE50053029C3BA0800AE0773 /* InternalUserStore.swift in Sources */,
 				F1D477CB1F2149C40031ED49 /* Type.swift in Sources */,
 				983C52E42C2C050B007B5747 /* BookmarksStateRepair.swift in Sources */,
-				4EFA92DB2C5A72D60002DC0E /* SafegazeScript.swift in Sources */,
 				1E05D1D629C46EBB00BF9A1F /* DailyPixel.swift in Sources */,
 				1CB7B82123CEA1F800AA24EA /* DateExtension.swift in Sources */,
 				379E877429E97C8D001C8BB0 /* BookmarksCleanupErrorHandling.swift in Sources */,
@@ -11281,7 +11283,7 @@
 				version = 2.0.0;
 			};
 		};
-		3C3A2CD12DB7821700CE7268 /* XCRemoteSwiftPackageReference "NSFWDetector" */ = {
+		3C4981B92DC3A92B00C2C026 /* XCRemoteSwiftPackageReference "NSFWDetector" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kahf-Browser/NSFWDetector";
 			requirement = {
@@ -11487,9 +11489,9 @@
 			package = 98A16C2928A11BDE00A6C003 /* XCRemoteSwiftPackageReference "BrowserServicesKit" */;
 			productName = SyncDataProviders;
 		};
-		3C3A2CD22DB7821700CE7268 /* NSFWDetector */ = {
+		3C4981BA2DC3A92B00C2C026 /* NSFWDetector */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3C3A2CD12DB7821700CE7268 /* XCRemoteSwiftPackageReference "NSFWDetector" */;
+			package = 3C4981B92DC3A92B00C2C026 /* XCRemoteSwiftPackageReference "NSFWDetector" */;
 			productName = NSFWDetector;
 		};
 		3C4C8D282DB004FF007BFDF3 /* SafeGaze-iOS */ = {
