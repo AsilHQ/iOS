@@ -2,7 +2,7 @@
 //  SafegazeViewController.swift
 //  DuckDuckGo
 //
-//  Copyright © 2024 DuckDuckGo. All rights reserved.
+//  Copyright 2024 DuckDuckGo. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -26,8 +26,8 @@ import Core
 /// Displays shield settings and shield stats for a given URL
 class SafegazeViewController: UIViewController, PopoverContentComponent {
 
-  let associatedTab: Tab
-  let webView: WKWebView
+  weak var associatedTab: Tab!
+  weak var webView: WKWebView!
     
   var safegazeSettingsChanged: ((SafegazeViewController) -> Void)?
 
@@ -112,10 +112,11 @@ class SafegazeViewController: UIViewController, PopoverContentComponent {
 
   override func loadView() {
       let newView = View(frame: .zero, associatedTab: associatedTab)
-      newView.safegazeSettingsChanged = {
-          self.dismiss(animated: true)
+      newView.safegazeSettingsChanged = { [weak self, weak webView] in
+          self?.dismiss(animated: true)
           DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-              self.webView.reload()
+              guard let webView = webView else { return }
+              webView.reload()
           }
       }
       newView.openShareSheet = {

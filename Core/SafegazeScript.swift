@@ -474,7 +474,7 @@ public actor ImageProcessingQueue {
     }
     
     func processImage(from image: UIImage) async -> String? {
-        if let processedImage = await visionTools.processImage(image: image),
+        if let processedImage = try? await visionTools.processImage(image: image),
            let base64String = processedImage.base64 {
             debugPrint("got output image")
             await increaseSafegazeBlurredImageCount()

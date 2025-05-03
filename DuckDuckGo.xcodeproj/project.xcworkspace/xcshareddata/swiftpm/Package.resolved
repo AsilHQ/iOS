@@ -185,8 +185,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Kahf-Browser/SafeGaze-iOS",
       "state" : {
-        "branch" : "feature/faceBlur",
-        "revision" : "bff45beed57c73d37e1aa6da7649638b1ba49d79"
+        "branch" : "crashFix",
+        "revision" : "7df33ee336a13e0ca10d52225e5cd962358a6c38"
       }
     },
     {
