@@ -78,4 +78,9 @@ extension String {
         guard hasPrefix("www.") else { return self }
         return String(dropFirst(4))
     }
+    
+    public var isCustomScheme: Bool {
+        let standardSchemes: Set<String> = ["http", "https", "ftp", "ws", "wss"]
+        return !standardSchemes.contains(self.lowercased())
+    }
 }

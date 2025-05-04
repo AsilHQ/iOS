@@ -1681,10 +1681,11 @@ extension TabViewController: WKNavigationDelegate {
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
 //        Task {
-            guard let url = navigationAction.request.url, let host = url.host else {
+            guard let url = navigationAction.request.url, let host = url.host, let scheme = url.scheme else {
                 decisionHandler(.cancel)
                 return
             }
+        
         
         debugPrint("inside decidePolicyFor url: \(url)")
             
@@ -1825,7 +1826,7 @@ extension TabViewController: WKNavigationDelegate {
 //                        return
 //                    }
 //                }
-                if AppUserDefaults().safegazeOn && host != "blocked.kahfguard.com" {
+        if AppUserDefaults().safegazeOn && host != "blocked.kahfguard.com" && !scheme.isCustomScheme {
                     dnsOverTLSemaphore.wait()
                     debugPrint("DNS resolution hostName: \(host)")
 //                    dnsOverTLSResolver.resolve(hostName: host) { [weak self] ipAddresses, error in
