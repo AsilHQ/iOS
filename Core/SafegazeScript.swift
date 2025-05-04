@@ -192,7 +192,7 @@ public class SafegazeScript: NSObject, UserScript {
         
         do {
             let imageData = try JSONDecoder().decode(ImageData.self, from: innerData)
-            print("📥 Received image: src: \(imageData.src), id: \(imageData.id), baseImg: \(imageData.baseImg.prefix(30))")
+            print("📥 Received image: src: \(imageData.src), id: \(imageData.id), baseImg: \(imageData.baseImg.prefix(30)), width: \(imageData.width ?? 0), height: \(imageData.height ?? 0)")
             
             if imageData.src.hasPrefix("data:image/") {
                 if let image = UIImage(base64: imageData.src) {

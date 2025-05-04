@@ -447,7 +447,7 @@ public class AppUserDefaults: AppSettings {
     @UserDefaultsWrapper(key: .debugOnboardingHighlightsEnabledKey, defaultValue: false)
     var onboardingHighlightsEnabled: Bool
     
-    @UserDefaultsWrapper(key: .imageBlurMode, defaultValue: false)
+    @UserDefaultsWrapper(key: .imageBlurMode, defaultValue: true)
     var shouldPixelateBlurMode: Bool
     
     @UserDefaultsWrapper(key: .shouldBlurFace, defaultValue: false)
