@@ -29,12 +29,7 @@ public class SafegazeScript: NSObject, UserScript {
     public static let shared = SafegazeScript()
     
     public var source: String = {
-        guard var script = SafegazeScript.loadJavaScript(named: "porda_v1") else {
-            debugPrint("porda not found")
-            return ""
-        }
-        
-        return script
+        return ImageProcessor.shared.loadJavaScript() ?? ""
     }()
     
     public var messageNames: [String] = ["safegazeMessage"]
@@ -102,56 +97,6 @@ public class SafegazeScript: NSObject, UserScript {
         }
         
         return results
-    }
-    
-    static func loadJavaScript(named fileName: String) -> String? {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: "js") else {
-            debugPrint("[SafegazeScript] JavaScript file \(fileName) not found in bundle.")
-            return nil
-        }
-        
-        do {
-            let script = try String(contentsOfFile: path, encoding: .utf8)
-            return script
-        } catch {
-            debugPrint("[SafegazeScript] Failed to load JavaScript file: \(error.localizedDescription)")
-            return nil
-        }
-    }
-    
-    public static func downloadAndSaveJavaScriptFile() {
-#if DEBUG
-        let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_dev/node_modules/%40duckduckgo/privacy-dashboard/build/app/safe_gaze_v2.js"
-#else
-        let urlString = "https://raw.githubusercontent.com/AsilHQ/Android/js_code_release/node_modules/%40duckduckgo/privacy-dashboard/build/app/safe_gaze_v2.js"
-#endif
-        
-        let remoteHostFileURL = URL(string: urlString)!
-        let fileManager = FileManager.default
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let localFileURL = documentsURL.appendingPathComponent("SafegazeScript.js")
-        
-        // Create the download task
-        let task = URLSession.shared.dataTask(with: remoteHostFileURL) { data, _, error in
-            if let error = error {
-                debugPrint("[SafegazeScript] Failed to download file: \(error)")
-                return
-            }
-            
-            guard let data = data else {
-                debugPrint("[SafegazeScript] No data downloaded.")
-                return
-            }
-            
-            do {
-                // Write the downloaded data to the file
-                try data.write(to: localFileURL)
-                debugPrint("[SafegazeScript] JavaScript file downloaded and saved successfully.")
-            } catch {
-                debugPrint("[SafegazeScript] Failed to save JavaScript file: \(error)")
-            }
-        }
-        task.resume()
     }
     
     struct ImageData: Codable {

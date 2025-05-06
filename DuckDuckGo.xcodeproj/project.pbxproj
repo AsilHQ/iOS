@@ -223,8 +223,6 @@
 		37FD780F2A29E28B00B36DB1 /* SyncErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */; };
 		3C02B29F2DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
 		3C02B2A02DB54A2100AE9643 /* ImageDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */; };
-		3C3A2CDB2DB8CDB500CE7268 /* porda_v1.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */; };
-		3C3A2CDC2DB8CDB500CE7268 /* porda_v1.js in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */; };
 		3C4981A92DC0964C00C2C026 /* HomeRecentHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4981A82DC0964C00C2C026 /* HomeRecentHistoryView.swift */; };
 		3C4981AD2DC0C1A000C2C026 /* FaviconLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4981AC2DC0C1A000C2C026 /* FaviconLoader.swift */; };
 		3C4981AF2DC0C1B600C2C026 /* FaviconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4981AE2DC0C1B600C2C026 /* FaviconImage.swift */; };
@@ -1571,7 +1569,6 @@
 		37FCAACB2993149A000E420A /* Waitlist */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Waitlist; sourceTree = "<group>"; };
 		37FD780E2A29E28B00B36DB1 /* SyncErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncErrorHandler.swift; sourceTree = "<group>"; };
 		3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDiskCache.swift; sourceTree = "<group>"; };
-		3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = porda_v1.js; sourceTree = "<group>"; };
 		3C4981A82DC0964C00C2C026 /* HomeRecentHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecentHistoryView.swift; sourceTree = "<group>"; };
 		3C4981AC2DC0C1A000C2C026 /* FaviconLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoader.swift; sourceTree = "<group>"; };
 		3C4981AE2DC0C1B600C2C026 /* FaviconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconImage.swift; sourceTree = "<group>"; };
@@ -4027,7 +4024,6 @@
 		4EFA92D92C5A72B40002DC0E /* Safegaze */ = {
 			isa = PBXGroup;
 			children = (
-				3C3A2CDA2DB8CDAA00CE7268 /* porda_v1.js */,
 				3C02B29E2DB54A2100AE9643 /* ImageDiskCache.swift */,
 				4EFA92DA2C5A72D60002DC0E /* SafegazeScript.swift */,
 			);
@@ -7199,7 +7195,6 @@
 				AA4D6A9123DE49A5007E8790 /* AppIconBlack60x60@3x.png in Resources */,
 				4E1E3F222C75E0FB00C19FDD /* Poppins-Bold.ttf in Resources */,
 				AA4D6A8E23DE49A5007E8790 /* AppIconBlack60x60@2x.png in Resources */,
-				3C3A2CDB2DB8CDB500CE7268 /* porda_v1.js in Resources */,
 				AA4D6AC023DE4D15007E8790 /* AppIconYellow76x76@2x.png in Resources */,
 				AA4D6AA423DE4CC4007E8790 /* AppIconBlue29x29@2x.png in Resources */,
 				AA4D6AE323DE4D33007E8790 /* AppIconGreen60x60@2x.png in Resources */,
@@ -7399,7 +7394,6 @@
 				83E2D2B2253CC16B005605F5 /* httpsMobileV2Bloom.bin in Resources */,
 				85047B8A1F69692C002A95D8 /* contentblocker.js in Resources */,
 				02CA904924F6BFE700D41DDF /* navigatorsharepatch.js in Resources */,
-				3C3A2CDC2DB8CDB500CE7268 /* porda_v1.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
