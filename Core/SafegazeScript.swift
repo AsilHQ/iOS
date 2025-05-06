@@ -38,7 +38,7 @@ public class SafegazeScript: NSObject, UserScript {
     }()
     
     public var messageNames: [String] = ["safegazeMessage"]
-    public let injectionTime: WKUserScriptInjectionTime = .atDocumentEnd
+    public let injectionTime: WKUserScriptInjectionTime = .atDocumentStart
     public let forMainFrameOnly = true
     public let requiresRunInPageContentWorld = true
     
@@ -493,6 +493,7 @@ public actor ImageProcessingQueue {
             }
             guard let image = UIImage(data: data) else { return nil }
             let resizedImage = image.imageResized(to: targetSize)
+            debugPrint("url: \(imageURL.absoluteString), image size: \(image.size), resized size: \(resizedImage?.size ?? .zero)")
             return resizedImage?.pngData()
         } catch {
             debugPrint("[SafegazeScript] Error downloading image: \(error.localizedDescription)")

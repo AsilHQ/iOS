@@ -185,8 +185,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Kahf-Browser/SafeGaze-iOS",
       "state" : {
-        "branch" : "crashFix",
-        "revision" : "7df33ee336a13e0ca10d52225e5cd962358a6c38"
+        "branch" : "altMain",
+        "revision" : "4be93e58fca47c4421dcf9b23c0b5e95ce11bc88"
       }
     },
     {

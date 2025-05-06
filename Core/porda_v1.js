@@ -457,63 +457,30 @@ const sendImgForDetection = async (node, imgSrc = null) => {
 };
 const generateBase64Image = async (nodeSrc, nodeWidth, nodeHeight) => {
   try {
-    // Make sure we have a complete URL
-    const fullSrc = nodeSrc;
-    
-    console.log('Attempting to load image from:', fullSrc);
-    console.log('Dimensions:', nodeWidth, nodeHeight);
-
-    const img = new Image();
-    img.crossOrigin = "anonymous";
-    
+//    return "none";
+    const img2 = new Image();
+    img2.crossOrigin = "anonymous";
     const loadImage = new Promise((resolve, reject) => {
-      img.onload = () => resolve();
-      img.onerror = (e) => {
-        console.error('Image load error:', e);
-        reject(e);
-      };
-      img.src = fullSrc;
+      img2.onload = () => resolve();
+      img2.onerror = () => reject();
+      img2.src = nodeSrc;
     });
-    
     await loadImage;
-    
-    // Use safe dimensions
-    const safeWidth = nodeWidth || img.width;
-    const safeHeight = nodeHeight || img.height;
-    
-    if (safeWidth === 0 || safeHeight === 0) {
-      console.error('Invalid dimensions:', safeWidth, safeHeight);
-      return "none";
-    }
-    
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
-    const aspectRatio = img.width / img.height;
-    
-    canvas.width = safeWidth / safeHeight > aspectRatio ?
-      safeHeight * aspectRatio :
-      safeWidth;
-    
-    canvas.height = safeWidth / safeHeight > aspectRatio ?
-      safeWidth / aspectRatio :
-      safeHeight;
-    
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    
+    const aspectRatio = img2.width / img2.height;
+    canvas.width = nodeWidth / nodeHeight > aspectRatio ? nodeHeight * aspectRatio : nodeWidth;
+    canvas.height = nodeWidth / nodeHeight > aspectRatio ? nodeWidth / aspectRatio : nodeHeight;
+    ctx.drawImage(img2, 0, 0, canvas.width, canvas.height);
     const base64Image = canvas.toDataURL("image/jpeg", 0.7);
-    
-    // Don't reassign canvas (it's a const)
-    // Just clear its contents if needed
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    console.log('Successfully generated base64 image');
+    canvas.width = 0;
+    canvas.height = 0;
+    canvas = null;
     return base64Image;
   } catch (error) {
-    console.error('Base64 generation error:', error);
     return "none";
   }
 };
-
 function receiveMessageFromKotlin(messageType, data) {
   if (messageType === "detectionResult") {
     setTimeout(() => {
