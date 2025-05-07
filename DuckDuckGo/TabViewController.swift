@@ -1802,7 +1802,10 @@ extension TabViewController: WKNavigationDelegate {
             }
         }
         
-        if AppUserDefaults().safegazeOn && host != "blocked.kahfguard.com" && !scheme.isCustomScheme {
+        if !WhitelistManager.shared.isWhitelisted(host) &&
+            AppUserDefaults().safegazeOn &&
+            host != "blocked.kahfguard.com" &&
+            !scheme.isCustomScheme {
             dnsOverTLSemaphore.wait()
             debugPrint("DNS resolution hostName: \(host)")
             // dnsOverTLSResolver.resolve(hostName: host) { [weak self] ipAddresses, error in

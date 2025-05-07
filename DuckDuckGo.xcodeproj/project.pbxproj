@@ -231,6 +231,7 @@
 		3CAA0DF62DA3D73F00802A96 /* InjectionNext in Frameworks */ = {isa = PBXBuildFile; productRef = 3CAA0DF52DA3D73F00802A96 /* InjectionNext */; };
 		3CAA0DF92DA3D76000802A96 /* HotSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3CAA0DF82DA3D76000802A96 /* HotSwiftUI */; };
 		3CC3DEA32DA7C19D003C79C1 /* DnsOverTlsResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */; };
+		3CCB96432DCB4AA300E1C57A /* WhitelistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB96422DCB4AA300E1C57A /* WhitelistManager.swift */; };
 		3CF602A22DC61856007E06A8 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3CF602A12DC61856007E06A8 /* SafeGaze-iOS */; };
 		4B0295192537BC6700E00CEF /* ConfigurationDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */; };
 		4B0F3F502B9BFF2100392892 /* NetworkProtectionFAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */; };
@@ -1574,6 +1575,7 @@
 		3C4981AE2DC0C1B600C2C026 /* FaviconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconImage.swift; sourceTree = "<group>"; };
 		3C4981B72DC27A7C00C2C026 /* DnsOverHttpsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverHttpsResolver.swift; sourceTree = "<group>"; };
 		3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverTlsResolver.swift; sourceTree = "<group>"; };
+		3CCB96422DCB4AA300E1C57A /* WhitelistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistManager.swift; sourceTree = "<group>"; };
 		4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDebugViewController.swift; sourceTree = "<group>"; };
 		4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtectionFAQView.swift; sourceTree = "<group>"; };
 		4B274F5F2AFEAECC003F0745 /* NetworkProtectionWidgetRefreshModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtectionWidgetRefreshModel.swift; sourceTree = "<group>"; };
@@ -3842,6 +3844,14 @@
 			path = RecentHistory;
 			sourceTree = "<group>";
 		};
+		3CCB96412DCB4A9700E1C57A /* WhiteListManager */ = {
+			isa = PBXGroup;
+			children = (
+				3CCB96422DCB4AA300E1C57A /* WhitelistManager.swift */,
+			);
+			path = WhiteListManager;
+			sourceTree = "<group>";
+		};
 		4B274F5E2AFEAEB3003F0745 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -3949,6 +3959,7 @@
 		4E1E3EE22C7467B800C19FDD /* KahfBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				3CCB96412DCB4A9700E1C57A /* WhiteListManager */,
 				3C4981A72DC0941F00C2C026 /* RecentHistory */,
 				4E15FC0F2C9979E7009C638A /* Prayer */,
 				4E2880C52C9036D800B00CD2 /* Onboarding */,
@@ -7899,6 +7910,7 @@
 				85374D3C21AC41E700FF5A1E /* FavoritesHomeViewSectionRenderer.swift in Sources */,
 				85DFEDF124C7EEA400973FE7 /* LargeOmniBarState.swift in Sources */,
 				9880722A25FA497B0039EF4B /* MenuButton.swift in Sources */,
+				3CCB96432DCB4AA300E1C57A /* WhitelistManager.swift in Sources */,
 				D6E83C602B22B3C9006C8AFB /* SettingsState.swift in Sources */,
 				D6E83C482B20C812006C8AFB /* SettingsHostingController.swift in Sources */,
 				F46FEC5727987A5F0061D9DF /* KeychainItemsDebugViewController.swift in Sources */,

@@ -139,9 +139,16 @@ public class SafegazeScript: NSObject, UserScript {
             let imageData = try JSONDecoder().decode(ImageData.self, from: innerData)
             print("📥 Received image: src: \(imageData.src), id: \(imageData.id), baseImg: \(imageData.baseImg.prefix(30)), width: \(imageData.width ?? 0), height: \(imageData.height ?? 0)")
             
+            if let host = message.webView?.url?.host, WhitelistManager.shared.isWhitelisted(host) {
+                debugPrint("got whitelisted host \(host)")
+                Task {
+                    await sendNullImage(id: imageData.id, webView: message.webView, frameInfo: message.frameInfo)
+                }
+                return
+            }
+            
             if imageData.src.hasPrefix("data:image/") {
                 if let image = UIImage(base64: imageData.src) {
-                    print("------ uiiimage found from base64")
                     taskContinuation?.yield {
                         await ImageProcessingQueue.shared.enqueueProcessing(
                             src: imageData.src,
