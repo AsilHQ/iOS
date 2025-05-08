@@ -38,6 +38,7 @@ import Subscription
 import NetworkProtection
 import WebKit
 import os.log
+import FirebaseCore
 @_exported import HotSwiftUI
 
 @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -118,6 +119,7 @@ import os.log
 
     // swiftlint:disable:next function_body_length
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         WhitelistManager.shared.loadWhitelist()
         WallpaperManager.fetchWallpapers()
 #if targetEnvironment(simulator)

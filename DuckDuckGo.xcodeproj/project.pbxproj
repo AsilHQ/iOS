@@ -232,6 +232,10 @@
 		3CAA0DF92DA3D76000802A96 /* HotSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3CAA0DF82DA3D76000802A96 /* HotSwiftUI */; };
 		3CC3DEA32DA7C19D003C79C1 /* DnsOverTlsResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */; };
 		3CCB96432DCB4AA300E1C57A /* WhitelistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB96422DCB4AA300E1C57A /* WhitelistManager.swift */; };
+		3CCB96452DCC6DF600E1C57A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CCB96442DCC6DF600E1C57A /* GoogleService-Info.plist */; };
+		3CCB96482DCC6E9200E1C57A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCB96472DCC6E9200E1C57A /* FirebaseAnalytics */; };
+		3CCB964A2DCC6E9200E1C57A /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCB96492DCC6E9200E1C57A /* FirebaseCrashlytics */; };
+		3CCB964C2DCC6EC300E1C57A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCB964B2DCC6EC300E1C57A /* FirebaseCore */; };
 		3CF602A22DC61856007E06A8 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3CF602A12DC61856007E06A8 /* SafeGaze-iOS */; };
 		4B0295192537BC6700E00CEF /* ConfigurationDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */; };
 		4B0F3F502B9BFF2100392892 /* NetworkProtectionFAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */; };
@@ -1576,6 +1580,7 @@
 		3C4981B72DC27A7C00C2C026 /* DnsOverHttpsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverHttpsResolver.swift; sourceTree = "<group>"; };
 		3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverTlsResolver.swift; sourceTree = "<group>"; };
 		3CCB96422DCB4AA300E1C57A /* WhitelistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistManager.swift; sourceTree = "<group>"; };
+		3CCB96442DCC6DF600E1C57A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDebugViewController.swift; sourceTree = "<group>"; };
 		4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtectionFAQView.swift; sourceTree = "<group>"; };
 		4B274F5F2AFEAECC003F0745 /* NetworkProtectionWidgetRefreshModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtectionWidgetRefreshModel.swift; sourceTree = "<group>"; };
@@ -3163,6 +3168,8 @@
 				F143C2EB1E4A4CD400CFDE3A /* Core.framework in Frameworks */,
 				4E15FC282C997DA6009C638A /* PanModal in Frameworks */,
 				31E69A63280F4CB600478327 /* DuckUI in Frameworks */,
+				3CCB964C2DCC6EC300E1C57A /* FirebaseCore in Frameworks */,
+				3CCB96482DCC6E9200E1C57A /* FirebaseAnalytics in Frameworks */,
 				CB941A6E2B96AB08000F9E7A /* PrivacyDashboard in Frameworks */,
 				4E15FC252C997D32009C638A /* Adhan in Frameworks */,
 				3CAA0DF62DA3D73F00802A96 /* InjectionNext in Frameworks */,
@@ -3172,6 +3179,7 @@
 				3CAA0DF92DA3D76000802A96 /* HotSwiftUI in Frameworks */,
 				9F96F73B2C9144D5009E45D5 /* Onboarding in Frameworks */,
 				85D598872927F84C00FA3B1B /* Crashes in Frameworks */,
+				3CCB964A2DCC6E9200E1C57A /* FirebaseCrashlytics in Frameworks */,
 				D664C7DD2B28A02800CBFA76 /* StoreKit.framework in Frameworks */,
 				3C4981BB2DC3A92B00C2C026 /* NSFWDetector in Frameworks */,
 			);
@@ -4487,6 +4495,7 @@
 				85F2FFFE2215C163006BB258 /* FindInPage */,
 				F13B4BF31F18C73A00814661 /* Home */,
 				84E341A11E2F7EFB00BDBA6F /* Info.plist */,
+				3CCB96442DCC6DF600E1C57A /* GoogleService-Info.plist */,
 				98B001B1251EABB40090EC07 /* InfoPlist.strings */,
 				85DFEDEB24C7CC7600973FE7 /* iPad */,
 				F1C5ECFA1E37B15B00C599A4 /* Main */,
@@ -6768,6 +6777,7 @@
 				83E282AC20BC1840005FBE88 /* Embed App Extensions */,
 				EE9286812A812BD2002B7818 /* Embed PacketTunnelProvider */,
 				3C22E76B2DA3D8A6009921C3 /* ShellScript */,
+				3CCB964D2DCC701D00E1C57A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -6800,6 +6810,9 @@
 				3CAA0DF82DA3D76000802A96 /* HotSwiftUI */,
 				3C4981BA2DC3A92B00C2C026 /* NSFWDetector */,
 				3CF602A12DC61856007E06A8 /* SafeGaze-iOS */,
+				3CCB96472DCC6E9200E1C57A /* FirebaseAnalytics */,
+				3CCB96492DCC6E9200E1C57A /* FirebaseCrashlytics */,
+				3CCB964B2DCC6EC300E1C57A /* FirebaseCore */,
 			);
 			productName = DuckDuckGo;
 			productReference = 84E341921E2F7EFB00BDBA6F /* KahfBrowser.app */;
@@ -7140,6 +7153,7 @@
 				3CAA0DF72DA3D76000802A96 /* XCRemoteSwiftPackageReference "HotSwiftUI" */,
 				3C4981B92DC3A92B00C2C026 /* XCRemoteSwiftPackageReference "NSFWDetector" */,
 				3CF602A02DC61856007E06A8 /* XCRemoteSwiftPackageReference "SafeGaze-iOS" */,
+				3CCB96462DCC6E9200E1C57A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 84E341931E2F7EFB00BDBA6F /* Products */;
 			projectDirPath = "";
@@ -7320,6 +7334,7 @@
 				85C2970A247EB7AA0063A335 /* Text.xcassets in Resources */,
 				98788E9A2521DA1E00D55218 /* Localizable.stringsdict in Resources */,
 				CB9B873E278C93C2001F4906 /* HomeMessage.xcassets in Resources */,
+				3CCB96452DCC6DF600E1C57A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7484,6 +7499,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nRESOURCES=\"/Applications/InjectionNext.app/Contents/Resources\"\nif [ -f \"$RESOURCES/copy_bundle.sh\" ]; then\n    \"$RESOURCES/copy_bundle.sh\"\nfi\n";
+		};
+		3CCB964D2DCC701D00E1C57A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 		98B0CE69251C937D003FB601 /* Update Localizable.strings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -11310,6 +11347,14 @@
 				minimumVersion = 1.2.0;
 			};
 		};
+		3CCB96462DCC6E9200E1C57A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.12.0;
+			};
+		};
 		3CF602A02DC61856007E06A8 /* XCRemoteSwiftPackageReference "SafeGaze-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kahf-Browser/SafeGaze-iOS";
@@ -11506,6 +11551,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3CAA0DF72DA3D76000802A96 /* XCRemoteSwiftPackageReference "HotSwiftUI" */;
 			productName = HotSwiftUI;
+		};
+		3CCB96472DCC6E9200E1C57A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CCB96462DCC6E9200E1C57A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		3CCB96492DCC6E9200E1C57A /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CCB96462DCC6E9200E1C57A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		3CCB964B2DCC6EC300E1C57A /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CCB96462DCC6E9200E1C57A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
 		};
 		3CF602A12DC61856007E06A8 /* SafeGaze-iOS */ = {
 			isa = XCSwiftPackageProductDependency;
