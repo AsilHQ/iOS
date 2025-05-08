@@ -39,6 +39,7 @@ import NetworkProtection
 import WebKit
 import os.log
 import FirebaseCore
+import PostHog
 @_exported import HotSwiftUI
 
 @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -120,6 +121,8 @@ import FirebaseCore
     // swiftlint:disable:next function_body_length
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        PostHogSDK.shared.setup(PostHogConfig(apiKey: AppConstants.PostHogConfig.apiKey, host: AppConstants.PostHogConfig.host))
+        PostHogSDK.shared.capture("Test Event")
         WhitelistManager.shared.loadWhitelist()
         WallpaperManager.fetchWallpapers()
 #if targetEnvironment(simulator)

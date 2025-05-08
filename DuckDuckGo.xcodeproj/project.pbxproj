@@ -236,6 +236,8 @@
 		3CCB96482DCC6E9200E1C57A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCB96472DCC6E9200E1C57A /* FirebaseAnalytics */; };
 		3CCB964A2DCC6E9200E1C57A /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCB96492DCC6E9200E1C57A /* FirebaseCrashlytics */; };
 		3CCB964C2DCC6EC300E1C57A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCB964B2DCC6EC300E1C57A /* FirebaseCore */; };
+		3CCB96502DCC7E7B00E1C57A /* PostHog in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCB964F2DCC7E7B00E1C57A /* PostHog */; };
+		3CCB965C2DCC7EF000E1C57A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCB965B2DCC7EE700E1C57A /* Constants.swift */; };
 		3CF602A22DC61856007E06A8 /* SafeGaze-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = 3CF602A12DC61856007E06A8 /* SafeGaze-iOS */; };
 		4B0295192537BC6700E00CEF /* ConfigurationDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */; };
 		4B0F3F502B9BFF2100392892 /* NetworkProtectionFAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */; };
@@ -1581,6 +1583,7 @@
 		3CC3DEA22DA7C19D003C79C1 /* DnsOverTlsResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsOverTlsResolver.swift; sourceTree = "<group>"; };
 		3CCB96422DCB4AA300E1C57A /* WhitelistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhitelistManager.swift; sourceTree = "<group>"; };
 		3CCB96442DCC6DF600E1C57A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3CCB965B2DCC7EE700E1C57A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4B0295182537BC6700E00CEF /* ConfigurationDebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationDebugViewController.swift; sourceTree = "<group>"; };
 		4B0F3F4F2B9BFF2100392892 /* NetworkProtectionFAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtectionFAQView.swift; sourceTree = "<group>"; };
 		4B274F5F2AFEAECC003F0745 /* NetworkProtectionWidgetRefreshModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtectionWidgetRefreshModel.swift; sourceTree = "<group>"; };
@@ -3166,6 +3169,7 @@
 				3760DFED299315EF0045A446 /* Waitlist in Frameworks */,
 				F1D43AFA2B99C1D300BAB743 /* BareBonesBrowserKit in Frameworks */,
 				F143C2EB1E4A4CD400CFDE3A /* Core.framework in Frameworks */,
+				3CCB96502DCC7E7B00E1C57A /* PostHog in Frameworks */,
 				4E15FC282C997DA6009C638A /* PanModal in Frameworks */,
 				31E69A63280F4CB600478327 /* DuckUI in Frameworks */,
 				3CCB964C2DCC6EC300E1C57A /* FirebaseCore in Frameworks */,
@@ -3860,6 +3864,14 @@
 			path = WhiteListManager;
 			sourceTree = "<group>";
 		};
+		3CCB965A2DCC7EDF00E1C57A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3CCB965B2DCC7EE700E1C57A /* Constants.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		4B274F5E2AFEAEB3003F0745 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -3967,6 +3979,7 @@
 		4E1E3EE22C7467B800C19FDD /* KahfBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				3CCB965A2DCC7EDF00E1C57A /* Helper */,
 				3CCB96412DCB4A9700E1C57A /* WhiteListManager */,
 				3C4981A72DC0941F00C2C026 /* RecentHistory */,
 				4E15FC0F2C9979E7009C638A /* Prayer */,
@@ -6813,6 +6826,7 @@
 				3CCB96472DCC6E9200E1C57A /* FirebaseAnalytics */,
 				3CCB96492DCC6E9200E1C57A /* FirebaseCrashlytics */,
 				3CCB964B2DCC6EC300E1C57A /* FirebaseCore */,
+				3CCB964F2DCC7E7B00E1C57A /* PostHog */,
 			);
 			productName = DuckDuckGo;
 			productReference = 84E341921E2F7EFB00BDBA6F /* KahfBrowser.app */;
@@ -7154,6 +7168,7 @@
 				3C4981B92DC3A92B00C2C026 /* XCRemoteSwiftPackageReference "NSFWDetector" */,
 				3CF602A02DC61856007E06A8 /* XCRemoteSwiftPackageReference "SafeGaze-iOS" */,
 				3CCB96462DCC6E9200E1C57A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3CCB964E2DCC7E7B00E1C57A /* XCRemoteSwiftPackageReference "posthog-ios" */,
 			);
 			productRefGroup = 84E341931E2F7EFB00BDBA6F /* Products */;
 			projectDirPath = "";
@@ -7805,6 +7820,7 @@
 				1EEF123F2850A68A003DDE57 /* PrivacyInfoContainerView.swift in Sources */,
 				F4B0B796252CB35700830156 /* OnboardingWidgetsDetailsViewController.swift in Sources */,
 				CB258D1329A4F24E00DEBA24 /* ConfigurationStore.swift in Sources */,
+				3CCB965C2DCC7EF000E1C57A /* Constants.swift in Sources */,
 				85058370219F424500ED4EDB /* SearchBarExtension.swift in Sources */,
 				3CC3DEA32DA7C19D003C79C1 /* DnsOverTlsResolver.swift in Sources */,
 				310D09212799FD1A00DC0060 /* MIMEType.swift in Sources */,
@@ -11355,6 +11371,14 @@
 				minimumVersion = 11.12.0;
 			};
 		};
+		3CCB964E2DCC7E7B00E1C57A /* XCRemoteSwiftPackageReference "posthog-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PostHog/posthog-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.25.0;
+			};
+		};
 		3CF602A02DC61856007E06A8 /* XCRemoteSwiftPackageReference "SafeGaze-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kahf-Browser/SafeGaze-iOS";
@@ -11566,6 +11590,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3CCB96462DCC6E9200E1C57A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCore;
+		};
+		3CCB964F2DCC7E7B00E1C57A /* PostHog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CCB964E2DCC7E7B00E1C57A /* XCRemoteSwiftPackageReference "posthog-ios" */;
+			productName = PostHog;
 		};
 		3CF602A12DC61856007E06A8 /* SafeGaze-iOS */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -262,6 +262,15 @@
       }
     },
     {
+      "identity" : "posthog-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PostHog/posthog-ios.git",
+      "state" : {
+        "revision" : "d640df892fcb3bbeadf02b9ec28eeb682df53d24",
+        "version" : "3.25.0"
+      }
+    },
+    {
       "identity" : "privacy-dashboard",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/duckduckgo/privacy-dashboard",
